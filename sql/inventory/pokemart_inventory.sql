@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `pokemart_inventory` (
-  `model_name` varchar(255) NOT NULL,
-  `japanese_name` varchar(255) NOT NULL,
-  `model_description` text NOT NULL,
-  `model_type` varchar(255) NOT NULL,
+  `item_name` varchar(255) NOT NULL,
+  `japanese_item_name` varchar(255) NOT NULL,
+  `item_description` text NOT NULL,
+  `item_type` varchar(255) NOT NULL,
   `product_id` int(11) NOT NULL,
   `selling_price` double(10,2) NOT NULL,
   `cost` double(10,2) NOT NULL,
