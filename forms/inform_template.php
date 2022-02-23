@@ -1,5 +1,6 @@
 <?php
 
+//DO NOT MODIFY THIS, THIS IS A SAMPLE TEMPLATE TO USE FOR YOUR OWN INFORMS
 if(isset($_POST['submit']))
 {
     include_once('connect_mysql.php');
