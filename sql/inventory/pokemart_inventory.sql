@@ -44,7 +44,7 @@ CREATE TABLE `pokemart_inventory` (
 -- Dumping data for table `pokemart_inventory`
 --
 
-INSERT INTO `pokemart_inventory` (`model_name`, `japanese_name`, `model_description`, `model_type`, `product_id`, `selling_price`, `cost`, `in_stock`, `reorder_amount`, `base_stock`) VALUES
+INSERT INTO `pokemart_inventory` (`item_name`, `japanese_item_name`, `item_description`, `item_type`, `product_id`, `selling_price`, `cost`, `in_stock`, `reorder_amount`, `base_stock`) VALUES
 ('Assault Vest', 'とつげきチョッキ', '', 'Held', 1, 100.00, 500.00, 25, 21, 100),
 ('Ability Capsule', 'とくせいカプセル', '', 'Other', 2, 100.00, 5000.00, 12, 36, 100),
 ('Amulet Coin', 'おまもりこばん', '', 'Held', 3, 100.00, 5000.00, 29, 59, 100),
