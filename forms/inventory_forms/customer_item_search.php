@@ -32,7 +32,8 @@ function filterTable($query)
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Customer Item Lookup</title>
+        <title>Customer Item Search</title>
+        <h1>Customer Item Search</h1>
         <style>
             table,tr,th,td
             {

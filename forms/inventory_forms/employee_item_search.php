@@ -32,7 +32,8 @@ function filterTable($query)
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Employee Item Lookup</title>
+        <title>Employee Item Search</title>
+        <h1>Employee Item Search</h1>
         <style>
             table,tr,th,td
             {
@@ -48,7 +49,7 @@ function filterTable($query)
             
             <table>
                 <tr>
-                    <th>Product ID</th>
+                    <th>IID</th>
                     <th>VID</th>
                     <th>Item Name</th>
                     <th>Japanese</th>
