@@ -14,3 +14,4 @@ if(isset($_POST['submit']))
 	$result=mysqli_query($dbconn,$query) or die("Couldn't execute query");
 	
 }
+?>
