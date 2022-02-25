@@ -32,7 +32,7 @@ function filterTable($query)
 <!DOCTYPE html>
 <html>
     <head>
-        <title>PHP HTML TABLE DATA SEARCH</title>
+        <title>Customer Item Lookup</title>
         <style>
             table,tr,th,td
             {
