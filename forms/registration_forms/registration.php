@@ -18,21 +18,21 @@ if(isset($_POST['submit']))
     //send login data
     if($dbconn->query($query1)==TRUE)
     {
-        echo "Login data query successful\n";
+        echo nl2br("Login data query successful\n");
     }
     else
     {
-        echo "Error: " .$query1 ."<br>" .$dbconn->error;
+        echo nl2br("Error: " . $query1 . "<br>" . $dbconn->error . "\n");
     }
 
     //send user profile data
     if($dbconn->query($query2)==TRUE)
     {
-        echo "Profile data query successful\n";
+        echo nl2br("Profile data query successful\n");
     }
     else
     {
-        echo "Error: " .$query2 ."<br>" .$dbconn->error;
+        echo nl2br("Error: " . $query2 . "<br>" . $dbconn->error . "\n");
     }
     
 }

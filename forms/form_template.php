@@ -16,14 +16,19 @@ if(isset($_POST['submit']))
 
     if($dbconn->query($query)==TRUE)
     {
-        echo "Query successful";
+        echo nl2br("Query successful\n");
         //^^^CHANGE THAT TEXT TO BE MORE RELEVANT TO YOUR QUERY
     }
     else
     {
-        echo "Error: " .$query ."<br>" .$dbconn->error;
+        echo nl2br("Error: " . $query . "<br>" . $dbconn->error . "\n");
     }
 
+    //store results in a variable
+    //$result = mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
+
+    //convert result to an associative array
+    //$row = $result->fetch_array(MYSQLI_ASSOC);
 }
 
 ?>
