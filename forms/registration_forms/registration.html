@@ -4,8 +4,11 @@
     <title>Registration Form</title>   
 </head>  
 <body>    
-	<h1>Register an account on PokéMart</h1>  
+	<h1>Register an account on PokeMart</h1>  
 	<form action = "registration.php" method = "POST">
+
+		<!User's login information>
+		<h3>Login Info</h3>
 		<p>
 			<label> Username: 
 				<input type = "text" name  = "username" />
@@ -21,6 +24,40 @@
 				<input type = "password" name  = "password2" />
 			</label>
 		</p>
+		<br>
+
+		<!User's personal details>
+		<h3>Personal Details</h3>
+		<p>
+			<label> First name: 
+				<input type = "text" name  = "first_name" />
+			</label>
+		</p>
+		<p>
+			<label> Middle name: 
+				<input type = "text" name  = "middle_name" />
+			</label>
+		</p>
+		<p>
+			<label> Last name: 
+				<input type = "text" name  = "last_name" />
+			</label>  
+		</p>
+		<p>
+			<label> Gender: 
+				<input type = "radio" name  = "gender" value = "male" /> Male
+				<input type = "radio" name  = "gender" value = "female" /> Female
+			</label>  
+		</p>
+		<p>
+			<label> Date of birth: 
+				<input type = "date" name  = "date_of_birth" />
+			</label>
+		</p>
+		<br>
+		
+		<!User's contact information>
+		<h3>Contact Info</h3>
 		<p>
 			<label> E-mail: 
 				<input type = "email" name  = "email" />
@@ -36,32 +73,10 @@
 				<input type = "tel" name  = "cell_phone_number" pattern = "[0-9]{3}-[0-9]{3}-[0-9]{4}" />
 			</label>  
 		</p>
-		<p>
-			<label> First name: 
-				<input type = "text" name  = "first_name" />
-			</label>
-		</p>
-		<p>
-			<label> Last name: 
-				<input type = "text" name  = "last_name" />
-			</label>  
-		</p>
-		<p>
-			<label> Middle name: 
-				<input type = "text" name  = "middle_name" />
-			</label>
-		</p>
-		<p>
-			<label> Gender: 
-				<input type = "radio" name  = "gender" value = "male" /> Male
-				<input type = "radio" name  = "gender" value = "female" /> Female
-			</label>  
-		</p>
-		<p>
-			<label> Date of birth: 
-				<input type = "date" name  = "date_of_birth" />
-			</label>
-		</p>
+		<br>
+
+		<!User's address data>
+		<h3>Address</h3>
 		<p>
 			<label> Street address 1: 
 				<input type = "text" name  = "street_1" />
@@ -142,7 +157,7 @@
 		</p>
 		<p>
 			<label> Country: 
-				<select>
+				<select name = "country">
 					<option value="Afghanistan">Afghanistan</option>
 					<option value="Albania">Albania</option>
 					<option value="Algeria">Algeria</option>
@@ -391,9 +406,13 @@
 				</select>
 			</label>
 		</p>
+		<br>
+
+		<!Submit form data>
 		<p>
-			<input type =  "submit" value = "Register" />
-		</p>  
+			<input type =  "submit" name = "submit" value = "Register" />
+		</p>
+		  
 	</form>
 </body>     
 </html> 

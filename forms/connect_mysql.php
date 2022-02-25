@@ -1,13 +1,12 @@
 <?php
 
 $server = "localhost";
-//$dbusername = "root";
-//$password = "";
+$dbusername = "root";
+$password = "";
 $db = "pokemart_db";
 $debug = "true";
 
-//$dbconn = mysqli_connect($server, $dbusername, $password, $db);
-$dbconn = mysqli_connect($server, $db);
+$dbconn = mysqli_connect($server, $dbusername, $password, $db);
 
 if($dbconn->connect_error)
 {
