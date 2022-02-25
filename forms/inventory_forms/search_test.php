@@ -1,15 +1,19 @@
 <?php
 
-if(isset($_POST['search']))
+//connect to database
+include_once('../connect_mysql.php');
+
+if(isset($_POST['submit']))
 {
     $valueToSearch = $_POST['valueToSearch'];
     // search in all table columns
     // using concat mysql function
-    $query = "SELECT * FROM `inventory` WHERE CONCAT(`IID`, `item_name`, `japanes_item_name`, `selling_price`) LIKE '%".$valueToSearch."%'";
+    $query = "SELECT * FROM `inventory` WHERE CONCAT(`IID`, `item_name`, `japanese_item_name`, `selling_price`) LIKE '%".$valueToSearch."%'";
     $search_result = filterTable($query);
     
 }
- else {
+ else 
+ {
     $query = "SELECT * FROM `inventory`";
     $search_result = filterTable($query);
 }
@@ -17,7 +21,7 @@ if(isset($_POST['search']))
 // function to connect and execute the query
 function filterTable($query)
 {
-    $connect = mysqli_connect("localhost","pokemart_db");
+    $connect = mysqli_connect("localhost","root","","pokemart_db");
     //$connect = include_once('connect_mysql.php');
     $filter_Result = mysqli_query($connect, $query);
     return $filter_Result;
@@ -40,7 +44,7 @@ function filterTable($query)
         
         <form action="search_test.php" method="post">
             <input type="text" name="valueToSearch" placeholder="Search"><br><br>
-            <input type="submit" name="search" value="Filter"><br><br>
+            <input type="submit" name="submit" value="Filter"><br><br>
             
             <table>
                 <tr>
