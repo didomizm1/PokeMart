@@ -14,7 +14,7 @@ if(isset($_POST['submit']))
      '".$_POST['product_id']."','".$_POST['selling_price']."','".$_POST['cost']."','".$_POST['in_stock']."','".$_POST['reorder_amount']."','".$_POST['base_stock']."')";
 
 
-    if($dbconn->query($query)===TRUE)
+    if($dbconn->query($query)==TRUE)
     {
         echo "Query successful";
         //^^^CHANGE THAT TEXT TO BE MORE RELEVANT TO YOUR QUERY

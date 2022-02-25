@@ -16,9 +16,9 @@ if(isset($_POST['submit']))
     
 
     //send login data
-    if($dbconn->query($query1)===TRUE)
+    if($dbconn->query($query1)==TRUE)
     {
-        echo "Login data query successful";
+        echo "Login data query successful\n";
     }
     else
     {
@@ -26,9 +26,9 @@ if(isset($_POST['submit']))
     }
 
     //send user profile data
-    if($dbconn->query($query2)===TRUE)
+    if($dbconn->query($query2)==TRUE)
     {
-        echo "Profile data query successful";
+        echo "Profile data query successful\n";
     }
     else
     {
