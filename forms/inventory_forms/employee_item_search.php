@@ -42,7 +42,7 @@ function filterTable($query)
     </head>
     <body>
         
-        <form action="customer_item_search.php" method="post">
+        <form action="employee_item_search.php" method="post">
             <input type="text" name="valueToSearch" placeholder="Search"><br><br>
             <input type="submit" name="submit" value="Filter"><br><br>
             
