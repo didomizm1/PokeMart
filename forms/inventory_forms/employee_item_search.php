@@ -8,7 +8,7 @@ if(isset($_POST['submit']))
     $valueToSearch = $_POST['valueToSearch'];
     // search in all table columns
     // using concat mysql function
-    $query = "SELECT * FROM `inventory` WHERE CONCAT(`IID`, `item_name`, `japanese_item_name`, `selling_price`) LIKE '%".$valueToSearch."%'";
+    $query = "SELECT * FROM `inventory` WHERE CONCAT(`IID`, `VID`, `item_name`, `japanese_item_name`, `item_description`, `item_type`, `selling_price`, `cost`, `in_stock`, `reorder_amount`, `base_stock`) LIKE '%".$valueToSearch."%'";
     $search_result = filterTable($query);
     
 }
@@ -32,7 +32,7 @@ function filterTable($query)
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Customer Item Lookup</title>
+        <title>Employee Item Lookup</title>
         <style>
             table,tr,th,td
             {
@@ -49,22 +49,31 @@ function filterTable($query)
             <table>
                 <tr>
                     <th>Product ID</th>
+                    <th>VID</th>
                     <th>Item Name</th>
-                    <th>Japanese Item Name</th>
+                    <th>Japanese</th>
                     <th>Type</th>
-                    <th>Description</th>
-                    <th>Price</th>
+                    <th>Selling Price</th>
+                    <th>Cost</th>
+                    <th>In Stock</th>
+                    <th>Reorder Amount</th>
+                    <th>Base Stock</th>
                 </tr>
 
       <!-- populate table from mysql database -->
                 <?php while($row = mysqli_fetch_array($search_result)):?>
                 <tr>
                     <td><?php echo $row['IID'];?></td>
+                    <td><?php echo $row['VID'];?></td>
                     <td><?php echo $row['item_name'];?></td>
                     <td><?php echo $row['japanese_item_name'];?></td>
                     <td><?php echo $row['item_type'];?></td>
-                    <td><?php echo $row['item_description'];?></td>
+                    <td><?php echo $row['item_descriptopn'];?></td>
                     <td><?php echo $row['selling_price'];?></td>
+                    <td><?php echo $row['cost'];?></td>
+                    <td><?php echo $row['in_stock'];?></td>
+                    <td><?php echo $row['reorder_amount'];?></td>
+                    <td><?php echo $row['base_stock'];?></td>
                 </tr>
                 <?php endwhile;?>
             </table>

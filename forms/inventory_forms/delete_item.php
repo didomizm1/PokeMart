@@ -11,7 +11,7 @@ if(isset($_POST['submit']))
      //setup query, insert item into inventory database
     if(isset($_POST['item_name']))
     {
-        $query = "DELETE FROM pokemart_db WHERE pokemart_inventory = $item_name";
+        $query = "DELETE FROM inventory WHERE pokemart_inventory = $item_name";
         
     }
     if(isset($_POST['IID']))
