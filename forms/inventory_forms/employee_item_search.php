@@ -52,7 +52,8 @@ function filterTable($query)
                     <th>VID</th>
                     <th>Item Name</th>
                     <th>Japanese</th>
-                    <th>Type</th>
+                    <th>Item Type</th>
+                    <th>Item Description</th>
                     <th>Selling Price</th>
                     <th>Cost</th>
                     <th>In Stock</th>
