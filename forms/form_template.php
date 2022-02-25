@@ -13,7 +13,18 @@ if(isset($_POST['submit']))
     VALUES ('".$_POST['item_name']."','".$_POST['japanese_item_name']."','".$_POST['item_description']."','".$_POST['item_type']."',
      '".$_POST['product_id']."','".$_POST['selling_price']."','".$_POST['cost']."','".$_POST['in_stock']."','".$_POST['reorder_amount']."','".$_POST['base_stock']."')";
 
+    //execute query
+    mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
 
+
+    //only use/keep the following commented code if it is necessary to store the results of a fetched query and convert to an associative array
+
+    //$result = mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
+    //$row = $result->fetch_array(MYSQLI_ASSOC);
+
+
+    //only use/keep the following commented code if it is necessary to execute query and show success or error messages (for debug purposes)
+    /*
     if($dbconn->query($query)==TRUE)
     {
         echo nl2br("Query successful\n");
@@ -23,12 +34,8 @@ if(isset($_POST['submit']))
     {
         echo nl2br("Error: " . $query . "<br>" . $dbconn->error . "\n");
     }
+    */
 
-    //store results in a variable
-    //$result = mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
-
-    //convert result to an associative array
-    //$row = $result->fetch_array(MYSQLI_ASSOC);
 }
 
 ?>
