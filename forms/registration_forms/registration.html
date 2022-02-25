@@ -10,21 +10,24 @@
 
 		<!Link to login>
 		<header>Already have an account? <a href="../login_forms/login.html">Click here to log in instead.</a></header>
-
+		<br>
+		
+		<p><strong><em>(Fields identified with * are required)</em></strong></p>
+		
 		<!User's login information>
 		<h3>Login Info</h3>
 		<p>
-			<label> Username: 
+			<label> Username: * 
 				<input type = "text" name  = "username" />
 			</label>  
 		</p>
 		<p>
-			<label> Password: 
+			<label> Password: * 
 				<input type = "password" name  = "password" />
 			</label>
 		</p>
 		<p>
-			<label> Re-enter password: 
+			<label> Re-enter password: * 
 				<input type = "password" name  = "password2" />
 			</label>
 		</p>
@@ -33,7 +36,7 @@
 		<!User's personal details>
 		<h3>Personal Details</h3>
 		<p>
-			<label> First name: 
+			<label> First name: *
 				<input type = "text" name  = "first_name" />
 			</label>
 		</p>
@@ -43,7 +46,7 @@
 			</label>
 		</p>
 		<p>
-			<label> Last name: 
+			<label> Last name: *
 				<input type = "text" name  = "last_name" />
 			</label>  
 		</p>
@@ -51,10 +54,11 @@
 			<label> Gender: 
 				<input type = "radio" name  = "gender" value = "male" /> Male
 				<input type = "radio" name  = "gender" value = "female" /> Female
+				<input type = "radio" name = "gender" value = "none" checked/> Prefer not to say
 			</label>  
 		</p>
 		<p>
-			<label> Date of birth: 
+			<label> Date of birth: *
 				<input type = "date" name  = "date_of_birth" />
 			</label>
 		</p>
@@ -63,14 +67,16 @@
 		<!User's contact information>
 		<h3>Contact Info</h3>
 		<p>
-			<label> E-mail: 
+			<label> E-mail: * 
 				<input type = "email" name  = "email" />
 			</label>  
 		</p>
 		<p>
-			<label> Home phone number: 
+			<label> Home phone number: * 
 				<input type = "tel" name  = "home_phone_number" pattern = "[0-9]{3}-[0-9]{3}-[0-9]{4}" />
 			</label>
+			<br>
+			<label><em>(enter cell as home if necessary)</em></label>
 		</p>
 		<p>
 			<label> Cell phone number: 
@@ -82,7 +88,7 @@
 		<!User's address data>
 		<h3>Address</h3>
 		<p>
-			<label> Street address 1: 
+			<label> Street address 1: *
 				<input type = "text" name  = "street_1" />
 			</label>  
 		</p>
@@ -92,12 +98,12 @@
 			</label>
 		</p>
 		<p>
-			<label> City name: 
+			<label> City name: *
 				<input type = "text" name  = "city" />
 			</label>  
 		</p>
 		<p>
-			<label> State (if applicable): 
+			<label> State <em>(if applicable)</em>:  
 				<select name = "state">
 					<option value = "" selected></option>
 					<option value = "Alabama">Alabama</option>
@@ -155,12 +161,12 @@
 			</label>
 		</p>
 		<p>
-			<label> Zip code: 
+			<label> Zip code: *
 				<input type = "text" name  = "zip_code" />
 			</label>  
 		</p>
 		<p>
-			<label> Country: 
+			<label> Country: *
 				<select name = "country">
 					<option value="Afghanistan">Afghanistan</option>
 					<option value="Albania">Albania</option>
