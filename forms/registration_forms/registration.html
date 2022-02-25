@@ -18,17 +18,17 @@
 		<h3>Login Info</h3>
 		<p>
 			<label> Username: * 
-				<input type = "text" name  = "username" />
+				<input type = "text" name  = "username" maxlength = "20" autocomplete autofocus required />
 			</label>  
 		</p>
 		<p>
 			<label> Password: * 
-				<input type = "password" name  = "password" />
+				<input type = "password" name  = "password" maxlength = "20" required />
 			</label>
 		</p>
 		<p>
 			<label> Re-enter password: * 
-				<input type = "password" name  = "password2" />
+				<input type = "password" name  = "password2" maxlength = "20" required />
 			</label>
 		</p>
 		<br>
@@ -37,29 +37,30 @@
 		<h3>Personal Details</h3>
 		<p>
 			<label> First name: *
-				<input type = "text" name  = "first_name" />
+				<input type = "text" name  = "first_name" maxlength = "50" autocomplete required />
 			</label>
 		</p>
 		<p>
 			<label> Middle name: 
-				<input type = "text" name  = "middle_name" />
+				<input type = "text" name  = "middle_name" maxlength = "50" autocomplete />
 			</label>
 		</p>
 		<p>
 			<label> Last name: *
-				<input type = "text" name  = "last_name" />
+				<input type = "text" name  = "last_name" maxlength = "50" autocomplete required />
 			</label>  
 		</p>
 		<p>
 			<label> Gender: 
 				<input type = "radio" name  = "gender" value = "male" /> Male
 				<input type = "radio" name  = "gender" value = "female" /> Female
-				<input type = "radio" name = "gender" value = "none" checked/> Prefer not to say
+				<input type = "radio" name  = "gender" value = "other" /> Other
+				<input type = "radio" name = "gender" value = "none" checked /> Prefer not to say
 			</label>  
 		</p>
 		<p>
 			<label> Date of birth: *
-				<input type = "date" name  = "date_of_birth" />
+				<input type = "date" name  = "date_of_birth" autocomplete required />
 			</label>
 		</p>
 		<br>
@@ -68,19 +69,19 @@
 		<h3>Contact Info</h3>
 		<p>
 			<label> E-mail: * 
-				<input type = "email" name  = "email" />
+				<input type = "email" name  = "email" maxlength = "100" autocomplete required/>
 			</label>  
 		</p>
 		<p>
 			<label> Home phone number: * 
-				<input type = "tel" name  = "home_phone_number" pattern = "[0-9]{3}-[0-9]{3}-[0-9]{4}" />
+				<input type = "tel" name  = "home_phone_number" placeholder = "123-456-7890" pattern = "[0-9]{3}-[0-9]{3}-[0-9]{4}" autocomplete required />
 			</label>
 			<br>
 			<label><em>(enter cell as home if necessary)</em></label>
 		</p>
 		<p>
 			<label> Cell phone number: 
-				<input type = "tel" name  = "cell_phone_number" pattern = "[0-9]{3}-[0-9]{3}-[0-9]{4}" />
+				<input type = "tel" name  = "cell_phone_number" placeholder = "123-456-7890" pattern = "[0-9]{3}-[0-9]{3}-[0-9]{4}" autocomplete />
 			</label>  
 		</p>
 		<br>
@@ -89,17 +90,17 @@
 		<h3>Address</h3>
 		<p>
 			<label> Street address 1: *
-				<input type = "text" name  = "street_1" />
+				<input type = "text" name  = "street_1" maxlength = "100" autocomplete required />
 			</label>  
 		</p>
 		<p>
 			<label> Street address 2: 
-				<input type = "text" name  = "street_2" />
+				<input type = "text" name  = "street_2" maxlength = "100" autocomplete />
 			</label>
 		</p>
 		<p>
-			<label> City name: *
-				<input type = "text" name  = "city" />
+			<label> City: *
+				<input type = "text" name  = "city" maxlength = "100" autocomplete required />
 			</label>  
 		</p>
 		<p>
@@ -162,7 +163,7 @@
 		</p>
 		<p>
 			<label> Zip code: *
-				<input type = "text" name  = "zip_code" />
+				<input type = "text" name  = "zip_code" maxlength = "10" autocomplete required />
 			</label>  
 		</p>
 		<p>
