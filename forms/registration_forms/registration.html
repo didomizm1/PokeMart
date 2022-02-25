@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>  
 <head>  
-    <title>Registration Form</title>   
+    <title>Registration Form</title>
+	<script src = "registration.js"></script>   
 </head>  
 <body>    
 	<h1>Register an account on PokeMart</h1>  
-	<form action = "registration.php" method = "POST">
+	<form name = "registration" action = "registration.php" onsubmit = "return validate()" method = "POST">
+
+		<!Link to login>
+		<header>Already have an account? <a href="../login_forms/login.html">Click here to log in instead.</a></header>
 
 		<!User's login information>
 		<h3>Login Info</h3>
@@ -412,7 +416,7 @@
 		<p>
 			<input type =  "submit" name = "submit" value = "Register" />
 		</p>
-		  
+
 	</form>
 </body>     
 </html> 
