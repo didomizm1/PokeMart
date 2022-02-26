@@ -121,6 +121,9 @@ input.right
 	</label>
     <br>
     <br>
+    <label> In stock: 
+		<input type = "number" name  = "in_stock" maxlength = "10" />
+	</label>
     <label> * Order amount: 
 		<input type = "number" name  = "reorder_amount" maxlength = "10" required/>
 	</label>
