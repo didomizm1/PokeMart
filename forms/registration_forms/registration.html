@@ -18,18 +18,24 @@
 		<h3>Login Info</h3>
 		<p>
 			<label> Username: * 
-				<input type = "text" name  = "username" minlength = "6" maxlength = "32" autocomplete autofocus required />
-			</label>  
+				<input type = "text" name  = "username" minlength = "6" maxlength = "32" pattern = "^[a-zA-Z\d_]+$" autocomplete autofocus required />
+			</label>
+			<br>
+			<label><em>(username must be at least 6 characters long and may only contain numbers, letters, and/or underscores)</em></label>  
 		</p>
 		<p>
 			<label> Password: * 
-				<input type = "password" name  = "password"  minlength = "8" maxlength = "256" required />
+				<input type = "password" name  = "password"  minlength = "8" maxlength = "256" pattern = "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[^\s]+$" required />
 			</label>
+			<br>
+			<label><em>(password must be at least 8 characters long with no spaces and contain at least one number, one lowercase letter, and one uppercase letter)</em></label>
 		</p>
 		<p>
 			<label> Re-enter password: * 
-				<input type = "password" name  = "password2"  minlength = "8" maxlength = "256" required />
+				<input type = "password" name  = "password2"  minlength = "8" maxlength = "256" pattern = "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[^\s]+$" required />
 			</label>
+			<br>
+			<label><em>(case-sensitive)</em></label>
 		</p>
 		<br>
 
@@ -163,7 +169,7 @@
 		</p>
 		<p>
 			<label> Zip code: *
-				<input type = "text" name  = "zip_code" minlength = "5" maxlength = "10" autocomplete required />
+				<input type = "text" name  = "zip_code" minlength = "5" maxlength = "10" pattern = "^[A-Z\d]+$" autocomplete required />
 			</label>  
 		</p>
 		<p>

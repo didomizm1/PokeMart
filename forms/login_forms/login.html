@@ -9,12 +9,12 @@
 		<!Login info>
 		<p>
 			<label> Username: 
-				<input type = "text" name  = "username" minlength = "6" maxlength = "32" autocomplete autofocus required />
+				<input type = "text" name  = "username" minlength = "6" maxlength = "32" pattern = "^[a-zA-Z\d_]+$" autocomplete autofocus required />
 			</label>  
 		</p>
 		<p>
 			<label> Password: 
-				<input type = "password" name  = "password" minlength = "8" maxlength = "256" required />
+				<input type = "password" name  = "password" minlength = "8" maxlength = "256" pattern = "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[^\s]+$" required />
 			</label>
 		</p>
 
