@@ -13,14 +13,33 @@ if(isset($_POST['submit']))
     $result = mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
     $row = $result->fetch_array(MYSQLI_ASSOC);
 
-    //verify password
-    if($row['password'] == $_POST['password'])
+    //verify password and rehash if necessary
+    if($row != null)
     {
-        echo nl2br("Login successful\n");
+        $inputPassword = $_POST['password'];
+        $storedPassword = $row['password'];
+
+        if(password_verify($inputPassword, $storedPassword))
+        {
+            if(password_needs_rehash($storedPassword, PASSWORD_DEFAULT))
+            {
+                $newHashedPassword = password_hash($inputPassword, PASSWORD_DEFAULT);
+            }
+            echo nl2br("Login successful\n");
+            //header("Location: homepage.html");
+        }
+        else
+        {
+            //sends the user back to the previous page to re-enter password
+            echo "<script> alert('Incorrect password entered'); window.history.go(-1); </script>";
+            exit();
+        }
     }
     else
     {
-        echo nl2br("Login unsuccessful\n");
+        //sends the user back to the previous page to re-enter username
+        echo "<script> alert('Username does not exist'); window.history.go(-1); </script>";
+        exit();
     }
 
 }

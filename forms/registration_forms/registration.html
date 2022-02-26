@@ -9,7 +9,7 @@
 	<form name = "registration" action = "registration.php" onsubmit = "return validate()" method = "POST">
 
 		<!Link to login>
-		<header>Already have an account? <a href="../login_forms/login.html">Click here to log in instead.</a></header>
+		<header>Already have an account? <a href="../login_forms/login.html">Click here to log in instead!</a></header>
 		<br>
 		
 		<p><strong><em>(Fields identified with * are required)</em></strong></p>
@@ -18,17 +18,17 @@
 		<h3>Login Info</h3>
 		<p>
 			<label> Username: * 
-				<input type = "text" name  = "username" maxlength = "20" autocomplete autofocus required />
+				<input type = "text" name  = "username" minlength = "6" maxlength = "32" autocomplete autofocus required />
 			</label>  
 		</p>
 		<p>
 			<label> Password: * 
-				<input type = "password" name  = "password" maxlength = "20" required />
+				<input type = "password" name  = "password"  minlength = "8" maxlength = "256" required />
 			</label>
 		</p>
 		<p>
 			<label> Re-enter password: * 
-				<input type = "password" name  = "password2" maxlength = "20" required />
+				<input type = "password" name  = "password2"  minlength = "8" maxlength = "256" required />
 			</label>
 		</p>
 		<br>
@@ -163,7 +163,7 @@
 		</p>
 		<p>
 			<label> Zip code: *
-				<input type = "text" name  = "zip_code" maxlength = "10" autocomplete required />
+				<input type = "text" name  = "zip_code" minlength = "5" maxlength = "10" autocomplete required />
 			</label>  
 		</p>
 		<p>

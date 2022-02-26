@@ -5,9 +5,20 @@ if(isset($_POST['submit']))
     //connect to database
     include_once('../connect_mysql.php');
 
+    //check if username already exists
+    $query0 = "SELECT `username` FROM `user_login`  
+    WHERE `username` = '".$_POST['username']."'";
+
+    $result = mysqli_query($dbconn, $query0);
+    if(mysqli_num_rows($result))
+    {
+        echo "<script> alert('Username already exists'); window.history.go(-1); </script>";
+        exit();
+    }
+
     //prepare login data
     $query1 = "INSERT INTO `user_login` (`username`, `password`)
-    VALUES ('".$_POST['username']."','".$_POST['password']."')";
+    VALUES ('".$_POST['username']."','".password_hash($_POST['password'], PASSWORD_DEFAULT)."')";
 
     //prepare user profile data
     $query2 = "INSERT INTO `user_profile` (`ULID`,`user_role_type`,`first_name`, `middle_name`, `last_name`, `gender`, `date_of_birth`, `email`, `home_phone_number`, `cell_phone_number`, `street_1`, `street_2`, `city`, `state`, `zip_code`, `country`)
