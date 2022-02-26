@@ -110,7 +110,6 @@ input.right
 	</label>
     <br>
     <br>
-    <br>
     <label> * Vendor ID: 
 		<input type = "number" min="1" max="6" step="1" name  = "VID" maxlength = "1" required/>
 	</label>
@@ -120,6 +119,8 @@ input.right
     <label> * Cost per unit: 
 		<input type = "number" min="0" step="0.01" name  = "cost" maxlength = "10" required/>
 	</label>
+    <br>
+    <br>
     <label> * Order amount: 
 		<input type = "number" name  = "reorder_amount" maxlength = "10" required/>
 	</label>
