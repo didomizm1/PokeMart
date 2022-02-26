@@ -7,7 +7,7 @@ if(isset($_POST['submit']))
     include_once('../connect_mysql.php');
 
     //add query
-    $query = "INSERT INTO `inventory` (`VID`,`item_name`, `japanese_item_name`, `item_description`, `item_type`, `selling_price`, `cost`, `in_stock`, `reorder_amount`, `base_stock`);
+    $query = "INSERT INTO `inventory` (`VID`,`item_name`, `japanese_item_name`, `item_description`, `item_type`, `selling_price`, `cost`, `in_stock`, `reorder_amount`, `base_stock`)
     VALUES ('".$_POST['VID']."','".$_POST['item_name']."','".$_POST['japanese_item_name']."','".$_POST['item_description']."','".$_POST['item_type']."'
     ,'".$_POST['selling_price']."','".$_POST['cost']."','".$_POST['in_stock']."','".$_POST['reorder_amount']."','".$_POST['base_stock']."')";
 
