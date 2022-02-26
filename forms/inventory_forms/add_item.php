@@ -12,7 +12,7 @@ if(isset($_POST['submit']))
     ,'".$_POST['selling_price']."','".$_POST['cost']."','".$_POST['in_stock']."','".$_POST['reorder_amount']."','".$_POST['base_stock']."')";
 
     //execute queries
-    mysqli_query($dbconn, $query) or die("Couldn't execute login data query\n");
+   // mysqli_query($dbconn, $query) or die("Couldn't execute login data query\n");
     
     if($dbconn->query($query)==TRUE)
     {
