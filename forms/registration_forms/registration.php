@@ -29,6 +29,8 @@ if(isset($_POST['submit']))
     mysqli_query($dbconn, $query1) or die("Couldn't execute login data query\n");
     mysqli_query($dbconn, $query2) or die("Couldn't execute profile data query\n");
     
+    echo nl2br("Registration successful!\n");
+    //header("Location: homepage.html");
 }
 
 ?>

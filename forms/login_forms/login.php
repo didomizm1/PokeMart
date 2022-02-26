@@ -25,7 +25,7 @@ if(isset($_POST['submit']))
             {
                 $newHashedPassword = password_hash($inputPassword, PASSWORD_DEFAULT);
             }
-            echo nl2br("Login successful\n");
+            echo nl2br("Login successful!\n");
             //header("Location: homepage.html");
         }
         else
