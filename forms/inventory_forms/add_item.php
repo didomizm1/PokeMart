@@ -7,8 +7,8 @@ if(isset($_POST['submit']))
     include_once('../connect_mysql.php');
 
     //add query
-    $query = "INSERT INTO `inventory` (`item_name`, `japanese_item_name`, `item_description`, `item_type`, `selling_price`, `cost`, `in_stock`, `reorder_amount`, `base_stock`);
-    VALUES ('".$_POST['item_name']."','".$_POST['japanese_item_name']."','".$_POST['item_description']."','".$_POST['item_type']."'
+    $query = "INSERT INTO `inventory` ('VID',`item_name`, `japanese_item_name`, `item_description`, `item_type`, `selling_price`, `cost`, `in_stock`, `reorder_amount`, `base_stock`);
+    VALUES ('".$_POST['VID']."','".$_POST['item_name']."','".$_POST['japanese_item_name']."','".$_POST['item_description']."','".$_POST['item_type']."'
     ,'".$_POST['selling_price']."','".$_POST['cost']."','".$_POST['in_stock']."','".$_POST['reorder_amount']."','".$_POST['base_stock']."')";
 
     //execute queries
@@ -111,17 +111,20 @@ input.right
     <br>
     <br>
     <br>
+    <label> * Vendor ID: 
+		<input type = "number" min="1" max="6" step="1" name  = "VID" maxlength = "1" required/>
+	</label>
     <label> * Selling Price: 
-		<input type = "number" min="0" step="0.01" name  = "selling_price" maxlength = "50" required/>
+		<input type = "number" min="0" step="0.01" name  = "selling_price" maxlength = "10" required/>
 	</label>
     <label> * Cost per unit: 
-		<input type = "number" min="0" step="0.01" name  = "cost" maxlength = "50" required/>
+		<input type = "number" min="0" step="0.01" name  = "cost" maxlength = "10" required/>
 	</label>
     <label> * Order amount: 
-		<input type = "number" name  = "reorder_amount" maxlength = "50" required/>
+		<input type = "number" name  = "reorder_amount" maxlength = "10" required/>
 	</label>
     <label> * Base stock: 
-		<input type = "number" name  = "base_stock" maxlength = "50" required/>
+		<input type = "number" name  = "base_stock" maxlength = "10" required/>
 	</label>
     <br>
     <br>
