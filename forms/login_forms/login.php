@@ -16,28 +16,33 @@ if(isset($_POST['submit']))
     //verify password and rehash if necessary
     if($row != null)
     {
+        //username exists
         $inputPassword = $_POST['password'];
         $storedPassword = $row['password'];
 
         if(password_verify($inputPassword, $storedPassword))
         {
+            //correct password
             if(password_needs_rehash($storedPassword, PASSWORD_DEFAULT))
             {
+                //update password
                 $newHashedPassword = password_hash($inputPassword, PASSWORD_DEFAULT);
+                $updatePassQuery = "UPDATE `user_login` SET `password` = '$newHashedPassword' WHERE `username` = '".$_POST['username']."'";
+                mysqli_query($dbconn, $updatePassQuery) or die("Couldn't execute query\n");
             }
             echo nl2br("Login successful!\n");
             //header("Location: homepage.html");
         }
         else
         {
-            //sends the user back to the previous page to re-enter password
+            //incorrect password; sends the user back to the previous page to re-enter password
             echo "<script> alert('Incorrect password entered'); window.history.go(-1); </script>";
             exit();
         }
     }
     else
     {
-        //sends the user back to the previous page to re-enter username
+        //incorrect username; sends the user back to the previous page to re-enter username
         echo "<script> alert('Username does not exist'); window.history.go(-1); </script>";
         exit();
     }
