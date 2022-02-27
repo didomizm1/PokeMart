@@ -3,34 +3,26 @@
 
 if(isset($_POST['submit']))
 {
-    include_once('connect_mysql.php');
+    //connect to database
+    include_once('../connect_mysql.php');
 
-    $item_name = $_POST['item_name'];
-    $IID = $_POST['IID'];
-
-     //setup query, insert item into inventory database
-    if(isset($_POST['item_name']))
+    //add query
+    /*
+    $query = "INSERT INTO `inventory` (`VID`,`item_name`, `japanese_item_name`, `item_description`, `item_type`, `selling_price`, `cost`, `in_stock`, `reorder_amount`, `base_stock`)
+    VALUES ('".$_POST['VID']."','".$_POST['item_name']."','".$_POST['japanese_item_name']."','".$_POST['item_description']."','".$_POST['item_type']."'
+    ,'".$_POST['selling_price']."','".$_POST['cost']."','".$_POST['in_stock']."','".$_POST['reorder_amount']."','".$_POST['base_stock']."')";
+    */
+    //execute queries
+   // mysqli_query($dbconn, $query) or die("Couldn't execute login data query\n");
+    
+    if($dbconn->query($query)==TRUE)
     {
-        $query = "DELETE FROM inventory WHERE pokemart_inventory = $item_name";
-        
-    }
-    if(isset($_POST['IID']))
-    {
-        $query = "DELETE FROM pokemart_db WHERE pokemart_inventory = $IID";
-        
-    }
-
-    if($dbconn->query($query)===TRUE)
-    {
-        echo "Item added successfully)";
+        echo nl2br("Item added successfully\n");
     }
     else
     {
-        echo "Error: " .$query ."<br>" .$dbconn->error;
+        echo nl2br("Error: " . $query . "<br>" . $dbconn->error . "\n");
     }
-
-    //fetch results
-    $result = mysqli_query($dbconn, $query) or die("Couldn't execute query");
 
 }
 ?>

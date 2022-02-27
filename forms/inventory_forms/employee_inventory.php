@@ -184,6 +184,7 @@ span.onclick = function() {
                     <th>In Stock</th>
                     <th>Reorder Amount</th>
                     <th>Base Stock</th>
+                    <!--<th>Options</th>-->
                 </tr>
 
       <!-- populate table from mysql database -->
@@ -200,6 +201,7 @@ span.onclick = function() {
                     <td><?php echo $row['in_stock'];?></td>
                     <td><?php echo $row['reorder_amount'];?></td>
                     <td><?php echo $row['base_stock'];?></td>
+                    <!--<td><button id="myBtn">Modify item</button></td>-->
                 </tr>
                 <?php endwhile;?>
             </table>
