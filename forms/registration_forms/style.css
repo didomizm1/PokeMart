@@ -1,0 +1,19 @@
+body
+{   
+    background: rgb(0, 225, 255);  
+}  
+#form
+{  
+    background: rgb(255, 81, 133);
+    border: solid rgb(153, 0, 255) 25px;  
+    width:25%;  
+    border-radius: 50px;  
+    margin: 120px auto;    
+    padding: 50px;  
+}  
+#submit
+{    
+    background: #1190ff;
+    border-radius: 20px;  
+    padding: 7px; 
+} 
