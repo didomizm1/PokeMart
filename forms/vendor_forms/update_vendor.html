@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Update Vendor Form</title>
+</head>
+<body>
+	<h1 style="text-align: center">Update Vendor Form</h1><br>
+	<h3>Insert the vendor name you wish to update, the corresponding information you want to update, the updated information and click "Update" when done</h3><br><br>
+	<form action="update_vendor.php" method="POST">
+		Vendor_Name: <input type="text" name="vendor_name">
+		<br><br>
+		<h6>(vendor_name, vendor_code, vendor_city, etc)</h6>
+		Information to be updated: <input type="text" name="info">
+		<br><br><br>
+		Updated Information: <input type="text" name="update">
+		<br><br>
+		<input type="submit" value="Update">
+	</form>
+</body>
+</html>
