@@ -4,17 +4,22 @@
 	<title>Delete Vendor Form</title>
 </head>
 <body>
-	<h3>Insert the following vendor data and click "Delete" when done</h3><br><br>
-	<h3>Caution: this will permanently delete the vendor from the database</h3><br><br>
-	<form action="delete_vendor.php" method="post">
+	<h1 style="text-align: center">Delete Vendor Form</h1><br>
+	<h3>Insert the following vendor data and click "Delete" when done</h3>
+	<h5>Caution: this will permanently delete the vendor from the database</h5><br>
+	<form action="delete_vendor.php" method="POST">
 		<!-- vendor name,code, and id are all needed in order to delete vendor -->
-		Vendor_Name: <input type="text" name="vendor_name">
-		<br>
-		Vendor_Code: <input type="text" name="vendor_code">
-		<br>
-		Vendor_ID <input type="number" value="VID">
-		<br>
-		<input type="submit" value="Delete">
+		<label for= "vendor_name">Vendor_Name: </label>
+			<input type="text" name="vendor_name">
+			<br><br>
+		<label for="vendor_code">Vendor_Code: </label>
+			<input type="text" name="vendor_code">
+			<br><br>
+		<label for="VID">Vendor_ID: </label>
+			<input type="number" value="VID">
+			<br><br>
+			<input type="submit" value="Delete">
 	</form>
 </body>
 </html>
+
