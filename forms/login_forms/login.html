@@ -1,35 +1,50 @@
 <!DOCTYPE html>
 <html>  
 <head>  
-    <title>Login Form</title>   
+    <title>Login Form</title>
+	<!Style>
+	<link rel = "stylesheet" href = "style.css">   
 </head>  
-<body>    
-	<h1>Login to PokeMart</h1>  
-	<form action = "login.php" method = "POST">
-		<!Login info>
-		<p>
-			<label> Username: 
-				<input type = "text" name  = "username" minlength = "6" maxlength = "32" pattern = "^[a-zA-Z\d_]+$" autocomplete autofocus required />
-			</label>  
-		</p>
-		<p>
-			<label> Password: 
-				<input type = "password" name  = "password" minlength = "8" maxlength = "256" pattern = "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[^\s]+$" required />
-			</label>
-		</p>
+<body>
+	<div id = "header">
+		<!Site images>
+		<img id = "logo" src = "../../img/logo.png" alt = "PokeMart">
+		<img id = "tree1" src = "../../img/tree.png" alt = "PokeTree">
+		<img id = "tree2" src = "../../img/tree.png" alt = "PokeTree">
+		<img id = "clouds1" src = "../../img/clouds.png" alt = "PokeClouds">
+		<img id = "clouds2" src = "../../img/clouds.png" alt = "PokeClouds">
+		<img id = "clouds3" src = "../../img/clouds.png" alt = "PokeClouds">
+		<img id = "clouds4" src = "../../img/clouds.png" alt = "PokeClouds">
+		<img id = "clouds5" src = "../../img/clouds.png" alt = "PokeClouds"> 
+	</div>
+	<div id = "form">   
+		<h1>Log in to PokeMart</h1>  
+		<form action = "login.php" method = "POST">
+			<!Login info>
+			<p>
+				<label> Username: 
+					<input type = "text" name  = "username" minlength = "6" maxlength = "32" pattern = "^[a-zA-Z\d_]+$" autocomplete autofocus required />
+				</label>  
+			</p>
+			<p>
+				<label> Password: 
+					<input type = "password" name  = "password" minlength = "8" maxlength = "256" pattern = "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[^\s]+$" required />
+				</label>
+			</p>
 
-		<!Submit data>
-		<p>
-			<input type =  "submit" name = "submit" value = "Login" />
-		</p>
+			<!Submit data>
+			<p>
+				<input type =  "submit" id = "submit" name = "submit" value = "Login" />
+			</p>
 
-		<!Link to registration>
-		<footer>Don't have an account? <a href="../registration_forms/registration.html">Click here to register!</a></footer>
-		<br>
+			<!Link to registration>
+			<footer>Don't have an account? <a href="../registration_forms/registration.html">Click here to register!</a></footer>
+			<br>
 
-		<!Music playing on the page>
-		<audio name = "audio" src = "../../audio/music/pokemart_soul_silver_theme.mp3" loop controls></audio>
-		
-	</form>
+			<!Music playing on the page>
+			<audio name = "audio" src = "../../audio/music/pokemart_soul_silver_theme.mp3" loop controls></audio>
+			
+		</form>
+	</div> 
 </body>     
 </html>
