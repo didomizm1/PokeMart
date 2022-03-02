@@ -2,30 +2,86 @@
 <html>
 <head>
 	<title>Insert New Vendor Form</title>
+	<style> 
+/* input border */
+input[type=text],input[type=number] {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid orange;
+  border-radius:2px;
+}
+input[type=text]:focus {
+  background-color: #76E8AF;
+}
+/* Insert button */
+input[type=submit] {
+  background-color: #FF0000;
+  border: none;
+  color: white;
+  padding: 10px 32px;
+  text-decoration: none;
+  margin: 1px 1px;
+  cursor: pointer;
+}
+body{
+	background-image: radial-gradient(circle, rgb(0,225,255) 50%, rgb(0, 140, 255) 100%);
+} 
+/* animates the form title*/
+.title {
+  color: white;
+  animation-name: title;
+  animation-duration: 5s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+@keyframes title {
+  0%   {
+    letter-spacing: 1.2em;
+    color: blue;
+  }
+  100%   {
+    letter-spacing: 0.1em;
+    color: red;
+  }
+}
+/* centers images */
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+}
+</style>
 </head>
 <body>
-	<h1 style="text-align: center">Insert New Vendor Form</h1><br>
-	<h3>Insert the following vendor data and click "Insert" when done</h3><br>
-	<form action="insert_vendor.php" method="POST">
-		Vendor_Name: <input type="text" name="vendor_name">
+	<h1 class="title", style="text-align: center">Insert New Vendor Form</h1><br>
+	<IMG SRC="https://media.giphy.com/media/48cVVAf9vam9W/giphy.gif" class="center" >
+	<h3 style="text-align: center">Insert the following vendor data and click "Insert" when done</h3><br>
+	<form action="insert_vendor.php" method="POST", style="text-align: center">
+		Vendor Name: <input type="text" name="vendor_name">
 		<br><br>
-		Vendor_Code: <input type="text" name="vendor_code">
+		Vendor Code: <input type="text" name="vendor_code">
 		<br><br>
-		Vendor_City: <input type="text" name="vendor_city">
+		Vendor City: <input type="text" name="vendor_city">
 		<br><br>
-		Vendor_Region: <input type="text" name="vendor_region">
+		Vendor Region: <input type="text" name="vendor_region">
 		<br><br>
-		Vendor_Country: <input type="text" name="vendor_country">
+		Vendor Country: <input type="text" name="vendor_country">
 		<br><br>
-		Vendor_Zip_Code: <input type="text" name="vendor_zip_code">
+		Vendor Zip Code: <input type="text" name="vendor_zip_code">
 		<br><br>
-		Vendor_Contact_Name: <input type="text" name="vendor_contact_name">
+		Vendor Contact Name: <input type="text" name="vendor_contact_name">
 		<br><br>
-		Vendor_Contact_Title: <input type="text" name="vendor_contact_title">
+		Vendor Contact Title: <input type="text" name="vendor_contact_title">
 		<br><br>
-		Vendor_Contact_Route: <input type="number" value="vendor_contact_route">
+		Vendor Contact Route: <input type="number" value="vendor_contact_route">
 		<br><br>
-		Vendor_Contact_Number: <input type="text" name="vendor_contact_number">
+		Vendor Contact Number: <input type="text" name="vendor_contact_number">
 		<br><br>
 		<input type="submit" value="Insert">
 	</form>
