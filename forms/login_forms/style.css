@@ -1,12 +1,19 @@
 body
 {   
-    background-image: radial-gradient(circle, rgb(0,225,255) 50%, rgb(0, 140, 255) 100%);  
+    background-image: radial-gradient(circle, rgb(0,225,255) 50%, rgb(0, 140, 255) 100%);          
+}
+
+#header
+{
+    pointer-events: none;
 }
 #logo
 {
+    z-index: 1;
     width: 600px;
     height: auto;
-}   
+}
+  
 #form
 {  
     background: rgb(250, 102, 255);
