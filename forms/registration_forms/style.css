@@ -9,13 +9,13 @@ body
 }
 #logo
 {
-    z-index: 1;
+    z-index: 2;
     width: 600px;
     height: auto;
 }
 #tree1
 {
-    z-index: 2;
+    z-index: 3;
     transform: scaleX(-1);
     width: auto;
     height: 1000px;
@@ -25,7 +25,7 @@ body
 }
 #tree2
 {
-    z-index: 2;
+    z-index: 3;
     width: auto;
     height: 1000px;
     position: fixed;
@@ -76,6 +76,16 @@ body
     position: absolute;
     left: 25px;
     top: 100px;
+}
+#bulbasaur
+{
+    z-index: 1;
+    transform: scaleX(-1);
+    width: 300px;
+    height: auto;
+    position: absolute;
+    left: 650px;
+    top: 70px;
 }   
 #form
 {  
@@ -91,4 +101,15 @@ body
     background: #1190ff;
     border-radius: 20px;  
     padding: 7px; 
-} 
+}
+
+input[type = text], input[type = password], input[type = date], input[type = email], input[type = tel], select  
+{
+    margin: 8px 0;
+    border: 2px solid orange;
+    border-radius: 50px;
+}
+input[type = text]:focus, input[type = password]:focus, input[type = date]:focus, input[type = email]:focus, input[type = tel]:focus, select:focus 
+{
+    background-color: #76E8AF;
+}
