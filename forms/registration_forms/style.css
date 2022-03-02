@@ -1,10 +1,61 @@
 body
 {   
-    background: rgb(0, 225, 255);  
-}  
+    background-image: radial-gradient(circle, rgb(0,225,255) 50%, rgb(0, 140, 255) 100%);          
+}
+#logo
+{
+    z-index: 0;
+    width: 600px;
+    height: auto;
+}
+#tree1
+{
+    z-index: 2;
+    transform: scaleX(-1);
+    width: auto;
+    height: 1000px;
+    position: fixed;
+    left: -350px;
+    bottom: -205px;
+}
+#tree2
+{
+    z-index: 2;
+    width: auto;
+    height: 1000px;
+    position: fixed;
+    right: -350px;
+    bottom: -205px;
+}
+#clouds1
+{
+    z-index: 1;
+    transform: scaleX(-1);
+    width: 300px;
+    height: auto;
+    position: relative;
+    bottom: -25px;
+}
+#clouds2
+{
+    z-index: 1;
+    width: 300px;
+    height: auto;
+    position: relative;
+    bottom: -120px;
+} 
+#clouds3
+{
+    z-index: 1;
+    width: 300px;
+    height: auto;
+    position: relative;
+    left: -10px;
+    bottom: -50px;
+}   
 #form
 {  
-    background: rgb(255, 81, 133);
+    background: rgb(255, 114, 196);
     border: solid rgb(153, 0, 255) 25px;  
     width:25%;  
     border-radius: 50px;  
