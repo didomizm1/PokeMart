@@ -4,7 +4,7 @@ body
 }
 #logo
 {
-    z-index: 0;
+    z-index: 1;
     width: 600px;
     height: auto;
 }
@@ -29,7 +29,7 @@ body
 }
 #clouds1
 {
-    z-index: 1;
+    z-index: 0;
     transform: scaleX(-1);
     width: 300px;
     height: auto;
@@ -38,7 +38,7 @@ body
 }
 #clouds2
 {
-    z-index: 1;
+    z-index: 0;
     width: 300px;
     height: auto;
     position: relative;
@@ -46,12 +46,31 @@ body
 } 
 #clouds3
 {
-    z-index: 1;
+    z-index: 0;
     width: 300px;
     height: auto;
     position: relative;
     left: -10px;
     bottom: -50px;
+}
+#clouds4
+{
+    z-index: 0;
+    width: 300px;
+    height: auto;
+    position: relative;
+    left: -10px;
+    bottom: -10px;
+}
+#clouds5
+{
+    z-index: -1;
+    transform: scaleX(-1);
+    width: 500px;
+    height: auto;
+    position: absolute;
+    left: 25px;
+    top: 100px;
 }   
 #form
 {  
