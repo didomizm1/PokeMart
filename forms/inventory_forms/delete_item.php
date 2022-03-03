@@ -11,13 +11,13 @@ if(isset($_POST['submit']))
 
     //add query
     $query="DELETE FROM inventory WHERE item_name = $item_name AND IID = $IID'";
-    
+
     //execute queries
     // mysqli_query($dbconn, $query) or die("Couldn't execute login data query\n");
     
     if($dbconn->query($query)==TRUE)
     {
-        echo nl2br("Item added successfully\n");
+        echo nl2br("Item deleted successfully\n");
     }
     else
     {
