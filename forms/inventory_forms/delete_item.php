@@ -6,11 +6,14 @@ if(isset($_POST['submit']))
     //connect to database
     include_once('../connect_mysql.php');
 
-    //add query
-   //$query = "DELETE FROM inventory WHERE item_name = .$_POST['item_name]."');
+    $item_name=$_POST['item_name'];
+    $IID=$_POST['IID'];
 
+    //add query
+    $query="DELETE FROM inventory WHERE item_name = $item_name AND IID = $IID'";
+    
     //execute queries
-   // mysqli_query($dbconn, $query) or die("Couldn't execute login data query\n");
+    // mysqli_query($dbconn, $query) or die("Couldn't execute login data query\n");
     
     if($dbconn->query($query)==TRUE)
     {
@@ -98,7 +101,7 @@ input.right
 		<input type = "text" name  = "item_name" maxlength = "50" required/>
 	</label>
     <label> * IID: 
-		<input type = "number" min="1" max="6" step="1" name  = "VID" maxlength = "1" required/>
+		<input type = "number" min="1" max="6" step="1" name  = "IID" maxlength = "1" required/>
 	</label>
    <br>
     <input type="submit" name = submit class = "right">
