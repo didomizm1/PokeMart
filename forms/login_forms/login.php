@@ -30,8 +30,12 @@ if(isset($_POST['submit']))
                 $updatePassQuery = "UPDATE `user_login` SET `password` = '$newHashedPassword' WHERE `username` = '".$_POST['username']."'";
                 mysqli_query($dbconn, $updatePassQuery) or die("Couldn't execute query\n");
             }
-            echo nl2br("Login successful!\n");
-            //header("Location: homepage.html");
+
+            //start new session
+            session_start();
+            $userIDQuery = "SELECT `ULID` FROM `user_login` WHERE `username` = '".$_POST['username']."'";
+            $_SESSION['ULID'] = mysqli_query($dbconn, $userIDQuery) or die("Couldn't execute query\n");
+            header("Location: index.html");
         }
         else
         {
