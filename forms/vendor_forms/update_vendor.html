@@ -2,16 +2,75 @@
 <html>
 <head>
 	<title>Update Vendor Form</title>
+	<style>
+	/* input border */
+	input[type=text],input[type=number] {
+  	width: 20%;
+  	padding: 10px 18px;
+  	margin: 8px 0;
+  	box-sizing: border-box;
+  	border: 2px solid orange;
+  	border-radius:50px;
+	}
+	/*focuses/highlights box when inputting*/
+	input[type=text]:focus {
+  	background-color: #76E8AF;
+	}
+	/* Insert button */
+	input[type=submit] {
+ 	 background-color: #FF0000;
+  	border: none;
+  	border-radius:50px;
+  	color: white;
+  	padding: 10px 32px;
+  	text-decoration: none;
+  	margin: 1px 1px;
+  	cursor: pointer;
+	}
+	body{
+	background-image: radial-gradient(circle, rgb(0,225,255) 50%, rgb(0, 140, 255) 100%);
+	} 
+	/* animates the form title*/
+	.title {
+  	color: white;
+  	animation-name: title;
+  	animation-duration: 5s;
+  	animation-timing-function: ease;
+  	animation-delay: 0s;
+  	animation-iteration-count: 1;
+  	animation-direction: normal;
+  	animation-fill-mode: forwards;
+	}
+	@keyframes title {
+  		0%   {
+    letter-spacing: 1.2em;
+    color: blue;
+  	}
+  		100%   {
+    letter-spacing: 0.1em;
+    color: red;
+  }
+}
+	/* centers images */
+	.center {
+  	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	width: 25%;
+}
+</style>
 </head>
 <body>
-	<h1 style="text-align: center">Update Vendor Form</h1><br>
-	<h3>Insert the vendor name you wish to update, the corresponding information you want to update, the updated information and click "Update" when done</h3><br><br>
-	<form action="update_vendor.php" method="POST">
-		Vendor_Name: <input type="text" name="vendor_name">
+	<IMG SRC="../../img/lnt/logo.png" class="center"><br>
+	<h1 class= "title" style="text-align:center" >Update Vendor Form</h1><br>
+	<IMG SRC="../../img/lnt/eevee.gif" class="center" >
+	<h3 style="text-align:center">Insert the vendor name you wish to update, the corresponding information you want to update, the updated information and click "Update" when done</h3><br><br>
+	<form action="update_vendor.php" method="POST" style="text-align: center">
+		Vendor Name: <input type="text" name="vendor_name">
 		<br><br>
-		<h6>(vendor_name, vendor_code, vendor_city, etc)</h6>
 		Information to be updated: <input type="text" name="info">
-		<br><br><br>
+		<h6>(vendor_name, vendor_code, vendor_city, etc)</h6>
+		<br>
 		Updated Information: <input type="text" name="update">
 		<br><br>
 		<input type="submit" value="Update">
