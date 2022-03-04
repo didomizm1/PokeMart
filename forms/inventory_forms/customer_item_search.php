@@ -34,14 +34,37 @@ function filterTable($query)
     <head>
         <title>Customer Item Search</title>
         <h1>Customer Item Search</h1>
+
+        
+        
         <style>
             table,tr,th,td
             {
                 border: 1px solid black;
             }
+            .ShoppingCart 
+            {
+                width: 30%;
+                position: fixed; 
+                right: 0;
+                padding-left: 15px;
+                margin-left: 15px;
+                float: right;
+                background-color: lightgray;
+            }
         </style>
     </head>
     <body>
+
+        <aside>
+        <p>Shopping Cart</p>
+        </aside>
+
+        <div class="ShoppingCart">
+        <form action="shopping_cart.php" method="post">
+            <h2>Shopping Cart</h2>
+            <p>Items In Cart: <?php echo $row['number_of_items'];?></p>
+        </div>
         
         <form action="customer_item_search.php" method="post">
             <input type="text" name="valueToSearch" placeholder="Search"><br><br>
@@ -66,9 +89,28 @@ function filterTable($query)
                     <td><?php echo $row['item_type'];?></td>
                     <td><?php echo $row['item_description'];?></td>
                     <td><?php echo $row['selling_price'];?></td>
+                    <td>
+                    <form action="shopping_cart.php" method="post">
+                    <button id="button"> Add to Shopping Cart </button>
+                    </td>
                 </tr>
                 <?php endwhile;?>
             </table>
+
+
+            <script>
+        // Get the button that opens the modal
+        var button = document.getElementById("button");
+        // When the user clicks the button, open the modal 
+        button.onclick = function() 
+        {
+            
+        }
+
+        
+
+
+</script>
         </form>
         
     </body>
