@@ -56,10 +56,6 @@ function filterTable($query)
     </head>
     <body>
 
-        <aside>
-        <p>Shopping Cart</p>
-        </aside>
-
         <div class="ShoppingCart">
         <form action="shopping_cart.php" method="post">
             <h2>Shopping Cart</h2>
@@ -90,27 +86,14 @@ function filterTable($query)
                     <td><?php echo $row['item_description'];?></td>
                     <td><?php echo $row['selling_price'];?></td>
                     <td>
-                    <form action="shopping_cart.php" method="post">
-                    <button id="button"> Add to Shopping Cart </button>
+                    <form>
+                    <form action="add_to_cart.php" method="post">
+                    <input type="submit" name="add" value="Add to Cart">
+                    </form>
                     </td>
                 </tr>
                 <?php endwhile;?>
             </table>
-
-
-            <script>
-        // Get the button that opens the modal
-        var button = document.getElementById("button");
-        // When the user clicks the button, open the modal 
-        button.onclick = function() 
-        {
-            
-        }
-
-        
-
-
-</script>
         </form>
         
     </body>

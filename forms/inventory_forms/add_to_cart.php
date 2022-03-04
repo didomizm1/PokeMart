@@ -1,20 +1,17 @@
 <?php
-//shopping_cart.php
+//add_to_cart.php
 
-if(isset($_POST['submit']))
+if(isset($_POST['add']))
 {
     //connect to database
     include_once('../connect_mysql.php');
 
-    //$item_name=$_POST['item_name'];
-    //$IID=$_POST['IID'];
+    $IID=$_POST['IID'];
 
     //add query
-    $query="INSERT INTO shopping_cart WHERE ";
+    $query="INSERT INTO cart_item ('IID') FROM inventory WHERE 'IID' = $IID ";
 
     //execute queries
-    // mysqli_query($dbconn, $query) or die("Couldn't execute login data query\n");
-    
     if($dbconn->query($query)==TRUE)
     {
         echo nl2br("Item added to cart successfully\n");
