@@ -7,7 +7,7 @@ if(isset($_POST['submit']))
 	$vendor_name=$_POST['vendor_name'];
 
 	//setup query, selects row where vendor name matches input
-	$query=SELECT * FROM vendors WHERE vendor_name='$vendor_name';
+	$query="SELECT * FROM vendors WHERE vendor_name='$vendor_name'";
 
 	//execute query and display in table
 	if($result=mysqli_query($dbconn, $query))
