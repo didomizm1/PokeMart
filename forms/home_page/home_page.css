@@ -1,115 +1,27 @@
 body
 {   
-    background-image: url("../../img/lnt/poke_mart_background.jpg");          
+    background-image: url("../../img/lnt/poke_mart_background.jpg");
+    background-size: 100%;
+    background-position: 0px -212px;          
 }
-
-#header
-{
-    pointer-events: none;
-}
-#logo
-{
-    z-index: 2;
-    width: 600px;
-    height: auto;
-}
-#tree1
-{
-    z-index: 3;
-    transform: scaleX(-1);
-    width: auto;
-    height: 1000px;
+#mid
+{ 
     position: fixed;
-    left: -350px;
-    bottom: -205px;
+    left: -10px;
+    top: 250px;
+    font-size: 190px;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(255, 255, 255);
+    text-shadow: 3px 3px rgb(0,0,0);
+    text-align: center;
 }
-#tree2
+#sidebar
 {
-    z-index: 3;
-    width: auto;
     height: 1000px;
+    width: 200px;
+    background-color: rgba(0, 255, 255, 0.5);
+    background-blend-mode: luminosity;
     position: fixed;
-    right: -350px;
-    bottom: -205px;
-}
-#clouds1
-{
-    z-index: 0;
-    transform: scaleX(-1);
-    width: 300px;
-    height: auto;
-    position: relative;
-    bottom: -25px;
-}
-#clouds2
-{
-    z-index: 0;
-    width: 300px;
-    height: auto;
-    position: relative;
-    bottom: -120px;
-} 
-#clouds3
-{
-    z-index: 0;
-    width: 300px;
-    height: auto;
-    position: relative;
-    left: -10px;
-    bottom: -50px;
-}
-#clouds4
-{
-    z-index: 0;
-    width: 300px;
-    height: auto;
-    position: relative;
-    left: -10px;
-    bottom: -10px;
-}
-#clouds5
-{
-    z-index: -1;
-    transform: scaleX(-1);
-    width: 500px;
-    height: auto;
-    position: absolute;
-    left: 25px;
-    top: 100px;
-}
-#bulbasaur
-{
-    z-index: 1;
-    transform: scaleX(-1);
-    width: 300px;
-    height: auto;
-    position: absolute;
-    left: 650px;
-    top: 70px;
-}   
-#form
-{  
-    background: rgb(255, 114, 196);
-    border: solid rgb(153, 0, 255) 25px;  
-    width:25%;  
-    border-radius: 50px;  
-    margin: 120px auto;    
-    padding: 50px;  
-}  
-#submit
-{    
-    background: #1190ff;
-    border-radius: 20px;  
-    padding: 7px; 
-}
-
-input[type = text], input[type = password], input[type = date], input[type = email], input[type = tel], select  
-{
-    margin: 8px 0;
-    border: 2px solid orange;
-    border-radius: 50px;
-}
-input[type = text]:focus, input[type = password]:focus, input[type = date]:focus, input[type = email]:focus, input[type = tel]:focus, select:focus 
-{
-    background-color: #76E8AF;
+    right: 0px;
+    top: 0px;
 }
