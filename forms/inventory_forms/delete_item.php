@@ -101,7 +101,7 @@ input.right
 		<input type = "text" name  = "item_name" maxlength = "50" required/>
 	</label>
     <label> * IID: 
-		<input type = "number" min="1" max="6" step="1" name  = "IID" maxlength = "1" required/>
+		<input type = "number" step="1" name  = "IID" maxlength = "50" required/>
 	</label>
    <br>
     <input type="submit" name = submit class = "right">

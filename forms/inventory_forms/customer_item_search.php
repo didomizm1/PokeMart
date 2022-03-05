@@ -36,27 +36,12 @@ function filterTable($query)
         <h1>Customer Item Search</h1>
 
 	    <link rel = "stylesheet" href = "customer_item_search.css">
-        
-        <style>
-            table,tr,th,td
-            {
-                border: 1px solid black;
-            }
-            .ShoppingCart 
-            {
-                width: 30%;
-                position: fixed; 
-                right: 0;
-                padding-left: 15px;
-                margin-left: 15px;
-                float: right;
-                background-color: lightgray;
-            }
-        </style>
+        <img id = "ocean" src = "../../img/inventory/ocean.jpg" alt = "">
+
     </head>
     <body>
-    <img id = "ocean" src = "../../img/inventory/ocean.jpg" alt = "">
-
+   
+   
         <div class="ShoppingCart">
         <form action="shopping_cart.php" method="post">
             <h2>Shopping Cart</h2>
