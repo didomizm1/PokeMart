@@ -7,11 +7,10 @@ if(isset($_POST['submit']))
 	$vendor_name=$_POST['vendor_name'];
 
 	//setup query, selects row where vendor name matches input
-	$query="SELECT * FROM vendors WHERE vendor_name=$vendor_name";
+	$query="SELECT * FROM vendors WHERE vendor_name='$vendor_name'";
 
 	//execute query and display in table
-	if($result=mysqli_query($dbconn, $query))
-	{
+    $result=mysqli_query($dbconn, $query);
 		if(mysqli_num_rows($result) > 0)
 		{
         echo "<table>";
@@ -28,7 +27,7 @@ if(isset($_POST['submit']))
                 echo "<th>Vendor Contact Route</th>";
                 echo "<th>Vendor Contact Number</th>";
             echo "</tr>";
-        while($row = mysqli_fetch_array($result))
+        while($row = $result->fetch_assoc())
         {
             echo "<tr>";
                 echo "<td>" . $row['VID'] . "</td>";
@@ -44,12 +43,10 @@ if(isset($_POST['submit']))
                 echo "<td>" . $row['vendor_contact_number'] . "</td>";
             echo "</tr>";
         }
+        echo "</table>"
     } 
     else
     {
         echo "No records matching vendor name were found.";//if input doesn't match a vendor in the database
     }
-} else{
-    echo "ERROR: Couldn't execute query\n" . mysqli_error($link);
-	}
 }?>
