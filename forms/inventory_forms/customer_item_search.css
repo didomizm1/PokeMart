@@ -1,8 +1,22 @@
 body
-{   
-    background-color: url(ocean.jpg);        
+{       
+    background-image: url("../../img/inventory/ocean.png");   
 }
 table
 {
     background-color: white;     
+}
+table,tr,th,td
+{
+    border: 1px solid black;
+}
+.ShoppingCart 
+{
+    width: 30%;
+    position: fixed; 
+    right: 0;
+    padding-left: 15px;
+    margin-left: 15px;
+    float: right;
+    background-color: lightgray;
 }

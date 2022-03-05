@@ -88,7 +88,7 @@ function filterTable($query)
         </style>
     </head>
     <body>
-
+      
 <form action="add_item.php" method="post">
 
 <!-- Trigger/Open The Modal -->

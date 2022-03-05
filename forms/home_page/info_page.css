@@ -1,0 +1,24 @@
+body
+{   
+    background-image: url("../../img/lnt/poke_center_background.jpg");
+    background-size: 100%;
+    background-position: 0px -212px;          
+}
+#mid
+{ 
+    user-select: none;
+    position: fixed;
+    left: 500px;
+    top: 250px;
+    font-size: 190px;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(255, 255, 255);
+    text-shadow: 3px 3px rgb(0,0,0);
+    text-align: center;
+}
+#footer
+{
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+}
