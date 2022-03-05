@@ -3,12 +3,17 @@
 <head>  
     <title>Login Form</title>
 	<!Style>
-	<link rel = "stylesheet" href = "login.css">   
+	<link rel = "stylesheet" href = "login.css">  
+	<!Audio functionality>
+	<script src = "../audio/audio.js"></script> 
 </head>  
 <body>
-	<div id = "header">
+	<!Center of the page>
+	<div id = "mid">
 		<!Site images>
-		<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart">
+		<a href = "../home_page/index.html">
+			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart">
+		</a>
 		<img id = "tree1" src = "../../img/lnt/tree.png" alt = "PokeTree">
 		<img id = "tree2" src = "../../img/lnt/tree.png" alt = "PokeTree">
 		<img id = "clouds1" src = "../../img/lnt/clouds.png" alt = "PokeClouds">
@@ -16,9 +21,11 @@
 		<img id = "clouds3" src = "../../img/lnt/clouds.png" alt = "PokeClouds">
 		<img id = "clouds4" src = "../../img/lnt/clouds.png" alt = "PokeClouds">
 		<img id = "clouds5" src = "../../img/lnt/clouds.png" alt = "PokeClouds">
-		<img id = "squirtle" src = "../../img/lnt/squirtle_.gif" alt = "Squirtle"> 
-		<img id = "charmander" src = "../../img/lnt/charmander.gif" alt = "Charmander"> 
+		<img id = "squirtle" src = "../../img/lnt/squirtle.gif" alt = "Squirtle"> 
+		<img id = "charmander" src = "../../img/lnt/charmander.gif" alt = "Charmander">
 	</div>
+
+	<!Log in form>
 	<div id = "form">   
 		<h1>Log in to PokeMart</h1>  
 		<form action = "login.php" method = "POST">
@@ -43,8 +50,8 @@
 			<footer>Don't have an account? <a href="../registration_forms/registration.html">Click here to register!</a></footer>
 			<br>
 
-			<!Music playing on the page>
-			<audio name = "audio" src = "../../audio/music/pokemart_soul_silver_theme.mp3" loop controls></audio>
+			<!Music to be played on the page>
+			<audio id = "audio" src = "../../audio/music/pokemart_soul_silver_theme.mp3" autoplay loop controls></audio>
 			
 		</form>
 	</div> 

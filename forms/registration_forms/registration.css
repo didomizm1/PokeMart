@@ -3,12 +3,15 @@ body
     background-image: radial-gradient(circle, rgb(0,225,255) 50%, rgb(0, 140, 255) 100%);          
 }
 
-#header
+#mid
 {
     pointer-events: none;
+    user-select: none;
 }
+
 #logo
 {
+    pointer-events: all;
     z-index: 2;
     width: 600px;
     height: auto;

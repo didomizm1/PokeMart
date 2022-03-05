@@ -6,6 +6,7 @@ body
 }
 #mid
 { 
+    user-select: none;
     position: fixed;
     left: -10px;
     top: 250px;
@@ -24,4 +25,23 @@ body
     position: fixed;
     right: 0px;
     top: 0px;
+}
+#footer
+{
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+}
+
+.link
+{
+    position: fixed;
+    left: 1739px;
+    font-size: 50px;
+}
+
+a:link, a:visited, a:hover, a:active
+{ 
+    color: black;
+    text-decoration: none; 
 }

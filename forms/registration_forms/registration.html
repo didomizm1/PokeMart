@@ -5,12 +5,17 @@
 	<!Style>
 	<link rel = "stylesheet" href = "registration.css">
 	<!Data validation>
-	<script src = "registration.js"></script>   
+	<script src = "registration.js"></script>
+	<!Audio functionality>
+	<script src = "../audio/audio.js"></script>   
 </head>  
 <body>
-	<div id = "header">
+	<!Center of the page>
+	<div id = "mid">
 		<!Site images>
-		<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart">
+		<a href = ".././home_page/index.html">
+			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart">
+		</a>
 		<img id = "tree1" src = "../../img/lnt/tree.png" alt = "PokeTree">
 		<img id = "tree2" src = "../../img/lnt/tree.png" alt = "PokeTree">
 		<img id = "clouds1" src = "../../img/lnt/clouds.png" alt = "PokeClouds">
@@ -20,6 +25,8 @@
 		<img id = "clouds5" src = "../../img/lnt/clouds.png" alt = "PokeClouds">
 		<img id = "bulbasaur" src = "../../img/lnt/bulbasaur.gif" alt = "Bulbasaur">
 	</div>
+
+	<!Registration form>
 	<div id = "form">    
 		<h1>Register an account on PokeMart</h1>  
 		<form name = "registration" action = "registration.php" onsubmit = "return validate()" method = "POST">
@@ -28,8 +35,8 @@
 			<header>Already have an account? <a href="../login_forms/login.html">Click here to log in instead!</a></header>
 			<br>
 
-			<!Music playing on the page>
-			<audio name = "audio" src = "../../audio/music/pokemart_soul_silver_theme.mp3" loop controls></audio>
+			<!Music to be played on the page>
+			<audio id = "audio" src = "../../audio/music/pokemart_soul_silver_theme.mp3" autoplay loop controls></audio>
 			<br>
 			
 			<p><strong><em>(Fields identified with * are required)</em></strong></p>
