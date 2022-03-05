@@ -1,0 +1,11 @@
+fix delete.php error in which wrong name/id still gives success error
+
+do modify.php
+
+fix customer_item_search.php
+
+add delete.php to employee_inventory.php
+
+add modify.php to employee_inventory.php
+
+design page

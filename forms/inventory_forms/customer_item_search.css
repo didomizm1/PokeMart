@@ -1,6 +1,6 @@
 body
 {       
-    background-image: url(../../img/inventory/ocean.jpg);   
+    background-image: url("../../img/inventory/ocean.png");   
 }
 table
 {
@@ -19,8 +19,4 @@ table,tr,th,td
     margin-left: 15px;
     float: right;
     background-color: lightgray;
-}
-body
-{
-    background-image: "ocean";
 }
