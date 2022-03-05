@@ -2,9 +2,9 @@
 <html>
 <head>
         <title> WALLET </title>
-        <!-- -->
+       
 </head>    
-<body style="background-image: radial-gradient(circle, rgb(6, 218, 255) 40%, rgb(0, 180, 245) 180%);" >
+<body style="background-image: radial-gradient(circle, rgb(195, 235, 242) 40%, rgb(0, 180, 245) 180%);" >
     <h1> 
      <center>  <font face="Arial" size="5px" color="#FFFFFF"> MY WALLET </font>
      </center> 
@@ -12,7 +12,7 @@
    
     <label>
         <center> Card in Wallet:
-            <input type= "radio" name="saved card" value="card 1" checked /> Card 1
+            <input type= "radio" name="saved card" value="card 1"  /> Card 1
             <input type= "radio" name="saved card" value="card 2"  /> Card 2
             <input type= "radio" name="saved card" value="card 2"  /> Card 3
         </center>
@@ -20,7 +20,8 @@
     <br>
     <label> 
         <center>
-          <h2> <font size="4px" > Add Card </font> </h2> 
+             <!-- Try to add on click method for card-->
+          <h2> <font size="3px" > Add New Payment Method</font> </h2> 
             <form action ="/card_info.php">
                 <label> Cardholder Name: 
 					<input type = "text" name  = "full_name" maxlength = "50" autocomplete required />
@@ -60,14 +61,14 @@
 				</label>
                 <br><br>
                 <label> cvv: 
-					<input type = "text" name  = "cvv" length = "3" pattern = "^[0-9]" autocomplete required />
+					<input type = "number" name  = "cvv" length = "3" pattern = "0-9" autocomplete required />
 				</label>
                 <br><br>
                   <input type="checkbox" id="save_card" name="save_card">
                      <label for="save_card"> Save Card 
                      </label>
                 <br><br>
-            <h3> Billing Address: </h3>
+            <h3> <font size="3px" >Billing Address </font> </h3>
 				<label> Street Address 1:
 					<input type = "text" name  = "street_1" maxlength = "100" autocomplete required />
 				</label>  
