@@ -10,7 +10,7 @@ if(isset($_POST['submit']))
     $IID=$_POST['IID'];
 
     //add query
-    $query="DELETE FROM inventory WHERE item_name = $item_name AND IID = $IID'";
+    $query="DELETE FROM inventory WHERE item_name = $item_name AND IID = $IID";
 
     //execute queries
     // mysqli_query($dbconn, $query) or die("Couldn't execute login data query\n");
