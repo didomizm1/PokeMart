@@ -4,6 +4,7 @@ body
     background-size: 100%;
     background-position: 0px -212px;          
 }
+
 #mid
 { 
     user-select: none;
@@ -33,11 +34,23 @@ body
     bottom: 10px;
 }
 
+#poke_ball
+{
+    position: fixed;
+    bottom: -50px;
+    right: 100px;
+    width: 500px;
+    height: auto;
+}
+
 .link
 {
     position: fixed;
-    left: 1739px;
-    font-size: 50px;
+    left: 1736px;
+    font-size: 45px;
+    font-weight: bold;
+    font-style: italic;
+    text-shadow: 1px 1px rgb(0, 255, 255);
 }
 
 a:link, a:visited, a:hover, a:active
