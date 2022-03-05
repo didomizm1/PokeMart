@@ -46,6 +46,7 @@ function filterTable($query)
         <form action="shopping_cart.php" method="post">
             <h2>Shopping Cart</h2>
             <p>Items In Cart: <?php echo $row['number_of_items'];?></p>
+        </form>
         </div>
         
         <form action="customer_item_search.php" method="post">
