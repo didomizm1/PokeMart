@@ -9,9 +9,16 @@ if(isset($_POST['submit']))
 	$vendor_code=$_POST['vendor_code'];
 	$VID=$_POST['VID'];
 	//query setup to delete vendor
-	$query="DELETE FROM vendors WHERE vendor_name='$vendor_name' AND vendor_code='$vendor_code' AND VID='$VID'";
+	$query="DELETE FROM vendors WHERE vendor_name=$vendor_name AND vendor_code=$vendor_code AND VID=$VID";
 	//execute query
-	$result=mysqli_query($dbconn,$query) or die("Couldn't execute query");
-	
+	if($dbconn->query($query)==TRUE)
+    {
+        echo nl2br("Vendor deleted successfully\n");
+    }
+    else
+    {
+        echo nl2br("Error: " . $query . "<br>" . $dbconn->error . "\n");
+    }
 }
+
 ?>
