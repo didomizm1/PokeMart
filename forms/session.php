@@ -5,6 +5,6 @@
     session_start();
     if(!(isset($_SESSION['ULID'])))
     {
-        header('Location: home_page/index.php');
+        header('Location: ../home_page/index.php');
     }
 ?>

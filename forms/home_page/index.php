@@ -49,7 +49,7 @@
 			else
 			{	
 		?>
-				<a href = "../profile_forms/profile.php" class = "link">
+				<a href = "../profile_forms/profile_page.php" class = "link">
 					Profile
 				</a><br><br><br><br><br>
 				<a href = "../login_forms/logout.php" class = "link">
@@ -59,7 +59,7 @@
 			}
 		?>
 
-		<a href = "../inventory_forms/customer_item_search.php" class = "link">
+		<a href = "../inventory_forms/customer_shopping.php" class = "link">
 			Shop
 		</a><br><br><br><br><br>
 		<a href = "info_page.html" class = "link">
