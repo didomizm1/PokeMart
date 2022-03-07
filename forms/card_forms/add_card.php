@@ -11,6 +11,10 @@
             <input type = "text" name  = "full_name" maxlength = "50" autocomplete required />
         </label>
         <br><br>
+        <label> Card Number: 
+            <input type = "number" name  = "card_number" length="16" pattern = "0-9" autocomplete required />
+        </label>
+        <br><br>
         <label> Month: 
             <select name = "month">
                 <option value="01">01</option>
@@ -45,7 +49,7 @@
         </label>
         <br><br>
         <label> cvv: 
-            <input type = "number" name  = "cvv" length = "3" pattern = "0-9" autocomplete required />
+            <input type = "number" name  = "cvv" minimulength = "3" maxlength="4" pattern = "0-9" autocomplete required />
         </label>
         <br><br>
     <h3> <font size="3px" >Billing Address </font> </h3>
@@ -62,15 +66,17 @@
         </label>  
         <br><br>
          <label> Zip Code: 
-            <input type = "text" name  = "zip_code" minlength = "5" maxlength = "10" pattern = "^[A-Z\d]+$" autocomplete required />
+            <input type = "text" name  = "zip_code" minlength = "5" maxlength = "10" pattern = "^[A-Z\d]" autocomplete required />
         </label> 
         <br><br>
         <input type="checkbox" id="save_card" name="save_card">
-             <label for="save_card"> Save Card 
-             </label>
+             <label for="save_card"> Save Card </label>
             <br><br>
-            <input type =  "submit" id = "submit" name = "submit" value = "Use this Payment Method" />
-         </form>
+            <div>
+                 <a href="http://localhost:8080/PokeKart/forms/card_forms/cont.php" >
+                    <button>Use This Payment Method</button>
+                </a>
+             </div>
 </center>
 </body>
 </html>
