@@ -6,8 +6,7 @@ if(isset($_POST['submit']))
     include_once('../connect_mysql.php');
 
     //prepare to fetch login data
-    $query = "SELECT `username`, `password` FROM `user_login`  
-    WHERE `username` = '".$_POST['username']."'";
+    $query = "SELECT `username`, `password` FROM `user_login` WHERE `username` = '".$_POST['username']."'";
     
     //store results and place into associative array
     $result = mysqli_query($dbconn, $query) or die("Couldn't execute query\n");

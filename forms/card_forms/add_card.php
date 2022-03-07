@@ -66,18 +66,17 @@
         </label>  
         <br><br>
          <label> Zip Code: 
-            <input type = "text" name  = "zip_code" minlength = "5" maxlength = "10" pattern = "^[A-Z\d]+$" autocomplete required />
+            <input type = "text" name  = "zip_code" minlength = "5" maxlength = "10" pattern = "^[A-Z\d]" autocomplete required />
         </label> 
         <br><br>
         <input type="checkbox" id="save_card" name="save_card">
-             <label for="save_card"> Save Card 
-             </label>
+             <label for="save_card"> Save Card </label>
             <br><br>
             <div>
-                <font face="Arial" size="2px">    
-            <a href="http://localhost:8080/PokeKart/forms/card_forms/add_card.php"> Add New Payment </a>
-           </font> 
-         </div>         </form>
+                 <a href="http://localhost:8080/PokeKart/forms/card_forms/cont.php" >
+                    <button>Use This Payment Method</button>
+                </a>
+             </div>
 </center>
 </body>
 </html>
