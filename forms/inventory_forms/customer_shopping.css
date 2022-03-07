@@ -7,13 +7,10 @@ h1
     text-align: center;
 }
 body
-{       
-    /*background-image: url("../../img/inventory/ocean.png"); */
-    background-image: url("../../img/inventory/pixelstore.gif");  
-    background-repeat: no-repeat;
-    background-size: cover;
-    /*opacity: 0.5;*/
-    
+{      
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../../img/inventory/pixelstore.gif"); 
+    background-size: 100%;
+    background-attachment: fixed;
 }
 table
 {
