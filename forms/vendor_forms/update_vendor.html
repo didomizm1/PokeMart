@@ -4,7 +4,7 @@
 	<title>Update Vendor Form</title>
 	<style>
 	/* input border */
-	input[type=text],input[type=number] {
+	input[type=text],input[type=number],select {
   	width: 20%;
   	padding: 10px 18px;
   	margin: 8px 0;
@@ -13,7 +13,7 @@
   	border-radius:50px;
 	}
 	/*focuses/highlights box when inputting*/
-	input[type=text]:focus {
+	input[type=text]:focus ,select:focus{
   	background-color: #76E8AF;
 	}
 	/* Insert button */
@@ -58,22 +58,51 @@
   	margin-right: auto;
   	width: 25%;
 }
+/*changes link color (unvisited and visited)*/
+	a:link {
+  	color: red; 
+  	background-color: transparent; 
+  	text-decoration: none;
+}
+
+	a:visited {
+  	color: blue;
+  	background-color: transparent;
+  	text-decoration: none;
+}
 </style>
 </head>
 <body>
-	<IMG SRC="../../img/lnt/logo.png" class="center"><br>
+	<a href = "../home_page/index.php"> <!-- makes logo link to homepage -->
+      <IMG SRC="../../img/lnt/logo.png" class="center">
+  </a>
 	<h1 class= "title" style="text-align:center" >Update Vendor Form</h1><br>
 	<IMG SRC="../../img/lnt/eevee.gif" class="center" >
-	<h3 style="text-align:center">Insert the vendor name you wish to update, the corresponding information you want to update, the updated information and click "Update" when done</h3><br><br>
+	<h3 style="text-align:center">Insert the vendor name you wish to update, the corresponding information you want to update, the updated information and click "Update" when done</h3>
+	<h5 style="text-align:center">Press the link below to lookup vendor information</h5>
+	<a href="../vendor_forms/search_vendor.html"><p style="text-align:center">Lookup vendor</a> <!-- link to lookup vendor form -->
+	<br><br><br>
 	<form action="update_vendor.php" method="POST" style="text-align: center">
-		Vendor Name: <input type="text" name="vendor_name">
+		* Vendor Name: <input type="text" name="vendor_name" required>
 		<br><br>
-		Information to be updated: <input type="text" name="info">
-		<h6>(vendor_name, vendor_code, vendor_city, etc)</h6>
+		<label for="info"> * Information to be updated:</label>
+		<!-- vendor info selection -->
+		<select id="info" name="info">
+    		<option value="vendor_name">Vendor name</option>
+    		<option value="vendor_code">Vendor code</option>
+    		<option value="vendor_city">Vendor city</option>
+    		<option value="vendor_region">Vendor region</option>
+   			<option value="vendor_country">Vendor country</option>
+   			<option value="vendor_zip_code">Vendor zip code</option>
+ 			<option value="vendor_contact_name">Vendor contact name</option>
+ 			<option value="vendor_contact_title">Vendor contact title</option>
+ 			<option value="vendor_contact_route">Vendor contact route</option>
+ 			<option value="vendor_contact_number">Vendor contact number</option>	
+  		</select>
 		<br>
-		Updated Information: <input type="text" name="update">
+		* Updated Information: <input type="text" name="update" required>
 		<br><br>
-		<input type="submit" value="Update">
+		<input type="submit" value="Update" name="submit">
 	</form>
 </body>
 </html>
