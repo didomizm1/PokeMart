@@ -95,7 +95,7 @@ function filterTable($query)
 <button id="addButton">Add item</button>
 
 <!-- The Modal -->
-<div id="addModal" class="modal">
+<div id="addModal" class="addmodal">
 
   <!-- Modal content -->
   <div class="modal-content">
@@ -192,15 +192,15 @@ var deleteModal = document.getElementById("deleteModal");
 var btn2 = document.getElementById("deleteButton");
 
 // Get the <span> element that closes the modal
-//var span2 = document.getElementsByClassName("close")[0];
+var span2 = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
 btn2.onclick = function() {
   deleteModal.style.display = "block";
 }
 // When the user clicks on <span> (x), close the modal
-//span2.onclick = function() {
-//  deleteModal.style.display = "none";
+span2.onclick = function() {
+    deleteModal.style.display = "none";
 }
 </script>
 </form>
