@@ -95,7 +95,7 @@ function filterTable($query)
 <button id="addButton">Add item</button>
 
 <!-- The Modal -->
-<div id="addModal" class="addmodal" style="display: none;">
+<div id="addModal" class="modal" style="display: none;">
 
   <!-- Modal content -->
   <div class="modal-content">
