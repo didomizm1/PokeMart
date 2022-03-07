@@ -27,7 +27,7 @@ if(isset($_POST['submit']))
                 echo "<th>Vendor Contact Route</th>";
                 echo "<th>Vendor Contact Number</th>";
             echo "</tr>";
-        while($row = $result->fetch_assoc())
+        while($row = mysql_fetch_array($result))
         {
             echo "<tr>";
                 echo "<td>" . $row['VID'] . "</td>";
@@ -43,7 +43,7 @@ if(isset($_POST['submit']))
                 echo "<td>" . $row['vendor_contact_number'] . "</td>";
             echo "</tr>";
         }
-        
+
         echo "</table>";
     }
     else
