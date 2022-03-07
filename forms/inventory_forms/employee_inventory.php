@@ -162,6 +162,7 @@ span.onclick = function() {
 }
 </script>
 </form>
+<br>
         
 <form action="delete_item.php" method="post">
 <!-- Trigger/Open The Modal -->
