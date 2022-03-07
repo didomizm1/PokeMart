@@ -43,8 +43,9 @@ if(isset($_POST['submit']))
                 echo "<td>" . $row['vendor_contact_number'] . "</td>";
             echo "</tr>";
         }
-        echo "</table>"
-    } 
+        
+        echo "</table>";
+    }
     else
     {
         echo "No records matching vendor name were found.";//if input doesn't match a vendor in the database
