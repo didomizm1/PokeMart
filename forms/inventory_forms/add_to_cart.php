@@ -9,7 +9,7 @@ if(isset($_POST['add']))
     $IID=$_POST['IID'];
 
     //add query
-    $query="INSERT INTO cart_item ('IID') FROM inventory WHERE 'IID' = $IID";
+    $query="INSERT INTO cart_item (IID) FROM inventory WHERE IID = '$IID'";
 
     //execute queries
     if($dbconn->query($query)==TRUE)
