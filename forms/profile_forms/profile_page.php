@@ -1,5 +1,14 @@
 <?php
+	//database connection
+	include_once('../connect_mysql.php');
+	
+	//session handling
 	require_once('../session.php');
+
+	//get user profile data associated with logged in user
+	$query = "SELECT * FROM `user_profile` WHERE `ULID` = '".$_SESSION['ULID']."'";
+    $result = mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
+    $row = $result->fetch_array(MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -20,52 +29,46 @@
 	<!Center of the page>
 	<div id = "mid">
 		<p>
-			<label>Text</label>
+			<label><?php echo $row['first_name'];?></label>
 		</p>
 		<p>
-			<label>Text</label>
+			<label><?php echo $row['middle_name'];?></label>
 		</p>
 		<p>
-			<label>Text</label>
+			<label><?php echo $row['last_name'];?></label>
 		</p>
 		<p>
-			<label>Text</label>
+			<label><?php echo $row['gender'];?></label>
 		</p>
 		<p>
-			<label>Text</label>
+			<label><?php echo $row['date_of_birth'];?></label>
 		</p>
 		<p>
-			<label>Text</label>
+			<label><?php echo $row['email'];?></label>
 		</p>
 		<p>
-			<label>Text</label>
+			<label><?php echo $row['home_phone_number'];?></label>
 		</p>
 		<p>
-			<label>Text</label>
+			<label><?php echo $row['cell_phone_number'];?></label>
 		</p>
 		<p>
-			<label>Text</label>
+			<label><?php echo $row['street_1'];?></label>
 		</p>
 		<p>
-			<label>Text</label>
+			<label><?php echo $row['street_2'];?></label>
 		</p>
 		<p>
-			<label>Text</label>
+			<label><?php echo $row['city'];?></label>
 		</p>
 		<p>
-			<label>Text</label>
+			<label><?php echo $row['state'];?></label>
 		</p>
 		<p>
-			<label>Text</label>
+			<label><?php echo $row['zip_code'];?></label>
 		</p>
 		<p>
-			<label>Text</label>
-		</p>
-		<p>
-			<label>Text</label>
-		</p>
-		<p>
-			<label>Text</label>
+			<label><?php echo $row['country'];?></label>
 		</p>
 		
 	</div>
