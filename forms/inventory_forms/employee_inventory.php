@@ -95,7 +95,7 @@ function filterTable($query)
 <button id="addButton">Add item</button>
 
 <!-- The Modal -->
-<div id="addModal" class="addmodal">
+<div id="addModal" class="addmodal" style="display: none;">
 
   <!-- Modal content -->
   <div class="modal-content">
@@ -167,7 +167,7 @@ span.onclick = function() {
 <!-- Trigger/Open The Modal -->
 <button id="deleteButton">Delete item</button>
 <!-- The Modal -->
-<div id="deleteModal" class="modal">
+<div id="deleteModal" class="modal" style="display: none;">
 <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
