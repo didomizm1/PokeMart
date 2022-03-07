@@ -1,0 +1,33 @@
+
+h1
+{
+    width: 30%;
+    background-color: white;
+    border-radius: 15px;
+    text-align: center;
+}
+body
+{      
+    background: linear-gradient(rgba(122, 122, 122, 0.5), rgba(122, 122, 122, 0.5)), url("../../img/inventory/pixelstore.gif"); 
+    background-size: 100%;
+    background-attachment: fixed;
+}
+table
+{
+    background-color: white;     
+}
+table,tr,th,td
+{
+    border: 1px solid black;
+}
+.ShoppingCart 
+{
+    width: 30%;
+    position: fixed; 
+    right: 0;
+    padding-right: 15px;
+    margin-right: 15px;
+    background-color: white;
+    border-radius: 25px;
+    text-align: center;
+}

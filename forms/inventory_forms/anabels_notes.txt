@@ -9,3 +9,5 @@ add delete.php to employee_inventory.php
 add modify.php to employee_inventory.php
 
 design page
+
+employee_inventory.php is the main thingy

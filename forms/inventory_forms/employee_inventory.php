@@ -92,10 +92,10 @@ function filterTable($query)
 <form action="add_item.php" method="post">
 
 <!-- Trigger/Open The Modal -->
-<button id="myBtn">Add item</button>
+<button id="addButton">Add item</button>
 
 <!-- The Modal -->
-<div id="myModal" class="modal">
+<div id="addModal" class="modal" style="display: none;">
 
   <!-- Modal content -->
   <div class="modal-content">
@@ -141,30 +141,72 @@ function filterTable($query)
   </div>
 
 </div>
-
 <script>
 // Get the modal
-var modal = document.getElementById("myModal");
+var addModal = document.getElementById("addModal");
 
 // Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+var btn1 = document.getElementById("addButton");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
+btn1.onclick = function() {
+  addModal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-  modal.style.display = "none";
+  addModal.style.display = "none";
 }
-
 </script>
 </form>
+<br>
         
+<form action="delete_item.php" method="post">
+<!-- Trigger/Open The Modal -->
+<button id="deleteButton">Delete item</button>
+<!-- The Modal -->
+<div id="deleteModal" class="modal" style="display: none;">
+<!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2> ITEM DELETE</h2>
+    <label> * Item Name: 
+		<input type = "text" name  = "item_name" maxlength = "50" required/>
+	</label>
+    <label> * IID: 
+		<input type = "number" step="1" name  = "IID" maxlength = "50" required/>
+	</label>
+   <br>
+    <input type="submit" name = submit class = "right">
+  </div>
+
+</div>
+
+<script>
+// Get the modal
+var deleteModal = document.getElementById("deleteModal");
+
+// Get the button that opens the modal
+var btn2 = document.getElementById("deleteButton");
+
+// Get the <span> element that closes the modal
+var span2 = document.getElementsByClassName("close")[1];
+
+// When the user clicks the button, open the modal 
+btn2.onclick = function() {
+  deleteModal.style.display = "block";
+}
+// When the user clicks on <span> (x), close the modal
+span2.onclick = function() {
+    deleteModal.style.display = "none";
+}
+</script>
+</form>
+
+
         <form action="employee_inventory.php" method="post">
             <br>
             <br>
@@ -201,7 +243,6 @@ span.onclick = function() {
                     <td><?php echo $row['in_stock'];?></td>
                     <td><?php echo $row['reorder_amount'];?></td>
                     <td><?php echo $row['base_stock'];?></td>
-                    <!--<td><button id="myBtn">Modify item</button></td>-->
                 </tr>
                 <?php endwhile;?>
             </table>
