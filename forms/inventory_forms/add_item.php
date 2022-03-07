@@ -87,7 +87,7 @@ input.right
 <h2>Add Test</h2>
 
 <!-- Trigger/Open The Modal -->
-<button id="myBtn">Add item</button>
+<button id="addButton">Add item</button>
 
 <!-- The Modal -->
 <div id="myModal" class="modal">

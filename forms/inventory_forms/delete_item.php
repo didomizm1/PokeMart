@@ -88,10 +88,10 @@ input.right
 <h2>Delete Test</h2>
 
 <!-- Trigger/Open The Modal -->
-<button id="myBtn">Delete item</button>
+<button id="deleteButton">Delete item</button>
 
 <!-- The Modal -->
-<div id="myModal" class="modal">
+<div id="deleteModal" class="modal">
 
   <!-- Modal content -->
   <div class="modal-content">
@@ -111,10 +111,10 @@ input.right
 
 <script>
 // Get the modal
-var modal = document.getElementById("myModal");
+var modal = document.getElementById("deleteModal");
 
 // Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+var btn = document.getElementById("deleteButton");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
