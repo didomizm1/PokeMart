@@ -2,8 +2,7 @@ body
 {   
     background-image: url("../../img/lnt/poke_center_background.jpg");
     background-size: 100%;
-    background-position: 0px -212px;
-    background-attachment: fixed;          
+    background-position: 0px -212px;          
 }
 #mid
 { 

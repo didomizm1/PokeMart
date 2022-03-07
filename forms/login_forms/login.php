@@ -35,7 +35,7 @@ if(isset($_POST['submit']))
             session_start();
             $userIDQuery = "SELECT `ULID` FROM `user_login` WHERE `username` = '".$_POST['username']."'";
             $_SESSION['ULID'] = mysqli_query($dbconn, $userIDQuery) or die("Couldn't execute query\n");
-            header("Location: ../home_page/index.php");
+            header("Location: index.html");
         }
         else
         {

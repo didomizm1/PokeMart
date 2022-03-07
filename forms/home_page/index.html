@@ -1,7 +1,3 @@
-<?php
-	session_start();
-?>
-
 <!DOCTYPE html>
 <html>  
 <head>  
@@ -14,7 +10,7 @@
 <body>
 	<!Top of the page>
 	<div id = "header">
-		<a href = "index.php">
+		<a href = "index.html">
 			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart">
 		</a>
 	</div>
@@ -29,37 +25,16 @@
 	<!Side of the page with links to various pages>
 	<div id = "sidebar">
 		<br><br>
-		<a href = "index.php" class = "link">
+		<a href = "index.html" class = "link">
 			Home
 		</a><br><br><br><br><br>
-
-		<!Determine if links should be displayed based upon login status>
-		<?php
-			if(!(isset($_SESSION['ULID'])))
-			{
-		?>
-				<a href = "../login_forms/login.html" class = "link">
-					Log In
-				</a><br><br><br><br><br>
-				<a href = "../registration_forms/registration.html" class = "link">
-					Sign Up
-				</a><br><br><br><br><br>
-		<?php
-			}
-			else
-			{	
-		?>
-				<a href = "../profile_forms/profile_page.php" class = "link">
-					Profile
-				</a><br><br><br><br><br>
-				<a href = "../login_forms/logout.php" class = "link">
-					Log Out
-				</a><br><br><br><br><br>
-		<?php
-			}
-		?>
-
-		<a href = "../inventory_forms/customer_shopping.php" class = "link">
+		<a href = "../login_forms/login.html" class = "link">
+			Log In
+		</a><br><br><br><br><br>
+		<a href = "../registration_forms/registration.html" class = "link">
+			Sign Up
+		</a><br><br><br><br><br>
+		<a href = "../inventory_forms/customer_item_search.php" class = "link">
 			Shop
 		</a><br><br><br><br><br>
 		<a href = "info_page.html" class = "link">

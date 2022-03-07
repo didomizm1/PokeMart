@@ -4,9 +4,8 @@ $server = "localhost";
 $dbusername = "root";
 $password = "";
 $db = "pokemart_db";
-$debug = "false";
+$debug = "true";
 
-//connect to database
 $dbconn = mysqli_connect($server, $dbusername, $password, $db);
 
 if($dbconn->connect_error)
@@ -14,7 +13,6 @@ if($dbconn->connect_error)
     die('Could not connect: ' .$dbconn->connect_error);
 }
 
-//debug text for testing purposes only
 elseif($debug == "true") 
 {
     echo nl2br("\nDEBUG:\n");
