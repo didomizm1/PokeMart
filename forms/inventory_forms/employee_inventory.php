@@ -192,7 +192,7 @@ var deleteModal = document.getElementById("deleteModal");
 var btn2 = document.getElementById("deleteButton");
 
 // Get the <span> element that closes the modal
-var span2 = document.getElementsByClassName("close")[0];
+var span2 = document.getElementsByClassName("close")[1];
 
 // When the user clicks the button, open the modal 
 btn2.onclick = function() {
