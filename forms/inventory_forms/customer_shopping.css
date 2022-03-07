@@ -12,6 +12,13 @@ body
     background-size: 100%;
     background-attachment: fixed;
 }
+.logo
+{
+    pointer-events: all;
+    z-index: 2;
+    width: 400px;
+    height: auto;
+}
 table
 {
     background-color: white;     
