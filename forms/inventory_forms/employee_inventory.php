@@ -30,13 +30,14 @@ function filterTable($query)
 <html>
     <head>
         <title>Employee Inventory</title>
+        <a href = "../home_page/index.php"><!-- makes logo link to homepage -->
+  <IMG SRC="../../img/lnt/logo.png" width="300" >
+</a>
         <h1>Employee Inventory</h1>
         <link rel = "stylesheet" href = "employee_inventory.css">
     </head>
     <body>
-<a href = "../home_page/index.php"><!-- makes logo link to homepage -->
-  <IMG SRC="../../img/lnt/logo.png" width="300" >
-</a>
+      
 <form action="add_item.php" method="post">
 
 <!-- Trigger/Open The Modal -->
@@ -127,6 +128,8 @@ span.onclick = function() {
     <label> * IID: 
 		<input type = "number" step="1" name  = "IID" maxlength = "50" required/>
 	</label>
+   <br>
+   <br>
    <br>
     <input type="submit" name = submit class = "right">
   </div>
