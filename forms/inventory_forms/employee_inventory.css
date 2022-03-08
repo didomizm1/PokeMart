@@ -1,3 +1,10 @@
+body
+{      
+    background: linear-gradient(rgba(122, 122, 122, 0.5), rgba(122, 122, 122, 0.5)), url("../../img/inventory/pokemon_forest.jpeg"); 
+    background-size: 100%;
+    background-attachment: fixed;
+}
+
 /* The Modal (background) */
 .modal 
 {
@@ -47,6 +54,10 @@ input.right
     width:100px;
     right: 175px;
     top: 275px;
+}
+table
+{
+    background-color: white;     
 }
 table,tr,th,td
 {
