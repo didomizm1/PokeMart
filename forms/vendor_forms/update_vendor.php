@@ -9,7 +9,7 @@ if(isset($_POST['submit']))
 	$update=$_POST['update'];
 
 	//setup query
-	$query="UPDATE vendors SET '$info'='$update' WHERE vendor_name='$vendor_name'";
+	$query="UPDATE vendors SET $info='$update' WHERE vendor_name='$vendor_name'";
 
 	//execute query
 	if($dbconn->query($query)==TRUE)
