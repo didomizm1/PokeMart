@@ -1,5 +1,4 @@
 <?php
-
 //connect to database
 include_once('../connect_mysql.php');
 
@@ -10,7 +9,6 @@ if(isset($_POST['submit']))
     // using concat mysql function
     $query = "SELECT * FROM `inventory` WHERE CONCAT(`IID`, `VID`, `item_name`, `japanese_item_name`, `item_description`, `item_type`, `selling_price`, `cost`, `in_stock`, `reorder_amount`, `base_stock`) LIKE '%".$valueToSearch."%'";
     $search_result = filterTable($query);
-    
 }
  else 
  {
@@ -26,7 +24,6 @@ function filterTable($query)
     $filter_Result = mysqli_query($connect, $query);
     return $filter_Result;
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -34,58 +31,7 @@ function filterTable($query)
     <head>
         <title>Employee Inventory</title>
         <h1>Employee Inventory</h1>
-        <style>
-            /* The Modal (background) */
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
-            padding-top: 100px; /* Location of the box */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-        }
-
-        /* Modal Content */
-        .modal-content {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-        }
-
-        /* The Close Button */
-        .close {
-            color: #aaaaaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        input.right 
-            {
-                position: absolute;
-                height:25px; 
-                width:100px;
-                right: 175px;
-                top: 275px;
-            }
-            table,tr,th,td
-            {
-                border: 1px solid black;
-            }
-        </style>
+        <link rel = "stylesheet" href = "employee_inventory.css">
     </head>
     <body>
       
@@ -205,6 +151,61 @@ span2.onclick = function() {
 }
 </script>
 </form>
+<br>
+        
+<form action="update_item.php" method="post">
+<!-- Trigger/Open The Modal -->
+<button id="updateButton">Update item</button>
+<!-- The Modal -->
+<div id="updateModule" class="modal" style="display: none;">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>UPDATE ITEM ENTRY</h2>
+		* Product ID: <input type="text" name="IID" required>
+        <!-- item info selection -->
+		<select id="info" name="info">
+    		<option value="item_name">Item name</option>
+            <option value="japanese_item_name">japanese_item_name</option>
+    		<option value="item_description">Item description</option>
+    		<option value="item_type">Item type</option>
+    		<option value="VID">Vendor ID</option>
+   			<option value="selling_price">Selling price</option>
+   			<option value="cost">Cost per unit</option>
+ 			<option value="in_Stock">In stock</option>
+ 			<option value="reorder_amount">Reorder amount</option>
+ 			<option value="base_stock">Base stock</option>
+  		</select>
+    <br>
+    * Updated Information: <input type="text" name="update" required>
+    <br>
+    <br>
+    <input type="submit" name = "submit" value="Update">
+  </div>
+
+</div>
+
+<script>
+// Get the modal
+var updateModal = document.getElementById("updateModal");
+
+// Get the button that opens the modal
+var btn3 = document.getElementById("updateButton");
+
+// Get the <span> element that closes the modal
+var span3 = document.getElementsByClassName("close")[2];
+
+// When the user clicks the button, open the modal 
+btn3.onclick = function() {
+  updateModal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span3.onclick = function() {
+  updateModal.style.display = "none";
+}
+</script>
+</form>
 
 
         <form action="employee_inventory.php" method="post">
@@ -226,7 +227,6 @@ span2.onclick = function() {
                     <th>In Stock</th>
                     <th>Reorder Amount</th>
                     <th>Base Stock</th>
-                    <!--<th>Options</th>-->
                 </tr>
 
       <!-- populate table from mysql database -->
@@ -247,6 +247,5 @@ span2.onclick = function() {
                 <?php endwhile;?>
             </table>
         </form>
-        
     </body>
 </html>
