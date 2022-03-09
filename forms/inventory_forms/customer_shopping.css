@@ -10,7 +10,14 @@ body
 {      
     background: linear-gradient(rgba(122, 122, 122, 0.5), rgba(122, 122, 122, 0.5)), url("../../img/inventory/pixelstore.gif"); 
     background-size: 100%;
-    background-attachment: fixed;
+    /*background-attachment: fixed;*/
+}
+.logo
+{
+    pointer-events: all;
+    z-index: 2;
+    width: 400px;
+    height: auto;
 }
 table
 {

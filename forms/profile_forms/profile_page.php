@@ -1,5 +1,14 @@
 <?php
+	//database connection
+	include_once('../connect_mysql.php');
+	
+	//session handling
 	require_once('../session.php');
+
+	//get user profile data associated with logged in user
+	$query = "SELECT * FROM `user_profile` WHERE `ULID` = '".$_SESSION['ULID']."'";
+    $result = mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
+    $row = $result->fetch_array(MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -20,52 +29,60 @@
 	<!Center of the page>
 	<div id = "mid">
 		<p>
-			<label>Text</label>
+			<label class = "dataName">First Name</label><br>
+			<label class = "dataInfo"><?php echo $row['first_name'];?></label>
 		</p>
 		<p>
-			<label>Text</label>
+			<label class = "dataName">Middle Name</label><br>
+			<label class = "dataInfo"><?php echo $row['middle_name'];?></label>
 		</p>
 		<p>
-			<label>Text</label>
+			<label class = "dataName">Last Name</label><br>
+			<label class = "dataInfo"><?php echo $row['last_name'];?></label>
 		</p>
 		<p>
-			<label>Text</label>
+			<label class = "dataName">Gender</label><br>
+			<label class = "dataInfo"><?php echo $row['gender'];?></label>
 		</p>
 		<p>
-			<label>Text</label>
+			<label class = "dataName">Date of Birth</label><br>
+			<label class = "dataInfo"><?php echo $row['date_of_birth'];?></label>
 		</p>
 		<p>
-			<label>Text</label>
+			<label class = "dataName">E-mail</label><br>
+			<label class = "dataInfo"><?php echo $row['email'];?></label>
 		</p>
 		<p>
-			<label>Text</label>
+			<label class = "dataName">Home Phone Number</label><br>
+			<label class = "dataInfo"><?php echo $row['home_phone_number'];?></label>
 		</p>
 		<p>
-			<label>Text</label>
+			<label class = "dataName">Cell Phone Number</label><br>
+			<label class = "dataInfo"><?php echo $row['cell_phone_number'];?></label>
 		</p>
 		<p>
-			<label>Text</label>
+			<label class = "dataName">Street Address 1</label><br>
+			<label class = "dataInfo"><?php echo $row['street_1'];?></label>
 		</p>
 		<p>
-			<label>Text</label>
+			<label class = "dataName">Street Address 2</label><br>
+			<label class = "dataInfo"><?php echo $row['street_2'];?></label>
 		</p>
 		<p>
-			<label>Text</label>
+			<label class = "dataName">City</label><br>
+			<label class = "dataInfo"><?php echo $row['city'];?></label>
 		</p>
 		<p>
-			<label>Text</label>
+			<label class = "dataName">State</label><br>
+			<label class = "dataInfo"><?php echo $row['state'];?></label>
 		</p>
 		<p>
-			<label>Text</label>
+			<label class = "dataName">Zip Code</label><br>
+			<label class = "dataInfo"><?php echo $row['zip_code'];?></label>
 		</p>
 		<p>
-			<label>Text</label>
-		</p>
-		<p>
-			<label>Text</label>
-		</p>
-		<p>
-			<label>Text</label>
+			<label class = "dataName">Country</label><br>
+			<label class = "dataInfo"><?php echo $row['country'];?></label>
 		</p>
 		
 	</div>

@@ -15,15 +15,26 @@ body
     padding: 50px;
 
     user-select: none;
-    font-size: 50px;
-    font-family: 'Courier New', Courier, monospace;
-    color: rgb(255, 255, 255);
-    text-shadow: 3px 3px rgb(0,0,0);
     text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    
 }
 #footer
 {
     position: fixed;
     left: 10px;
     bottom: 10px;
+}
+
+.dataName
+{
+    font-size: 50px;
+    color: rgb(255, 123, 0);
+    text-shadow: 2px 2px rgb(0,0,0);
+}
+.dataInfo
+{
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    text-shadow: 1px 1px rgb(0,0,0);
 }

@@ -4,17 +4,17 @@ if(isset($_POST['submit']))
 	//connect to database
 	include_once('../connect_mysql.php');
 
-	$vendor_name=$_POST['vendor_name'];
+	$IID=$_POST['IID'];
 	$info=$_POST['info'];
 	$update=$_POST['update'];
 
 	//setup query
-	$query="UPDATE vendors SET $info='$update' WHERE vendor_name='$vendor_name'";
+	$query="UPDATE inventory SET $info='$update' WHERE IID='$IID'";
 
 	//execute query
 	if($dbconn->query($query)==TRUE)
     {
-        echo nl2br("Vendor updated successfully\n");
+        echo nl2br("Item updated successfully\n");
     }
     else
     {

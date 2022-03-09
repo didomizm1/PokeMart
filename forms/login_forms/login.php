@@ -6,8 +6,7 @@ if(isset($_POST['submit']))
     include_once('../connect_mysql.php');
 
     //prepare to fetch login data
-    $query = "SELECT `username`, `password` FROM `user_login`  
-    WHERE `username` = '".$_POST['username']."'";
+    $query = "SELECT `username`, `password` FROM `user_login` WHERE `username` = '".$_POST['username']."'";
     
     //store results and place into associative array
     $result = mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
@@ -31,10 +30,15 @@ if(isset($_POST['submit']))
                 mysqli_query($dbconn, $updatePassQuery) or die("Couldn't execute query\n");
             }
 
-            //start new session
+            //start new session and save ULID
             session_start();
+            
             $userIDQuery = "SELECT `ULID` FROM `user_login` WHERE `username` = '".$_POST['username']."'";
-            $_SESSION['ULID'] = mysqli_query($dbconn, $userIDQuery) or die("Couldn't execute query\n");
+            $userIDResult = mysqli_query($dbconn, $userIDQuery) or die("Couldn't execute query\n");
+            $row = $userIDResult->fetch_array(MYSQLI_ASSOC);
+            $_SESSION['ULID'] = $row['ULID'];
+
+            //send user to the home page
             header("Location: ../home_page/index.php");
         }
         else
