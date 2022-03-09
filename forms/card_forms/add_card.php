@@ -6,14 +6,16 @@
      <!-- Try to add on click method for card-->
   <h2> <font face="Arial" size="4px"> NEW PAYMENT METHOD </font> </h2> 
     <br>
-  <form action ="/card_info.php">
+  <form action ="acard.php" method="POST">
         <label> Cardholder Name: 
             <input type = "text" name  = "full_name" maxlength = "50" autocomplete required />
         </label>
         <br><br>
+
         <label> Card Number: 
             <input type = "number" name  = "card_number" length="16" pattern = "0-9" autocomplete required />
         </label>
+
         <br><br>
         <label> Month: 
             <select name = "month">
@@ -30,7 +32,8 @@
                 <option value="11">11</option>
                 <option value="12">12</option>
             </select>
-            </label>
+        </label>
+            <br><br>
         <label> Year: 
             <select name = "year">
                 <option value="2022">2022</option>
@@ -52,31 +55,44 @@
             <input type = "number" name  = "cvv" minimulength = "3" maxlength="4" pattern = "0-9" autocomplete required />
         </label>
         <br><br>
+
     <h3> <font size="3px" >Billing Address </font> </h3>
         <label> Street Address 1:
             <input type = "text" name  = "street_1" maxlength = "100" autocomplete required />
         </label>  
         <br><br>
+
         <label> Street Address 2: 
             <input type = "text" name  = "street_2" maxlength = "100" autocomplete />
         </label>
         <br><br>
+
         <label> City:
             <input type = "text" name  = "city" maxlength = "100" autocomplete required />
         </label>  
         <br><br>
+
          <label> Zip Code: 
-            <input type = "text" name  = "zip_code" minlength = "5" maxlength = "10" pattern = "^[A-Z\d]" autocomplete required />
+            <input type = "text" name  = "zip_code" minlength = "5" maxlength = "10" pattern = "^[A-Z\d]+$" autocomplete required />
         </label> 
         <br><br>
-        <input type="checkbox" id="save_card" name="save_card">
-             <label for="save_card"> Save Card </label>
-            <br><br>
+
+        <body>
+            <label> 
             <div>
-                 <a href="http://localhost:8080/PokeKart/forms/card_forms/cont.php" >
-                    <button>Use This Payment Method</button>
-                </a>
-             </div>
+            <form action="acard.php" method="POST"> 
+            <input type="submit" name="submit" />
+            </form>
+            </div>
+            </label>
+    </body>
+            <br><br>
+         <div>
+            <a href="http://localhost:8080/PokeKart/forms/card_forms/cont.php" >
+            <button>Use This Payment</button>
+            </a>
+        </div>      
+    </form>
 </center>
 </body>
 </html>

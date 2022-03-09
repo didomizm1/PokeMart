@@ -62,6 +62,9 @@
 		<a href = "../inventory_forms/customer_shopping.php" class = "link">
 			Shop
 		</a><br><br><br><br><br>
+		<a href = "../faq_forms/faq.html" class = "link">
+			FAQ
+		</a><br><br><br><br><br>
 		<a href = "info_page.html" class = "link">
 			About Us
 		</a><br><br><br><br><br>

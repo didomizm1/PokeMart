@@ -1,5 +1,5 @@
 <?php
-//use existing saved card, connect to database
+
 if (isset($_POST['submit']))
 {
     //connect w/data base 
