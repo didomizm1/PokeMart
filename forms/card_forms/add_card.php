@@ -88,7 +88,7 @@
     </body>
             <br><br>
          <div>
-            <a href="http://localhost:8080/PokeKart/forms/card_forms/cont.php" >
+            <a href="../card_forms/cont.php" >
             <button>Use This Payment</button>
             </a>
         </div>      
