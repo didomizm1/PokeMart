@@ -162,7 +162,7 @@ span2.onclick = function() {
 <!-- Trigger/Open The Modal -->
 <button id="updateButton">Update item</button>
 <!-- The Modal -->
-<div id="updateModule" class="modal" style="display: none;">
+<div id="updateModal" class="modal" style="display: none;">
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
