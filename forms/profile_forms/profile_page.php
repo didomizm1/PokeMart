@@ -29,46 +29,60 @@
 	<!Center of the page>
 	<div id = "mid">
 		<p>
-			<label><?php echo $row['first_name'];?></label>
+			<label class = "dataName">First Name</label><br>
+			<label class = "dataInfo"><?php echo $row['first_name'];?></label>
 		</p>
 		<p>
-			<label><?php echo $row['middle_name'];?></label>
+			<label class = "dataName">Middle Name</label><br>
+			<label class = "dataInfo"><?php echo $row['middle_name'];?></label>
 		</p>
 		<p>
-			<label><?php echo $row['last_name'];?></label>
+			<label class = "dataName">Last Name</label><br>
+			<label class = "dataInfo"><?php echo $row['last_name'];?></label>
 		</p>
 		<p>
-			<label><?php echo $row['gender'];?></label>
+			<label class = "dataName">Gender</label><br>
+			<label class = "dataInfo"><?php echo $row['gender'];?></label>
 		</p>
 		<p>
-			<label><?php echo $row['date_of_birth'];?></label>
+			<label class = "dataName">Date of Birth</label><br>
+			<label class = "dataInfo"><?php echo $row['date_of_birth'];?></label>
 		</p>
 		<p>
-			<label><?php echo $row['email'];?></label>
+			<label class = "dataName">E-mail</label><br>
+			<label class = "dataInfo"><?php echo $row['email'];?></label>
 		</p>
 		<p>
-			<label><?php echo $row['home_phone_number'];?></label>
+			<label class = "dataName">Home Phone Number</label><br>
+			<label class = "dataInfo"><?php echo $row['home_phone_number'];?></label>
 		</p>
 		<p>
-			<label><?php echo $row['cell_phone_number'];?></label>
+			<label class = "dataName">Cell Phone Number</label><br>
+			<label class = "dataInfo"><?php echo $row['cell_phone_number'];?></label>
 		</p>
 		<p>
-			<label><?php echo $row['street_1'];?></label>
+			<label class = "dataName">Street Address 1</label><br>
+			<label class = "dataInfo"><?php echo $row['street_1'];?></label>
 		</p>
 		<p>
-			<label><?php echo $row['street_2'];?></label>
+			<label class = "dataName">Street Address 2</label><br>
+			<label class = "dataInfo"><?php echo $row['street_2'];?></label>
 		</p>
 		<p>
-			<label><?php echo $row['city'];?></label>
+			<label class = "dataName">City</label><br>
+			<label class = "dataInfo"><?php echo $row['city'];?></label>
 		</p>
 		<p>
-			<label><?php echo $row['state'];?></label>
+			<label class = "dataName">State</label><br>
+			<label class = "dataInfo"><?php echo $row['state'];?></label>
 		</p>
 		<p>
-			<label><?php echo $row['zip_code'];?></label>
+			<label class = "dataName">Zip Code</label><br>
+			<label class = "dataInfo"><?php echo $row['zip_code'];?></label>
 		</p>
 		<p>
-			<label><?php echo $row['country'];?></label>
+			<label class = "dataName">Country</label><br>
+			<label class = "dataInfo"><?php echo $row['country'];?></label>
 		</p>
 		
 	</div>
