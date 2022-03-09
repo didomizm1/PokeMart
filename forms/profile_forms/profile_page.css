@@ -5,6 +5,12 @@ body
     background-position: 0px -552px;  
     background-attachment: fixed;        
 }
+#header
+{
+    font-size: 50px;
+    color: rgb(0, 204, 255);
+    text-shadow: 2px 2px rgb(0,0,0);
+}
 #mid
 { 
     background: rgba(250, 102, 255, 0.5);
@@ -28,7 +34,7 @@ body
 
 .dataName
 {
-    font-size: 50px;
+    font-size: 40px;
     color: rgb(255, 123, 0);
     text-shadow: 2px 2px rgb(0,0,0);
 }
