@@ -32,21 +32,23 @@ function filterTable($query)
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Customer Item Search</title>
-        <h1>Customer Item Search</h1>
+        <title>Customer Shopping</title>
+       <!-- <h1>PokéMart Store!</h1>-->
 
 	    <link rel = "stylesheet" href = "customer_shopping.css">
 
     </head>
-    <body>
-        <div class="ShoppingCart">
-        <form>
+    <div class="ShoppingCart">
         <form action="shopping_cart.php" method="post">
             <h2>Shopping Cart</h2>
-            <p>Items In Cart: <?php echo $row['number_of_items'];?></p>
+            <p>Items In Cart: "></p>
         </form>
         </div>
-        
+    <body>
+        <a href = "../home_page/index.php">
+			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart" width="300"> 
+        </a>
+
         <form action="customer_shopping.php" method="post">
             <input type="text" name="valueToSearch" placeholder="Search"><br><br>
             <input type="submit" name="submit" value="Filter"><br><br>
