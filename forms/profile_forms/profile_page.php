@@ -28,6 +28,7 @@
 
 	<!Center of the page>
 	<div id = "mid">
+		<h1 id = "header">Profile Page</h1>
 		<p>
 			<label class = "dataName">First Name</label><br>
 			<label class = "dataInfo"><?php echo $row['first_name'];?></label>
