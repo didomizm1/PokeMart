@@ -8,7 +8,7 @@ if(isset($_POST['submit']))
 	$info=$_POST['info'];
 	$update=$_POST['update'];
 
-	//setup query
+	//setup query to update specific data for a vendor
 	$query="UPDATE vendors SET $info='$update' WHERE vendor_name='$vendor_name'";
 
 	//execute query
