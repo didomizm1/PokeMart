@@ -1,8 +1,9 @@
 <?php
-
+   //connect w/data base 
+ echo "No saved Payments";
+  
 if (isset($_POST['submit']))
 {
-    //connect w/data base 
   include_once('../connect_mysql.php');
   $card_holder_name=$_POST['card_holder_name'];
   $query = "SELECT 'card_holder_name' FROM `card_info` WHERE `card_holder_name` = $card_holder_name";

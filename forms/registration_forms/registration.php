@@ -49,6 +49,12 @@ if(isset($_POST['submit']))
     VALUES ((SELECT `CPID` FROM `customer_profile` WHERE `UPID` = '$UPID'),'0','0')";
 
     mysqli_query($dbconn, $query4) or die("Couldn't execute profile data query\n");
+
+    //prepare new user's wishlist
+    $query5 = "INSERT INTO `wishlist` (`CPID`, `number_of_items`, `total_price`)
+    VALUES ((SELECT `CPID` FROM `customer_profile` WHERE `UPID` = '$UPID'),'0','0')";
+
+    mysqli_query($dbconn, $query5) or die("Couldn't execute profile data query\n");
     
     //send user to the login page
     header("Location: ../login_forms/login.html");

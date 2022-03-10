@@ -30,13 +30,50 @@ if(isset($_POST['submit']))
                 mysqli_query($dbconn, $updatePassQuery) or die("Couldn't execute query\n");
             }
 
-            //start new session and save ULID
+            //save info to login log
+
+            //start new session
             session_start();
             
-            $userIDQuery = "SELECT `ULID` FROM `user_login` WHERE `username` = '".$_POST['username']."'";
-            $userIDResult = mysqli_query($dbconn, $userIDQuery) or die("Couldn't execute query\n");
-            $row = $userIDResult->fetch_array(MYSQLI_ASSOC);
-            $_SESSION['ULID'] = $row['ULID'];
+            //save ULID in the session
+            $ULIDQuery = "SELECT `ULID` FROM `user_login` WHERE `username` = '".$_POST['username']."'";
+            $ULIDResult = mysqli_query($dbconn, $ULIDQuery) or die("Couldn't execute query\n");
+            $row1 = $ULIDResult->fetch_array(MYSQLI_ASSOC);
+            $_SESSION['ULID'] = $row1['ULID'];
+
+            //save UPID and user_role_type in the session
+            $UPIDQuery = "SELECT `UPID`, `user_role_type` FROM `user_profile` WHERE `ULID` = '".$_SESSION['ULID']."'";
+            $UPIDResult = mysqli_query($dbconn, $UPIDQuery) or die("Couldn't execute query\n");
+            $row2 = $UPIDResult->fetch_array(MYSQLI_ASSOC);
+            $_SESSION['UPID'] = $row2['UPID'];
+            $_SESSION['user_role_type'] = $row2['user_role_type'];
+
+            //save CPID in the session
+            $CPIDQuery = "SELECT `CPID` FROM `customer_profile` WHERE `UPID` = '".$_SESSION['UPID']."'";
+            $CPIDResult = mysqli_query($dbconn, $CPIDQuery) or die("Couldn't execute query\n");
+            $row3 = $CPIDResult->fetch_array(MYSQLI_ASSOC);
+            $_SESSION['CPID'] = $row3['CPID'];
+
+            //save SCID in the session
+            $SCIDQuery = "SELECT `SCID` FROM `shopping_cart` WHERE `CPID` = '".$_SESSION['CPID']."'";
+            $SCIDResult = mysqli_query($dbconn, $SCIDQuery) or die("Couldn't execute query\n");
+            $row4 = $SCIDResult->fetch_array(MYSQLI_ASSOC);
+            $_SESSION['SCID'] = $row4['SCID'];
+
+            //save WLID in the session
+            $WIDQuery = "SELECT `WID` FROM `wishlist` WHERE `CPID` = '".$_SESSION['CPID']."'";
+            $WIDResult = mysqli_query($dbconn, $WIDQuery) or die("Couldn't execute query\n");
+            $row5 = $WIDResult->fetch_array(MYSQLI_ASSOC);
+            $_SESSION['WID'] = $row5['WID'];
+
+            //save EPID  in the session only if user is an employee
+            if($_SESSION['user_role_type'] > 0)
+            {
+                $EPIDQuery = "SELECT `EPID` FROM `employee_profile` WHERE `UPID` = '".$_SESSION['UPID']."'";
+                $EPIDResult = mysqli_query($dbconn, $EPIDQuery) or die("Couldn't execute query\n");
+                $row6 = $EPIDResult->fetch_array(MYSQLI_ASSOC);
+                $_SESSION['EPID'] = $row6['EPID'];
+            }
 
             //send user to the home page
             header("Location: ../home_page/index.php");

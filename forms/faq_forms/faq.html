@@ -1,52 +1,76 @@
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-       <title>FAQs</title>
-       <link rel="stylesheet" href="./style.css"/>
-    </head>
-    <body>
-        <section>
-            <h2 class="title">FAQs </h2></h2>
-            <div class="faq">
-            <div class="question">
-                <h3>What is PokeMart</h3> 
-                <svg width="15" height="18" viewBox="0 0 42 25">
-                    <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round"/>
-                </svg>
-            </div>
-            <div class="answer">
-              <p>
-                A Poké Mart is a place where the player can buy items for their Pokémon. It has people to talk to who can give hints on some of the items.
-              </p>  
-            </div>
-            <div class="faq">
-                <div class="question">
-                    <h3>What Items are available in PokeMart</h3> 
-                    <svg width="15" height="18" viewBox="0 0 42 25">
-                        <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round"/>
-                    </svg>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no , initial=1.0, maximum-scale=1.0 , minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>FAQs</title>
+        <link href="https://unpkg.com/ionicon@4.5.10-0/dist/css/ionicon.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="faqstyles.css">
+</head>
+<body>
+    <section>
+        <div class="container">
+            <div class="accordion">
+                <div class="accordion-item" id="question1">
+                    <a class="accordion-link" href="#question1"></a>
+                   <a href="#question1">
+                       What Is Pokemart?
+                       <i class="icon ion-md-add"></i>
+                       <i class="icon ion-md-remove"></i>
+                   </a> 
+                   <div class="answer">
+                     <p>
+                        A Poké Mart is a place where the player can buy items for their Pokémon. 
+                     </p>  
+                   
+                   </div>
                 </div>
-                <div class="answer">
-                  <p>
-                   Some of the Items that are available are Pokeballs, Full Heal, Antidote,and Revive
-                  </p>  
-                </div>
-                <div class="faq">
-                    <div class="question">
-                        <h3>Can You order Items Online </h3> 
-                        <svg width="15" height="18" viewBox="0 0 42 25">
-                            <path d="M3 3L21 21L39 3" stroke="white" stroke-width="7" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <div class="answer">
-                      <p>
-                       Yes, you can order items for your Pokemon online at our website. 
-                      </p>  
-                    </div>
-         
 
-        </section>
-        <script src="./app.js"></script>
-    </body>
+                <div class="accordion-item" id="question2">
+                    <a class="accordion-link" href="#question2"></a>
+                   <a href="#question1">
+                       What Items Are Available At PokeMart?
+                       <i class="icon-md-add"></i>
+                       <i class="icon-md-remove"></i>
+                   </a> 
+                   <div class="answer">
+                    <p>
+                        A Poké Mart is a place where the player can buy items for their Pokémon. 
+                     </p>  
+                   </div>
+                </div>
+
+                <div class="accordion-item" id="question3">
+                    <a class="accordion-link" href="#question3"></a>
+                   <a href="#question1">
+                       Can You Get A Refund After Buying A Item From PokeMart?
+                       <i class="icon-md-add"></i>
+                       <i class="icon-md-remove"></i>
+                   </a> 
+                   <div class="answer">
+                    <p>
+                        A Poké Mart is a place where the player can buy items for their Pokémon. 
+                     </p>   
+                   </div>
+                </div>
+
+                <div class="accordion-item" id="question4">
+                    <a class="accordion-link" href="#question4"></a>
+                   <a href="#question1">
+                       What To Do If Your Pokemon Is Injured?
+                       <i class="icon-md-add"></i>
+                       <i class="icon-md-remove"></i>
+                   </a> 
+                   <div class="answer">
+                    <p>
+                        A Poké Mart is a place where the player can buy items for their Pokémon. 
+                     </p>  
+                   </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
 </html>
