@@ -33,7 +33,7 @@
 			Home
 		</a><br><br><br><br><br>
 
-		<!Determine if links should be displayed based upon login status>
+		<!Determine if links should be displayed based upon login status and employee status>
 		<?php
 			if(!(isset($_SESSION['ULID'])))
 			{
@@ -52,6 +52,16 @@
 				<a href = "../profile_forms/profile_page.php" class = "link">
 					Profile
 				</a><br><br><br><br><br>
+		<?php
+				if($_SESSION['user_role_type'] > 0)
+				{
+		?>
+					<a href = "../employee_forms/employee_hub.php" class = "link">
+						Employee Hub
+					</a><br><br><br><br><br>
+		<?php
+				}
+		?>
 				<a href = "../login_forms/logout.php" class = "link">
 					Log Out
 				</a><br><br><br><br><br>
