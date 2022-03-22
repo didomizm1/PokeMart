@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html>
     <head>
-
-        <a href = "../home_page/index.php">
-			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart" width = "300"> </a>
-
-        <title>Shopping Cart</title>
+        <title>Shopping Cart Test</title>
        <!-- <h1>PokéMart Store!</h1>-->
-        <h1>Shopping Cart</h1>
+
 	    <link rel = "stylesheet" href = "shopping_cart.css">
 
     </head>
-  
     <body>
-        
+        <a href = "../home_page/index.php">
+			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart" width="300"> 
+        </a>
+
         <form action="shopping_cart.php" method="post">
             <table>
                 <tr>
                     <th>Product ID</th>
                     <th>Item Name</th>
-                    <th>Quantity</th>
                     <th>Price</th>
+                    <th>Quantity</th>
                 </tr>
 
       <!-- populate table from mysql database -->
@@ -28,19 +26,12 @@
                 <tr>
                     <td><?php echo $row['IID'];?></td>
                     <td><?php echo $row['item_name'];?></td>
-                    <td><?php echo $row['quantity'];?></td>
                     <td><?php echo $row['selling_price'];?></td>
-                    <td>
-                    </td>
+                    <td><?php echo $row['quantity'];?></td>
                 </tr>
                 <?php endwhile;?>
             </table>
         </form>
-
-        <div class="cartTotal">
-            Cart total = $100
-            
-        </div>
-    
+        
     </body>
 </html>

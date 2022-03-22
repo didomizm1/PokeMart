@@ -23,7 +23,7 @@ if(isset($_POST['submit']))
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Shopping Cart Test/title>
+        <title>Shopping Cart Test</title>
        <!-- <h1>PokéMart Store!</h1>-->
 
 	    <link rel = "stylesheet" href = "shopping_cart.css">
