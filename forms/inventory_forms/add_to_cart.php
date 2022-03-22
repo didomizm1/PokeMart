@@ -8,12 +8,13 @@ require_once('../session.php');
 
 //get user profile data associated with logged in user
 $SCID = $_SESSION['SCID'];
+$IID=$_POST['IID'];
 $quantity=$_POST['quantity'];
 
-if(isset($_POST['add']))
+if(isset($_POST['submit']))
 {
    
-    //query
+    //queries 
     $query1="INSERT INTO cart_item (IID) FROM inventory WHERE IID = '$IID'";
     $query2="INSERT INTO cart_item (SCID) FROM shopping_cart WHERE SCID = '$SCID'";
     $query3="INSERT INTO cart_item (quantity) VALUES ('$quantity)";

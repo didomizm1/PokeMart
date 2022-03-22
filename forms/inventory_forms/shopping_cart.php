@@ -12,7 +12,8 @@ if(isset($_POST['submit']))
 {
    
     $query ="SELECT * FROM cart_item WHERE SCID = '$SCID'";
-    $search_result = filterTable($query);
+    $query2 = "SELECT * FROM inventory WHERE cart_item (IID) = inventory (IID) AND cart_item (SCID) = '$SCID'";
+    $search_result = filterTable($query2);
     
 }
 
@@ -34,17 +35,12 @@ if(isset($_POST['submit']))
         </a>
 
         <form action="shopping_cart.php" method="post">
-            <input type="text" name="valueToSearch" placeholder="Search"><br><br>
-            <input type="submit" name="submit" value="Filter"><br><br>
-            
             <table>
                 <tr>
                     <th>Product ID</th>
                     <th>Item Name</th>
-                    <th>Japanese Item Name</th>
-                    <th>Type</th>
-                    <th>Description</th>
                     <th>Price</th>
+                    <th>Quantity</th>
                 </tr>
 
       <!-- populate table from mysql database -->
@@ -52,10 +48,8 @@ if(isset($_POST['submit']))
                 <tr>
                     <td><?php echo $row['IID'];?></td>
                     <td><?php echo $row['item_name'];?></td>
-                    <td><?php echo $row['japanese_item_name'];?></td>
-                    <td><?php echo $row['item_type'];?></td>
-                    <td><?php echo $row['item_description'];?></td>
                     <td><?php echo $row['selling_price'];?></td>
+                    <td><?php echo $row['quantity'];?></td>
                 </tr>
                 <?php endwhile;?>
             </table>

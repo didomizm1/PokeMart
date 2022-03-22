@@ -72,10 +72,8 @@ function filterTable($query)
                     <td><?php echo $row['item_type'];?></td>
                     <td><?php echo $row['item_description'];?></td>
                     <td><?php echo $row['selling_price'];?></td>
-                    <td>
-                    <form>
                     <form action="add_to_cart.php" method="post">
-                    <input type="submit" name="add" value="Add to Cart">
+                    <input type="submit" name="submit" value="Add to Cart">
                     </form>
                     </td>
                 </tr>
