@@ -1,5 +1,5 @@
 <?php
-//add_to_cart.php
+//remove_from_cart.php
 
 //connect to database
 include_once('../connect_mysql.php');
@@ -14,14 +14,14 @@ $quantity=$_POST['quantity'];
 if(isset($_POST['submit']))
 {
     //queries 
-    $query1="INSERT INTO cart_item (IID) FROM inventory WHERE IID = '$IID'";
-    $query2="INSERT INTO cart_item (SCID) FROM shopping_cart WHERE SCID = '$SCID'";
-    $query3="INSERT INTO cart_item (quantity) VALUES ('$quantity)";
+    $query1="DELETE FROM cart_item (IID) FROM inventory WHERE IID = '$IID'";
+    $query2="DELETE FROM cart_item (SCID) FROM shopping_cart WHERE SCID = '$SCID'";
+    $query3="DELETE FROM cart_item (quantity) VALUES ('$quantity)";
 
     //execute queries
     if($dbconn->query($query1 && $query2 && $query3)==TRUE)
     {
-        echo nl2br("Item added to cart successfully\n");
+        echo nl2br("Item deleted from cart successfully\n");
     }
    
     else
