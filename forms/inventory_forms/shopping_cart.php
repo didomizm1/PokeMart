@@ -11,8 +11,12 @@ $SCID = $_SESSION['SCID'];
 if(isset($_POST['submit']))
 {
     $query ="SELECT * FROM cart_item WHERE SCID = '$SCID'";
-    $query2 = "SELECT * FROM inventory WHERE inventory (IID) = cart_item (IID)";
-    //cart_item (SCID) = '$SCID'";
+    $result = mysqli_query($connect, $query);
+    while($row = $result->fetch_array(MYSQLI_ASSOC))
+    {
+        $IID = $row['IID'];
+        $query2 = "SELECT * FROM inventory WHERE IID = '$IID'";
+    }
     $search_result = filterTable($query2);
 }
 
