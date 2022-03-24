@@ -10,8 +10,9 @@ $SCID = $_SESSION['SCID'];
 
 if(isset($_POST['submit']))
 {
-    //$query ="SELECT * FROM cart_item WHERE SCID = '$SCID'";
-    $query2 = "SELECT * FROM cart_item WHERE cart_item (SCID) = '$SCID'";
+    $query ="SELECT * FROM cart_item WHERE SCID = '$SCID'";
+    $query2 = "SELECT * FROM inventory WHERE inventory (IID) = cart_item (IID)";
+    //cart_item (SCID) = '$SCID'";
     $search_result = filterTable($query2);
 }
 
