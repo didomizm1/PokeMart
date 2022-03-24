@@ -14,6 +14,11 @@ if(isset($_POST['submit']))
     $query2 = "SELECT * FROM inventory WHERE cart_item (IID) = inventory (IID) AND cart_item (SCID) = '$SCID'";
     $search_result = filterTable($query2);
 }
+else 
+{
+   $query2 = "SELECT * FROM cart_item (IID) = inventory (IID)";
+   $search_result = filterTable($query2);
+}
 
 function filterTable($query2)
 {
