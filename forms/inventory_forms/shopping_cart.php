@@ -10,9 +10,18 @@ $SCID = $_SESSION['SCID'];
 
 if(isset($_POST['submit']))
 {
-    //$query ="SELECT * FROM cart_item WHERE SCID = '$SCID'";
-    $query2 = "SELECT * FROM inventory WHERE cart_item (IID) = inventory (IID) AND cart_item (SCID) = '$SCID'";
+    $query ="SELECT * FROM cart_item WHERE SCID = '$SCID'";
+    $query2 = "SELECT * FROM inventory WHERE inventory (IID) = cart_item (IID)";
+    //cart_item (SCID) = '$SCID'";
     $search_result = filterTable($query2);
+}
+
+function filterTable($query2)
+{
+    $connect = mysqli_connect("localhost","root","","pokemart_db");
+    //$connect = include_once('connect_mysql.php');
+    $filter_Result = mysqli_query($connect, $query2);
+    return $filter_Result;
 }
 
 
