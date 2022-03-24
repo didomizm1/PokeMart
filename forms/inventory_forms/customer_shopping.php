@@ -73,6 +73,10 @@ function filterTable($query)
                     <td><?php echo $row['item_description'];?></td>
                     <td><?php echo $row['selling_price'];?></td>
                     <form action="add_to_cart.php" method="post">
+                    <!--adding option to change quantity-->
+                    <label> 
+                    <input type = "number" min="0" step="1" name  = "quantity" maxlength = "10" required/>
+                    </label> 
                     <input type="submit" name="submit" value="Add to Cart">
                     </form>
                     </td>

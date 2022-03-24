@@ -47,7 +47,11 @@ if(isset($_POST['submit']))
                     <td><?php echo $row['IID'];?></td>
                     <td><?php echo $row['item_name'];?></td>
                     <td><?php echo $row['selling_price'];?></td>
-                    <td><?php echo $row['quantity'];?></td>
+                    <td><?php echo $row['quantity'];?> 
+                    <label> 
+                    <input type = "number" min="0" step="1" name  = "quantity" maxlength = "10" required/>
+                    </label> <!--adding option to change quantity-->
+                    </td>
                     <form action="remove_from_cart.php" method="post">
                     <input type="submit" name="submit" value="Remove from Cart">
                     </form>
