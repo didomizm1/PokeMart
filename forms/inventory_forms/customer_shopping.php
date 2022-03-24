@@ -2,6 +2,8 @@
 
 //connect to database
 include_once('../connect_mysql.php');
+//session handling
+require_once('../session.php');
 
 if(isset($_POST['submit']))
 {
