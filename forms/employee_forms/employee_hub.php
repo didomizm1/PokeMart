@@ -37,7 +37,7 @@
 			<img id = "employee_inventory" src = "../../img/lnt/employee_inventory.png" alt = "Employee Inventory">
 		</a>
         <a href = "../z_report/lookup_z_report.html">
-			<img id = "z_report" src = "../../img/lnt/z_report.png" alt = "Z-Report">
+			<img id = "z_report" src = "../../img/lnt/z_report2.png" alt = "Z-Report">
 		</a>
 	</div>
 
