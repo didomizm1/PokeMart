@@ -3,7 +3,7 @@
 //connect to database
 include_once('../connect_mysql.php');
 //session handling
-require_once('../session.php');
+//require_once('../session.php');
 
 if(isset($_POST['submit']))
 {
@@ -11,22 +11,13 @@ if(isset($_POST['submit']))
     // search in all table columns
     // using concat mysql function
     $query = "SELECT * FROM `inventory` WHERE CONCAT(`IID`, `item_name`, `japanese_item_name`, `selling_price`) LIKE '%".$valueToSearch."%'";
-    $search_result = filterTable($query);
+    $result = mysqli_query($dbconn, $query);
     
 }
- else 
- {
-    $query = "SELECT * FROM `inventory`";
-    $search_result = filterTable($query);
-}
-
-// function to connect and execute the query
-function filterTable($query)
+else 
 {
-    $connect = mysqli_connect("localhost","root","","pokemart_db");
-    //$connect = include_once('connect_mysql.php');
-    $filter_Result = mysqli_query($connect, $query);
-    return $filter_Result;
+    $query = "SELECT * FROM `inventory`";
+    $result = mysqli_query($dbconn, $query);
 }
 
 ?>
@@ -66,7 +57,7 @@ function filterTable($query)
                 </tr>
 
       <!-- populate table from mysql database -->
-                <?php while($row = mysqli_fetch_array($search_result)):?>
+                <?php while($row = mysqli_fetch_array($result)):?>
                 <tr>
                     <td><?php echo $row['IID'];?></td>
                     <td><?php echo $row['item_name'];?></td>

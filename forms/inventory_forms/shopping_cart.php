@@ -20,21 +20,7 @@ if(isset($_POST['submit']))
         $search_result = mysqli_query($dbconn, $query2);
         $row2 = $search_result->fetch_array(MYSQLI_ASSOC);
     }
-   // $search_result = filterTable($query2);
 }
-
-/*
-function filterTable($query2)
-{
-    $connect = mysqli_connect("localhost","root","","pokemart_db");
-    //$connect = include_once('connect_mysql.php');
-    $filter_Result = mysqli_query($connect, $query2);
-    return $filter_Result;
-}
-*/
-
-
-
 ?>
 
 <!DOCTYPE html>
