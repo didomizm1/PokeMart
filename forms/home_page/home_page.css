@@ -1,20 +1,19 @@
 body
 {   
-    background-image: url("../../img/lnt/poke_mart_background.jpg");
-    background-size: 100%;
-    background-position: 0px -212px;
-    background-attachment: fixed;          
+    background: url("../../img/lnt/home_page_background.gif") no-repeat center center fixed;
+    background-size: 100% 100%;          
 }
 
 #mid
 { 
     user-select: none;
     position: fixed;
-    left: -10px;
+    left: 50px;
     top: 250px;
-    font-size: 190px;
-    font-family: 'Courier New', Courier, monospace;
-    color: rgb(255, 255, 255);
+    font-size: 175px;
+    font-family:monospace;
+    font-weight: bold;
+    color: rgb(0, 255, 255);
     text-shadow: 3px 3px rgb(0, 0, 0);
     text-align: center;
 }
