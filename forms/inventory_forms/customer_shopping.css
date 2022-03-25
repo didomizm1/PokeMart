@@ -8,7 +8,7 @@ h1
 }
 body
 {      
-    background: linear-gradient(rgba(122, 122, 122, 0.5), rgba(122, 122, 122, 0.5)), url("../../img/int/unknown.png"); 
+    background: linear-gradient(rgba(122, 122, 122, 0.5), rgba(122, 122, 122, 0.5)), url("../../img/int/inventory_background.png"); 
     background-size: 100%;
     /*background-attachment: fixed;*/
 }
