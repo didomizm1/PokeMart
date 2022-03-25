@@ -33,7 +33,7 @@
                 </tr>
 
       <!-- populate table from mysql database -->
-                <?php while($row = mysqli_fetch_array($search_result)):?>
+                <?php while($row = mysqli_fetch_array($result)):?>
                 <tr>
                     <td><?php echo $row['IID'];?></td>
                     <td><?php echo $row['item_name'];?></td>
@@ -41,10 +41,17 @@
                     <td><?php echo $row['item_type'];?></td>
                     <td><?php echo $row['item_description'];?></td>
                     <td><?php echo $row['selling_price'];?></td>
-                    <td>
-                    <form>
                     <form action="add_to_cart.php" method="post">
-                    <input type="submit" name="add" value="Add to Cart">
+                    
+                    <!--adding option to change quantity-->
+                    <td>
+                    <label> 
+                    <input type = "number" min="0" step="1" name  = "quantity" maxlength = "10" required/>
+                    </label> 
+                    </td>
+                    
+                    <td>
+                    <input type="submit" name="submit" value="Add to Cart">
                     </form>
                     </td>
                 </tr>
