@@ -1,3 +1,26 @@
+<?php
+
+//connect to database
+include_once('../connect_mysql.php');
+//session handling
+//require_once('../session.php');
+
+if(isset($_POST['submit']))
+{
+    $valueToSearch = $_POST['valueToSearch'];
+    // search in all table columns
+    // using concat mysql function
+    $query = "SELECT * FROM `inventory` WHERE CONCAT(`IID`, `item_name`, `japanese_item_name`, `selling_price`) LIKE '%".$valueToSearch."%'";
+    $result = mysqli_query($dbconn, $query);
+    
+}
+else 
+{
+    $query = "SELECT * FROM `inventory`";
+    $result = mysqli_query($dbconn, $query);
+}
+
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,7 +43,7 @@
 			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart" width="300"> 
         </a>
 
-        <form action="customer_shopping2.php" method="post">
+        <form action="customer_shopping.php" method="post">
             <input type="text" name="valueToSearch" placeholder="Search"><br><br>
             <input type="submit" name="submit" value="Filter"><br><br>
             
@@ -36,7 +59,7 @@
 
       <!-- populate table from mysql database -->
                 <?php
-                include_once('customer_shopping2.php'); 
+                include_once('customer_shopping.php'); 
                 while($row = mysqli_fetch_array($result)):?>
                 <tr>
                     <td><?php echo $row['IID'];?></td>
