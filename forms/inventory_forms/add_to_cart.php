@@ -11,7 +11,7 @@ $SCID = $_SESSION['SCID'];
 $IID=$_POST['IID'];
 $quantity=$_POST['quantity'];
 
-if(isset($_POST['submit']))
+if(isset($_POST['add']))
 {
     //queries 
     $query1="INSERT INTO cart_item (IID) FROM inventory WHERE IID = '$IID'";
