@@ -2,13 +2,11 @@ body
 {   
     background-image: radial-gradient(circle, rgb(0,225,255) 50%, rgb(0, 140, 255) 100%);          
 }
-
 #mid
 {
     pointer-events: none;
     user-select: none;
 }
-
 #logo
 {
     pointer-events: all;
@@ -114,7 +112,6 @@ body
     border-radius: 20px;  
     padding: 7px; 
 }
-
 input[type = text], input[type = password], input[type = date], input[type = email], input[type = tel], select  
 {
     margin: 8px 0;

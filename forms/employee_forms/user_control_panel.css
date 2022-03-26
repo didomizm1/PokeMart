@@ -1,0 +1,17 @@
+body
+{   
+    background: url("../../img/lnt/user_control_panel_background.gif") no-repeat center center fixed;
+    background-size: 100% 100%;         
+}
+#logo
+{
+    position: fixed;
+    left: 0.4%;
+    top: 0.8%;
+    width: 27.25%; 
+}
+#audio
+{
+    position: fixed;
+    bottom: 1%;
+}

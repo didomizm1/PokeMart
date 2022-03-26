@@ -15,9 +15,15 @@ body
     text-shadow: 3px 3px rgb(0,0,0);
     text-align: center;
 }
-#footer
+#logo
 {
     position: fixed;
-    left: 10px;
-    bottom: 10px;
+    left: 0.4%;
+    top: 0.8%;
+    width: 27.25%; 
+}
+#audio
+{
+    position: fixed;
+    bottom: 1%;
 }

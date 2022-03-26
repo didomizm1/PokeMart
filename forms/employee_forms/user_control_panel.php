@@ -14,7 +14,7 @@
 <body>
 	<!Top of the page>
 	<div id = "header">
-		<a href = "index.php">
+		<a href = "../home_page/index.php">
 			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart">
 		</a>
 	</div>

@@ -11,25 +11,29 @@ body
 }
 #mid
 { 
-    background: rgba(250, 102, 255, 0.5);
-    border: solid rgb(248, 28, 94) 25px;  
-    width:25%;  
-    border-radius: 50px;  
-    margin: 120px auto;    
+    background: rgba(63, 146, 255, 0.75);
+    border: solid rgb(87, 28, 248) 25px;
+    width: 25%;  
+    border-radius: 50px;
+    margin: 240px auto;        
     padding: 50px;
 
     user-select: none;
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
-    
 }
-#footer
+#logo
 {
     position: fixed;
-    left: 10px;
-    bottom: 10px;
+    left: 0.4%;
+    top: 0.8%;
+    width: 27.25%; 
 }
-
+#audio
+{
+    position: fixed;
+    bottom: 1%;
+}
 .dataName
 {
     font-size: 40px;

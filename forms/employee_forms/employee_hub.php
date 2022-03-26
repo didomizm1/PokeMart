@@ -14,7 +14,7 @@
 <body>
 	<!Top of the page>
 	<div id = "header">
-		<a href = "index.php">
+		<a href = "../home_page/index.php">
 			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart">
 		</a>
 	</div>
@@ -25,19 +25,19 @@
 
         <!Links to various employee pages>
 		<a href = "employee_profile.php">
-			<img id = "employee_profile" src = "../../img/lnt/employee_profile.png" alt = "Employee Profile">
+			<img class = "linkButton" id = "employee_profile" src = "../../img/lnt/employee_profile.png" alt = "Employee Profile">
 		</a>
         <a href = "user_control_panel.php">
-			<img id = "user_control_panel" src = "../../img/lnt/user_control_panel.png" alt = "User Control Panel">
+			<img class = "linkButton" id = "user_control_panel" src = "../../img/lnt/user_control_panel.png" alt = "User Control Panel">
 		</a>
         <a href = "../vendor_forms/vendor_page.html">
-			<img id = "vendors" src = "../../img/lnt/vendors2.png" alt = "Vendors">
+			<img class = "linkButton" id = "vendors" src = "../../img/lnt/vendors2.png" alt = "Vendors">
 		</a>
-        <a href = "../inventory_forms/employee_inventory.html">
-			<img id = "employee_inventory" src = "../../img/lnt/employee_inventory.png" alt = "Employee Inventory">
+        <a href = "../inventory_forms/employee_inventory.php">
+			<img class = "linkButton" id = "employee_inventory" src = "../../img/lnt/employee_inventory.png" alt = "Employee Inventory">
 		</a>
         <a href = "../z_report/lookup_z_report.html">
-			<img id = "z_report" src = "../../img/lnt/z_report2.png" alt = "Z-Report">
+			<img class = "linkButton" id = "z_report" src = "../../img/lnt/z_report2.png" alt = "Z-Report">
 		</a>
 	</div>
 
