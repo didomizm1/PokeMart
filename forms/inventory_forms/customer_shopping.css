@@ -7,16 +7,20 @@ h1
 }
 body
 {      
-    background: linear-gradient(rgba(122, 122, 122, 0.5), rgba(122, 122, 122, 0.5)), url("../../img/lnt/inventory_background.png") no-repeat; 
+    background: url("../../img/lnt/inventory_background.gif") no-repeat; 
     background-size: 100% 100%;
     background-attachment: fixed;
 }
-.logo
+#logo
 {
-    pointer-events: all;
-    z-index: 2;
-    width: 400px;
-    height: auto;
+    position: fixed;
+    left: 0.4%;
+    top: 0.8%;
+    width: 27.25%; 
+}
+#form
+{
+    margin: 15% auto;
 }
 table
 {

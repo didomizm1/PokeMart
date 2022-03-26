@@ -40,10 +40,10 @@ else
         </div>
     <body>
         <a href = "../home_page/index.php">
-			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart" width="300"> 
+			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart"> 
         </a>
 
-        <form action="customer_shopping.php" method="post">
+        <form id = "form" action="customer_shopping.php" method="post">
             <input type="text" name="valueToSearch" placeholder="Search"><br><br>
             <input type="submit" name="submit" value="Filter"><br><br>
             
