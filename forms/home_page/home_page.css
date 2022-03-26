@@ -18,15 +18,16 @@ body
 }
 #sidebar
 {
-    height: 75%;
-    width: 12.67%;
     background-color: rgba(0, 255, 255, 0.5);
-    background-blend-mode: luminosity;
     border: solid rgb(32, 32, 32) 0.75vw;
     border-radius: 50px;
+    padding-block: 1%;
+    padding-inline: 1.5%;
     position: fixed;
     right: -2.5%;
     top: 12.5%;
+    height: 75%;
+    width: 12%;
 }
 #logo
 {
@@ -44,39 +45,39 @@ body
 }
 #home
 {
-    width: 50%;
+    width: 60%;
 }
 #login
 {
-    width: 50%;
+    width: 55%;
 }
 #register
 {
-    width: 75%;
+    width: 55%;
 }
 #profile
 {
-    width: 75%;
+    width: 70%;
 }
 #employee_hub
 {
-    width: 85%;
+    width: 95%;
 }
 #logout
 {
-    width: 75%;
+    width: 80%;
 }
 #shop
 {
-    width: 50%;
+    width: 55%;
 }
 #faq
 {
-    width: 50%;
+    width: 45%;
 }
 #info_page
 {
-    width: 75%;
+    width: 90%;
 }
 #poke_ball
 {
@@ -90,8 +91,7 @@ body
     position: fixed;
     bottom: 1%;
 }
-.link
+.imageLink
 {
-    position: fixed;
-    left: 90%;  
+
 }
