@@ -42,6 +42,42 @@ body
     top: 28%;
     width: 37.5%; 
 }
+#home
+{
+    width: 50%;
+}
+#login
+{
+    width: 50%;
+}
+#register
+{
+    width: 75%;
+}
+#profile
+{
+    width: 75%;
+}
+#employee_hub
+{
+    width: 85%;
+}
+#logout
+{
+    width: 75%;
+}
+#shop
+{
+    width: 50%;
+}
+#faq
+{
+    width: 50%;
+}
+#info_page
+{
+    width: 75%;
+}
 #poke_ball
 {
     position: fixed;
@@ -57,5 +93,5 @@ body
 .link
 {
     position: fixed;
-    left: 90%;
+    left: 90%;  
 }
