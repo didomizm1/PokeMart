@@ -5,13 +5,13 @@ body
 }
 #header
 {
-    font-size: 50px;
-    color: rgb(0, 204, 255);
+    font-size: 60px;
+    color: rgb(0, 238, 255);
     text-shadow: 2px 2px rgb(0,0,0);
 }
 #mid
 { 
-    background: rgba(63, 146, 255, 0.75);
+    background: rgba(63, 146, 255, 0.9);
     border: solid rgb(87, 28, 248) 25px;
     width: 25%;  
     border-radius: 50px;
@@ -21,6 +21,7 @@ body
     user-select: none;
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
 }
 #logo
 {
@@ -37,12 +38,11 @@ body
 .dataName
 {
     font-size: 40px;
-    color: rgb(255, 123, 0);
+    color: rgb(255, 131, 73);
     text-shadow: 2px 2px rgb(0,0,0);
 }
 .dataInfo
 {
-    font-size: 25px;
+    font-size: 30px;
     color: rgb(0, 0, 0);
-    text-shadow: 1px 1px rgb(0,0,0);
 }

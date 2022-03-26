@@ -29,188 +29,185 @@ function filterTable($query)
 <html>
     <head>
         <title>Employee Inventory</title>
-        <a href = "../home_page/index.php"><!-- makes logo link to homepage -->
-  <IMG SRC="../../img/lnt/logo.png" width="300" >
-</a>
-        <h1>Employee Inventory</h1>
         <link rel = "stylesheet" href = "employee_inventory.css">
     </head>
     <body>
-      
-<form action="add_item.php" method="post">
+      <div id = "form">
+        <a href = "../home_page/index.php"><!-- makes logo link to homepage -->
+			    <img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart"> 
+        </a>
+        <h1>Employee Inventory</h1>
+        <form action="add_item.php" method="post">
 
-<!-- Trigger/Open The Modal -->
-<button id="addButton">Add item</button>
+          <!-- Trigger/Open The Modal -->
+          <button id="addButton">Add item</button>
 
-<!-- The Modal -->
-<div id="addModal" class="modal" style="display: none;">
+          <!-- The Modal -->
+          <div id="addModal" class="modal" style="display: none;">
 
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>NEW ITEM ENTRY</h2>
-    <label> * Item Name: 
-		<input type = "text" name  = "item_name" maxlength = "50" required/>
-	</label>
-    <label> Japanese Translation: 
-		<input type = "text" name  = "japanese_item_name" maxlength = "50"/>
-	</label>
-    <label> Item Description: 
-		<input type = "text" name  = "item_description" maxlength = "50"/>
-	</label>
-    <label> Item Type: 
-		<input type = "text" name  = "item_type" maxlength = "50"/>
-	</label>
-    <br>
-    <br>
-    <label> * Vendor ID: 
-		<input type = "number" min="1" step="1" name  = "VID" maxlength = "1" required/>
-	</label>
-    <label> * Selling Price: 
-		<input type = "number" min="0" step="0.01" name  = "selling_price" maxlength = "10" required/>
-	</label>
-    <label> * Cost per unit: 
-		<input type = "number" min="0" step="0.01" name  = "cost" maxlength = "10" required/>
-	</label>
-    <br>
-    <br>
-    <label> In stock: 
-		<input type = "number" name  = "in_stock" maxlength = "10" />
-	</label>
-    <label> * Order amount: 
-		<input type = "number" name  = "reorder_amount" maxlength = "10" required/>
-	</label>
-    <label> * Base stock: 
-		<input type = "number" name  = "base_stock" maxlength = "10" required/>
-	</label>
-    <br>
-    <br>
-    <input type="submit" name = "submit" class = "right">
-  </div>
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <h2>NEW ITEM ENTRY</h2>
+              <label> * Item Name: 
+              <input type = "text" name  = "item_name" maxlength = "50" required/>
+            </label>
+              <label> Japanese Translation: 
+              <input type = "text" name  = "japanese_item_name" maxlength = "50"/>
+            </label>
+              <label> Item Description: 
+              <input type = "text" name  = "item_description" maxlength = "50"/>
+            </label>
+              <label> Item Type: 
+              <input type = "text" name  = "item_type" maxlength = "50"/>
+            </label>
+              <br>
+              <br>
+              <label> * Vendor ID: 
+              <input type = "number" min="1" step="1" name  = "VID" maxlength = "1" required/>
+            </label>
+              <label> * Selling Price: 
+              <input type = "number" min="0" step="0.01" name  = "selling_price" maxlength = "10" required/>
+            </label>
+              <label> * Cost per unit: 
+              <input type = "number" min="0" step="0.01" name  = "cost" maxlength = "10" required/>
+            </label>
+              <br>
+              <br>
+              <label> In stock: 
+              <input type = "number" name  = "in_stock" maxlength = "10" />
+            </label>
+              <label> * Order amount: 
+              <input type = "number" name  = "reorder_amount" maxlength = "10" required/>
+            </label>
+              <label> * Base stock: 
+              <input type = "number" name  = "base_stock" maxlength = "10" required/>
+            </label>
+              <br>
+              <br>
+              <input type="submit" name = "submit" class = "right">
+            </div>
 
-</div>
-<script>
-// Get the modal
-var addModal = document.getElementById("addModal");
+          </div>
+          <script>
+            // Get the modal
+            var addModal = document.getElementById("addModal");
 
-// Get the button that opens the modal
-var btn1 = document.getElementById("addButton");
+            // Get the button that opens the modal
+            var btn1 = document.getElementById("addButton");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks the button, open the modal 
-btn1.onclick = function() {
-  addModal.style.display = "block";
-}
+            // When the user clicks the button, open the modal 
+            btn1.onclick = function() {
+              addModal.style.display = "block";
+            }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  addModal.style.display = "none";
-}
-</script>
-</form>
-<br>
-        
-<form action="delete_item.php" method="post">
-<!-- Trigger/Open The Modal -->
-<button id="deleteButton">Delete item</button>
-<!-- The Modal -->
-<div id="deleteModal" class="modal" style="display: none;">
-<!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2> ITEM DELETE</h2>
-    <label> * Item Name: 
-		<input type = "text" name  = "item_name" maxlength = "50" required/>
-	</label>
-    <label> * IID: 
-		<input type = "number" step="1" name  = "IID" maxlength = "50" required/>
-	</label>
-   <br>
-   <br>
-   <br>
-    <input type="submit" name = submit class = "right">
-  </div>
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+              addModal.style.display = "none";
+            }
+          </script>
+        </form>
+        <br>
+                
+        <form action="delete_item.php" method="post">
+          <!-- Trigger/Open The Modal -->
+          <button id="deleteButton">Delete item</button>
+          <!-- The Modal -->
+          <div id="deleteModal" class="modal" style="display: none;">
+          <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <h2> ITEM DELETE</h2>
+              <label> * Item Name: 
+              <input type = "text" name  = "item_name" maxlength = "50" required/>
+            </label>
+              <label> * IID: 
+              <input type = "number" step="1" name  = "IID" maxlength = "50" required/>
+            </label>
+            <br>
+            <br>
+            <br>
+              <input type="submit" name = submit class = "right">
+            </div>
+          </div>
 
-</div>
+          <script>
+            // Get the modal
+            var deleteModal = document.getElementById("deleteModal");
 
-<script>
-// Get the modal
-var deleteModal = document.getElementById("deleteModal");
+            // Get the button that opens the modal
+            var btn2 = document.getElementById("deleteButton");
 
-// Get the button that opens the modal
-var btn2 = document.getElementById("deleteButton");
+            // Get the <span> element that closes the modal
+            var span2 = document.getElementsByClassName("close")[1];
 
-// Get the <span> element that closes the modal
-var span2 = document.getElementsByClassName("close")[1];
+            // When the user clicks the button, open the modal 
+            btn2.onclick = function() {
+              deleteModal.style.display = "block";
+            }
+            // When the user clicks on <span> (x), close the modal
+            span2.onclick = function() {
+                deleteModal.style.display = "none";
+            }
+          </script>
+        </form>
+        <br>
+                
+        <form action="update_item.php" method="post">
+        <!-- Trigger/Open The Modal -->
+        <button id="updateButton">Update item</button>
+        <!-- The Modal -->
+        <div id="updateModal" class="modal" style="display: none;">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>UPDATE ITEM ENTRY</h2>
+            * Product ID: <input type="text" name="IID" required>
+                <!-- item info selection -->
+            <select id="info" name="info">
+                <option value="item_name">Item name</option>
+                <option value="japanese_item_name">japanese_item_name</option>
+                <option value="item_description">Item description</option>
+                <option value="item_type">Item type</option>
+                <option value="VID">Vendor ID</option>
+                <option value="selling_price">Selling price</option>
+                <option value="cost">Cost per unit</option>
+              <option value="in_Stock">In stock</option>
+              <option value="reorder_amount">Reorder amount</option>
+              <option value="base_stock">Base stock</option>
+            </select>
+            <br>
+            * Updated Information: <input type="text" name="update" required>
+            <br>
+            <br>
+            <input type="submit" name = "submit" value="Update">
+          </div>
+        </div>
 
-// When the user clicks the button, open the modal 
-btn2.onclick = function() {
-  deleteModal.style.display = "block";
-}
-// When the user clicks on <span> (x), close the modal
-span2.onclick = function() {
-    deleteModal.style.display = "none";
-}
-</script>
-</form>
-<br>
-        
-<form action="update_item.php" method="post">
-<!-- Trigger/Open The Modal -->
-<button id="updateButton">Update item</button>
-<!-- The Modal -->
-<div id="updateModal" class="modal" style="display: none;">
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>UPDATE ITEM ENTRY</h2>
-		* Product ID: <input type="text" name="IID" required>
-        <!-- item info selection -->
-		<select id="info" name="info">
-    		<option value="item_name">Item name</option>
-            <option value="japanese_item_name">japanese_item_name</option>
-    		<option value="item_description">Item description</option>
-    		<option value="item_type">Item type</option>
-    		<option value="VID">Vendor ID</option>
-   			<option value="selling_price">Selling price</option>
-   			<option value="cost">Cost per unit</option>
- 			<option value="in_Stock">In stock</option>
- 			<option value="reorder_amount">Reorder amount</option>
- 			<option value="base_stock">Base stock</option>
-  		</select>
-    <br>
-    * Updated Information: <input type="text" name="update" required>
-    <br>
-    <br>
-    <input type="submit" name = "submit" value="Update">
-  </div>
+        <script>
+          // Get the modal
+          var updateModal = document.getElementById("updateModal");
 
-</div>
+          // Get the button that opens the modal
+          var btn3 = document.getElementById("updateButton");
 
-<script>
-// Get the modal
-var updateModal = document.getElementById("updateModal");
+          // Get the <span> element that closes the modal
+          var span3 = document.getElementsByClassName("close")[2];
 
-// Get the button that opens the modal
-var btn3 = document.getElementById("updateButton");
+          // When the user clicks the button, open the modal 
+          btn3.onclick = function() {
+            updateModal.style.display = "block";
+          }
 
-// Get the <span> element that closes the modal
-var span3 = document.getElementsByClassName("close")[2];
-
-// When the user clicks the button, open the modal 
-btn3.onclick = function() {
-  updateModal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span3.onclick = function() {
-  updateModal.style.display = "none";
-}
-</script>
-</form>
-
+          // When the user clicks on <span> (x), close the modal
+          span3.onclick = function() {
+            updateModal.style.display = "none";
+          }
+        </script>
+        </form>
 
         <form action="employee_inventory.php" method="post">
             <br>
@@ -251,5 +248,6 @@ span3.onclick = function() {
                 <?php endwhile;?>
             </table>
         </form>
+      </div>
     </body>
 </html>

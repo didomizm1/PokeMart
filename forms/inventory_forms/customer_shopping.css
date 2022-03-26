@@ -13,14 +13,14 @@ body
 }
 #logo
 {
-    position: fixed;
+    position: absolute;
     left: 0.4%;
     top: 0.8%;
     width: 27.25%; 
 }
 #form
 {
-    margin: 15% auto;
+    margin: 12.5% auto;
 }
 table
 {

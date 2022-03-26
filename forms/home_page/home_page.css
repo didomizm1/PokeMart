@@ -18,14 +18,15 @@ body
 }
 #sidebar
 {
-    height: 100%;
-    width: 10.28%;
+    height: 75%;
+    width: 12.67%;
     background-color: rgba(0, 255, 255, 0.5);
     background-blend-mode: luminosity;
-    border-left: solid rgb(32, 32, 32) 0.75vw;
+    border: solid rgb(32, 32, 32) 0.75vw;
+    border-radius: 50px;
     position: fixed;
-    right: 0%;
-    top: 0%;
+    right: -2.5%;
+    top: 12.5%;
 }
 #logo
 {
@@ -33,6 +34,13 @@ body
     left: 0.4%;
     top: 0.8%;
     width: 27.25%; 
+}
+#welcome
+{
+    position: fixed;
+    left: 28%;
+    top: 28%;
+    width: 37.5%; 
 }
 #poke_ball
 {
@@ -49,14 +57,5 @@ body
 .link
 {
     position: fixed;
-    left: 90.38%;
-    font-size: 45px;
-    font-weight: bold;
-    font-style: italic;
-    text-shadow: 1px 1px rgb(0, 255, 255);
-}
-a:link, a:visited, a:hover, a:active
-{ 
-    color: black;
-    text-decoration: none; 
+    left: 90%;
 }

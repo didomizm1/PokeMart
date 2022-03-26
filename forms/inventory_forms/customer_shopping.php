@@ -42,8 +42,8 @@ else
         <a href = "../home_page/index.php">
 			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart"> 
         </a>
-
         <form id = "form" action="customer_shopping.php" method="post">
+            <h1>Item Shop</h1>
             <input type="text" name="valueToSearch" placeholder="Search"><br><br>
             <input type="submit" name="submit" value="Filter"><br><br>
             

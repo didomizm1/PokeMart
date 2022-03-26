@@ -9,6 +9,17 @@ body
     background-size: 100%;
     background-attachment: fixed;
 }
+#logo
+{
+    position: absolute;
+    left: 0.4%;
+    top: 0.8%;
+    width: 27.25%; 
+}
+#form
+{
+    margin: 12.5% auto;
+}
 
 /* The Modal (background) */
 .modal 

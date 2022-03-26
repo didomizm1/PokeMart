@@ -21,16 +21,14 @@
 
 	<!Center of the page>
 	<div id = "mid">
-		Welcome!
-		<br> 
-		What do you need?
+		<img id = "welcome" src = "../../img/lnt/welcome.png" alt = "Welcome">
 	</div>
 
 	<!Side of the page with links to various pages>
 	<div id = "sidebar">
 		<br><br>
 		<a href = "index.php" class = "link">
-			Home
+			<img id = "home" src = "../../img/lnt/home.png" alt = "Home">
 		</a><br><br><br><br><br>
 
 		<!Determine if links should be displayed based upon login status and employee status>
@@ -39,10 +37,10 @@
 			{
 		?>
 				<a href = "../login_forms/login.html" class = "link">
-					Log In
+					<img id = "login" src = "../../img/lnt/login.png" alt = "Log In">
 				</a><br><br><br><br><br>
 				<a href = "../registration_forms/registration.html" class = "link">
-					Sign Up
+					<img id = "register" src = "../../img/lnt/signup.png" alt = "Sign Up">
 				</a><br><br><br><br><br>
 		<?php
 			}
@@ -50,33 +48,33 @@
 			{	
 		?>
 				<a href = "../profile_forms/profile_page.php" class = "link">
-					Profile
+					<img id = "profile" src = "../../img/lnt/profile.png" alt = "Profile">
 				</a><br><br><br><br><br>
 		<?php
 				if($_SESSION['user_role_type'] > 0)
 				{
 		?>
 					<a href = "../employee_forms/employee_hub.php" class = "link">
-						Employee Hub
+						<img id = "employee_hub" src = "../../img/lnt/employee_hub2.png" alt = "Employee Hub">
 					</a><br><br><br><br><br>
 		<?php
 				}
 		?>
 				<a href = "../login_forms/logout.php" class = "link">
-					Log Out
+					<img id = "logout" src = "../../img/lnt/logout.png" alt = "Log Out">
 				</a><br><br><br><br><br>
 		<?php
 			}
 		?>
 
 		<a href = "../inventory_forms/customer_shopping.php" class = "link">
-			Shop
+			<img id = "shop" src = "../../img/lnt/shop.png" alt = "Shop">
 		</a><br><br><br><br><br>
 		<a href = "../faq_forms/faq.html" class = "link">
-			FAQ
+			<img id = "faq" src = "../../img/lnt/faq.png" alt = "FAQ">
 		</a><br><br><br><br><br>
 		<a href = "info_page.html" class = "link">
-			About Us
+			<img id = "info_page" src = "../../img/lnt/about_us.png" alt = "About Us">
 		</a><br><br><br><br><br>
 	</div>
 
