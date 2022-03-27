@@ -5,7 +5,7 @@ body
 }
 #logo
 {
-    position: fixed;
+    position: absolute;
     left: 0.4%;
     top: 0.8%;
     width: 27.25%; 
@@ -30,7 +30,7 @@ body
 }
 input[type = text], input[type = number], input[type = date], input[type = email], input[type = tel], select  
 {
-    border: 2px solid black;
+    border: 2px solid rgb(255, 0, 85);
 }
 input[type = search]
 {
