@@ -3,27 +3,27 @@
 	require_once('../session.php');
 ?>
 
-<!Connects to employee profile, user control panel, vendors, employee inventory, z-report, etc.>
+<!-- Connects to employee profile, user control panel, vendors, employee inventory, z-report, etc. -->
 <!DOCTYPE html>
 <html>  
 <head>  
     <title>Employee Hub</title>
-	<!Style>
+	<!-- Style -->
 	<link rel = "stylesheet" href = "employee_hub.css">
 </head>  
 <body>
-	<!Top of the page>
+	<!-- Top of the page -->
 	<div id = "header">
 		<a href = "../home_page/index.php">
 			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart">
 		</a>
 	</div>
 
-	<!Center of the page>
+	<!-- Center of the page -->
 	<div id = "mid">
         <img id = "employee_hub" src = "../../img/lnt/employee_hub.png" alt = "Employee Hub">
 
-        <!Links to various employee pages>
+        <!-- Links to various employee pages -->
 		<a href = "employee_profile.php">
 			<img class = "linkButton" id = "employee_profile" src = "../../img/lnt/employee_profile.png" alt = "Employee Profile">
 		</a>
@@ -41,9 +41,9 @@
 		</a>
 	</div>
 
-	<!Bottom of the page>
+	<!-- Bottom of the page -->
 	<div id = "footer">
-		<!Music controls>
+		<!-- Music controls -->
 		<audio id = "audio" src = "../../audio/music/pokemart_soul_silver_theme.mp3" loop controls></audio>
 	</div>
 </body>     

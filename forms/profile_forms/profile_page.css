@@ -13,10 +13,10 @@ body
 { 
     background: rgba(63, 146, 255, 0.9);
     border: solid rgb(87, 28, 248) 25px;
-    width: 25%;  
     border-radius: 50px;
-    margin: 240px auto;        
+    margin: 12.5% auto;        
     padding: 50px;
+    width: 25%;  
 
     user-select: none;
     text-align: center;

@@ -15,18 +15,18 @@
 <html>  
 <head>  
     <title>Profile Page</title>
-	<!Style>
+	<!-- Style -->
 	<link rel = "stylesheet" href = "profile_page.css">
 </head>  
 <body>
-	<!Top of the page>
+	<!-- Top of the page -->
 	<div id = "header">
 		<a href = "../home_page/index.php">
 			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart">
 		</a>
 	</div>
 
-	<!Center of the page>
+	<!-- Center of the page -->
 	<div id = "mid">
 		<h1 id = "header">Profile Page</h1>
 		<p>
@@ -88,9 +88,9 @@
 		
 	</div>
 
-	<!Bottom of the page>
+	<!-- Bottom of the page -->
 	<div id = "footer">
-		<!Music playing on the page>
+		<!-- Music playing on the page -->
 		<audio id = "audio" src = "../../audio/music/pokemart_soul_silver_theme.mp3" loop controls></audio>
 	</div>
 </body>     

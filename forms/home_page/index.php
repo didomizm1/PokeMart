@@ -6,32 +6,32 @@
 <html>  
 <head>  
     <title>Home Page</title>
-	<!Style>
+	<!-- Style -->
 	<link rel = "stylesheet" href = "home_page.css">
-	<!Audio functionality>
+	<!-- Audio functionality -->
 	<script src = "../audio/audio.js"></script>
 </head>  
 <body>
-	<!Top of the page>
+	<!-- Top of the page -->
 	<div id = "header">
 		<a href = "index.php">
 			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart">
 		</a>
 	</div>
 
-	<!Center of the page>
+	<!-- Center of the page -->
 	<div id = "mid">
 		<img id = "welcome" src = "../../img/lnt/welcome.png" alt = "Welcome">
 	</div>
 
-	<!Side of the page with links to various pages>
+	<!-- Side of the page with links to various pages -->
 	<div id = "sidebar">
 		<br>
 		<a href = "index.php">
 			<img id = "home" src = "../../img/lnt/home.png" alt = "Home" class = "imageLink">
 		</a><br><br>
 
-		<!Determine if links should be displayed based upon login status and employee status>
+		<!-- Determine if links should be displayed based upon login status and employee status -->
 		<?php
 			if(!(isset($_SESSION['ULID'])))
 			{
@@ -78,11 +78,11 @@
 		</a><br><br>
 	</div>
 
-	<!Bottom of the page>
+	<!-- Bottom of the page -->
 	<div id = "footer">
-		<!Music playing on the page>
+		<!-- Music playing on the page -->
 		<audio id = "audio" src = "../../audio/music/pokemart_soul_silver_theme.mp3" autoplay loop controls></audio>
-		<!Footer images>
+		<!-- Footer images -->
 		<img id = "poke_ball" src = "../../img/lnt/poke_ball.png" alt = "Poke Ball">
 	</div>
 </body>     

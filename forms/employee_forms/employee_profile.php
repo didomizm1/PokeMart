@@ -3,30 +3,30 @@
 	require_once('../session.php');
 ?>
 
-<!Displays information specific to an employee's profile>
+<!-- Displays information specific to an employee's profile -->
 <!DOCTYPE html>
 <html>  
 <head>  
     <title>Employee Profile Page</title>
-	<!Style>
+	<!-- Style -->
 	<link rel = "stylesheet" href = "employee_profile.css">
 </head>  
 <body>
-	<!Top of the page>
+	<!-- Top of the page -->
 	<div id = "header">
 		<a href = "../home_page/index.php">
 			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart">
 		</a>
 	</div>
 
-	<!Center of the page>
+	<!-- Center of the page -->
 	<div id = "mid">
         
 	</div>
 
-	<!Bottom of the page>
+	<!-- Bottom of the page -->
 	<div id = "footer">
-		<!Music controls>
+		<!-- Music controls -->
 		<audio id = "audio" src = "../../audio/music/pokemart_soul_silver_theme.mp3" loop controls></audio>
 	</div>
 </body>     

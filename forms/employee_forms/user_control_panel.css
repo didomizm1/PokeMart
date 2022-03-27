@@ -10,8 +10,50 @@ body
     top: 0.8%;
     width: 27.25%; 
 }
+#header
+{
+    text-align: center;
+}
+#form
+{  
+    background: rgba(102, 168, 255, 0.9);
+    border: solid rgb(248, 28, 94) 25px;  
+    border-radius: 50px;  
+    margin: 18.31% auto;    
+    padding: 50px;  
+    width: 50%; 
+}
 #audio
 {
     position: fixed;
     bottom: 1%;
+}
+input[type = text], input[type = number], input[type = date], input[type = email], input[type = tel], select  
+{
+    border: 2px solid black;
+}
+input[type = search]
+{
+    background-image: url("../../img/lnt/search_icon.png");
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position: 12px 4.25px;
+    margin: 8px 0;
+    border: 2px solid orange;
+    border-radius: 50px;
+    padding: 0.87% 5% 0.67% 5%;
+    font-size: 16px;
+    width: 100%;
+}
+input[type = text]:focus, input[type = search]:focus, input[type = number]:focus, input[type = date]:focus, input[type = email]:focus, input[type = tel]:focus, select:focus 
+{
+    background-color: #76E8AF;
+}
+.displayInfo
+{
+    margin-left: 20%;
+}
+.enterInfo
+{
+    margin-left: 5%;
 }
