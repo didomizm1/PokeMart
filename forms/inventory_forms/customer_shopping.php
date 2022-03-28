@@ -3,7 +3,7 @@
 //connect to database
 include_once('../connect_mysql.php');
 //session handling
-//require_once('../session.php');
+require_once('../session.php');
 
 if(isset($_POST['submit']))
 {
@@ -42,7 +42,7 @@ else
         <a href = "../home_page/index.php">
 			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart"> 
         </a>
-        <form id = "form" action="customer_shopping.php" method="post">
+        <form id = "form" method="post">
             <h1>Item Shop</h1>
             <input type="text" name="valueToSearch" placeholder="Search"><br><br>
             <input type="submit" name="submit" value="Filter"><br><br>
@@ -60,7 +60,11 @@ else
       <!-- populate table from mysql database -->
                 <?php
                 include_once('customer_shopping.php'); 
-                while($row = mysqli_fetch_array($result)):?>
+                $count = 0;
+                while($row = mysqli_fetch_array($result)):
+                    $count = $count + 1;
+                    $currentName = "add" . $count;
+                ?>
                 <tr>
                     <td><?php echo $row['IID'];?></td>
                     <td><?php echo $row['item_name'];?></td>
@@ -68,17 +72,27 @@ else
                     <td><?php echo $row['item_type'];?></td>
                     <td><?php echo $row['item_description'];?></td>
                     <td><?php echo $row['selling_price'];?></td>
-                    <form action="add_to_cart.php" method="post">
+                    <form method="post">
                     
-                    <!--adding option to change quantity-->
-                    <td>
-                    <label> 
-                    <input type = "number" min="0" step="1" name  = "quantity" maxlength = "10" required/>
-                    </label> 
-                    </td>
-                    
-                    <td>
-                    <input type="submit" name="add" value="Add to Cart">
+                        <!--adding option to change quantity-->
+                        <td>
+                        <label> 
+                        <input type = "number" min="0" step="1" name  = "quantity" maxlength = "10" required/>
+                        </label> 
+                        </td>
+                        
+                        <td>
+                        <input type="submit" name="<?php echo $currentName; ?>" value="Add to Cart">
+                        <?php
+                            if(isset($_POST[$currentName]))
+                            { 
+                                $SCID = $_SESSION['SCID'];
+                                $IID = $row['IID'];
+                                $quantity = $_POST['quantity'];
+                                $query = "INSERT INTO cart_item (IID, SCID, quantity) VALUES ('$IID', '$SCID', '$quantity')";
+                                mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
+                            }
+                        ?>
                     </form>
                     </td>
                 </tr>
