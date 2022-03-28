@@ -4,6 +4,23 @@
 
     //session handling
 	require_once('../session.php');
+
+	//function for updating data
+	function updateData($tableName, $columnName, $newData, $tableID, $thisID, $dbconn)
+	{
+?>
+		<script type = "text/javascript">
+			if(confirm("Are you sure you want to alter this user data?"))
+			{
+				<?php
+					$updateQuery = "UPDATE `$tableName` SET `$columnName` = '$newData' WHERE `$tableID` = '$thisID'"; //update database
+					mysqli_query($dbconn, $updateQuery) or die("Couldn't execute query\n");
+				?>
+				document.getElementById("<?php echo $columnName; ?>").value = "<?php echo $newData; ?>"; //overwrite displayed data with new data
+			}
+		</script>
+<?php 
+	}
 ?>
 
 <!-- Used for employee editing of user profiles -->
@@ -31,18 +48,30 @@
 	<div id = "form">
 		<h1 id = "header">User Control Panel</h1>
 		<h3 id = "header">To search for a user, input their username and press enter</h3>
-		<form method = "POST">
+		<form name = "user_control_panel" method = "POST">
 			<p> <!-- Includes search bar for usernames -->
 				<label> 
-					<input type = "search" name  = "search" minlength = "6" maxlength = "32" pattern = "^[a-zA-Z\d_]+$" placeholder = "Search users..." autofocus required />
+					<input type = "search" name  = "search" minlength = "6" maxlength = "32" pattern = "^[a-zA-Z\d_]+$" placeholder = "Search users..." autofocus />
 					<input type = "submit" name = "searchSubmit" hidden />
 				</label>  
 			</p>
 			<p> <!-- Displays info related to a user and allows for editing -->
 				<?php
-					if(isset($_POST['searchSubmit']))
+					$row1;
+					$row2;
+					$row3;
+					if(isset($_POST['searchSubmit']) || isset($_SESSION['usernameSearch']))
 					{
-						$username = $_POST['search'];
+						$username;
+						if(isset($_POST['searchSubmit'])) //check if a new username has been searched
+						{
+							$username = $_POST['search'];
+							$_SESSION['usernameSearch'] = $username;
+						}
+						else
+						{
+							$username = $_SESSION['usernameSearch'];
+						}
 
 						//get ULID associated with entered username
 						$query1 = "SELECT `ULID` FROM `user_login` WHERE `username` = '$username'";
@@ -56,15 +85,18 @@
 							$result2 = mysqli_query($dbconn, $query2) or die("Couldn't execute query\n");
 							$row2 = $result2->fetch_array(MYSQLI_ASSOC);
 				?>
-							<br><h2 id = "header"><?php echo $username; ?>'s User Data</h2><br>
+							<br><h2 id = "header1"><?php echo $username; ?>'s User Data</h2><br>
 
 							<h3 id = "header">User Info</h3>
 							<p> <!-- Username -->
 								<label class = "displayInfo"> Username:
-									<input type = "text" name = "username" readonly value = "<?php echo $username; ?>" /> 
+									<input type = "text" id = "username" readonly value = "<?php echo $username; ?>" /> 
 								</label>
 								<label class = "enterInfo"> New username:
-									<input type = "text" name = "usernameInput" minlength = "6" maxlength = "32" pattern = "^[a-zA-Z\d_]+$" /> 
+									<input type = "text" name = "usernameInput" minlength = "6" maxlength = "32" pattern = "^[a-zA-Z\d_]+$" title = "Username must be at least 6 characters long and may only contain numbers, letters, and/or underscores." /> 
+								</label>
+								<label class = "submitInfo">
+									<input type = "submit" name = "usernameSubmit" value = "Save" title = "Save new data" />
 								</label>
 							</p>
 
@@ -74,7 +106,7 @@
 									$array = [0 => "Customer", 1 => "Employee", 2 => "Admin", 3 => "Owner"]; 
 								?>
 								<label class = "displayInfo"> User role type:
-									<input type = "text" name = "user_role_type" readonly value = "<?php echo $array[$row2['user_role_type']]; ?>" /> 
+									<input type = "text" id = "user_role_type" readonly value = "<?php echo $array[$row2['user_role_type']]; ?>" /> 
 								</label>
 								<label class = "enterInfo"> New user role type:
 									<select name = "user_role_typeInput">
@@ -89,7 +121,7 @@
 							<h3 id = "header">Personal Details</h3>
 							<p> <!-- First Name -->
 								<label class = "displayInfo"> First name:
-									<input type = "text" name = "first_name" readonly value = "<?php echo $row2['first_name']; ?>" /> 
+									<input type = "text" id = "first_name" readonly value = "<?php echo $row2['first_name']; ?>" /> 
 								</label>
 								<label class = "enterInfo"> New first name:
 									<input type = "text" name = "first_nameInput" maxlength = "50" /> 
@@ -98,7 +130,7 @@
 
 							<p> <!-- Middle Name -->
 								<label class = "displayInfo"> Middle name:
-									<input type = "text" name = "middle_name" readonly value = "<?php echo $row2['middle_name']; ?>" /> 
+									<input type = "text" id = "middle_name" readonly value = "<?php echo $row2['middle_name']; ?>" /> 
 								</label>
 								<label class = "enterInfo"> New middle name:
 									<input type = "text" name = "middle_nameInput" maxlength = "50" /> 
@@ -107,7 +139,7 @@
 
 							<p> <!-- Last Name -->
 								<label class = "displayInfo"> Last name:
-									<input type = "text" name = "last_name" readonly value = "<?php echo $row2['last_name']; ?>" /> 
+									<input type = "text" id = "last_name" readonly value = "<?php echo $row2['last_name']; ?>" /> 
 								</label>
 								<label class = "enterInfo"> New last name:
 									<input type = "text" name = "last_nameInput" maxlength = "50" /> 
@@ -116,7 +148,7 @@
 
 							<p> <!-- Gender -->
 								<label class = "displayInfo"> Gender:
-									<input type = "text" name = "gender" readonly value = "<?php echo $row2['gender']; ?>" /> 
+									<input type = "text" id = "gender" readonly value = "<?php echo $row2['gender']; ?>" /> 
 								</label>
 								<label class = "enterInfo"> New gender:
 									<input type = "radio" name  = "genderInput" value = "Male" /> Male
@@ -128,7 +160,7 @@
 
 							<p> <!-- Date of Birth -->
 								<label class = "displayInfo"> Date of birth:
-									<input type = "text" name = "date_of_birth" readonly value = "<?php echo $row2['date_of_birth']; ?>" /> 
+									<input type = "text" id = "date_of_birth" readonly value = "<?php echo $row2['date_of_birth']; ?>" /> 
 								</label>
 								<label class = "enterInfo"> New date of birth:
 									<input type = "date" name = "date_of_birthInput" maxlength = "50" /> 
@@ -138,7 +170,7 @@
 							<h3 id = "header">Contact Info</h3>
 							<p> <!-- E-mail -->
 								<label class = "displayInfo"> E-mail:
-									<input type = "text" name = "email" readonly value = "<?php echo $row2['email']; ?>" /> 
+									<input type = "text" id = "email" readonly value = "<?php echo $row2['email']; ?>" /> 
 								</label>
 								<label class = "enterInfo"> New e-mail:
 									<input type = "email" name = "emailInput" placeholder = "name@mail.com" maxlength = "100" /> 
@@ -147,7 +179,7 @@
 
 							<p> <!-- Home Phone Number -->
 								<label class = "displayInfo"> Home phone number:
-									<input type = "text" name = "home_phone_number" readonly value = "<?php echo $row2['home_phone_number']; ?>" /> 
+									<input type = "text" id = "home_phone_number" readonly value = "<?php echo $row2['home_phone_number']; ?>" /> 
 								</label>
 								<label class = "enterInfo"> New home phone number:
 									<input type = "tel" name  = "home_phone_numberInput" placeholder = "123-456-7890" pattern = "[0-9]{3}-[0-9]{3}-[0-9]{4}" /> 
@@ -156,7 +188,7 @@
 
 							<p> <!-- Cell Phone Number -->
 								<label class = "displayInfo"> Cell phone number:
-									<input type = "text" name = "cell_phone_number" readonly value = "<?php echo $row2['cell_phone_number']; ?>" /> 
+									<input type = "text" id = "cell_phone_number" readonly value = "<?php echo $row2['cell_phone_number']; ?>" /> 
 								</label>
 								<label class = "enterInfo"> New home phone number:
 									<input type = "tel" name  = "cell_phone_numberInput" placeholder = "123-456-7890" pattern = "[0-9]{3}-[0-9]{3}-[0-9]{4}" /> 
@@ -166,7 +198,7 @@
 							<h3 id = "header">Address</h3>
 							<p> <!-- Street Address 1 -->
 								<label class = "displayInfo"> Street address 1:
-									<input type = "text" name = "street_1" readonly value = "<?php echo $row2['street_1']; ?>" /> 
+									<input type = "text" id = "street_1" readonly value = "<?php echo $row2['street_1']; ?>" /> 
 								</label>
 								<label class = "enterInfo"> New street address 1:
 									<input type = "text" name = "street_1Input" maxlength = "100" /> 
@@ -175,7 +207,7 @@
 
 							<p> <!-- Street Address 2 -->
 								<label class = "displayInfo"> Street address 2:
-									<input type = "text" name = "street_2" readonly value = "<?php echo $row2['street_2']; ?>" /> 
+									<input type = "text" id = "street_2" readonly value = "<?php echo $row2['street_2']; ?>" /> 
 								</label>
 								<label class = "enterInfo"> New street address 2:
 									<input type = "text" name = "street_2Input" maxlength = "100" /> 
@@ -184,7 +216,7 @@
 
 							<p> <!-- City -->
 								<label class = "displayInfo"> City:
-									<input type = "text" name = "city" readonly value = "<?php echo $row2['city']; ?>" /> 
+									<input type = "text" id = "city" readonly value = "<?php echo $row2['city']; ?>" /> 
 								</label>
 								<label class = "enterInfo"> New city:
 									<input type = "text" name = "cityInput" maxlength = "100" /> 
@@ -193,7 +225,7 @@
 
 							<p> <!-- State -->
 								<label class = "displayInfo"> State <em>(if applicable)</em>:
-									<input type = "text" name = "state" readonly value = "<?php echo $row2['state']; ?>" /> 
+									<input type = "text" id = "state" readonly value = "<?php echo $row2['state']; ?>" /> 
 								</label>
 								<label class = "enterInfo"> New state:
 									<select name = "stateInput">
@@ -255,7 +287,7 @@
 
 							<p> <!-- Zip Code -->
 								<label class = "displayInfo"> Zip code:
-									<input type = "text" name = "zip_code" readonly value = "<?php echo $row2['zip_code']; ?>" /> 
+									<input type = "text" id = "zip_code" readonly value = "<?php echo $row2['zip_code']; ?>" /> 
 								</label>
 								<label class = "enterInfo"> New zip code:
 									<input type = "text" name = "zip_codeInput" minlength = "5" maxlength = "10" pattern = "^[A-Z\d]+$" /> 
@@ -264,7 +296,7 @@
 
 							<p> <!-- Country -->
 								<label class = "displayInfo"> Country:
-									<input type = "text" name = "country" readonly value = "<?php echo $row2['country']; ?>" /> 
+									<input type = "text" id = "country" readonly value = "<?php echo $row2['country']; ?>" /> 
 								</label>
 								<label class = "enterInfo"> New country:
 									<select name = "countryInput">
@@ -527,7 +559,7 @@
 								<h3 id = "header">Employee Info</h3>
 								<p> <!-- Position -->
 									<label class = "displayInfo"> Position:
-										<input type = "text" name = "position" readonly value = "<?php echo $row3['position']; ?>" /> 
+										<input type = "text" id = "position" readonly value = "<?php echo $row3['position']; ?>" /> 
 									</label>
 									<label class = "enterInfo"> New position:
 										<input type = "text" name = "positionInput" maxlength = "50" /> 
@@ -540,7 +572,7 @@
 										$array2 = [0 => "Part-time", 1 => "Full-time"]; 
 									?>
 									<label class = "displayInfo"> Full-time status:
-										<input type = "text" name = "full_time" readonly value = "<?php echo $array2[$row3['full_time']]; ?>" /> 
+										<input type = "text" id = "full_time" readonly value = "<?php echo $array2[$row3['full_time']]; ?>" /> 
 									</label>
 									<label class = "enterInfo"> New full-time status:
 										<input type = "radio" name = "full_timeInput" value = "1" /> Full-time
@@ -550,7 +582,7 @@
 
 								<p> <!-- Location -->
 									<label class = "displayInfo"> Location:
-										<input type = "text" name = "location" readonly value = "<?php echo $row3['location']; ?>" /> 
+										<input type = "text" id = "location" readonly value = "<?php echo $row3['location']; ?>" /> 
 									</label>
 									<label class = "enterInfo"> New location:
 										<input type = "text" name = "locationInput" maxlength = "100" /> 
@@ -559,10 +591,10 @@
 
 								<p> <!-- Weekly Earnings -->
 									<label class = "displayInfo"> Weekly earnings: 
-										$<input type = "text" name = "weekly_earnings" readonly value = "<?php echo $row3['weekly_earnings']; ?>" /> 
+										$<input type = "text" id = "weekly_earnings" readonly value = "<?php echo $row3['weekly_earnings']; ?>" /> 
 									</label>
 									<label class = "enterInfo"> New weekly earnings: 
-										$<input type = "number" name = "wekly_earningsInput" /> 
+										$<input type = "number" name = "weekly_earningsInput" /> 
 									</label>
 								</p><br>
 				<?php
@@ -571,9 +603,19 @@
 						else //if user does not exist, display an error message
 						{
 				?>
-							<h2 id = "header"><?php echo "User not found. Try again." ?></h2>
+							<h2 id = "header"><?php echo "User not found. Try again."; ?></h2>
 				<?php 
 						}
+					}
+					if(isset($_POST['usernameSubmit']))
+					{
+						updateData("user_login", "username", $_POST['usernameInput'], "ULID", $row1['ULID'], $dbconn); //update database
+						$_SESSION['usernameSearch'] = $_POST['usernameInput']; //update session variable with new username
+				?>
+						<script type = "text/javascript">
+							document.getElementById("header1").innerHTML = "<?php echo $_POST['usernameInput']; ?>'s User Data"; //display new username on the page
+						</script>
+				<?php
 					}
 				?>
 			</p>
