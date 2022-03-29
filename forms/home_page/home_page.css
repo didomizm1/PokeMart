@@ -81,6 +81,7 @@ body
 }
 #poke_ball
 {
+    pointer-events: none;
     position: fixed;
     bottom: -5%;
     right: 5%;
@@ -90,8 +91,4 @@ body
 {
     position: fixed;
     bottom: 1%;
-}
-.imageLink
-{
-
 }

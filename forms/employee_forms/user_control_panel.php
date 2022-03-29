@@ -39,11 +39,6 @@
 		</a>
 	</div>
 
-	<!-- Center of the page -->
-	<div id = "mid">
-        
-	</div>
-
 	<!-- User management form -->
 	<div id = "form">
 		<h1 id = "header">User Control Panel</h1>
