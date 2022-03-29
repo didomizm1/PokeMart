@@ -6,12 +6,12 @@ include_once('../connect_mysql.php');
 require_once('../session.php');
 
 //get user profile data associated with logged in user
-$SCID = $_SESSION['SCID'];
+$WID = $_SESSION['WID'];
 
 
 if(isset($_POST['submit']))
 {
-    $query ="SELECT * FROM wishlist WHERE SCID = '$SCID'";
+    $query ="SELECT * FROM wishlist_item WHERE WID = '$WID'";
     $result = mysqli_query($dbconn, $query);
     while($row = $result->fetch_array(MYSQLI_ASSOC))
     {
@@ -50,7 +50,7 @@ if(isset($_POST['submit']))
          <?php
                 if(isset($_POST['submit']))
                 {
-                    $query ="SELECT * FROM wishlist WHERE SCID = '$SCID'";
+                    $query ="SELECT * FROM wishlist_item WHERE WID = '$WID'";
                     $result = mysqli_query($dbconn, $query);
                     while($row = $result->fetch_array(MYSQLI_ASSOC))
                     {
@@ -82,7 +82,7 @@ if(isset($_POST['submit']))
                                 $SCID = $_SESSION['SCID'];
                                 $IID = $row['IID'];
                                 $quantity = $_POST['quantity'];
-                                $query = "INSERT INTO cart_item (IID, SCID, quantity) VALUES ('$IID', '$SCID', '$quantity')";
+                                $query = "INSERT INTO wishlist_item (IID, SCID, quantity) VALUES ('$IID', '$SCID', '$quantity')";
                                 mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
                             }
                         ?>

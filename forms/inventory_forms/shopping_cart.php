@@ -79,6 +79,15 @@ if(isset($_POST['submit']))
             ?>
             </table>
         </form>
+
+        <div class="Checkout">
+        <form action="checkout.php" method="post">
+            
+            <a href = "../checkout.html"></a>
+            <h2>Check Out</h2>
+            </a>
+        </form>
+        </div>
         
     </body>
 </html>
