@@ -93,6 +93,19 @@ else
                                 mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
                             }
                         ?>
+                    </td>
+                    <td>
+                        <input type="submit" name="<?php echo $currentName; ?>" value="Add to Wishlist">
+                        <?php
+                            if(isset($_POST[$currentName]))
+                            { 
+                                $SCID = $_SESSION['SCID'];
+                                $IID = $row['IID'];
+                                $quantity = $_POST['quantity'];
+                                $query = "INSERT INTO wishlist_item (IID, SCID, quantity) VALUES ('$IID', '$SCID', '$quantity')";
+                                mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
+                            }
+                        ?>
                     </form>
                     </td>
                 </tr>

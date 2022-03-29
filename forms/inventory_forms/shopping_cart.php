@@ -65,13 +65,29 @@ if(isset($_POST['submit']))
                     <td><?php echo $row2['item_name'];?></td>
                     <td><?php echo $row2['selling_price'];?></td>
                     <td><?php echo $row2['quantity'];?> 
+                    <form method="post">
+                    
+                    <!--adding option to change quantity-->
+                    <td>
                     <label> 
                     <input type = "number" min="0" step="1" name  = "quantity" maxlength = "10" required/>
-                    </label> <!--adding option to change quantity-->
+                    </label> 
                     </td>
-                    <form action="remove_from_cart.php" method="post">
-                    <input type="submit" name="submit" value="Remove from Cart">
-                    </form>
+                    
+                    <td>
+                    <input type="submit" name="<?php echo $currentName; ?>" value="Delete from Cart">
+                    <?php
+                        if(isset($_POST[$currentName]))
+                        { 
+                            $SCID = $_SESSION['SCID'];
+                            $IID = $row['IID'];
+                            $quantity = $_POST['quantity'];
+                            $query = "DELETE FROM cart_item (IID, SCID, quantity) VALUES ('$IID', '$SCID', '$quantity')";
+                            mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
+                        }
+                    ?>
+                </form>
+                </td>
                 </tr>
                 <?php
                 }

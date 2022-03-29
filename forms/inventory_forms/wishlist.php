@@ -75,19 +75,32 @@ if(isset($_POST['submit']))
                         </td>
                         
                         <td>
-                        <input type="submit" name="<?php echo $currentName; ?>" value="Add to Wishlist">
+                        <input type="submit" name="<?php echo $currentName; ?>" value="Add to Cart">
                         <?php
                             if(isset($_POST[$currentName]))
                             { 
                                 $SCID = $_SESSION['SCID'];
                                 $IID = $row['IID'];
                                 $quantity = $_POST['quantity'];
-                                $query = "INSERT INTO wishlist_item (IID, SCID, quantity) VALUES ('$IID', '$SCID', '$quantity')";
+                                $query = "INSERT INTO cart_item (IID, SCID, quantity) VALUES ('$IID', '$SCID', '$quantity')";
                                 mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
                             }
                         ?>
-                    </form>
                     </td>
+                    <td>
+                    <input type="submit" name="<?php echo $currentName; ?>" value="Delete from Wishlist">
+                    <?php
+                        if(isset($_POST[$currentName]))
+                        { 
+                            $SCID = $_SESSION['SCID'];
+                            $IID = $row['IID'];
+                            $quantity = $_POST['quantity'];
+                            $query = "DELETE FROM wishlist_item (IID, SCID, quantity) VALUES ('$IID', '$SCID', '$quantity')";
+                            mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
+                        }
+                    ?>
+                </form>
+                </td>
                 </tr>
                 <?php
                 }
