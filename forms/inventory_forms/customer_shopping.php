@@ -100,7 +100,7 @@ else
                         <?php
                             if(isset($_POST[$currentName]))
                             { 
-                                $SCID = $_SESSION['SCID'];
+                                $WID = $_SESSION['WID'];
                                 $IID = $row['IID'];
                                 $quantity = $_POST['quantity'];
                                 $query = "INSERT INTO wishlist_item (IID, WID, quantity) VALUES ('$IID', '$WID', '$quantity')";
