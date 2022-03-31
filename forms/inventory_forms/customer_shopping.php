@@ -55,6 +55,7 @@ else
                     <th>Type</th>
                     <th>Description</th>
                     <th>Price</th>
+                    <th>Quantity</th>
                 </tr>
 
       <!-- populate table from mysql database -->
