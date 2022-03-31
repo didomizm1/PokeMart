@@ -33,7 +33,7 @@ else
     <div class="ShoppingCart">
         <form action="shopping_cart.php" method="post">
             
-            <a href = "../shopping_cart.php">
+            <a href = "shopping_cart.php">
             <h2>Shopping Cart</h2>
             </a>
         </form>
