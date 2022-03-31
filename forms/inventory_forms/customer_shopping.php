@@ -103,7 +103,7 @@ else
                                 $SCID = $_SESSION['SCID'];
                                 $IID = $row['IID'];
                                 $quantity = $_POST['quantity'];
-                                $query = "INSERT INTO wishlist_item (IID, SCID, quantity) VALUES ('$IID', '$SCID', '$quantity')";
+                                $query = "INSERT INTO wishlist_item (IID, WID, quantity) VALUES ('$IID', '$WID', '$quantity')";
                                 mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
                             }
                         ?>
