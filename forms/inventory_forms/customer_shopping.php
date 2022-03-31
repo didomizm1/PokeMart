@@ -57,7 +57,7 @@ else
                     <th>Price</th>
                     <th>Quantity</th>
                 </tr>
-
+        </form>
       <!-- populate table from mysql database -->
                 <?php
                 include_once('customer_shopping.php'); 
@@ -94,24 +94,23 @@ else
                                 mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
                             }
                         ?>
-                    </td>
-                    <td>
-                        <input type="submit" name="<?php echo $currentName; ?>" value="Add to Wishlist">
-                        <?php
-                            if(isset($_POST[$currentName]))
-                            { 
-                                $WID = $_SESSION['WID'];
-                                $IID = $row['IID'];
-                                $query = "INSERT INTO wishlist_item (IID, WID) VALUES ('$IID', '$WID')";
-                                mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
-                            }
-                        ?>
+                        </td>
+                        <td>
+                            <input type="submit" name="<?php echo $currentName; ?>" value="Add to Wishlist">
+                            <?php
+                                if(isset($_POST[$currentName]))
+                                { 
+                                    $WID = $_SESSION['WID'];
+                                    $IID = $row['IID'];
+                                    $query = "INSERT INTO wishlist_item (IID, WID) VALUES ('$IID', '$WID')";
+                                    mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
+                                }
+                            ?>
                     </form>
                     </td>
                 </tr>
                 <?php endwhile;?>
             </table>
-        </form>
         
     </body>
 </html>
