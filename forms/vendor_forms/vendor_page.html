@@ -13,13 +13,45 @@
   		display: block;
   		margin-left: auto;
   		margin-right: auto;
+      margin-top:2.5%;
   		width: 45%;
   	}
-  		/*space between images*/
-  		.padded_img{
-  			padding-left:4em;
-  			padding-right:4em;
-  		}
+  	/*positions each img*/
+    #logo
+    {
+      positon:fixed;
+      margin-left:0.5%;
+      margin-top:1%;
+      width:27.25%;
+    }
+    #insert
+    {
+      positon:fixed;
+      margin-left:5%;
+      margin-top:12%;
+      width:20.0%;
+    }
+    #delete
+    {
+      positon:fixed;
+      margin-left: 1.0%;
+      margin-top:12%;
+      width:20.0%;
+    }
+    #lookup
+    {
+      positon:fixed;
+      margin-left: 1.0%;
+      margin-top:12%;
+      width:20.0%;
+    }
+    #update
+    {
+      positon:fixed;
+     margin-left:1.0%;
+      margin-top:12%;
+      width:20.0%;
+    }
 		
 
 	</style>
@@ -27,20 +59,20 @@
 <!--Contains the links to all the vendor forms-->
 	<body>
 		<a href = "../home_page/index.php"><!-- makes logo link to homepage -->
-      <IMG SRC="../../img/lnt/logo.png" width="300" >
+      <IMG id="logo" SRC="../../img/lnt/logo.png" >
   </a>
   		 <IMG SRC ="../../img/lnt/vendors.png" class="center" >
   		<a href="../vendor_forms/insert_vendor.html">
-  		 <IMG SRC ="../../img/lnt/insert.png" width="200" class="padded_img">
+  		 <IMG id="insert" SRC ="../../img/lnt/insert.png">
   	</a><
   	<a href="../vendor_forms/delete_vendor.html">
-  		 <IMG SRC ="../../img/lnt/delete.png" width="200" class="padded_img" >
+  		 <IMG id="delete" SRC ="../../img/lnt/delete.png" >
   	</a>
   	<a href="../vendor_forms/search_vendor.html">
-  		 <IMG SRC ="../../img/lnt/Lookup.png" width="200"class="padded_img">
+  		 <IMG id="lookup" SRC ="../../img/lnt/Lookup.png">
   	</a>
   	<a href="../vendor_forms/update_vendor.html">
-  		 <IMG SRC ="../../img/lnt/Update.png" width="200" class="padded_img">
+  		 <IMG id="update" SRC ="../../img/lnt/Update.png">
   	</a>
 	</body>
 </html>
