@@ -9,7 +9,7 @@
 	<!-- Style -->
 	<link rel = "stylesheet" href = "home_page.css">
 	<!-- Audio functionality -->
-	<script src = "../audio/audio.js"></script>
+	<!-- <script src = "../audio/audio.js"></script> -->
 </head>  
 <body>
 	<!-- Top of the page -->
@@ -81,7 +81,7 @@
 	<!-- Bottom of the page -->
 	<div id = "footer">
 		<!-- Music playing on the page -->
-		<audio id = "audio" src = "../../audio/music/pokemart_soul_silver_theme.mp3" autoplay loop controls></audio>
+		<audio id = "audio" src = "../../audio/music/pokemart_soul_silver_theme.mp3" loop controls></audio>
 		<!-- Footer images -->
 		<img id = "poke_ball" src = "../../img/lnt/poke_ball.png" alt = "Poke Ball">
 	</div>

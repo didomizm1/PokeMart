@@ -1,6 +1,10 @@
 <?php
 	//database connection
 	include_once('../connect_mysql.php');
+	if(!($_SESSION['user_role_type'] > 0))
+    {
+        header('Location: ../home_page/index.php');
+    }
 
     //session handling
 	require_once('../session.php');

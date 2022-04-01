@@ -94,8 +94,7 @@ if(isset($_POST['submit']))
                         { 
                             $SCID = $_SESSION['SCID'];
                             $IID = $row['IID'];
-                            $quantity = $_POST['quantity'];
-                            $query = "DELETE FROM wishlist_item (IID, SCID, quantity) VALUES ('$IID', '$SCID', '$quantity')";
+                            $query = "DELETE FROM wishlist_item (IID, SCID) VALUES ('$IID', '$SCID')";
                             mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
                         }
                     ?>

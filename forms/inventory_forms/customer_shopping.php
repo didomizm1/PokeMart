@@ -33,7 +33,7 @@ else
     <div class="ShoppingCart">
         <form action="shopping_cart.php" method="post">
             
-            <a href = "../shopping_cart.html"></a>
+            <a href = "shopping_cart.php">
             <h2>Shopping Cart</h2>
             </a>
         </form>
@@ -55,8 +55,9 @@ else
                     <th>Type</th>
                     <th>Description</th>
                     <th>Price</th>
+                    <th>Quantity</th>
                 </tr>
-
+        </form>
       <!-- populate table from mysql database -->
                 <?php
                 include_once('customer_shopping.php'); 
@@ -93,25 +94,23 @@ else
                                 mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
                             }
                         ?>
-                    </td>
-                    <td>
-                        <input type="submit" name="<?php echo $currentName; ?>" value="Add to Wishlist">
-                        <?php
-                            if(isset($_POST[$currentName]))
-                            { 
-                                $SCID = $_SESSION['SCID'];
-                                $IID = $row['IID'];
-                                $quantity = $_POST['quantity'];
-                                $query = "INSERT INTO wishlist_item (IID, SCID, quantity) VALUES ('$IID', '$SCID', '$quantity')";
-                                mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
-                            }
-                        ?>
+                        </td>
+                        <td>
+                            <input type="submit" name="<?php echo $currentName; ?>" value="Add to Wishlist">
+                            <?php
+                                if(isset($_POST[$currentName]))
+                                { 
+                                    $WID = $_SESSION['WID'];
+                                    $IID = $row['IID'];
+                                    $query = "INSERT INTO wishlist_item (IID, WID) VALUES ('$IID', '$WID')";
+                                    mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
+                                }
+                            ?>
                     </form>
                     </td>
                 </tr>
                 <?php endwhile;?>
             </table>
-        </form>
         
     </body>
 </html>
