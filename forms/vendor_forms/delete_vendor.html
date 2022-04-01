@@ -5,12 +5,10 @@
 	<style>
 	/* input border */
 	input[type=text],input[type=number] {
-  	width: 20%;
-  	padding: 10px 18px;
-  	margin: 8px 0;
-  	box-sizing: border-box;
-  	border: 2px solid orange;
-  	border-radius:50px;
+  	 margin: 8px 0;
+    border: 2px solid orange;
+    border-radius: 50px;
+    width:40%;
 	}
 	/*focuses/highlights box when inputting*/
 	input[type=text]:focus {
@@ -24,55 +22,57 @@
   	color: white;
   	padding: 10px 32px;
   	text-decoration: none;
-  	margin: 1px 1px;
+  	margin-left:30%;
   	cursor: pointer;
 	}
 	body{
-	background-image: radial-gradient(circle, rgb(0,225,255) 50%, rgb(0, 140, 255) 100%);
+	background-image:url('../../img/lnt/vendor_background2.gif');
+      background-size:cover;
 	} 
-	/* animates the form title*/
-	.title {
-  	color: white;
-  	animation-name: title;
-  	animation-duration: 5s;
-  	animation-timing-function: ease;
-  	animation-delay: 0s;
-  	animation-iteration-count: 1;
-  	animation-direction: normal;
-  	animation-fill-mode: forwards;
+	/*scales imgs*/
+ 	#logo
+    {
+      margin-left:0.5%;
+      margin-top:1%;
+       width:27.25%;
+    }
+	#img
+	{
+  		width:35%;
+  		margin-left:30%;
 	}
-	@keyframes title {
-  		0%   {
-    letter-spacing: 1.2em;
-    color: blue;
-  	}
-  		100%   {
-    letter-spacing: 0.1em;
-    color: red;
-  }
-}
 
-
-
+	/*puts form into box*/
+	#form
+	{  
+    background: rgb(125, 235, 253);
+    border: solid rgb(34, 172, 226) 25px;  
+    border-radius: 50px;   
+    margin-left: auto;
+  	margin-right: auto;   
+    padding: 70px;  
+    width: 25%; 
+	}  
 
 	/* centers images */
 	.center {
   	display: block;
   	margin-left: auto;
   	margin-right: auto;
-  	width: 25%;
-}
+  	width: 30%;
+	}
 	</style>
 </head>
 <body>
 	<a href = "../home_page/index.php"><!-- makes logo link to homepage -->
-      <IMG SRC="../../img/lnt/logo.png" class="center">
+      <IMG id="logo"SRC="../../img/lnt/logo.png" >
   </a>
-	<h1 class="title"style="text-align: center">Delete Vendor Form</h1><br>
-	<IMG SRC="../../img/lnt/snorlax.gif" class="center" ><!-- inserts gif -->
-	<h3 style="text-align: center">Insert the following vendor data and click "Delete" when done</h3>
-	<h5 style="text-align: center">Caution: this will permanently delete the vendor from the database</h5><br>
-	<form action="delete_vendor.php" method="POST" style="text-align: center">
+	<IMG SRC ="../../img/lnt/Delete-Vendors.png" class="center">
+	<br>
+	<form id="form" action="delete_vendor.php" method="POST">
+		<IMG id="img" SRC="../../img/lnt/snorlax.gif" ><!-- inserts gif -->
+		<h3 style="text-align: center">Insert the following vendor data and click "Delete" when done</h3>
+		<h5 style="text-align: center">Caution: this will permanently delete the vendor from the database</h5><br>
 		<!-- vendor name,code, and id are all needed in order to delete vendor -->
 		<label for= "vendor_name"> * Vendor Name: </label>
 			<input type="text" name="vendor_name" required>

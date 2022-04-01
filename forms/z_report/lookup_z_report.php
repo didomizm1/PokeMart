@@ -5,9 +5,10 @@ if(isset($_POST['submit']))
 	include_once('../connect_mysql.php');
 
 	$EPID=$_POST['EPID'];
+    $date=$_POST['date'];
 
 	//setup query, selects row where EPID matches input
-	$query="SELECT * FROM z_report WHERE EPID='$EPID'";
+	$query="SELECT * FROM z_report WHERE EPID='$EPID' AND date='$date";
 
 	//execute query and display in table
     $result=mysqli_query($dbconn, $query);

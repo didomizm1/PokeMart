@@ -3,6 +3,8 @@ if(isset($_POST['submit']))
 {
 	//connect to database
 	include_once('../connect_mysql.php');
+    $date=$_POST['date'];
+
     //initializing variables
     $items_sold=0;
     $number_of_transactions=0;
@@ -12,8 +14,9 @@ if(isset($_POST['submit']))
     $cash_refunds=0.00;
     $credit_refunds=0.00;
     $total_refunds=0.00;
-    //setup query, selects all data from table z_report
-	$query="SELECT * FROM z_report";
+
+    //setup query, selects all data from table z_report from a certain date
+	$query="SELECT * FROM z_report WHERE date='$date";
 
 	//execute query and display in table
     $result=mysqli_query($dbconn, $query);
@@ -56,7 +59,7 @@ if(isset($_POST['submit']))
         echo "</table>";
     }
     else{
-        echo "There is no data in the z_report table";//if no data exists; number of rows=0
+        echo "There is no data in the z_report table on the given date";//if no data exists
     }
 
 }?>
