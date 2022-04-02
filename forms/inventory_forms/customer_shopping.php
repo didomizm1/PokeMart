@@ -2,6 +2,8 @@
 
 //connect to database
 include_once('../connect_mysql.php');
+//session handling
+require_once('../session.php');
 
 if(isset($_POST['submit']))
 {
@@ -9,26 +11,16 @@ if(isset($_POST['submit']))
     // search in all table columns
     // using concat mysql function
     $query = "SELECT * FROM `inventory` WHERE CONCAT(`IID`, `item_name`, `japanese_item_name`, `selling_price`) LIKE '%".$valueToSearch."%'";
-    $search_result = filterTable($query);
+    $result = mysqli_query($dbconn, $query);
     
 }
- else 
- {
-    $query = "SELECT * FROM `inventory`";
-    $search_result = filterTable($query);
-}
-
-// function to connect and execute the query
-function filterTable($query)
+else 
 {
-    $connect = mysqli_connect("localhost","root","","pokemart_db");
-    //$connect = include_once('connect_mysql.php');
-    $filter_Result = mysqli_query($connect, $query);
-    return $filter_Result;
+    $query = "SELECT * FROM `inventory`";
+    $result = mysqli_query($dbconn, $query);
 }
 
 ?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -40,16 +32,18 @@ function filterTable($query)
     </head>
     <div class="ShoppingCart">
         <form action="shopping_cart.php" method="post">
+            
+            <a href = "shopping_cart.php">
             <h2>Shopping Cart</h2>
-            <p>Items In Cart: "></p>
+            </a>
         </form>
         </div>
     <body>
         <a href = "../home_page/index.php">
-			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart" width="300"> 
+			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart"> 
         </a>
-
-        <form action="customer_shopping.php" method="post">
+        <form id = "form" method="post">
+            <h1>Item Shop</h1>
             <input type="text" name="valueToSearch" placeholder="Search"><br><br>
             <input type="submit" name="submit" value="Filter"><br><br>
             
@@ -61,10 +55,17 @@ function filterTable($query)
                     <th>Type</th>
                     <th>Description</th>
                     <th>Price</th>
+                    <th>Quantity</th>
                 </tr>
-
+        </form>
       <!-- populate table from mysql database -->
-                <?php while($row = mysqli_fetch_array($search_result)):?>
+                <?php
+                include_once('customer_shopping.php'); 
+                $count = 0;
+                while($row = mysqli_fetch_array($result)):
+                    $count = $count + 1;
+                    $currentName = "add" . $count;
+                ?>
                 <tr>
                     <td><?php echo $row['IID'];?></td>
                     <td><?php echo $row['item_name'];?></td>
@@ -72,18 +73,44 @@ function filterTable($query)
                     <td><?php echo $row['item_type'];?></td>
                     <td><?php echo $row['item_description'];?></td>
                     <td><?php echo $row['selling_price'];?></td>
-                    <form action="add_to_cart.php" method="post">
-                    <!--adding option to change quantity-->
-                    <label> 
-                    <input type = "number" min="0" step="1" name  = "quantity" maxlength = "10" required/>
-                    </label> 
-                    <input type="submit" name="submit" value="Add to Cart">
+                    <form method="post">
+                    
+                        <!--adding option to change quantity-->
+                        <td>
+                        <label> 
+                        <input type = "number" min="0" step="1" name  = "quantity" maxlength = "10" required/>
+                        </label> 
+                        </td>
+                        
+                        <td>
+                        <input type="submit" name="<?php echo $currentName; ?>" value="Add to Cart">
+                        <?php
+                            if(isset($_POST[$currentName]))
+                            { 
+                                $SCID = $_SESSION['SCID'];
+                                $IID = $row['IID'];
+                                $quantity = $_POST['quantity'];
+                                $query = "INSERT INTO cart_item (IID, SCID, quantity) VALUES ('$IID', '$SCID', '$quantity')";
+                                mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
+                            }
+                        ?>
+                        </td>
+                        <td>
+                            <input type="submit" name="<?php echo $currentName; ?>" value="Add to Wishlist">
+                            <?php
+                                if(isset($_POST[$currentName]))
+                                { 
+                                    $WID = $_SESSION['WID'];
+                                    $IID = $row['IID'];
+                                    $query = "INSERT INTO wishlist_item (IID, WID) VALUES ('$IID', '$WID')";
+                                    mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
+                                }
+                            ?>
                     </form>
                     </td>
                 </tr>
                 <?php endwhile;?>
             </table>
-        </form>
         
     </body>
 </html>

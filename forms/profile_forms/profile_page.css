@@ -1,46 +1,48 @@
 body
 {   
-    background-image: url("../../img/lnt/poke_center_bridge_background.jpg");
-    background-size: 100%;
-    background-position: 0px -552px;  
-    background-attachment: fixed;        
+    background: url("../../img/lnt/profile_page_background.gif") no-repeat center center fixed;
+    background-size: 100% 100%;       
 }
 #header
 {
-    font-size: 50px;
-    color: rgb(0, 204, 255);
+    font-size: 60px;
+    color: rgb(0, 238, 255);
     text-shadow: 2px 2px rgb(0,0,0);
 }
 #mid
 { 
-    background: rgba(250, 102, 255, 0.5);
-    border: solid rgb(248, 28, 94) 25px;  
-    width:25%;  
-    border-radius: 50px;  
-    margin: 120px auto;    
+    background: rgba(63, 146, 255, 0.9);
+    border: solid rgb(87, 28, 248) 25px;
+    border-radius: 50px;
+    margin: 12.5% auto;        
     padding: 50px;
+    width: 25%;  
 
     user-select: none;
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
-    
+    font-weight: bold;
 }
-#footer
+#logo
 {
     position: fixed;
-    left: 10px;
-    bottom: 10px;
+    left: 0.4%;
+    top: 0.8%;
+    width: 27.25%; 
 }
-
+#audio
+{
+    position: fixed;
+    bottom: 1%;
+}
 .dataName
 {
     font-size: 40px;
-    color: rgb(255, 123, 0);
+    color: rgb(255, 131, 73);
     text-shadow: 2px 2px rgb(0,0,0);
 }
 .dataInfo
 {
-    font-size: 25px;
+    font-size: 30px;
     color: rgb(0, 0, 0);
-    text-shadow: 1px 1px rgb(0,0,0);
 }

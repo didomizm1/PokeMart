@@ -1,62 +1,94 @@
 body
 {   
-    background-image: url("../../img/lnt/poke_mart_background.jpg");
-    background-size: 100%;
-    background-position: 0px -212px;
-    background-attachment: fixed;          
+    background: url("../../img/lnt/home_page_background.gif") no-repeat center center fixed;
+    background-size: 100% 100%;          
 }
-
 #mid
 { 
     user-select: none;
     position: fixed;
-    left: -10px;
-    top: 250px;
-    font-size: 190px;
-    font-family: 'Courier New', Courier, monospace;
-    color: rgb(255, 255, 255);
+    left: 2%;
+    top: 25%;
+    font-size: 175px;
+    font-family:monospace;
+    font-weight: bold;
+    color: rgb(0, 255, 255);
     text-shadow: 3px 3px rgb(0, 0, 0);
     text-align: center;
 }
 #sidebar
 {
-    height: 1000px;
-    width: 200px;
     background-color: rgba(0, 255, 255, 0.5);
-    background-blend-mode: luminosity;
-    border-left: solid rgb(32, 32, 32) 12px;
+    border: solid rgb(32, 32, 32) 0.75vw;
+    border-radius: 50px;
+    padding-block: 1%;
+    padding-inline: 1.5%;
     position: fixed;
-    right: 0px;
-    top: 0px;
+    right: -2.5%;
+    top: 12.5%;
+    height: 75%;
+    width: 12%;
 }
-#footer
+#logo
 {
     position: fixed;
-    left: 10px;
-    bottom: 10px;
+    left: 0.4%;
+    top: 0.8%;
+    width: 27.25%; 
 }
-
+#welcome
+{
+    position: fixed;
+    left: 28%;
+    top: 28%;
+    width: 37.5%; 
+}
+#home
+{
+    width: 61.5%;
+}
+#login
+{
+    width: 70%;
+}
+#register
+{
+    width: 70%;
+}
+#profile
+{
+    width: 70%;
+}
+#employee_hub
+{
+    width: 95%;
+}
+#logout
+{
+    width: 80%;
+}
+#shop
+{
+    width: 55%;
+}
+#faq
+{
+    width: 42.5%;
+}
+#info_page
+{
+    width: 90%;
+}
 #poke_ball
 {
+    pointer-events: none;
     position: fixed;
-    bottom: -50px;
-    right: 100px;
-    width: 500px;
-    height: auto;
+    bottom: -5%;
+    right: 5%;
+    width: 27.5%;
 }
-
-.link
+#audio
 {
     position: fixed;
-    left: 1736px;
-    font-size: 45px;
-    font-weight: bold;
-    font-style: italic;
-    text-shadow: 1px 1px rgb(0, 255, 255);
-}
-
-a:link, a:visited, a:hover, a:active
-{ 
-    color: black;
-    text-decoration: none; 
+    bottom: 1%;
 }

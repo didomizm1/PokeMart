@@ -8,16 +8,20 @@ require_once('../session.php');
 //get user profile data associated with logged in user
 $SCID = $_SESSION['SCID'];
 
+
 if(isset($_POST['submit']))
 {
-    //$query ="SELECT * FROM cart_item WHERE SCID = '$SCID'";
-    $query2 = "SELECT * FROM inventory WHERE cart_item (IID) = inventory (IID) AND cart_item (SCID) = '$SCID'";
-    $search_result = filterTable($query2);
+    $query ="SELECT * FROM cart_item WHERE SCID = '$SCID'";
+    $result = mysqli_query($dbconn, $query);
+    while($row = $result->fetch_array(MYSQLI_ASSOC))
+    {
+        $IID = $row['IID'];
+        $query2 = "SELECT * FROM inventory WHERE IID = '$IID'";
+        $search_result = mysqli_query($dbconn, $query2);
+        $row2 = $search_result->fetch_array(MYSQLI_ASSOC);
+    }
 }
-
-
 ?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -42,23 +46,64 @@ if(isset($_POST['submit']))
                 </tr>
 
       <!-- populate table from mysql database -->
-                <?php while($row = mysqli_fetch_array($search_result)):?>
-                <tr>
-                    <td><?php echo $row['IID'];?></td>
-                    <td><?php echo $row['item_name'];?></td>
-                    <td><?php echo $row['selling_price'];?></td>
-                    <td><?php echo $row['quantity'];?> 
+        
+         <?php
+                if(isset($_POST['submit']))
+                {
+                    $query ="SELECT * FROM cart_item WHERE SCID = '$SCID'";
+                    $result = mysqli_query($dbconn, $query);
+                    while($row = $result->fetch_array(MYSQLI_ASSOC))
+                    {
+                        $IID = $row['IID'];
+                        $query2 = "SELECT * FROM inventory WHERE IID = '$IID'";
+                        $search_result = mysqli_query($dbconn, $query2);
+                        $row2 = $search_result->fetch_array(MYSQLI_ASSOC);
+                        ?>
+
+                    <tr>
+                    <td><?php echo $row2['IID'];?></td>
+                    <td><?php echo $row2['item_name'];?></td>
+                    <td><?php echo $row2['selling_price'];?></td>
+                    <td><?php echo $row2['quantity'];?> 
+                    <form method="post">
+                    
+                    <!--adding option to change quantity-->
+                    <td>
                     <label> 
                     <input type = "number" min="0" step="1" name  = "quantity" maxlength = "10" required/>
-                    </label> <!--adding option to change quantity-->
+                    </label> 
                     </td>
-                    <form action="remove_from_cart.php" method="post">
-                    <input type="submit" name="submit" value="Remove from Cart">
-                    </form>
+                    
+                    <td>
+                    <input type="submit" name="<?php echo $currentName; ?>" value="Delete from Cart">
+                    <?php
+                        if(isset($_POST[$currentName]))
+                        { 
+                            $SCID = $_SESSION['SCID'];
+                            $IID = $row['IID'];
+                            $quantity = $_POST['quantity'];
+                            $query = "DELETE FROM cart_item (IID, SCID, quantity) VALUES ('$IID', '$SCID', '$quantity')";
+                            mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
+                        }
+                    ?>
+                </form>
+                </td>
                 </tr>
-                <?php endwhile;?>
+                <?php
+                }
+            }
+            ?>
             </table>
         </form>
+
+        <div class="Checkout">
+        <form action="checkout.php" method="post">
+            
+            <a href = "../checkout.html"></a>
+            <h2>Check Out</h2>
+            </a>
+        </form>
+        </div>
         
     </body>
 </html>

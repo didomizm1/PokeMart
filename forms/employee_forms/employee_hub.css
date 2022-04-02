@@ -1,0 +1,58 @@
+body
+{   
+    background: url("../../img/lnt/employee_hub_background.gif") center center fixed;
+    background-size: 75% 100%;         
+}
+#logo
+{
+    position: fixed;
+    left: 0.4%;
+    top: 0.8%;
+    width: 27.25%; 
+}
+#employee_hub
+{
+    position: fixed;
+    left: 30%;
+    top: 30%;
+    width: 40%;
+}
+#employee_profile
+{
+    left: 2.5%;
+    top: 55%;
+    width: 30%;
+}
+#user_control_panel
+{
+    left: 35%;
+    top: 55%;
+    width: 30%;
+}
+#vendors
+{
+    left: 25%;
+    top: 70%;
+    width: 20%;
+}
+#employee_inventory
+{
+    left: 67.5%;
+    top: 55%;
+    width: 30%;
+}
+#reports
+{
+    left: 55%;
+    top: 70%;
+    width: 20%;
+}
+#audio
+{
+    position: fixed;
+    bottom: 1%;
+}
+.linkButton
+{
+    position: fixed;
+}

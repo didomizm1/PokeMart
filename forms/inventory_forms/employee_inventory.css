@@ -5,9 +5,20 @@ h1
 
 body
 {      
-    background: linear-gradient(rgba(122, 122, 122, 0.5), rgba(122, 122, 122, 0.5)), url("../../img/inventory/pokemon_forest.jpeg"); 
-    background-size: 100%;
+    background:  linear-gradient(rgba(122, 122, 122, 0.2), rgba(122, 122, 122, 0.2)), url("../../img/lnt/employee_inventory_background.gif") no-repeat; 
+    background-size: 100% 100%;
     background-attachment: fixed;
+}
+#logo
+{
+    position: absolute;
+    left: 0.4%;
+    top: 0.8%;
+    width: 27.25%; 
+}
+#form
+{
+    margin: 12.5% auto;
 }
 
 /* The Modal (background) */
