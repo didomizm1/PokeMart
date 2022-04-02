@@ -2,6 +2,9 @@
 //connect to database
 include_once('../connect_mysql.php');
 
+//session handling
+require_once('../employee_session.php');
+
 if(isset($_POST['submit']))
 {
     $valueToSearch = $_POST['valueToSearch'];

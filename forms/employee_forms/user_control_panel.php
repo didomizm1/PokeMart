@@ -1,13 +1,9 @@
 <?php
 	//database connection
 	include_once('../connect_mysql.php');
-	if(!($_SESSION['user_role_type'] > 0))
-    {
-        header('Location: ../home_page/index.php');
-    }
 
     //session handling
-	require_once('../session.php');
+	require_once('../employee_session.php');
 
 	//function for updating data
 	function updateData($tableName, $columnName, $newData, $tableID, $thisID, $dbconn)
@@ -648,14 +644,15 @@
 									</p>
 								</form>
 
+								<!--
 								<form method = "POST">
-									<p> <!-- Full-Time -->
+									<p>	Full Time (comment this)
 										<?php
 											//array for full time values
-											$array2 = [0 => "Part-time", 1 => "Full-time"]; 
+											//$array2 = [0 => "Part-time", 1 => "Full-time"]; 
 										?>
 										<label class = "displayInfo"> Full-time status:
-											<input type = "text" id = "full_time" readonly value = "<?php echo $array2[$row3['full_time']]; ?>" /> 
+											<input type = "text" id = "full_time" readonly value = "<?php //echo $array2[$row3['full_time']]; ?>" /> 
 										</label>
 										<label class = "enterInfo"> New full-time status:
 											<input type = "radio" name = "full_timeInput" value = "1" /> Full-time
@@ -666,6 +663,7 @@
 										</label>
 									</p>
 								</form>
+								-->
 
 								<form method = "POST">
 									<p> <!-- Location -->
@@ -682,15 +680,15 @@
 								</form>
 
 								<form method = "POST">
-									<p> <!-- Weekly Earnings -->
-										<label class = "displayInfo"> Weekly earnings: 
-											$ <input type = "text" id = "weekly_earnings" readonly value = "<?php echo $row3['weekly_earnings']; ?>" /> 
+									<p> <!-- Salary -->
+										<label class = "displayInfo"> Salary: 
+											$ <input type = "text" id = "salary" readonly value = "<?php echo $row3['salary']; ?>" /> 
 										</label>
-										<label class = "enterInfo"> New weekly earnings: 
-											$ <input type = "number" name = "weekly_earningsInput" required /> 
+										<label class = "enterInfo"> New salary: 
+											$ <input type = "number" name = "salaryInput" required /> 
 										</label>
 										<label class = "submitInfo">
-											<input type = "submit" name = "weekly_earningsSubmit" value = "Save" title = "Save new data" />
+											<input type = "submit" name = "salarySubmit" value = "Save" title = "Save new data" />
 										</label>
 									</p><br>
 								</form>
@@ -794,17 +792,17 @@
 					{
 						updateData("employee_profile", "position", $_POST['positionInput'], "EPID", $row3['EPID'], $dbconn); //update database
 					}
-					else if(isset($_POST['full_timeSubmit']))
+					/*else if(isset($_POST['full_timeSubmit']))
 					{
 						updateData("employee_profile", "full_time", $_POST['full_timeInput'], "EPID", $row3['EPID'], $dbconn); //update database
-					}
+					}*/
 					else if(isset($_POST['locationSubmit']))
 					{
 						updateData("employee_profile", "location", $_POST['locationInput'], "EPID", $row3['EPID'], $dbconn); //update database
 					}
-					else if(isset($_POST['weekly_earningsSubmit']))
+					else if(isset($_POST['salarySubmit']))
 					{
-						updateData("employee_profile", "weekly_earnings", $_POST['weekly_earningsInput'], "EPID", $row3['EPID'], $dbconn); //update database
+						updateData("employee_profile", "salary", $_POST['salaryInput'], "EPID", $row3['EPID'], $dbconn); //update database
 					}
 				?>
 			</p>

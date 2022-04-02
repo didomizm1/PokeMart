@@ -1,6 +1,6 @@
 <?php
     //session handling
-	require_once('../session.php');
+	require_once('../employee_session.php');
 ?>
 
 <!-- Connects to employee profile, user control panel, vendors, employee inventory, z-report, etc. -->
@@ -36,8 +36,8 @@
         <a href = "../inventory_forms/employee_inventory.php">
 			<img class = "linkButton" id = "employee_inventory" src = "../../img/lnt/employee_inventory.png" alt = "Employee Inventory">
 		</a>
-        <a href = "../z_report/lookup_z_report.html">
-			<img class = "linkButton" id = "z_report" src = "../../img/lnt/z_report2.png" alt = "Z-Report">
+        <a href = "../z_report/reports_page.html">
+			<img class = "linkButton" id = "reports" src = "../../img/lnt/reports2.png" alt = "Reports">
 		</a>
 	</div>
 

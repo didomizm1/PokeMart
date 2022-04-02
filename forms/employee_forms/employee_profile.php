@@ -1,6 +1,6 @@
 <?php
     //session handling
-	require_once('../session.php');
+	require_once('../employee_session.php');
 ?>
 
 <!-- Displays information specific to an employee's profile -->
