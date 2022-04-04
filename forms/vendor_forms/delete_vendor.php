@@ -1,4 +1,5 @@
 <?php
+require_once('../employee_session.php');
 if(isset($_POST['submit']))
 {
 	//connect to database

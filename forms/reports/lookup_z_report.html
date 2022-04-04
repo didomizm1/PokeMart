@@ -31,7 +31,7 @@ input[type=number]
 	margin-top:14%;
 }
 /*focuses/highlights box when inputting*/
-input[type=number],input[type=date]:focus {
+input[type=number]:focus,input[type=date]:focus {
   background-color: #efbf67;
 }
 body{
@@ -70,7 +70,7 @@ body{
 	<br>	
 	<h3 style="text-align: center">Type in employee ID and date, then press submit to get their Z-Report for that day</h3>
 	<form action="lookup_z_report.php" method="POST" style="text-align: center">
-			EPID: <input type="number" name="EPID" required>
+			EPID: <input type="number" value="EPID" name="EPID" required>
 			<br>
 			Date: <input type="date" name="date" required>
 			<br><br>
