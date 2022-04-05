@@ -28,6 +28,7 @@
 
 	<!-- Center of the page -->
 	<div id = "mid">
+		<!-- Print out profile data -->
 		<h1 id = "header">Profile Page</h1>
 		<p>
 			<label class = "dataName">First Name</label><br>
@@ -85,12 +86,11 @@
 			<label class = "dataName">Country</label><br>
 			<label class = "dataInfo"><?php echo $row['country'];?></label>
 		</p>
-		
 	</div>
 
 	<!-- Bottom of the page -->
 	<div id = "footer">
-		<!-- Music playing on the page -->
+		<!-- Music controls -->
 		<audio id = "audio" src = "../../audio/music/pokemart_soul_silver_theme.mp3" loop controls></audio>
 	</div>
 </body>     

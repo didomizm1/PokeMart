@@ -25,7 +25,7 @@ if(isset($_POST['submit']))
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Wishlist Test</title>
+        <title>Wishlist</title>
        <!-- <h1>PokéMart Store!</h1>-->
 
 	    <link rel = "stylesheet" href = "shopping_cart.css">
