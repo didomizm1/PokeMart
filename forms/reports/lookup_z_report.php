@@ -9,7 +9,7 @@ if(isset($_POST['submit']))
     $date=$_POST['date'];
 
 	//setup query, selects row where EPID matches input
-	$query="SELECT * FROM z_report WHERE EPID='$EPID' AND date='$date";
+	$query="SELECT * FROM z_report WHERE EPID='$EPID' AND date='$date'";
 
 	//execute query and display in table
     $result=mysqli_query($dbconn, $query);
