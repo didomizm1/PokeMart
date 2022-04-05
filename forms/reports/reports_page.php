@@ -49,10 +49,10 @@
       <IMG id="logo" SRC="../../img/lnt/logo.png" >
   </a>
        <IMG SRC ="../../img/lnt/Reports.png" class="center" >
-      <a href="../z_report/lookup_z_report.php">
+      <a href="../reports/lookup_z_report.php">
        <IMG id="lookupz" SRC ="../../img/lnt/Lookup-Z-Report.png">
     </a><
-    <a href="../z_report/z_report.php">
+    <a href="../reports/z_report.php">
        <IMG id="z" SRC ="../../img/lnt/z_report2.png" >
     </a>
   </body>
