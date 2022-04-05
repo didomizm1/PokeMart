@@ -1,6 +1,14 @@
 <?php
-    //session handling
+	//database connection
+	include_once('../connect_mysql.php');
+
+	//session handling
 	require_once('../employee_session.php');
+
+	//get user profile data associated with logged in employee
+	$query = "SELECT * FROM `employee_profile` WHERE `EPID` = '".$_SESSION['EPID']."'";
+	$result = mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
+	$row = $result->fetch_array(MYSQLI_ASSOC);
 ?>
 
 <!-- Displays information specific to an employee's profile -->
@@ -21,7 +29,24 @@
 
 	<!-- Center of the page -->
 	<div id = "mid">
-        
+        <!-- Print out employee profile data -->
+		<h1 id = "header">Employee Profile Page</h1>
+		<p>
+			<label class = "dataName">Employee ID</label><br>
+			<label class = "dataInfo"><?php echo $row['EPID'];?></label>
+		</p>
+		<p>
+			<label class = "dataName">Position</label><br>
+			<label class = "dataInfo"><?php echo $row['position'];?></label>
+		</p>
+		<p>
+			<label class = "dataName">Location</label><br>
+			<label class = "dataInfo"><?php echo $row['location'];?></label>
+		</p>
+		<p>
+			<label class = "dataName">Salary</label><br>
+			<label class = "dataInfo">$<?php echo $row['salary'];?></label>
+		</p>
 	</div>
 
 	<!-- Bottom of the page -->
