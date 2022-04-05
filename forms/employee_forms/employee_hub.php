@@ -30,13 +30,13 @@
         <a href = "user_control_panel.php">
 			<img class = "linkButton" id = "user_control_panel" src = "../../img/lnt/user_control_panel.png" alt = "User Control Panel">
 		</a>
-        <a href = "../vendor_forms/vendor_page.html">
+        <a href = "../vendor_forms/vendor_page.php">
 			<img class = "linkButton" id = "vendors" src = "../../img/lnt/vendors2.png" alt = "Vendors">
 		</a>
         <a href = "../inventory_forms/employee_inventory.php">
 			<img class = "linkButton" id = "employee_inventory" src = "../../img/lnt/employee_inventory.png" alt = "Employee Inventory">
 		</a>
-        <a href = "../z_report/reports_page.html">
+        <a href = "../reports/reports_page.php">
 			<img class = "linkButton" id = "reports" src = "../../img/lnt/reports2.png" alt = "Reports">
 		</a>
 	</div>
