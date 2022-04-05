@@ -428,7 +428,7 @@ if(isset($_POST['submit']))
         <br><br>
         	<!-- Submit form data -->
 			<p>
-				<input type =  "submit" id = "submit" name = "submit" value = "Register" />
+				<input type =  "submit" id = "submit" name = "submit" value = "Checkout" />
 			</p>
 
 		</form>
