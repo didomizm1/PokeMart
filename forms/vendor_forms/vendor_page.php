@@ -61,16 +61,16 @@
       <IMG id="logo" SRC="../../img/lnt/logo.png" >
   </a>
   		 <IMG SRC ="../../img/lnt/vendors.png" class="center" >
-  		<a href="../vendor_forms/insert_vendor.html">
+  		<a href="../vendor_forms/insert_vendor.php">
   		 <IMG id="insert" SRC ="../../img/lnt/insert.png">
   	</a><
-  	<a href="../vendor_forms/delete_vendor.html">
+  	<a href="../vendor_forms/delete_vendor.php">
   		 <IMG id="delete" SRC ="../../img/lnt/delete.png" >
   	</a>
-  	<a href="../vendor_forms/search_vendor.html">
+  	<a href="../vendor_forms/search_vendor.php">
   		 <IMG id="lookup" SRC ="../../img/lnt/Lookup.png">
   	</a>
-  	<a href="../vendor_forms/update_vendor.html">
+  	<a href="../vendor_forms/update_vendor.php">
   		 <IMG id="update" SRC ="../../img/lnt/Update.png">
   	</a>
 	</body>
