@@ -10,49 +10,9 @@ if(isset($_POST['submit']))
 	//setup query, selects row where vendor name matches input
 	$query="SELECT * FROM vendors WHERE vendor_name='$vendor_name'";
 
-	//execute query and display in table
+	//execute query
     $result=mysqli_query($dbconn, $query);
-		if(mysqli_num_rows($result) > 0)
-		{
-        echo "<table>";
-            echo "<tr>";
-                echo "<th>VID</th>";
-                echo "<th>Vendor Name</th>";
-                echo "<th>Vendor Code</th>";
-                echo "<th>Vendor City</th>";
-                echo "<th>Vendor Region</th>";
-                echo "<th>Vendor Country</th>";
-                echo "<th>Vendor Zip Code</th>";
-                echo "<th>Vendor Contact Name</th>";
-                echo "<th>Vendor Contact Title</th>";
-                echo "<th>Vendor Contact Route</th>";
-                echo "<th>Vendor Contact Number</th>";
-            echo "</tr>";
-        while($row = $result->fetch_assoc())
-        {
-            echo "<tr>";
-                echo "<td>" . $row['VID'] . "</td>";
-                echo "<td>" . $row['vendor_name'] . "</td>";
-                echo "<td>" . $row['vendor_code'] . "</td>";
-                echo "<td>" . $row['vendor_city'] . "</td>";
-                echo "<td>" . $row['vendor_region'] . "</td>";
-                echo "<td>" . $row['vendor_country'] . "</td>";
-                echo "<td>" . $row['vendor_zip_code'] . "</td>";
-                echo "<td>" . $row['vendor_contact_name'] . "</td>";
-                echo "<td>" . $row['vendor_contact_title'] . "</td>";
-                echo "<td>" . $row['vendor_contact_route'] . "</td>";
-                echo "<td>" . $row['vendor_contact_number'] . "</td>";
-            echo "</tr>";
-        }
-
-        echo "</table>";
-    }
-    else
-    {
-        echo "No records matching vendor name were found.";//if input doesn't match a vendor in the database
-    }
 }?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -127,6 +87,30 @@ if(isset($_POST['submit']))
     <br>
 			<input type="text" name="vendor_name" placeholder="Search..." required>
 			<input type="submit" name="submit" hidden/> <!--keeps submit button hidden, so user can simply just press enter  -->
+      
+      <?php 
+      if(mysqli_num_rows($result) > 0)//while it isn't empty
+		{
+        while($row = $result->fetch_assoc())
+        {
+                echo str_pad("VID:",25) . $row['VID'] . "\n";
+                echo str_pad("Vendor Name:",25) . $row['vendor_name'] . "\n";
+                echo str_pad("Vendor Code:",25) . $row['vendor_code'] . "\n";
+                echo str_pad("Vendor City:",25) . $row['vendor_city'] . "\n";
+                echo str_pad("Vendor Region:",25) . $row['vendor_region'] . "\n";
+                echo str_pad("Vendor Country:",25) . $row['vendor_country'] . "\n";
+                echo str_pad("Vendor Zip Code:",25) . $row['vendor_zip_code'] . "\n";
+                echo str_pad("Vendor Contact Name:",25) . $row['vendor_contact_name'] . "\n";
+                echo str_pad("Vendor Contact Title:",25) . $row['vendor_contact_title'] . "\n";
+                echo str_pad("Vendor Contact Route:",25) . $row['vendor_contact_route'] . "\n";
+                echo str_pad("Vendor Contact Number:",25) . $row['vendor_contact_number'] . "\n";
+        }
+
+    }
+    else
+    {
+        echo "No records matching vendor name were found.";//if input doesn't match a vendor in the database
+    }?>
 			
 	</form>
 </body>
