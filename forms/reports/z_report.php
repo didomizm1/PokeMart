@@ -17,7 +17,7 @@ if(isset($_POST['submit']))
     $total_refunds=0.00;
 
     //setup query, selects all data from table z_report from a certain date
-	$query="SELECT * FROM z_report WHERE date='$date";
+	$query="SELECT * FROM z_report WHERE date='$date'";
 
 	//execute query and display in table
     $result=mysqli_query($dbconn, $query);
