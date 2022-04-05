@@ -121,7 +121,7 @@ body{
   </a>
 	<IMG SRC ="../../img/lnt/z_report2.png" class="center" >
 	<h2 style="text-align: center">Enter a date, then press submit to get the Z-Report for that day</h2>
-	<form action="lookup_z_report.php" method="POST" style="text-align: center">
+	<form action="z_report.php" method="POST" style="text-align: center">
 			Date: <input type="date" name="date" required>
 			<br><br>
 			<input type="submit" name="submit" value="Submit">
