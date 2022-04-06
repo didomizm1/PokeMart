@@ -11,7 +11,7 @@ if(isset($_POST['submit']))
 	$query="SELECT * FROM vendors WHERE vendor_name='$vendor_name'";
 
 	//execute query
-  $result=mysqli_query($dbconn, $query) or die("No records matching vendor name were found\n");
+  $result=mysqli_query($dbconn, $query);
   $row = $result->fetch_assoc();
 }?>
 <!DOCTYPE html>
@@ -89,9 +89,10 @@ if(isset($_POST['submit']))
 			<input type="text" name="vendor_name" placeholder="Search..." required>
 			<input type="submit" name="submit" hidden/> <!--keeps submit button hidden, so user can simply just press enter  -->
       <br>
+      <br>
       
       <?php 
-            if(isset($_POST['submit']))
+            if(isset($_POST['submit']) && $row != null)
             {
                 echo str_pad("VID:",25) . $row['VID'] . "\n";
                 echo "</br>";  
@@ -114,6 +115,10 @@ if(isset($_POST['submit']))
                 echo str_pad("Vendor Contact Route:",25) . $row['vendor_contact_route'] . "\n";
                 echo "</br>";  
                 echo str_pad("Vendor Contact Number:",25) . $row['vendor_contact_number'] . "\n"; 
+            }
+            else
+            {
+              echo "No records matching vendor name were found";
             }
     ?>
 			
