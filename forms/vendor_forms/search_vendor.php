@@ -90,8 +90,15 @@ if(isset($_POST['submit']))
 			<input type="submit" name="submit" hidden/> <!--keeps submit button hidden, so user can simply just press enter  -->
       <br><br>
 
+      <style>
+        .pad
+        {
+          padding-right: 28px;
+        }
+      </style>
       
       <?php 
+            
             if(isset($_POST['submit']))
             {
               if($row != null)
@@ -99,7 +106,7 @@ if(isset($_POST['submit']))
                 echo "</br>"; 
                 echo "</br>"; 
                 echo "</br>"; 
-                echo str_pad("VID:",25) . $row['VID'] . "\n";
+                echo "VID:" . "<label class = 'pad'></label>" . $row['VID'];
                 echo "</br>";  
                 echo str_pad("Vendor Name:",25) . $row['vendor_name'] . "\n";
                 echo "</br>";  
