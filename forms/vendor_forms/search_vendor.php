@@ -88,12 +88,17 @@ if(isset($_POST['submit']))
     <br>
 			<input type="text" name="vendor_name" placeholder="Search..." required>
 			<input type="submit" name="submit" hidden/> <!--keeps submit button hidden, so user can simply just press enter  -->
-      <br>
-      <br>
+      <br><br>
+
       
       <?php 
-            if(isset($_POST['submit']) && $row != null)
+            if(isset($_POST['submit']))
             {
+              if($row != null)
+              {
+                echo "</br>"; 
+                echo "</br>"; 
+                echo "</br>"; 
                 echo str_pad("VID:",25) . $row['VID'] . "\n";
                 echo "</br>";  
                 echo str_pad("Vendor Name:",25) . $row['vendor_name'] . "\n";
@@ -115,11 +120,13 @@ if(isset($_POST['submit']))
                 echo str_pad("Vendor Contact Route:",25) . $row['vendor_contact_route'] . "\n";
                 echo "</br>";  
                 echo str_pad("Vendor Contact Number:",25) . $row['vendor_contact_number'] . "\n"; 
+              }
+              else
+              {
+                echo "No records matching vendor name were found";
+              }
             }
-            else
-            {
-              echo "No records matching vendor name were found";
-            }
+          
     ?>
 			
 	</form>
