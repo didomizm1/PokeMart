@@ -91,18 +91,30 @@ if(isset($_POST['submit']))
       <br>
       
       <?php 
-
+            if(isset($_POST['submit']))
+            {
                 echo str_pad("VID:",25) . $row['VID'] . "\n";
+                echo "</br>";  
                 echo str_pad("Vendor Name:",25) . $row['vendor_name'] . "\n";
+                echo "</br>";  
                 echo str_pad("Vendor Code:",25) . $row['vendor_code'] . "\n";
+                echo "</br>";  
                 echo str_pad("Vendor City:",25) . $row['vendor_city'] . "\n";
+                echo "</br>";  
                 echo str_pad("Vendor Region:",25) . $row['vendor_region'] . "\n";
+                echo "</br>";  
                 echo str_pad("Vendor Country:",25) . $row['vendor_country'] . "\n";
+                echo "</br>";  
                 echo str_pad("Vendor Zip Code:",25) . $row['vendor_zip_code'] . "\n";
+                echo "</br>";  
                 echo str_pad("Vendor Contact Name:",25) . $row['vendor_contact_name'] . "\n";
+                echo "</br>";  
                 echo str_pad("Vendor Contact Title:",25) . $row['vendor_contact_title'] . "\n";
+                echo "</br>";  
                 echo str_pad("Vendor Contact Route:",25) . $row['vendor_contact_route'] . "\n";
+                echo "</br>";  
                 echo str_pad("Vendor Contact Number:",25) . $row['vendor_contact_number'] . "\n"; 
+            }
     ?>
 			
 	</form>
