@@ -29,14 +29,31 @@ $SCID = $_SESSION['SCID'];
                     <th>Item Name</th>
                     <th>Price</th>
                     <th>Quantity</th>
+                    <th>Change Quantity</th>
+                    <th>Delete</th>
                 </tr>
 
       <!-- populate table from mysql database -->
                 <?php
+
+                    //deletes a cart item
+                    function deleteRow($SCID, $IID, $dbconn)
+                    {
+                        $query3 = "DELETE FROM cart_item WHERE SCID = $SCID AND IID = $IID";
+                        mysqli_query($dbconn, $query3) or die("Couldn't execute query\n");
+                    }
+
                     $query ="SELECT * FROM cart_item WHERE SCID = '$SCID'";
                     $result = mysqli_query($dbconn, $query);
+
+                    $count = 0;
                     while($row = $result->fetch_array(MYSQLI_ASSOC))
                     {
+                        //make a unique name for each iteration of the row
+                        $count = $count + 1;
+                        $currentName = "save" . $count;
+                        $currentName2 = "delete" . $count;
+
                         $IID = $row['IID'];
                         $query2 = "SELECT * FROM inventory WHERE IID = '$IID'";
                         $search_result = mysqli_query($dbconn, $query2);
@@ -51,23 +68,44 @@ $SCID = $_SESSION['SCID'];
                             <form method="post">
                                 <!--adding option to change quantity-->
                                 <td>
-                                <label> 
-                                <input type = "number" min="0" step="1" name  = "quantity" maxlength = "10" required/>
-                                </label> 
-                                </td>
+                                    <!-- enter quantity -->
+                                    <label> 
+                                        <input type = "number" min="0" step="1" name  = "quantity" maxlength = "10" value = "<?php echo $row['quantity']; ?>" required/>
+                                    </label> 
                                 
+                                    <!-- save quantity -->
+                                    <label>
+                                        <input type="submit" name="<?php echo $currentName; ?>" value="Save"/>
+                                        <?php
+                                            if(isset($_POST[$currentName]))
+                                            { 
+                                                $quantity = $_POST['quantity'];
+                                                if($quantity > 0) //update quantity in database
+                                                {
+                                                    $query = "UPDATE cart_item SET quantity = $quantity WHERE SCID = $SCID AND IID = $IID";
+                                                    mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
+                                                }
+                                                else //delete item if quantity was set to 0
+                                                {
+                                                    deleteRow($SCID, $IID, $dbconn);
+                                                }
+                                            }
+                                        ?>
+                                    </label>
+                                </td>
+
+                                <!-- delete item from cart -->
                                 <td>
-                                <input type="submit" name="<?php echo $currentName; ?>" value="Delete from Cart">
-                                <?php
-                                    if(isset($_POST[$currentName]))
-                                    { 
-                                        $SCID = $_SESSION['SCID'];
-                                        $IID = $row['IID'];
-                                        $quantity = $_POST['quantity'];
-                                        $query = "DELETE FROM cart_item (IID, SCID, quantity) VALUES ('$IID', '$SCID', '$quantity')";
-                                        mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
-                                    }
-                                ?>
+                                    <label>
+                                        <input type="submit" name="<?php echo $currentName2; ?>" value="Delete from cart"/>
+                                        <?php
+                                            if(isset($_POST[$currentName2])) //update database
+                                            { 
+                                                deleteRow($SCID, $IID, $dbconn);
+                                            }
+                                        ?>
+                                    </label>
+                                </td>
                             </form>
                         </td>
                         </tr>

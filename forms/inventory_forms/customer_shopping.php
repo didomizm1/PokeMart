@@ -25,7 +25,7 @@ else
 <html>
     <head>
         <title>Customer Shopping</title>
-       <!-- <h1>PokéMart Store!</h1>-->
+       <!-- <h1>PokéMart Store!</h1> -->
 
 	    <link rel = "stylesheet" href = "customer_shopping.css">
 
@@ -44,8 +44,8 @@ else
         </a>
         <form id = "form" method="post">
             <h1>Item Shop</h1>
-            <input type="text" name="valueToSearch" placeholder="Search"><br><br>
-            <input type="submit" name="submit" value="Filter"><br><br>
+            <input type="text" name="valueToSearch" placeholder="Search"/><br><br>
+            <input type="submit" name="submit" value="Filter"/><br><br>
             
             <table>
                 <tr>
@@ -63,8 +63,11 @@ else
                 include_once('customer_shopping.php'); 
                 $count = 0;
                 while($row = mysqli_fetch_array($result)):
+
+                    //make a unique name for each iteration of the row
                     $count = $count + 1;
-                    $currentName = "add" . $count;
+                    $currentName = "addToCart" . $count;
+                    $currentName2 = "addToWishlist" . $count;
                 ?>
                 <tr>
                     <td><?php echo $row['IID'];?></td>
@@ -77,35 +80,59 @@ else
                     
                         <!--adding option to change quantity-->
                         <td>
-                        <label> 
-                        <input type = "number" min="0" step="1" name  = "quantity" maxlength = "10" required/>
-                        </label> 
+                            <!-- enter quantity -->
+                            <label> 
+                                <input type = "number" min="1" step="1" name  = "quantity" maxlength = "10" required/>
+                            </label> 
                         </td>
                         
+                        <!-- add item to cart -->
                         <td>
-                        <input type="submit" name="<?php echo $currentName; ?>" value="Add to Cart">
-                        <?php
-                            if(isset($_POST[$currentName]))
-                            { 
-                                $SCID = $_SESSION['SCID'];
-                                $IID = $row['IID'];
-                                $quantity = $_POST['quantity'];
-                                $query = "INSERT INTO cart_item (IID, SCID, quantity) VALUES ('$IID', '$SCID', '$quantity')";
-                                mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
-                            }
-                        ?>
+                            <label>
+                                <input type="submit" name="<?php echo $currentName; ?>" value="Add to Cart"/>
+                                <?php
+                                    if(isset($_POST[$currentName])) //add to database
+                                    { 
+                                        $SCID = $_SESSION['SCID'];
+                                        $IID = $row['IID'];
+                                        $quantity = $_POST['quantity'];
+
+                                        //check if item exists in the cart
+                                        $query2 ="SELECT * FROM cart_item WHERE SCID = '$SCID' AND IID = $IID";
+                                        $result2 = mysqli_query($dbconn, $query2);
+                                        $row2 = $result2->fetch_array(MYSQLI_ASSOC);
+
+                                        if($row2 == null) //item does not already exist in the cart
+                                        {
+                                            $query3 = "INSERT INTO cart_item (IID, SCID, quantity) VALUES ('$IID', '$SCID', '$quantity')";
+                                            mysqli_query($dbconn, $query3) or die("Couldn't execute query\n");
+                                        }
+                                        else //item does exist in the cart, so increment quantity instead
+                                        {
+                                            $incrementedQuantity = $quantity + $row2['quantity'];
+                                            $query3 = "UPDATE cart_item SET quantity = $incrementedQuantity WHERE SCID = $SCID AND IID = $IID";
+                                            mysqli_query($dbconn, $query3) or die("Couldn't execute query\n");
+                                        }
+                                    }
+                                ?>
+                            </label>
                         </td>
+
+                        <!-- add item to wishlist -->
                         <td>
-                            <input type="submit" name="<?php echo $currentName; ?>" value="Add to Wishlist">
-                            <?php
-                                if(isset($_POST[$currentName]))
-                                { 
-                                    $WID = $_SESSION['WID'];
-                                    $IID = $row['IID'];
-                                    $query = "INSERT INTO wishlist_item (IID, WID) VALUES ('$IID', '$WID')";
-                                    mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
-                                }
-                            ?>
+                            <label>
+                                <input type="submit" name="<?php echo $currentName2; ?>" value="Add to Wishlist"/>
+                                <?php
+                                    if(isset($_POST[$currentName2])) //add to database
+                                    { 
+                                        $WID = $_SESSION['WID'];
+                                        $IID = $row['IID'];
+                                        $query4 = "INSERT INTO wishlist_item (IID, WID) VALUES ('$IID', '$WID')";
+                                        mysqli_query($dbconn, $query4) or die("Couldn't execute query\n");
+                                    }
+                                ?>
+                            </label>
+                        </td>
                     </form>
                     </td>
                 </tr>
