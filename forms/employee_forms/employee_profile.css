@@ -11,8 +11,8 @@ body
 }
 #mid
 { 
-    background: rgba(63, 146, 255, 0.9);
-    border: solid rgb(87, 28, 248) 25px;
+    background: rgba(129, 183, 255, 0.9);
+    border: solid rgb(28, 142, 248) 25px;
     border-radius: 50px;
     margin: 12.5% auto;        
     padding: 50px;
@@ -38,7 +38,7 @@ body
 .dataName
 {
     font-size: 40px;
-    color: rgb(255, 131, 73);
+    color: rgb(73, 106, 255);
     text-shadow: 2px 2px rgb(0,0,0);
 }
 .dataInfo

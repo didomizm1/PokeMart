@@ -31,8 +31,43 @@
 		<!-- Print out profile data -->
 		<h1 id = "header">Profile Page</h1>
 		<p>
-			<label class = "dataName">First Name</label><br>
+			<label class = "dataName">First Name</label><br> 
 			<label class = "dataInfo"><?php echo $row['first_name'];?></label>
+			<form method = "POST">
+				<?php
+					if(isset($_POST['edit_first_name']) && !isset($_POST['cancel_first_name'])) //check for edit button click, display text field if it has been clicked
+					{
+				?>
+						<label>
+							<input type = "text" class = "inputField" name  = "first_name" maxlength = "50" placeholder = "New first name..." autofocus autocomplete required></input>
+						</label>
+						<label>
+							<input type = "submit" class = "button" name = "save_first_name" value = "Save"></input>
+						</label>
+				<?php
+					}
+					else //don't display edit button if it has been clicked
+					{
+				?>
+						<label>
+							<input type = "submit" class = "button" name = "edit_first_name" value = "Edit"></input>
+						</label>
+				<?php
+					}
+				?>
+			</form>
+			<form method = "POST">
+				<?php
+					if(isset($_POST['edit_first_name']))
+					{
+				?>
+						<br><label>
+							<input type = "submit" class = "button" name = "cancel_first_name" value = "Cancel"></input>
+						</label>
+				<?php
+					}
+				?>
+			</form>
 		</p>
 		<p>
 			<label class = "dataName">Middle Name</label><br>
@@ -94,4 +129,4 @@
 		<audio id = "audio" src = "../../audio/music/pokemart_soul_silver_theme.mp3" loop controls></audio>
 	</div>
 </body>     
-</html> 
+</html>
