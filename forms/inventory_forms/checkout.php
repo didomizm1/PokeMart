@@ -11,6 +11,12 @@ $SCID = $_SESSION['SCID'];
 $UPID = $_SESSION['UPID'];
 //get card info aassociated with logged in user
 $CIID = $_SESSION['CIID'];
+//get customer profile info aassociated with logged in user
+$CPID = $_SESSION['CPID'];
+//get customer order info aassociated with logged in user
+$COID = $_SESSION['COID'];
+//get customer order item info aassociated with logged in user
+$COIID = $_SESSION['COIID'];
 
 //get credit card information if there is any
 //$query ="SELECT * FROM card_info WHERE CIID = '$CIID'";
@@ -21,9 +27,9 @@ $CIID = $_SESSION['CIID'];
 
 if(isset($_POST['submit']))
 {
-	$query2 = "UPDATE customer_order SET number_of_items = number_of_items+ VALUES FROM shopping_cart WHERE number_of_items";
-	$query3 = "UPDATE customer_profile SET total_money_spent = total_money_spent+ VALUES FROM shopping_cart WHERE total_price";
-	$query4 = "UPDATE customer_profile SET number_of_purchases = number_of_purchases+1";
+	$query2 = "UPDATE customer_order WHERE COID = '$COID' SET number_of_items = number_of_items+ VALUES FROM shopping_cart WHERE number_of_items";
+	$query3 = "UPDATE customer_profile WHERE CPID = '$CPID' SET total_money_spent = total_money_spent+ VALUES FROM shopping_cart WHERE total_price";
+	$query4 = "UPDATE customer_profile WHERE CPID = '$CPID' SET number_of_purchases = number_of_purchases+1";
 	$query5=" UPDATE inventory WHERE item_name = '$item_name' AND IID = '$IID' SET in_stock = instock- VALUES FROM cart_item WHERE quantity";
 	$query6 = "DELETE * FROM cart_item WHERE $SCID = 'SCID";
 
