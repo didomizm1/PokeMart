@@ -27,15 +27,18 @@ $COIID = $_SESSION['COIID'];
 
 if(isset($_POST['submit']))
 {
+	//storing customer order data in respective databases
 	$query2 = "UPDATE customer_order WHERE COID = '$COID' SET number_of_items = number_of_items+ VALUES FROM shopping_cart WHERE number_of_items";
 	$query3 = "UPDATE customer_profile WHERE CPID = '$CPID' SET total_money_spent = total_money_spent+ VALUES FROM shopping_cart WHERE total_price";
 	$query4 = "UPDATE customer_profile WHERE CPID = '$CPID' SET number_of_purchases = number_of_purchases+1";
+
+	//updating inventory stock and clearing cart
 	$query5=" UPDATE inventory WHERE item_name = '$item_name' AND IID = '$IID' SET in_stock = instock- VALUES FROM cart_item WHERE quantity";
 	$query6 = "DELETE * FROM cart_item WHERE $SCID = 'SCID";
 
 	if($dbconn->query($query2 && $query3 && $query4 && $query5 && $query6)==TRUE)
     {
-        echo nl2br("Item deleted successfully\n");
+        echo nl2br("Checkout Successful\n");
     }
     else
     {
