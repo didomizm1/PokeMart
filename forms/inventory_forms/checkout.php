@@ -33,6 +33,15 @@ if(isset($_POST['submit']))
 	$query5=" UPDATE inventory WHERE item_name = '$item_name' AND IID = '$IID' SET in_stock = instock- VALUES FROM cart_item WHERE quantity";
 	$query6 = "DELETE * FROM cart_item WHERE $SCID = 'SCID";
 
+	if($dbconn->query($query2 && $query3 && $query4 && $query5 && $query6)==TRUE)
+    {
+        echo nl2br("Item deleted successfully\n");
+    }
+    else
+    {
+        echo nl2br("Error: " . $query . "<br>" . $dbconn->error . "\n");
+    }
+
 }
 
 
