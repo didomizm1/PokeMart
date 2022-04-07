@@ -3,7 +3,7 @@
 //connect to database
 include_once('../connect_mysql.php');
 //session handling
-require_once('../session.php');
+session_start();
 
 if(isset($_POST['submit']))
 {
@@ -30,14 +30,22 @@ else
 	    <link rel = "stylesheet" href = "customer_shopping.css">
 
     </head>
-    <div class="ShoppingCart">
-        <form action="shopping_cart.php" method="post">
-            
-            <a href = "shopping_cart.php">
-            <h2>Shopping Cart</h2>
-            </a>
-        </form>
-        </div>
+
+    <?php    
+        if(isset($_SESSION['ULID'])) //make sure a user is logged in
+        {
+    ?>
+            <div class="ShoppingCart">
+                <form action="shopping_cart.php" method="post">
+                    <a href = "shopping_cart.php">
+                        <h2>Shopping Cart</h2>
+                    </a>
+                </form>
+            </div>
+    <?php
+        }
+    ?>
+
     <body>
         <a href = "../home_page/index.php">
 			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart"> 
@@ -55,7 +63,14 @@ else
                     <th>Type</th>
                     <th>Description</th>
                     <th>Price</th>
-                    <th>Quantity</th>
+                    <?php    
+                        if(isset($_SESSION['ULID'])) //make sure a user is logged in
+                        {
+                    ?>
+                            <th>Quantity</th>
+                    <?php
+                        }
+                    ?>
                 </tr>
         </form>
       <!-- populate table from mysql database -->
@@ -76,64 +91,72 @@ else
                     <td><?php echo $row['item_type'];?></td>
                     <td><?php echo $row['item_description'];?></td>
                     <td><?php echo $row['selling_price'];?></td>
-                    <form method="post">
-                    
-                        <!--adding option to change quantity-->
-                        <td>
-                            <!-- enter quantity -->
-                            <label> 
-                                <input type = "number" min="1" step="1" name  = "quantity" maxlength = "10" required/>
-                            </label> 
-                        </td>
+
+                <?php    
+                    if(isset($_SESSION['ULID'])) //make sure a user is logged in
+                    {
+                ?>
+                        <form method="post">
                         
-                        <!-- add item to cart -->
-                        <td>
-                            <label>
-                                <input type="submit" name="<?php echo $currentName; ?>" value="Add to Cart"/>
-                                <?php
-                                    if(isset($_POST[$currentName])) //add to database
-                                    { 
-                                        $SCID = $_SESSION['SCID'];
-                                        $IID = $row['IID'];
-                                        $quantity = $_POST['quantity'];
+                            <!--adding option to change quantity-->
+                            <td>
+                                <!-- enter quantity -->
+                                <label> 
+                                    <input type = "number" min="1" step="1" name  = "quantity" maxlength = "10" required/>
+                                </label> 
+                            </td>
+                            
+                            <!-- add item to cart -->
+                            <td>
+                                <label>
+                                    <input type="submit" name="<?php echo $currentName; ?>" value="Add to Cart"/>
+                                    <?php
+                                        if(isset($_POST[$currentName])) //add to database
+                                        { 
+                                            $SCID = $_SESSION['SCID'];
+                                            $IID = $row['IID'];
+                                            $quantity = $_POST['quantity'];
 
-                                        //check if item exists in the cart
-                                        $query2 ="SELECT * FROM cart_item WHERE SCID = '$SCID' AND IID = $IID";
-                                        $result2 = mysqli_query($dbconn, $query2);
-                                        $row2 = $result2->fetch_array(MYSQLI_ASSOC);
+                                            //check if item exists in the cart
+                                            $query2 ="SELECT * FROM cart_item WHERE SCID = '$SCID' AND IID = $IID";
+                                            $result2 = mysqli_query($dbconn, $query2);
+                                            $row2 = $result2->fetch_array(MYSQLI_ASSOC);
 
-                                        if($row2 == null) //item does not already exist in the cart
-                                        {
-                                            $query3 = "INSERT INTO cart_item (IID, SCID, quantity) VALUES ('$IID', '$SCID', '$quantity')";
-                                            mysqli_query($dbconn, $query3) or die("Couldn't execute query\n");
+                                            if($row2 == null) //item does not already exist in the cart
+                                            {
+                                                $query3 = "INSERT INTO cart_item (IID, SCID, quantity) VALUES ('$IID', '$SCID', '$quantity')";
+                                                mysqli_query($dbconn, $query3) or die("Couldn't execute query\n");
+                                            }
+                                            else //item does exist in the cart, so increment quantity instead
+                                            {
+                                                $incrementedQuantity = $quantity + $row2['quantity'];
+                                                $query3 = "UPDATE cart_item SET quantity = $incrementedQuantity WHERE SCID = $SCID AND IID = $IID";
+                                                mysqli_query($dbconn, $query3) or die("Couldn't execute query\n");
+                                            }
                                         }
-                                        else //item does exist in the cart, so increment quantity instead
-                                        {
-                                            $incrementedQuantity = $quantity + $row2['quantity'];
-                                            $query3 = "UPDATE cart_item SET quantity = $incrementedQuantity WHERE SCID = $SCID AND IID = $IID";
-                                            mysqli_query($dbconn, $query3) or die("Couldn't execute query\n");
-                                        }
-                                    }
-                                ?>
-                            </label>
-                        </td>
+                                    ?>
+                                </label>
+                            </td>
 
-                        <!-- add item to wishlist -->
-                        <td>
-                            <label>
-                                <input type="submit" name="<?php echo $currentName2; ?>" value="Add to Wishlist"/>
-                                <?php
-                                    if(isset($_POST[$currentName2])) //add to database
-                                    { 
-                                        $WID = $_SESSION['WID'];
-                                        $IID = $row['IID'];
-                                        $query4 = "INSERT INTO wishlist_item (IID, WID) VALUES ('$IID', '$WID')";
-                                        mysqli_query($dbconn, $query4) or die("Couldn't execute query\n");
-                                    }
-                                ?>
-                            </label>
-                        </td>
-                    </form>
+                            <!-- add item to wishlist -->
+                            <td>
+                                <label>
+                                    <input type="submit" name="<?php echo $currentName2; ?>" value="Add to Wishlist"/>
+                                    <?php
+                                        if(isset($_POST[$currentName2])) //add to database
+                                        { 
+                                            $WID = $_SESSION['WID'];
+                                            $IID = $row['IID'];
+                                            $query4 = "INSERT INTO wishlist_item (IID, WID) VALUES ('$IID', '$WID')";
+                                            mysqli_query($dbconn, $query4) or die("Couldn't execute query\n");
+                                        }
+                                    ?>
+                                </label>
+                            </td>
+                        </form>
+                <?php
+                    }
+                ?>
                     </td>
                 </tr>
                 <?php endwhile;?>
