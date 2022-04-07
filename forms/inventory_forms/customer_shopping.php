@@ -42,6 +42,13 @@ else
                     </a>
                 </form>
             </div>
+            <div class="Wishlist">
+                <form action="wishlist.php" method="post">
+                    <a href = "wishlist.php">
+                        <h2>Wishlist</h2>
+                    </a>
+                </form>
+            </div>
     <?php
         }
     ?>
