@@ -27,10 +27,19 @@ $COIID = $_SESSION['COIID'];
 
 if(isset($_POST['submit']))
 {
-	//storing customer order data in respective databases
-	$query2 = "UPDATE customer_order WHERE COID = '$COID' SET number_of_items = number_of_items+ VALUES FROM shopping_cart WHERE number_of_items";
-	$query3 = "UPDATE customer_profile WHERE CPID = '$CPID' SET total_money_spent = total_money_spent+ VALUES FROM shopping_cart WHERE total_price";
-	$query4 = "UPDATE customer_profile WHERE CPID = '$CPID' SET number_of_purchases = number_of_purchases+1";
+	//storing customer order data
+	$query1 = "INSERT INTO customer_order (CPID) VALUES '$CPID'";
+	$query2 = "INSERT INTO customer_order WHERE CPID = '$CPID' AND COID = '$COID' number_ofitems = VALUES FROM shopping_cart WHERE number_of_items";
+	$query3 = "INSERT INTO customer_order WHERE CPID = '$CPID' AND COID = '$COID' total_price = VALUES FROM shopping_cart WHERE number_of_items";
+
+	//customer order item queries 
+	$query4 = "INSERT INTO customer_order_item (COID) = '$COID'";
+	$query5 = "INSERT INTO customer_order_item (IID) VALUES FROM cart_item (IID) WHERE SCID = '$SCID";
+	$query6 = "INSERT INTO customer_order_item (IID) VALUES FROM cart_item (quantity) WHERE SCID = '$SCID";
+
+	//customer profile queries
+	$query7 = "UPDATE customer_profile WHERE CPID = '$CPID' SET total_money_spent = total_money_spent+ VALUES FROM shopping_cart WHERE total_price";
+	$query8 = "UPDATE customer_profile WHERE CPID = '$CPID' SET number_of_purchases = number_of_purchases+1";
 
 	//updating inventory stock and clearing cart
 	$query5=" UPDATE inventory WHERE item_name = '$item_name' AND IID = '$IID' SET in_stock = instock- VALUES FROM cart_item WHERE quantity";
