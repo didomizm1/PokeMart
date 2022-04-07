@@ -13,24 +13,46 @@ if ($_POST['submit']) //purchase=submit
     $query1= "INSERT INTO `customer_transaction` (`IID`, `quantity`) FROM `card_item`";
    
     //get date stamp
-    $query2= "INSERT INTO `customer_transaction`(`trans_date`) FROM `//time stamp`";
+    $query2= "INSERT INTO `customer_transaction`(`trans_date`) FROM `**//time stamp`";
    
     //get payment method (debit, card, cash)
     $query3= "INSERT INTO `customer_transaction` (`tran_type`) FROM `tran_type`";
 
-    $result = mysqli_query($dbconn, $query0);
-    $result = mysqli_query($dbconn, $query1);
-    $result = mysqli_query($dbconn, $query2);
-    $result = mysqli_query($dbconn, $query3);
-   
+    $result0 = mysqli_query($dbconn, $query0);
+    $result1 = mysqli_query($dbconn, $query1);
+    $result2 = mysqli_query($dbconn, $query2);
+    $result3 = mysqli_query($dbconn, $query3);
+
+    if(mysqli_num_rows($result) > 0)
+    {
+    echo "<table>";
+        echo "<tr>";
+            echo "<th>Customer Order ID</th>";
+            echo "<th>Customer Profile ID</th>";
+            echo "<th>Number Of Items</th>";
+            echo "<th>Total Cost</th>";
+            echo "<th>Data Stamp</th>";
+            echo "<th>Transaction type</th>";
+        echo "</tr>";
+    while($row = $result->fetch_assoc())
+    {
+        echo "<tr>";
+            echo "<td>" . $row['COID'] . "</td>";
+            echo "<td>" . $row['CPID'] . "</td>";
+            echo "<td>" . $row['total_quantity'] . "</td>";
+            echo "<td>" . $row['total_cost'] . "</td>";
+            echo "<td>" . $row['date_stamp'] . "</td>";
+            echo "<td>" . $row['transaction_type'] . "</td>";
+        echo "</tr>";
+    }
+
+    echo "</table>";
+}
+else
+{
+    echo "No transaction was found.";
+}
 }
 
 ?>
-//what is SCID
-//  customer id; from (CPID)
-    item (product ID) and quantity; from inventory(IID)
-    total quantity of items purchased; from (cart item)
-    total cost; from (shopping cart)
-    type of transaction (debit/credit/cash); from transaction type  //need to make
-    date stamp //idk 
-    refunds/rebate/remission ;// also needs to be done 
+   // refunds/rebate/remission ;//
