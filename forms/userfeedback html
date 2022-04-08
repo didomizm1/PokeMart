@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale-1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home page</title>
+    <link rel="stylesheet" href="css/stylesheet.css">
+
+</head>
+<body>
+    <div class="wrap">
+        <table>
+            <form action="" method=""></form>
+                <h1>Feedback Form</h1>
+                <tr>
+                    <td colspan="2"></td>
+                        <label>                                             
+How do you rate your overall experience</label>
+                            <input type="radio" name="rate" value="bad"> Bad
+                            <input type="radio" name="rate" value="average">Average
+                            <input type="radio" name="rate" value="good">Good
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <td><label>Fullname</label></td>
+                    <br/>
+                    <input type="text" name="Fullname" class="txt">
+                    </td>
+                    <td>
+                        <label>Email*</label>
+                        <br/>
+                        <input type="email" name="email" class="txt">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <td><label>Age*</label></td>
+                    <br/>
+                    <input type="text" name="age"class="txt">
+                    </td>
+                    <td>
+                        <label>Phone*</label>
+                        <br/>
+                        <input type="text" name="phone"class="txt">
+                    </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                      <label>Message</label>
+                      <br/>
+                      <textarea class="txtarea"></textarea>
+                  </td>  
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="submit" class="btn">submit</button></td>
+                </tr>
+            </form>
+        </table>
+    </div>
+</body>
+
+
+</html>

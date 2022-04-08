@@ -12,7 +12,7 @@ $SCID = $_SESSION['SCID'];
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Shopping Cart Test</title>
+        <title>Shopping Cart</title>
        <!-- <h1>PokéMart Store!</h1>-->
 	    <link rel = "stylesheet" href = "shopping_cart.css">
 
@@ -118,7 +118,7 @@ $SCID = $_SESSION['SCID'];
         <div class="Checkout">
         <form action="checkout.php" method="post"> 
             <a href = "checkout.php"></a>
-            <h2>Check Out</h2>
+            <h2>Checkout</h2>
             </a>
         </form>
         </div>
