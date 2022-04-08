@@ -7,19 +7,9 @@ if(isset($_POST['submit']))
 
 	//variables that hold vendor data inserted from html form
 	$vendor_name=$_POST['vendor_name'];
-	$vendor_code=$_POST['vendor_code'];
-	$VID=$_POST['VID'];
 	//query setup to delete vendor where vendor name,code and id match
-	$query="DELETE FROM vendors WHERE vendor_name='$vendor_name' AND vendor_code='$vendor_code' AND VID='$VID'";
-	//execute query
-	if($dbconn->query($query)==TRUE)
-    {
-        echo nl2br("Vendor deleted successfully\n");
-    }
-    else
-    {
-        echo nl2br("Error: " . $query . "<br>" . $dbconn->error . "\n");
-    }
+	$query="DELETE FROM vendors WHERE vendor_name='$vendor_name'";
+	
 }
 
 ?>
@@ -28,16 +18,26 @@ if(isset($_POST['submit']))
 <html>
 <head>
 	<title>Delete Vendor Form</title>
+	<!-- delete confirmation -->
+	<script>
+	function clicked(e)
+		{
+    		if(!confirm('Are you sure you want to delete vendor?'))
+			{
+        		e.preventDefault();
+    		}
+		}
+	</script>
 	<style>
 	/* input border */
-	input[type=text],input[type=number] {
+	input select {
   	 margin: 8px 0;
     border: 2px solid orange;
     border-radius: 50px;
     width:40%;
 	}
 	/*focuses/highlights box when inputting*/
-	input[type=text]:focus {
+	input select:focus {
   	background-color: #76E8AF;
 	}
 	/* Delete button */
@@ -97,19 +97,45 @@ if(isset($_POST['submit']))
 	<br>
 	<form id="form" action="delete_vendor.php" method="POST">
 		<IMG id="img" SRC="../../img/lnt/snorlax.gif" ><!-- inserts gif -->
-		<h3 style="text-align: center">Insert the following vendor data and click "Delete" when done</h3>
+		<h3 style="text-align: center">Insert the vendor name and click "Delete" when done</h3>
 		<h5 style="text-align: center">Caution: this will permanently delete the vendor from the database</h5><br>
-		<!-- vendor name,code, and id are all needed in order to delete vendor -->
-		<label for= "vendor_name"> * Vendor Name: </label>
-			<input type="text" name="vendor_name" required>
+		<!-- vendor name needed in order to delete vendor -->
+	
+		<label for="vendor_name"> * Vendor Name:</label>
+		<select id="vendor_name" name="vendor_name">
+			<?php
+			//dropdown for vendor name
+				$query2="SELECT vendor_name FROM vendors";
+				$result=mysqli_query($dbconn, $query);
+				while ($row = $result->fetch_assoc()){
+
+					?>
+					<option value="vendor_name"><?php echo $row['vendor_name']; ?></option>
+					
+					<?php
+					// close while loop 
+					}
+					?>
+
+		</select>
 			<br><br>
-		<label for="vendor_code">* Vendor Code: </label>
-			<input type="text" name="vendor_code" required>
-			<br><br>
-		<label for="VID">* Vendor ID: </label>
-			<input type="number" value="VID" name="VID" required>
-			<br><br>
-			<input type="submit" value="Delete" name="submit">
+			<input type="submit" value="Delete" name="submit" onclick="clicked(event)">
+			<br><br><br>
+			<?php
+    		if(isset($_POST['submit']))
+    		{
+      			//execute query
+	    		if($dbconn->query($query)==TRUE)
+      			{
+        			echo nl2br("Vendor deleted successfully\n");
+      			}
+      			else
+      			{
+        			echo nl2br("Error: " . $query . "<br>" . $dbconn->error . "\n");
+     			}
+    		}
+
+   		 ?>
 	</form>
 </body>
 </html>

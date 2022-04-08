@@ -12,15 +12,7 @@ if(isset($_POST['submit']))
 	//setup query to update specific data for a vendor
 	$query="UPDATE vendors SET $info='$update' WHERE vendor_name='$vendor_name'";
 
-	//execute query
-	if($dbconn->query($query)==TRUE)
-    {
-        echo nl2br("Vendor updated successfully\n");
-    }
-    else
-    {
-        echo nl2br("Error: " . $query . "<br>" . $dbconn->error . "\n");
-    }
+	
 }
 
 ?>
@@ -114,10 +106,26 @@ if(isset($_POST['submit']))
     <br>
     <h4 style="text-align:center">Insert the vendor name you wish to update, the corresponding information you want to update, the updated information and click "Update" when done</h4>
   <h5 style="text-align:center">Press the link below to lookup vendor information</h5>
-  <a href="../vendor_forms/search_vendor.html"><p style="text-align:center">Lookup vendor</a> <!-- link to lookup vendor form -->
+  <a href="../vendor_forms/search_vendor.php"><p style="text-align:center">Lookup vendor</a> <!-- link to lookup vendor form -->
     <br><br>
-		* Vendor Name: <input type="text" name="vendor_name" required>
-		<br><br>
+		<label for="vendor_name"> * Vendor Name:</label>
+		<select id="vendor_name" name="vendor_name">
+			<?php
+			//dropdown for vendor name
+				$query2="SELECT vendor_name FROM vendors";
+				$result=mysqli_query($dbconn, $query);
+				while ($row = $result->fetch_assoc()){
+
+					?>
+					
+					<option value="vendor_name"><?php echo $row['vendor_name']; ?></option>
+					
+					<?php
+					// close while loop 
+					}
+					?>
+
+		</select>
 		<label for="info"> * Information to be updated:</label>
 		<!-- vendor info selection -->
 		<select id="info" name="info">
@@ -136,6 +144,22 @@ if(isset($_POST['submit']))
 		* Updated Information: <input type="text" name="update" required>
 		<br><br>
 		<input type="submit" value="Update" name="submit">
+		<br><br><br>
+		<?php
+    	if(isset($_POST['submit']))
+    	{
+      		//execute query
+	    	if($dbconn->query($query)==TRUE)
+      		{
+        		echo nl2br("Vendor updated successfully\n");
+      		}
+      		else
+      		{
+        		echo nl2br("Error: " . $query . "<br>" . $dbconn->error . "\n");
+     		}
+    	}
+
+    	?>
 	</form>
 </body>
 </html>

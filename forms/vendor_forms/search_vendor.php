@@ -104,29 +104,27 @@ if(isset($_POST['submit']))
               if($row != null)
               {
                 echo "</br>"; 
-                echo "</br>"; 
-                echo "</br>"; 
                 echo "VID:" . "<label class = 'pad'></label>" . $row['VID'];
                 echo "</br>";  
-                echo str_pad("Vendor Name:",25) . $row['vendor_name'] . "\n";
+                echo "Vendor Name:" . "<label class = 'pad'></label>". $row['vendor_name'];
                 echo "</br>";  
-                echo str_pad("Vendor Code:",25) . $row['vendor_code'] . "\n";
+                echo "Vendor Code:". "<label class = 'pad'></label>". $row['vendor_code'];
                 echo "</br>";  
-                echo str_pad("Vendor City:",25) . $row['vendor_city'] . "\n";
+                echo "Vendor City:" . "<label class = 'pad'></label>". $row['vendor_city'];
                 echo "</br>";  
-                echo str_pad("Vendor Region:",25) . $row['vendor_region'] . "\n";
+                echo "Vendor Region:". "<label class = 'pad'></label>" . $row['vendor_region'];
                 echo "</br>";  
-                echo str_pad("Vendor Country:",25) . $row['vendor_country'] . "\n";
+                echo "Vendor Country:". "<label class = 'pad'></label>" . $row['vendor_country'];
                 echo "</br>";  
-                echo str_pad("Vendor Zip Code:",25) . $row['vendor_zip_code'] . "\n";
+                echo "Vendor Zip Code:". "<label class = 'pad'></label>" . $row['vendor_zip_code'];
                 echo "</br>";  
-                echo str_pad("Vendor Contact Name:",25) . $row['vendor_contact_name'] . "\n";
+                echo "Vendor Contact Name:". "<label class = 'pad'></label>" . $row['vendor_contact_name'];
                 echo "</br>";  
-                echo str_pad("Vendor Contact Title:",25) . $row['vendor_contact_title'] . "\n";
+                echo "Vendor Contact Title:". "<label class = 'pad'></label>" . $row['vendor_contact_title'];
                 echo "</br>";  
-                echo str_pad("Vendor Contact Route:",25) . $row['vendor_contact_route'] . "\n";
+                echo "Vendor Contact Route:". "<label class = 'pad'></label>" . $row['vendor_contact_route'];
                 echo "</br>";  
-                echo str_pad("Vendor Contact Number:",25) . $row['vendor_contact_number'] . "\n"; 
+                echo "Vendor Contact Number:". "<label class = 'pad'></label>" . $row['vendor_contact_number']; 
               }
               else
               {

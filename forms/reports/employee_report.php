@@ -4,17 +4,10 @@ require_once('../employee_session.php');
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Z-Report</title>
+	<title>Lookup Z-Report</title>
 </head>
 <style>
 
-	/* centers images */
-	.center {
-  	display: block;
-  	margin-left: auto;
-  	margin-right: auto;
-  	width: 25%;
-	}
 	/*submit button*/
 	input[type=submit] {
   background-color: #FFA500;
@@ -27,37 +20,60 @@ require_once('../employee_session.php');
   cursor: pointer;
 }
 /* input border */
-input[type=date] {
+input[type=number],input[type=date] {
   width: 20%;
   padding: 10px 18px;
   margin: 8px 0;
-  margin-top:18%;
   box-sizing: border-box;
   border: 2px solid orange;
   border-radius:50px;
 }
+input[type=number]
+{
+	margin-top:14%;
+}
 /*focuses/highlights box when inputting*/
-input[type=date]:focus {
+input[type=number]:focus,input[type=date]:focus {
   background-color: #efbf67;
 }
 body{
-  background-image:url('../../img/lnt/z_report_background.gif');
+	background-image:url('../../img/lnt/z_report_background.gif');
       background-size:cover;
 } 
- #logo
+/*scales*/
+	#lookup
+    {
+      margin-left: 30.0%;
+      margin-top:2%;
+      width:20.0%;
+    }
+    #report
+    {
+   	  margin-left: 1.0%;
+      margin-top:2%;
+      width:22.0%;
+
+    }
+    #logo
     {
       margin-left:0.5%;
       margin-top:1%;
-      width:27.25%;
+       width:27.25%;
     }
+
 </style>
 <body>
 	<a href = "../home_page/index.php"> <!-- makes logo link to homepage -->
       <IMG id="logo" SRC="../../img/lnt/logo.png">
   </a>
-	<IMG SRC ="../../img/lnt/z_report2.png" class="center" >
-	<h2 style="text-align: center">Enter a date, then press submit to get the Z-Report for that day</h2>
-	<form action="display_z_report.php" method="POST" style="text-align: center">
+  <br>
+	<IMG id="lookup" SRC ="../../img/lnt/Lookup.png">
+	<IMG id="report" SRC ="../../img/lnt/z_report2.png">
+	<br>	
+	<h3 style="text-align: center">Type in employee ID and date, then press submit to get their Z-Report for that day</h3>
+	<form action="display_employee_report.php" method="POST" style="text-align: center">
+			EPID: <input type="number" value="EPID" name="EPID" required>
+			<br>
 			Date: <input type="date" name="date" required>
 			<br><br>
 			<input type="submit" name="submit" value="Submit">
