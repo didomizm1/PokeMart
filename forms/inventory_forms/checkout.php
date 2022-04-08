@@ -42,11 +42,10 @@ if(isset($_POST['submit']))
 	$query8 = "UPDATE customer_profile WHERE CPID = '$CPID' SET number_of_purchases = number_of_purchases+1";
 
 	//updating inventory stock and clearing cart
-	//query5 i need to fix
-	$query5=" UPDATE inventory WHERE item_name = '$item_name' AND IID = '$IID' SET in_stock = instock- VALUES FROM cart_item WHERE quantity";
-	$query6 = "DELETE * FROM cart_item WHERE $SCID = 'SCID";
+	$query9 = "UPDATE inventory WHERE IID = cart_item (IID) SET in_stock = in_stock- VALUES FROM cart_item WHERE quantity";
+	$query10 = "DELETE * FROM cart_item WHERE $SCID = 'SCID";
 
-	if($dbconn->query($query1 && $query2 && $query3 && $query4 && $query5 && $query6)==TRUE)
+	if($dbconn->query($query1 && $query2 && $query3 && $query4 && $query5 && $query6 && $query7 && $query8 && $query9 && $query10)==TRUE)
     {
         echo nl2br("Checkout Successful\n");
     }
