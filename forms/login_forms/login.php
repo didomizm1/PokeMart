@@ -1,6 +1,6 @@
 <?php
 
-//saves info about a user's login attempt to he database
+//saves info about a user's login attempt to the database
 function login_log($ULID, $success, $date, $log, $dbconn)
 {
     $logQuery = "INSERT INTO `user_login_log` (`ULID`, `is_success`, `login_time`, `login_description`) VALUES ('$ULID', '$success', '$date', '$log')";
@@ -13,7 +13,7 @@ if(isset($_POST['submit']))
     include_once('../connect_mysql.php');
 
     //prepare to fetch login data
-    $query = "SELECT `username`, `password` FROM `user_login` WHERE `username` = '".$_POST['username']."'";
+    $query = "SELECT * FROM `user_login` WHERE `username` = '".$_POST['username']."'";
     
     //store results and place into associative array
     $result = mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
@@ -25,7 +25,10 @@ if(isset($_POST['submit']))
         $inputPassword = $_POST['password'];
         $storedPassword = $row['password'];
 
+        //get current date and time
+        date_default_timezone_set("America/New_York");
         $date = date("Y-m-d H:i:s");
+
         if(password_verify($inputPassword, $storedPassword)) //correct password
         {
             if(password_needs_rehash($storedPassword, PASSWORD_DEFAULT)) //update password if needed
@@ -39,7 +42,6 @@ if(isset($_POST['submit']))
             session_start();
 
             //save info about login to login log
-
             login_log($row['ULID'], 1, $date, "User successfully logged in at " . $date, $dbconn);
             
             //save ULID in the session

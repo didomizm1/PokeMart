@@ -707,20 +707,6 @@
 									-->
 
 									<form method = "POST">
-										<p> <!-- Location -->
-											<label class = "displayInfo"> Location:
-												<input type = "text" id = "location" readonly value = "<?php echo $row3['location']; ?>" /> 
-											</label>
-											<label class = "enterInfo"> New location:
-												<input type = "text" name = "locationInput" maxlength = "100" required /> 
-											</label>
-											<label class = "submitInfo">
-												<input type = "submit" name = "locationSubmit" value = "Save" title = "Save new data" />
-											</label>
-										</p>
-									</form>
-
-									<form method = "POST">
 										<p> <!-- Salary -->
 											<label class = "displayInfo"> Salary: 
 												$ <input type = "text" id = "salary" readonly value = "<?php echo $row3['salary']; ?>" /> 
@@ -844,10 +830,6 @@
 					{
 						updateData("employee_profile", "full_time", $_POST['full_timeInput'], "EPID", $row3['EPID'], $dbconn); //update database
 					}*/
-					else if(isset($_POST['locationSubmit']))
-					{
-						updateData("employee_profile", "location", $_POST['locationInput'], "EPID", $row3['EPID'], $dbconn); //update database
-					}
 					else if(isset($_POST['salarySubmit']))
 					{
 						updateData("employee_profile", "salary", $_POST['salaryInput'], "EPID", $row3['EPID'], $dbconn); //update database
