@@ -1,9 +1,9 @@
 <?php
 
 //saves info about a user's login attempt to he database
-function login_log($ULID, $success, $log, $dbconn)
+function login_log($ULID, $success, $date, $log, $dbconn)
 {
-    $logQuery = "INSERT INTO `user_login_log` (`ULID`, `is_success`, `login_description`) VALUES ('$ULID','$success','$log')";
+    $logQuery = "INSERT INTO `user_login_log` (`ULID`, `is_success`, `login_time`, `login_description`) VALUES ('$ULID', '$success', '$date', '$log')";
     mysqli_query($dbconn, $logQuery) or die("Couldn't execute query\n");
 }
 
@@ -25,6 +25,7 @@ if(isset($_POST['submit']))
         $inputPassword = $_POST['password'];
         $storedPassword = $row['password'];
 
+        $date = date("Y-m-d H:i:s");
         if(password_verify($inputPassword, $storedPassword)) //correct password
         {
             if(password_needs_rehash($storedPassword, PASSWORD_DEFAULT)) //update password if needed
@@ -38,7 +39,8 @@ if(isset($_POST['submit']))
             session_start();
 
             //save info about login to login log
-            login_log($row['ULID'], 1, "User successfully logged in at " . date("Y/m/d"), $dbconn);
+
+            login_log($row['ULID'], 1, $date, "User successfully logged in at " . $date, $dbconn);
             
             //save ULID in the session
             $ULIDQuery = "SELECT `ULID` FROM `user_login` WHERE `username` = '".$_POST['username']."'";
@@ -86,7 +88,7 @@ if(isset($_POST['submit']))
         else //incorrect password; sends the user back to the previous page to re-enter password
         {
             //save info about login to login log
-            login_log($row['ULID'], 0, "User unsuccessfully logged in at " . date("Y/m/d"), $dbconn);
+            login_log($row['ULID'], 0, $date, "User unsuccessfully logged in at " . $date, $dbconn);
 
             echo "<script> alert('Incorrect password entered'); window.history.go(-1); </script>";
             exit();
