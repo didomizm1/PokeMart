@@ -13,10 +13,6 @@
 	$CIID = $_SESSION['CIID'];
 	//get customer profile info associated with logged in user
 	$CPID = $_SESSION['CPID'];
-	//get customer order info associated with logged in user
-	$COID = $_SESSION['COID'];
-	//get customer order item info associated with logged in user
-	$COIID = $_SESSION['COIID'];
 
 	//get credit card information if there is any
 	//$query ="SELECT * FROM card_info WHERE CIID = '$CIID'";
@@ -28,12 +24,12 @@
 	if(isset($_POST['submit']))
 	{
 		//storing customer order data
-		$query1 = "INSERT INTO customer_order (CPID) VALUES '$CPID'";
+		//$query1 = "INSERT INTO customer_order (CPID) VALUES '$CPID'";
 		$query2 = "INSERT INTO customer_order WHERE CPID = '$CPID' AND COID = '$COID' number_ofitems = VALUES FROM shopping_cart WHERE number_of_items";
 		$query3 = "INSERT INTO customer_order WHERE CPID = '$CPID' AND COID = '$COID' total_price = VALUES FROM shopping_cart WHERE number_of_items";
 
 		//customer order item queries 
-		$query4 = "INSERT INTO customer_order_item (COID) = '$COID'";
+		//$query4 = "INSERT INTO customer_order_item (COID) = '$COID'";
 		$query5 = "INSERT INTO customer_order_item (IID) VALUES FROM cart_item (IID) WHERE SCID = '$SCID";
 		$query6 = "INSERT INTO customer_order_item (IID) VALUES FROM cart_item (quantity) WHERE SCID = '$SCID";
 
