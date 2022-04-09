@@ -25,8 +25,8 @@
 	{
 		//storing customer order data
 		//$query1 = "INSERT INTO customer_order (CPID) VALUES '$CPID'";
-		$query2 = "INSERT INTO customer_order WHERE CPID = '$CPID' AND COID = '$COID' number_ofitems = VALUES FROM shopping_cart WHERE number_of_items";
-		$query3 = "INSERT INTO customer_order WHERE CPID = '$CPID' AND COID = '$COID' total_price = VALUES FROM shopping_cart WHERE number_of_items";
+		$query2 = "INSERT INTO customer_order WHERE CPID = '$CPID' /*AND COID = '$COID'*/ number_ofitems = VALUES FROM shopping_cart WHERE number_of_items";
+		$query3 = "INSERT INTO customer_order WHERE CPID = '$CPID' /*AND COID = '$COID'*/ total_price = VALUES FROM shopping_cart WHERE number_of_items";
 
 		//customer order item queries 
 		//$query4 = "INSERT INTO customer_order_item (COID) = '$COID'";
