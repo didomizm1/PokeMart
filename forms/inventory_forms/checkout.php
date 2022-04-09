@@ -1,61 +1,60 @@
 <?php
 
-//connect to database
-include_once('../connect_mysql.php');
-//session handling
-require_once('../session.php');
+	//connect to database
+	include_once('../connect_mysql.php');
+	//session handling
+	require_once('../session.php');
 
-//get shopping cart associated with logged in user
-$SCID = $_SESSION['SCID'];
-//get profile info associated with logged in user
-$UPID = $_SESSION['UPID'];
-//get card info associated with logged in user
-$CIID = $_SESSION['CIID'];
-//get customer profile info associated with logged in user
-$CPID = $_SESSION['CPID'];
-//get customer order info associated with logged in user
-$COID = $_SESSION['COID'];
-//get customer order item info associated with logged in user
-$COIID = $_SESSION['COIID'];
+	//get shopping cart associated with logged in user
+	$SCID = $_SESSION['SCID'];
+	//get profile info associated with logged in user
+	$UPID = $_SESSION['UPID'];
+	//get card info associated with logged in user
+	$CIID = $_SESSION['CIID'];
+	//get customer profile info associated with logged in user
+	$CPID = $_SESSION['CPID'];
+	//get customer order info associated with logged in user
+	$COID = $_SESSION['COID'];
+	//get customer order item info associated with logged in user
+	$COIID = $_SESSION['COIID'];
 
-//get credit card information if there is any
-//$query ="SELECT * FROM card_info WHERE CIID = '$CIID'";
+	//get credit card information if there is any
+	//$query ="SELECT * FROM card_info WHERE CIID = '$CIID'";
 
-//verify credit card information is valid
+	//verify credit card information is valid
 
-//clear items from card and update inventory
+	//clear items from card and update inventory
 
-if(isset($_POST['submit']))
-{
-	//storing customer order data
-	$query1 = "INSERT INTO customer_order (CPID) VALUES '$CPID'";
-	$query2 = "INSERT INTO customer_order WHERE CPID = '$CPID' AND COID = '$COID' number_ofitems = VALUES FROM shopping_cart WHERE number_of_items";
-	$query3 = "INSERT INTO customer_order WHERE CPID = '$CPID' AND COID = '$COID' total_price = VALUES FROM shopping_cart WHERE number_of_items";
+	if(isset($_POST['submit']))
+	{
+		//storing customer order data
+		$query1 = "INSERT INTO customer_order (CPID) VALUES '$CPID'";
+		$query2 = "INSERT INTO customer_order WHERE CPID = '$CPID' AND COID = '$COID' number_ofitems = VALUES FROM shopping_cart WHERE number_of_items";
+		$query3 = "INSERT INTO customer_order WHERE CPID = '$CPID' AND COID = '$COID' total_price = VALUES FROM shopping_cart WHERE number_of_items";
 
-	//customer order item queries 
-	$query4 = "INSERT INTO customer_order_item (COID) = '$COID'";
-	$query5 = "INSERT INTO customer_order_item (IID) VALUES FROM cart_item (IID) WHERE SCID = '$SCID";
-	$query6 = "INSERT INTO customer_order_item (IID) VALUES FROM cart_item (quantity) WHERE SCID = '$SCID";
+		//customer order item queries 
+		$query4 = "INSERT INTO customer_order_item (COID) = '$COID'";
+		$query5 = "INSERT INTO customer_order_item (IID) VALUES FROM cart_item (IID) WHERE SCID = '$SCID";
+		$query6 = "INSERT INTO customer_order_item (IID) VALUES FROM cart_item (quantity) WHERE SCID = '$SCID";
 
-	//customer profile queries
-	$query7 = "UPDATE customer_profile WHERE CPID = '$CPID' SET total_money_spent = total_money_spent+ VALUES FROM shopping_cart WHERE total_price";
-	$query8 = "UPDATE customer_profile WHERE CPID = '$CPID' SET number_of_purchases = number_of_purchases+1";
+		//customer profile queries
+		$query7 = "UPDATE customer_profile WHERE CPID = '$CPID' SET total_money_spent = total_money_spent+ VALUES FROM shopping_cart WHERE total_price";
+		$query8 = "UPDATE customer_profile WHERE CPID = '$CPID' SET number_of_purchases = number_of_purchases+1";
 
-	//updating inventory stock and clearing cart
-	$query9 = "UPDATE inventory WHERE IID = cart_item (IID) SET in_stock = in_stock- VALUES FROM cart_item WHERE quantity";
-	$query10 = "DELETE * FROM cart_item WHERE $SCID = 'SCID";
+		//updating inventory stock and clearing cart
+		$query9 = "UPDATE inventory WHERE IID = cart_item (IID) SET in_stock = in_stock- VALUES FROM cart_item WHERE quantity";
+		$query10 = "DELETE * FROM cart_item WHERE $SCID = 'SCID";
 
-	if($dbconn->query($query1 && $query2 && $query3 && $query4 && $query5 && $query6 && $query7 && $query8 && $query9 && $query10)==TRUE)
-    {
-        echo nl2br("Checkout Successful\n");
-    }
-    else
-    {
-        echo nl2br("Error: " . $query . "<br>" . $dbconn->error . "\n");
-    }
+		if($dbconn->query($query1 && $query2 && $query3 && $query4 && $query5 && $query6 && $query7 && $query8 && $query9 && $query10)==TRUE)
+		{
+			echo nl2br("Checkout Successful\n");
+		}
+		else
+		{
+			echo nl2br("Error: " . $query . "<br>" . $dbconn->error . "\n");
+		}
 
-}
-
+	}
 
 ?>
 <!DOCTYPE html>

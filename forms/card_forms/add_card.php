@@ -1,21 +1,41 @@
+<?php
+    //session handling
+    require_once('../session.php');
+?>
+
 <!DOCTYPE html>
 <html>
-    <body style="background-image: radial-gradient(circle, rgb(195, 235, 242) 40%, rgb(0, 180, 245) 180%);" >
+    <body>
+        <style>
+            body{
+            background-image:url('../../img/card/bkgd.jpg');
+            background-size:cover;
+            } 
+            input[type=checkbox] {
+            border: none;
+            border-radius:50px;
+            text-decoration: none;
+            margin-left: 1%;
+            cursor: pointer;
+            }
+        </style>
+        <a href = "../home_page/index.php">
+         <IMG id="logo" SRC="../../img/lnt/logo.png"
+         width="300"
+         height="100">
+        </a>
 <center>
-    <br>
      <!-- Try to add on click method for card-->
-  <h2> <font face="Arial" size="4px"> NEW PAYMENT METHOD </font> </h2> 
-    <br>
-  <form action ="acard.php" method="POST">
-        <label> Cardholder Name: 
-            <input type = "text" name  = "full_name" maxlength = "50" autocomplete required />
+  <h2> <font face="Arial" size="5px"> NEW PAYMENT METHOD </font> </h2> 
+  <br>
+  <form id="form" action="acard.php" method="POST">
+        <label> Card Holder Name: 
+            <input  type = "text" name  = "card_holder_name" maxlength = "50" required />
         </label>
         <br><br>
-
         <label> Card Number: 
-            <input type = "number" name  = "card_number" length="16" pattern = "0-9" autocomplete required />
+            <input style="text-align: center" type = "number" name  = "card_number" length="16" pattern = "0-9" required />
         </label>
-
         <br><br>
         <label> Month: 
             <select name = "month">
@@ -34,8 +54,7 @@
             </select>
         </label>
             <br><br>
-        <label> Year: 
-            <select name = "year">
+         Year:  <select name = "year">
                 <option value="2022">2022</option>
                 <option value="2023">2023</option>
                 <option value="2024">2024</option>
@@ -49,50 +68,34 @@
                 <option value="2032">2032</option>
                 <option value="2033">2033</option>
             </select>    
-        </label>
+        
         <br><br>
-        <label> cvv: 
-            <input type = "number" name  = "cvv" minimulength = "3" maxlength="4" pattern = "0-9" autocomplete required />
-        </label>
+         cvv:  <input type = "number" name  = "cvv" minimulength = "3" maxlength="4" pattern = "0-9" autocomplete required />
         <br><br>
-
-    <h3> <font size="3px" >Billing Address </font> </h3>
+        <h3> <font size="4px" >Billing Address </font> </h3>
         <label> Street Address 1:
-            <input type = "text" name  = "street_1" maxlength = "100" autocomplete required />
+            <input type = "text" name  = "street_add_1" maxlength = "100" autocomplete required />
         </label>  
         <br><br>
-
         <label> Street Address 2: 
-            <input type = "text" name  = "street_2" maxlength = "100" autocomplete />
+            <input type = "text" name  = "street_add_2" maxlength = "100" autocomplete />
         </label>
         <br><br>
-
         <label> City:
             <input type = "text" name  = "city" maxlength = "100" autocomplete required />
         </label>  
         <br><br>
-
          <label> Zip Code: 
             <input type = "text" name  = "zip_code" minlength = "5" maxlength = "10" pattern = "^[A-Z\d]+$" autocomplete required />
         </label> 
         <br><br>
-
-        <body>
-            <label> 
-            <div>
-            <form action="acard.php" method="POST"> 
-            <input type="submit" name="submit" />
-            </form>
-            </div>
-            </label>
-    </body>
-            <br><br>
-         <div>
-            <a href="../card_forms/cont.php" >
-            <button>Use This Payment</button>
-            </a>
-        </div>      
-    </form>
+      
+        <input type="checkbox" name="check" id="submit" value="1" checked> save card 
+            <br><br> 
+        <label>
+            <input type="submit" id="submit" name="submit" value = "Use this payment method"/>
+        </label>
+     </form>
 </center>
 </body>
 </html>
