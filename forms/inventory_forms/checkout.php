@@ -9,13 +9,13 @@ require_once('../session.php');
 $SCID = $_SESSION['SCID'];
 //get profile info associated with logged in user
 $UPID = $_SESSION['UPID'];
-//get card info aassociated with logged in user
+//get card info associated with logged in user
 $CIID = $_SESSION['CIID'];
-//get customer profile info aassociated with logged in user
+//get customer profile info associated with logged in user
 $CPID = $_SESSION['CPID'];
-//get customer order info aassociated with logged in user
+//get customer order info associated with logged in user
 $COID = $_SESSION['COID'];
-//get customer order item info aassociated with logged in user
+//get customer order item info associated with logged in user
 $COIID = $_SESSION['COIID'];
 
 //get credit card information if there is any
