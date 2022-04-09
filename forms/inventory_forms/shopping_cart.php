@@ -84,6 +84,7 @@ $SCID = $_SESSION['SCID'];
                                                 {
                                                     $query = "UPDATE cart_item SET quantity = $quantity WHERE SCID = $SCID AND IID = $IID";
                                                     mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
+                                                    header("Refresh:0");
                                                 }
                                                 else //delete item if quantity was set to 0
                                                 {

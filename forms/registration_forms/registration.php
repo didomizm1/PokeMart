@@ -39,20 +39,17 @@ if(isset($_POST['submit']))
     $UPID = $row2['UPID'];
 
     //prepare customer profile data
-    $query3 = "INSERT INTO `customer_profile` (`UPID`, `card_count`, `number_of_purchases`, `total_money_spent`, `active_orders`)
-    VALUES ('$UPID','0','0','0','0')";
+    $query3 = "INSERT INTO `customer_profile` (`UPID`, `card_count`, `number_of_purchases`, `total_money_spent`, `active_orders`) VALUES ('$UPID','0','0','0','0')";
 
     mysqli_query($dbconn, $query3) or die("Couldn't execute profile data query\n");
 
     //prepare new user's shopping cart
-    $query4 = "INSERT INTO `shopping_cart` (`CPID`, `number_of_items`, `total_price`)
-    VALUES ((SELECT `CPID` FROM `customer_profile` WHERE `UPID` = '$UPID'),'0','0')";
+    $query4 = "INSERT INTO `shopping_cart` (`CPID`, `number_of_items`, `total_price`) VALUES ((SELECT `CPID` FROM `customer_profile` WHERE `UPID` = '$UPID'),'0','0')";
 
     mysqli_query($dbconn, $query4) or die("Couldn't execute profile data query\n");
 
     //prepare new user's wishlist
-    $query5 = "INSERT INTO `wishlist` (`CPID`, `number_of_items`, `total_price`)
-    VALUES ((SELECT `CPID` FROM `customer_profile` WHERE `UPID` = '$UPID'),'0','0')";
+    $query5 = "INSERT INTO `wishlist` (`CPID`, `number_of_items`, `total_price`) VALUES ((SELECT `CPID` FROM `customer_profile` WHERE `UPID` = '$UPID'),'0','0')";
 
     mysqli_query($dbconn, $query5) or die("Couldn't execute profile data query\n");
     
