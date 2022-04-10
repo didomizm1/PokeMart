@@ -5,20 +5,16 @@ include_once('../connect_mysql.php');
 //session handling
 session_start();
 
-if(isset($_POST['submit']))
+//save search in the session
+if(!(isset($_SESSION['inventory_search'])) || isset($_POST['submit']))
 {
-    $valueToSearch = $_POST['valueToSearch'];
-    // search in all table columns
-    // using concat mysql function
-    $query = "SELECT * FROM `inventory` WHERE CONCAT(`IID`, `item_name`, `japanese_item_name`, `selling_price`) LIKE '%".$valueToSearch."%'";
-    $result = mysqli_query($dbconn, $query);
-    
+    $_SESSION['inventory_search'] = $_POST['valueToSearch'];
 }
-else 
-{
-    $query = "SELECT * FROM `inventory`";
-    $result = mysqli_query($dbconn, $query);
-}
+$valueToSearch = $_SESSION['inventory_search'];
+
+//search in all table columns using concat mysql function in order to filter inventory table
+$query = "SELECT * FROM `inventory` WHERE CONCAT(`IID`, `item_name`, `japanese_item_name`, `selling_price`) LIKE '%".$valueToSearch."%'";
+$result = mysqli_query($dbconn, $query);
 
 ?>
 <!DOCTYPE html>
