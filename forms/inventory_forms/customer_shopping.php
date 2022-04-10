@@ -124,22 +124,42 @@ else
                                             $IID = $row['IID'];
                                             $quantity = $_POST['quantity'];
 
-                                            //check if item exists in the cart
-                                            $query2 ="SELECT * FROM cart_item WHERE SCID = '$SCID' AND IID = $IID";
-                                            $result2 = mysqli_query($dbconn, $query2);
-                                            $row2 = $result2->fetch_array(MYSQLI_ASSOC);
+                                            //fetch the stock of an item
+                                            $inventoryQuery = "SELECT in_stock FROM inventory WHERE IID = '$IID'";
+                                            $inventoryResult = mysqli_query($dbconn, $inventoryQuery) or die("Couldn't execute query\n");
+                                            $inventoryRow = $inventoryResult->fetch_array(MYSQLI_ASSOC);
 
-                                            if($row2 == null) //item does not already exist in the cart
+                                            if($inventoryRow['in_stock'] != 0) //check for item in stock
                                             {
-                                                $query3 = "INSERT INTO cart_item (IID, SCID, quantity) VALUES ('$IID', '$SCID', '$quantity')";
-                                                mysqli_query($dbconn, $query3) or die("Couldn't execute query\n");
+                                                if($inventoryRow['in_stock'] - $quantity >= 0) //ensure quantity can be fulfilled by given stock
+                                                {
+                                                    //check if item exists in the cart
+                                                    $query2 ="SELECT * FROM cart_item WHERE SCID = '$SCID' AND IID = '$IID'";
+                                                    $result2 = mysqli_query($dbconn, $query2);
+                                                    $row2 = $result2->fetch_array(MYSQLI_ASSOC);
+
+                                                    if($row2 == null) //item does not already exist in the cart
+                                                    {
+                                                        $query3 = "INSERT INTO cart_item (IID, SCID, quantity) VALUES ('$IID', '$SCID', '$quantity')";
+                                                        mysqli_query($dbconn, $query3) or die("Couldn't execute query\n");
+                                                    }
+                                                    else //item does exist in the cart, so increment quantity instead
+                                                    {
+                                                        $incrementedQuantity = $quantity + $row2['quantity'];
+                                                        $query3 = "UPDATE cart_item SET quantity = '$incrementedQuantity' WHERE SCID = '$SCID' AND IID = '$IID'";
+                                                        mysqli_query($dbconn, $query3) or die("Couldn't execute query\n");
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    echo "<script type='text/javascript'>alert('Selected quantity is too high.');</script>";
+                                                }
                                             }
-                                            else //item does exist in the cart, so increment quantity instead
+                                            else
                                             {
-                                                $incrementedQuantity = $quantity + $row2['quantity'];
-                                                $query3 = "UPDATE cart_item SET quantity = $incrementedQuantity WHERE SCID = $SCID AND IID = $IID";
-                                                mysqli_query($dbconn, $query3) or die("Couldn't execute query\n");
+                                                echo "<script type='text/javascript'>alert('Item is out of stock.');</script>";
                                             }
+                                            
                                         }
                                     ?>
                                 </label>
