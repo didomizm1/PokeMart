@@ -30,7 +30,14 @@ table,tr,th,td
 {
     border: 1px solid black;
 }
-.cartwishlist
+h2
+{
+    width: 30%;
+    background-color: white;
+    border-radius: 15px;
+    text-align: center;
+}
+#carts
 {
     width: 30%;
     position: fixed; 
