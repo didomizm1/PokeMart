@@ -40,10 +40,6 @@
 			<label class = "dataInfo"><?php echo $row['position'];?></label>
 		</p>
 		<p>
-			<label class = "dataName">Location</label><br>
-			<label class = "dataInfo"><?php echo $row['location'];?></label>
-		</p>
-		<p>
 			<label class = "dataName">Salary</label><br>
 			<label class = "dataInfo">$<?php echo $row['salary'];?></label>
 		</p>
