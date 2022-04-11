@@ -39,7 +39,6 @@ $CPID = $_SESSION['CPID'];
                     $query ="SELECT * FROM customer_order WHERE CPID = '$CPID'";
                     $result = mysqli_query($dbconn, $query);
 
-                    $count = 0;
                     while($row = $result->fetch_array(MYSQLI_ASSOC))
                     {
                         //make a unique name for each iteration of the row
