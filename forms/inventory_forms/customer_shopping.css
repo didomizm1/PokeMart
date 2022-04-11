@@ -41,3 +41,15 @@ table,tr,th,td
     border-radius: 25px;
     text-align: center;
 }
+.Wishlist 
+{
+    width: 30%;
+    position: fixed; 
+    right: 0;
+    padding-right: 15px;
+    margin-right: 15px;
+    background-color: white;
+    border-radius: 25px;
+    text-align: center;
+}
+
