@@ -53,8 +53,7 @@ $WID = $_SESSION['WID'];
                     {
                         //make a unique name for each iteration of the row
                         $count = $count + 1;
-                        $currentName = "save" . $count;
-                        $currentName2 = "delete" . $count;
+                        $currentName = "delete" . $count;
 
                         $IID = $row['IID'];
                         $query2 = "SELECT * FROM inventory WHERE IID = '$IID'";
@@ -71,10 +70,19 @@ $WID = $_SESSION['WID'];
                         <!-- delete item from wishlist -->
                         <td>
                             <label>
-                                <input type="submit" name="<?php echo $currentName2; ?>" value="Delete from wishlist"/>
+                                <input type="submit" name="<?php echo $currentName; ?>" value="Delete from wishlist"/>
                                 <?php
-                                    if(isset($_POST[$currentName2])) //update database
+                                    if(isset($_POST[$currentName])) //update database
                                     { 
+                                        //get current date
+                                        date_default_timezone_set("America/New_York");
+                                        $date = date("Y-m-d H:i:s");
+
+                                        //update wishlist variables
+                                        $wishlistQuery = "UPDATE wishlist SET last_updated = $date, number_of_items = number_of_items - 1 WHERE WID = '$WID'";
+                                        mysqli_query($dbconn, $wishlistQuery) or die("Couldn't execute query\n");
+
+                                        //delete wishlist item
                                         deleteRow($WID, $IID, $dbconn);
                                     }
                                 ?>
