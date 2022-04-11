@@ -15,13 +15,14 @@ $SCID = $_SESSION['SCID'];
         <title>Shopping Cart</title>
        <!-- <h1>PokéMart Store!</h1>-->
 	    <link rel = "stylesheet" href = "shopping_cart.css">
-        <h1> Shopping Cart </h1>
+      
 
     </head>
     <body>
         <a href = "../home_page/index.php">
 			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart" width="300"> 
         </a>
+        <h1> Shopping Cart </h1>
 
         <form action="shopping_cart.php" method="post">
             <table>
