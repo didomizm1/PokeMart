@@ -46,3 +46,30 @@ body
     font-size: 30px;
     color: rgb(0, 0, 0);
 }
+.button
+{
+    background-color: aqua;
+    border: 2px solid #00a2ff;
+    outline: none;
+    box-shadow: 3px 3px 3px black;
+    width: 50px;
+    padding: 3px;
+}
+.button:hover 
+{
+    box-shadow: 2px 2px 3px rgb(78, 234, 255);
+}
+.button:active 
+{
+    box-shadow: 3px 3px 3px white;
+}
+input[type = text], input[type = password], input[type = date], input[type = email], input[type = tel], select  
+{
+    margin: 8px 0;
+    border: 2px solid orange;
+    border-radius: 50px;
+}
+input[type = text]:focus, input[type = password]:focus, input[type = date]:focus, input[type = email]:focus, input[type = tel]:focus, select:focus 
+{
+    background-color: #76E8AF;
+}
