@@ -106,7 +106,7 @@ if(isset($_POST['submit']))
 			<?php
 			//dropdown for vendor name
 				$query2="SELECT vendor_name FROM vendors";
-				$result=mysqli_query($dbconn, $query);
+				$result=mysqli_query($dbconn, $query2);
 				while ($row = $result->fetch_assoc()){
 
 					?>

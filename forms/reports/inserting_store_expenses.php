@@ -11,9 +11,21 @@ if(isset($_POST['submit']))
     $year=$_POST['year'];
     $expense=$_POST['expense'];
     $cost=$_POST['cost'] ;
-
+    //checking if row exists with submitted month and year
+    $query1="SELECT * FROM profit_loss_report WHERE month='$month' AND year='$year'";
+    $result=mysqli_query($dbconn,$query1);
+    if(mysqli_num_rows($result)==0)//if row doesn't exist
+    {
+      //query to insert, month,year and expense 
+    $query="INSERT INTO profit_loss_report (month,year,$expense) VALUES('$month','$year','$cost')";
+    }
+    else
+    {
     //setup query, adds the cost to the specific cell depending on month, year and type of expense
     $query="UPDATE profit_loss_report SET $expense+='$cost' WHERE month='$month' AND year='$year";
+
+    }
+    
 
     //execute query
     if($dbconn->query($query)==TRUE)

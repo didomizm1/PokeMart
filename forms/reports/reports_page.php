@@ -27,24 +27,20 @@
       margin-top:1%;
       width:27.25%;
     }
-    #employeeR
-    {
-      margin-left:28%;
-      margin-top:12%;
-      width:30.0%;
-    }
     #z
     {
-      margin-left: 1.0%;
+      margin-left:28%;
       margin-top:12%;
       width:20.0%;
     }
     #expenses
     {
-      margin-left:12%;
-      margin-top:1%;
+      margin-left: 1.0%;
+      margin-top:12%;
       width:30.0%;
-    }     
+    }
+   
+        
   </style>
 </head>
 <!--Contains the links to all the report forms-->
@@ -52,10 +48,8 @@
     <a href = "../home_page/index.php"><!-- makes logo link to homepage -->
       <IMG id="logo" SRC="../../img/lnt/logo.png" >
   </a>
-       <IMG SRC ="../../img/lnt/Reports.png" class="center" >
-      <a href="../reports/employee_report.php">
-       <IMG id="employeeR" SRC ="../../img/lnt/Employee-Report.png">
-    </a><
+    <IMG SRC ="../../img/lnt/Reports.png" class="center" >
+    <br>
     <a href="../reports/z_report.php">
        <IMG id="z" SRC ="../../img/lnt/z_report2.png" >
     </a>
