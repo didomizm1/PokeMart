@@ -8,7 +8,14 @@ session_start();
 //save search in the session
 if(!(isset($_SESSION['inventory_search'])) || isset($_POST['submit']))
 {
-    $_SESSION['inventory_search'] = $_POST['valueToSearch'];
+    if(isset($_POST['submit']))
+    {
+        $_SESSION['inventory_search'] = $_POST['valueToSearch'];
+    }
+    else
+    {
+        $_SESSION['inventory_search'] = "";
+    }
 }
 $valueToSearch = $_SESSION['inventory_search'];
 
