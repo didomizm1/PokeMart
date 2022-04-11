@@ -15,6 +15,7 @@ $WID = $_SESSION['WID'];
         <title>Wishlist</title>
        <!-- <h1>PokéMart Store!</h1>-->
 	    <link rel = "stylesheet" href = "shopping_cart.css">
+        <h1> Wishlist</h1>
 
     </head>
     <body>

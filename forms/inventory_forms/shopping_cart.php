@@ -15,6 +15,7 @@ $SCID = $_SESSION['SCID'];
         <title>Shopping Cart</title>
        <!-- <h1>PokéMart Store!</h1>-->
 	    <link rel = "stylesheet" href = "shopping_cart.css">
+        <h1> Shopping Cart </h1>
 
     </head>
     <body>
