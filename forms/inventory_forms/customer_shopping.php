@@ -40,20 +40,19 @@ $result = mysqli_query($dbconn, $query);
         <a href = "../home_page/index.php">
 			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart"> 
         </a>
-        <div class="ShoppingCart">
+        <div class="cartwishlist">
                 <form action="shopping_cart.php" method="post">
                     <a href = "shopping_cart.php">
                         <h2>Shopping Cart</h2>
                     </a>
                 </form>
-            </div>
-            <div class="Wishlist">
                 <form action="wishlist.php" method="post">
                     <a href = "wishlist.php">
-                        <h3>Wishlist</h3>
+                        <h2>Wishlist</h2>
                     </a>
                 </form>
             </div>
+           
         <form id = "form" method="post">
             <h1>PokeMart Shop</h1>
             <input type="text" name="valueToSearch" placeholder="Search"/><br><br>
