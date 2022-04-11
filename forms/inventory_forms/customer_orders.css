@@ -1,0 +1,8 @@
+table
+{
+    background-color: white;     
+}
+table,tr,th,td
+{
+    border: 1px solid black;
+}
