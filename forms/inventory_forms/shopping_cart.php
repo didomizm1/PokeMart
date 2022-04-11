@@ -118,13 +118,11 @@ $SCID = $_SESSION['SCID'];
             </table>
         </form>
 
-        <div class="Checkout">
         <form action="checkout.php" method="post"> 
-            <a href = "checkout.php"></a>
+            <a href = "checkout.php">
             <h2>Checkout</h2>
             </a>
         </form>
-        </div>
         
     </body>
 </html>
