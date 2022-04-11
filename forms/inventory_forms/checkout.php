@@ -1,61 +1,111 @@
 <?php
 
-//connect to database
-include_once('../connect_mysql.php');
-//session handling
-require_once('../session.php');
+	//connect to database
+	include_once('../connect_mysql.php');
+	//session handling
+	require_once('../session.php');
 
-//get shopping cart associated with logged in user
-$SCID = $_SESSION['SCID'];
-//get profile info associated with logged in user
-$UPID = $_SESSION['UPID'];
-//get card info aassociated with logged in user
-$CIID = $_SESSION['CIID'];
-//get customer profile info aassociated with logged in user
-$CPID = $_SESSION['CPID'];
-//get customer order info aassociated with logged in user
-$COID = $_SESSION['COID'];
-//get customer order item info aassociated with logged in user
-$COIID = $_SESSION['COIID'];
+	//get shopping cart associated with logged in user
+	$SCID = $_SESSION['SCID'];
+	//get customer profile info associated with logged in user
+	$CPID = $_SESSION['CPID'];
 
-//get credit card information if there is any
-//$query ="SELECT * FROM card_info WHERE CIID = '$CIID'";
+	//get credit card information if there is any
+	//$query ="SELECT * FROM card_info WHERE CIID = '$CIID'";
 
-//verify credit card information is valid
+	//verify credit card information is valid
 
-//clear items from card and update inventory
+	if(isset($_POST['submit']))
+	{
 
-if(isset($_POST['submit']))
-{
-	//storing customer order data
-	$query1 = "INSERT INTO customer_order (CPID) VALUES '$CPID'";
-	$query2 = "INSERT INTO customer_order WHERE CPID = '$CPID' AND COID = '$COID' number_ofitems = VALUES FROM shopping_cart WHERE number_of_items";
-	$query3 = "INSERT INTO customer_order WHERE CPID = '$CPID' AND COID = '$COID' total_price = VALUES FROM shopping_cart WHERE number_of_items";
+		//check stock before allowing check out
+		$canCheckout = true;
 
-	//customer order item queries 
-	$query4 = "INSERT INTO customer_order_item (COID) = '$COID'";
-	$query5 = "INSERT INTO customer_order_item (IID) VALUES FROM cart_item (IID) WHERE SCID = '$SCID";
-	$query6 = "INSERT INTO customer_order_item (IID) VALUES FROM cart_item (quantity) WHERE SCID = '$SCID";
+		$cartItemQuery = "SELECT IID, quantity FROM cart_item WHERE SCID = '$SCID'";
+		$cartItemResult = mysqli_query($dbconn, $cartItemQuery) or die("Couldn't execute query\n");
+		while($cartItemRow = $cartItemResult->fetch_array(MYSQLI_ASSOC))
+		{
+			$inventoryQuery = "SELECT item_name, in_stock FROM inventory WHERE IID = '".$cartItemRow['IID']."'";
+			$inventoryResult = mysqli_query($dbconn, $inventoryQuery) or die("Couldn't execute query\n");
+			$inventoryRow = $inventoryResult->fetch_array(MYSQLI_ASSOC);
 
-	//customer profile queries
-	$query7 = "UPDATE customer_profile WHERE CPID = '$CPID' SET total_money_spent = total_money_spent+ VALUES FROM shopping_cart WHERE total_price";
-	$query8 = "UPDATE customer_profile WHERE CPID = '$CPID' SET number_of_purchases = number_of_purchases+1";
+			if($inventoryRow['in_stock'] == 0) //item is out of stock, so remove item from cart
+			{
+				$deleteCartItemQuery = "DELETE FROM cart_item WHERE SCID = '$SCID' AND IID = '".$cartItemRow['IID']."'";
+				mysqli_query($dbconn, $deleteCartItemQuery) or die("Couldn't execute query\n");
+				$canCheckout = false;
+			}
+			else //item is in stock
+			{
+				$stockDifference = $inventoryRow['in_stock'] - $cartItemRow['quantity'];
+				if($stockDifference < 0) //an item's quantity is greater than the stock, so reduce item's quantity in the cart
+				{
+					$newQuantity = $cartItemRow['quantity'] + $stockDifference;
+					$updateCartItemQuery = "UPDATE cart_item SET quantity = $newQuantity WHERE SCID = '$SCID' AND IID = '".$cartItemRow['IID']."'";
+					mysqli_query($dbconn, $updateCartItemQuery) or die("Couldn't execute query\n");
+					$canCheckout = false;
+				}
+			}
+		}
 
-	//updating inventory stock and clearing cart
-	$query9 = "UPDATE inventory WHERE IID = cart_item (IID) SET in_stock = in_stock- VALUES FROM cart_item WHERE quantity";
-	$query10 = "DELETE * FROM cart_item WHERE $SCID = 'SCID";
+		if($canCheckout == true) //order can be placed
+		{
+			//get current date and time
+			date_default_timezone_set("America/New_York");
+			$date = date("Y-m-d H:i:s");
 
-	if($dbconn->query($query1 && $query2 && $query3 && $query4 && $query5 && $query6 && $query7 && $query8 && $query9 && $query10)==TRUE)
-    {
-        echo nl2br("Checkout Successful\n");
-    }
-    else
-    {
-        echo nl2br("Error: " . $query . "<br>" . $dbconn->error . "\n");
-    }
+			//create new customer order
+			$query1 = "INSERT INTO customer_order (CPID, SCIDtemp, number_of_items, total_price) SELECT CPID, SCID, number_of_items, total_price FROM shopping_cart WHERE SCID = '$SCID'";
+			mysqli_query($dbconn, $query1) or die("Couldn't execute login data query\n");
 
-}
+			//get customer order ID
+			$query2 = "SELECT COID FROM customer_order WHERE SCIDtemp = '$SCID'";
+			$result2 = mysqli_query($dbconn, $query2) or die("Couldn't execute query\n");
+			$row2 = $result2->fetch_array(MYSQLI_ASSOC);
+			$COID = $row2['COID'];
 
+			//transfer items from cart into customer order
+			$query3 = "SELECT IID, quantity FROM cart_item WHERE SCID = '$SCID'";
+			$result3 = mysqli_query($dbconn, $query3) or die("Couldn't execute query\n");
+			while($row3 = $result3->fetch_array(MYSQLI_ASSOC))
+			{
+				$query4 = "INSERT INTO customer_order_item (COID, IID, quantity) VALUES ('$COID', '".$row3['IID']."', '".$row3['quantity']."')";
+				mysqli_query($dbconn, $query4) or die("Couldn't execute query\n");
+			}
+
+			//update customer profile info
+			$query5 = "UPDATE customer_profile SET number_of_purchases = number_of_purchases + 1,  total_money_spent = total_money_spent + (SELECT total_price FROM shopping_cart WHERE SCID = '$SCID'), last_purchase_date = '$date', active_orders = active_orders + 1 WHERE CPID = '$CPID'";
+			mysqli_query($dbconn, $query5) or die("Couldn't execute login data query\n");
+
+			//update inventory stock
+			$query6 = "SELECT IID, quantity FROM cart_item WHERE SCID = '$SCID'";
+			$result6 = mysqli_query($dbconn, $query6) or die("Couldn't execute query\n");
+			while($row6 = $result6->fetch_array(MYSQLI_ASSOC))
+			{
+				$query7 = "UPDATE inventory SET in_stock = in_stock - '".$row6['quantity']."' WHERE IID = '".$row6['IID']."'";
+				mysqli_query($dbconn, $query7) or die("Couldn't execute query\n");
+			}
+
+			//empty cart
+			$query8 = "DELETE FROM cart_item WHERE SCID = '$SCID'";
+			mysqli_query($dbconn, $query8) or die("Couldn't execute login data query\n");
+
+			$query9 = "UPDATE shopping_cart SET number_of_items = '0', total_price = '0' WHERE SCID = '$SCID'";
+			mysqli_query($dbconn, $query9) or die("Couldn't execute login data query\n");
+
+			//dissociate order from cart
+			$query10 = "UPDATE customer_order SET SCIDtemp = '-1' WHERE SCIDtemp = '$SCID'";
+			mysqli_query($dbconn, $query10) or die("Couldn't execute query\n");
+
+			//order confirmation
+			echo "<script type='text/javascript'>alert('Order successfully placed!'); window.location.href = 'customer_shopping.php';</script>";
+		}
+		else //send back to shopping cart if order could not be placed
+		{
+			echo "<script type='text/javascript'>alert('Order could not be placed because selected quantity on one or more items could not be fulfilled.'); window.location.href = 'customer_shopping.php';</script>";
+		}
+
+	}
 
 ?>
 <!DOCTYPE html>

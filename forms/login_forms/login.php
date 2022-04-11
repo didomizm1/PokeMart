@@ -1,39 +1,48 @@
 <?php
 
+//saves info about a user's login attempt to the database
+function login_log($ULID, $success, $date, $log, $dbconn)
+{
+    $logQuery = "INSERT INTO `user_login_log` (`ULID`, `is_success`, `login_time`, `login_description`) VALUES ('$ULID', '$success', '$date', '$log')";
+    mysqli_query($dbconn, $logQuery) or die("Couldn't execute query\n");
+}
+
 if(isset($_POST['submit']))
 {
     //connect to database
     include_once('../connect_mysql.php');
 
     //prepare to fetch login data
-    $query = "SELECT `username`, `password` FROM `user_login` WHERE `username` = '".$_POST['username']."'";
+    $query = "SELECT * FROM `user_login` WHERE `username` = '".$_POST['username']."'";
     
     //store results and place into associative array
     $result = mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
     $row = $result->fetch_array(MYSQLI_ASSOC);
 
     //verify password and rehash if necessary
-    if($row != null)
+    if($row != null) //username exists
     {
-        //username exists
         $inputPassword = $_POST['password'];
         $storedPassword = $row['password'];
 
-        if(password_verify($inputPassword, $storedPassword))
+        //get current date and time
+        date_default_timezone_set("America/New_York");
+        $date = date("Y-m-d H:i:s");
+
+        if(password_verify($inputPassword, $storedPassword)) //correct password
         {
-            //correct password
-            if(password_needs_rehash($storedPassword, PASSWORD_DEFAULT))
+            if(password_needs_rehash($storedPassword, PASSWORD_DEFAULT)) //update password if needed
             {
-                //update password
                 $newHashedPassword = password_hash($inputPassword, PASSWORD_DEFAULT);
                 $updatePassQuery = "UPDATE `user_login` SET `password` = '$newHashedPassword' WHERE `username` = '".$_POST['username']."'";
                 mysqli_query($dbconn, $updatePassQuery) or die("Couldn't execute query\n");
             }
-
-            //save info to login log
-
+            
             //start new session
             session_start();
+
+            //save info about login to login log
+            login_log($row['ULID'], 1, $date, "User successfully logged in at " . $date, $dbconn);
             
             //save ULID in the session
             $ULIDQuery = "SELECT `ULID` FROM `user_login` WHERE `username` = '".$_POST['username']."'";
@@ -78,16 +87,17 @@ if(isset($_POST['submit']))
             //send user to the home page
             header("Location: ../home_page/index.php");
         }
-        else
+        else //incorrect password; sends the user back to the previous page to re-enter password
         {
-            //incorrect password; sends the user back to the previous page to re-enter password
+            //save info about login to login log
+            login_log($row['ULID'], 0, $date, "User unsuccessfully logged in at " . $date, $dbconn);
+
             echo "<script> alert('Incorrect password entered'); window.history.go(-1); </script>";
             exit();
         }
     }
-    else
+    else //incorrect username; sends the user back to the previous page to re-enter username
     {
-        //incorrect username; sends the user back to the previous page to re-enter username
         echo "<script> alert('Username does not exist'); window.history.go(-1); </script>";
         exit();
     }

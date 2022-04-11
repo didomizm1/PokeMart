@@ -13,7 +13,6 @@ $SCID = $_SESSION['SCID'];
 <html>
     <head>
         <title>Shopping Cart</title>
-       <!-- <h1>PokéMart Store!</h1>-->
 	    <link rel = "stylesheet" href = "shopping_cart.css">
 
     </head>
@@ -21,6 +20,7 @@ $SCID = $_SESSION['SCID'];
         <a href = "../home_page/index.php">
 			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart" width="300"> 
         </a>
+        <h1> Shopping Cart </h1>
 
         <form action="shopping_cart.php" method="post">
             <table>
@@ -39,7 +39,7 @@ $SCID = $_SESSION['SCID'];
                     //deletes a cart item
                     function deleteRow($SCID, $IID, $dbconn)
                     {
-                        $query3 = "DELETE FROM cart_item WHERE SCID = $SCID AND IID = $IID";
+                        $query3 = "DELETE FROM cart_item WHERE SCID = '$SCID' AND IID = '$IID'";
                         mysqli_query($dbconn, $query3) or die("Couldn't execute query\n");
                     }
 
@@ -80,15 +80,23 @@ $SCID = $_SESSION['SCID'];
                                             if(isset($_POST[$currentName]))
                                             { 
                                                 $quantity = $_POST['quantity'];
+
+                                                //update shopping cart variables
+                                                $selling_price = $row2['selling_price'];
+                                                $shoppingCartQuery = "UPDATE shopping_cart SET number_of_items = number_of_items + ('$quantity' - (SELECT quantity FROM cart_item WHERE SCID = '$SCID' AND IID = '$IID')), total_price = total_price + ('$selling_price' * ('$quantity' - (SELECT quantity FROM cart_item WHERE SCID = '$SCID' AND IID = '$IID'))) WHERE SCID = '$SCID'";
+                                                mysqli_query($dbconn, $shoppingCartQuery) or die("Couldn't execute query\n");
+
                                                 if($quantity > 0) //update quantity in database
                                                 {
-                                                    $query = "UPDATE cart_item SET quantity = $quantity WHERE SCID = $SCID AND IID = $IID";
+                                                    $query = "UPDATE cart_item SET quantity = '$quantity' WHERE SCID = '$SCID' AND IID = '$IID'";
                                                     mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
+                                                    header("Refresh:0");
                                                 }
                                                 else //delete item if quantity was set to 0
                                                 {
                                                     deleteRow($SCID, $IID, $dbconn);
                                                 }
+
                                             }
                                         ?>
                                     </label>
@@ -101,6 +109,12 @@ $SCID = $_SESSION['SCID'];
                                         <?php
                                             if(isset($_POST[$currentName2])) //update database
                                             { 
+                                                //update shopping cart variables
+                                                $selling_price = $row2['selling_price'];
+                                                $shoppingCartQuery2 = "UPDATE shopping_cart SET number_of_items = number_of_items - (SELECT quantity FROM cart_item WHERE SCID = '$SCID' AND IID = '$IID'), total_price = total_price - ('$selling_price' * (SELECT quantity FROM cart_item WHERE SCID = '$SCID' AND IID = '$IID')) WHERE SCID = '$SCID'";
+                                                mysqli_query($dbconn, $shoppingCartQuery2) or die("Couldn't execute query\n");
+
+                                                //delete cart item
                                                 deleteRow($SCID, $IID, $dbconn);
                                             }
                                         ?>
@@ -115,13 +129,11 @@ $SCID = $_SESSION['SCID'];
             </table>
         </form>
 
-        <div class="Checkout">
         <form action="checkout.php" method="post"> 
-            <a href = "checkout.php"></a>
+            <a href = "checkout.php">
             <h2>Checkout</h2>
             </a>
         </form>
-        </div>
         
     </body>
 </html>

@@ -15,12 +15,14 @@ $WID = $_SESSION['WID'];
         <title>Wishlist</title>
        <!-- <h1>PokéMart Store!</h1>-->
 	    <link rel = "stylesheet" href = "shopping_cart.css">
+        
 
     </head>
     <body>
         <a href = "../home_page/index.php">
 			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart" width="300"> 
         </a>
+        <h1> Wishlist</h1>
 
         <form action="wishlist.php" method="post">
             <table>
@@ -51,8 +53,7 @@ $WID = $_SESSION['WID'];
                     {
                         //make a unique name for each iteration of the row
                         $count = $count + 1;
-                        $currentName = "save" . $count;
-                        $currentName2 = "delete" . $count;
+                        $currentName = "delete" . $count;
 
                         $IID = $row['IID'];
                         $query2 = "SELECT * FROM inventory WHERE IID = '$IID'";
@@ -69,10 +70,19 @@ $WID = $_SESSION['WID'];
                         <!-- delete item from wishlist -->
                         <td>
                             <label>
-                                <input type="submit" name="<?php echo $currentName2; ?>" value="Delete from wishlist"/>
+                                <input type="submit" name="<?php echo $currentName; ?>" value="Delete from wishlist"/>
                                 <?php
-                                    if(isset($_POST[$currentName2])) //update database
+                                    if(isset($_POST[$currentName])) //update database
                                     { 
+                                        //get current date
+                                        date_default_timezone_set("America/New_York");
+                                        $date = date("Y-m-d H:i:s");
+
+                                        //update wishlist variables
+                                        $wishlistQuery = "UPDATE wishlist SET last_updated = $date, number_of_items = number_of_items - 1 WHERE WID = '$WID'";
+                                        mysqli_query($dbconn, $wishlistQuery) or die("Couldn't execute query\n");
+
+                                        //delete wishlist item
                                         deleteRow($WID, $IID, $dbconn);
                                     }
                                 ?>
@@ -87,13 +97,11 @@ $WID = $_SESSION['WID'];
             </table>
         </form>
 
-        <div class="Checkout">
         <form action="checkout.php" method="post"> 
-            <a href = "checkout.php"></a>
+            <a href = "checkout.php">
             <h2>Checkout</h2>
             </a>
         </form>
-        </div>
         
     </body>
 </html>
