@@ -31,16 +31,7 @@ $result = mysqli_query($dbconn, $query);
         if(isset($_SESSION['ULID'])) //make sure a user is logged in
         {
     ?>
-          
-    <?php
-        }
-    ?>
-
-    <body>
-        <a href = "../home_page/index.php">
-			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart"> 
-        </a>
-        <div class="cartwishlist">
+          <div class="cartwishlist">
                 <form action="shopping_cart.php" method="post">
                     <a href = "shopping_cart.php">
                         <h2>Shopping Cart</h2>
@@ -52,6 +43,15 @@ $result = mysqli_query($dbconn, $query);
                     </a>
                 </form>
             </div>
+    <?php
+        }
+    ?>
+
+    <body>
+        <a href = "../home_page/index.php">
+			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart"> 
+        </a>
+        
            
         <form id = "form" method="post">
             <h1>PokeMart Shop</h1>
