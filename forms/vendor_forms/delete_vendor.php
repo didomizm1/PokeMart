@@ -109,13 +109,11 @@ if(isset($_POST['submit']))
 				$result=mysqli_query($dbconn, $query2);
 				while ($row = $result->fetch_assoc()){
 
-					?>
-					<option value="vendor_name"><?php echo $row['vendor_name']; ?></option>
+				
+					echo "<option value=\"vendor_name\">" . $row['vendor_name'] . "</option>";
+				}	
 					
-					<?php
-					// close while loop 
-					}
-					?>
+			?>
 
 		</select>
 			<br><br>
