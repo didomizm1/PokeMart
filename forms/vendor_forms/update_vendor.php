@@ -1,9 +1,13 @@
 <?php
+
+//session handling
 require_once('../employee_session.php');
+
+//connect to database
+include_once('../connect_mysql.php');
+
 if(isset($_POST['submit']))
 {
-	//connect to database
-	include_once('../connect_mysql.php');
 
 	$vendor_name=$_POST['vendor_name'];
 	$info=$_POST['info'];
@@ -12,7 +16,6 @@ if(isset($_POST['submit']))
 	//setup query to update specific data for a vendor
 	$query="UPDATE vendors SET $info='$update' WHERE vendor_name='$vendor_name'";
 
-	
 }
 
 ?>

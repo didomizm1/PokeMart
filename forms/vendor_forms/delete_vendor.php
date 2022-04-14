@@ -1,9 +1,13 @@
 <?php
+
+//session handling
 require_once('../employee_session.php');
+
+//connect to database
+include_once('../connect_mysql.php');
+
 if(isset($_POST['submit']))
 {
-	//connect to database
-	include_once('../connect_mysql.php');
 
 	//variables that hold vendor data inserted from html form
 	$vendor_name=$_POST['vendor_name'];
