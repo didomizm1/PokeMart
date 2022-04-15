@@ -888,66 +888,65 @@
 		?>
 				<script type = "text/javascript">
 					document.getElementById("<?php echo $columnName; ?>").innerHTML = "<?php echo $newData; ?>"; //overwrite displayed data with new data
-					alert("Profile data successfully changed.")
 				</script>
 		<?php 
 			}
 			//check for saved data
 			if(isset($_POST['save_first_name']))
 			{
-				updateData("first_name", $_POST['save_first_name'], $dbconn); //update database
+				updateData("first_name", $_POST['first_name'], $dbconn); //update database
 			}
 			else if(isset($_POST['save_middle_name']))
 			{
-				updateData("middle_name", $_POST['save_middle_name'], $dbconn);
+				updateData("middle_name", $_POST['middle_name'], $dbconn);
 			}
 			else if(isset($_POST['save_last_name']))
 			{
-				updateData("last_name", $_POST['save_last_name'], $dbconn);
+				updateData("last_name", $_POST['last_name'], $dbconn);
 			}
 			else if(isset($_POST['save_gender']))
 			{
-				updateData("gender", $_POST['save_gender'], $dbconn);
+				updateData("gender", $_POST['gender'], $dbconn);
 			}
 			else if(isset($_POST['save_date_of_birth']))
 			{
-				updateData("date_of_birth", $_POST['save_date_of_birth'], $dbconn);
+				updateData("date_of_birth", $_POST['date_of_birth'], $dbconn);
 			}
 			else if(isset($_POST['save_email']))
 			{
-				updateData("email", $_POST['save_email'], $dbconn);
+				updateData("email", $_POST['email'], $dbconn);
 			}
 			else if(isset($_POST['save_home_phone_number']))
 			{
-				updateData("home_phone_number", $_POST['save_home_phone_number'], $dbconn);
+				updateData("home_phone_number", $_POST['home_phone_number'], $dbconn);
 			}
 			else if(isset($_POST['save_cell_phone_number']))
 			{
-				updateData("cell_phone_number", $_POST['save_cell_phone_number'], $dbconn);
+				updateData("cell_phone_number", $_POST['cell_phone_number'], $dbconn);
 			}
 			else if(isset($_POST['save_street_1']))
 			{
-				updateData("street_1", $_POST['save_street_1'], $dbconn);
+				updateData("street_1", $_POST['street_1'], $dbconn);
 			}
 			else if(isset($_POST['save_street_2']))
 			{
-				updateData("street_2", $_POST['save_street_2'], $dbconn);
+				updateData("street_2", $_POST['street_2'], $dbconn);
 			}
 			else if(isset($_POST['save_city']))
 			{
-				updateData("city", $_POST['save_city'], $dbconn);
+				updateData("city", $_POST['city'], $dbconn);
 			}
 			else if(isset($_POST['save_state']))
 			{
-				updateData("state", $_POST['save_state'], $dbconn);
+				updateData("state", $_POST['state'], $dbconn);
 			}
 			else if(isset($_POST['save_zip_code']))
 			{
-				updateData("zip_code", $_POST['save_zip_code'], $dbconn);
+				updateData("zip_code", $_POST['zip_code'], $dbconn);
 			}
 			else if(isset($_POST['save_country']))
 			{
-				updateData("country", $_POST['save_country'], $dbconn);
+				updateData("country", $_POST['country'], $dbconn);
 			}
 		?>
 	</div>
