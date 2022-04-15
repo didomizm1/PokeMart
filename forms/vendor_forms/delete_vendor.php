@@ -6,16 +6,6 @@ require_once('../employee_session.php');
 //connect to database
 include_once('../connect_mysql.php');
 
-if(isset($_POST['submit']))
-{
-
-	//variables that hold vendor data inserted from html form
-	$vendor_name=$_POST['vendor_name'];
-	//query setup to delete vendor where vendor name,code and id match
-	$query="DELETE FROM vendors WHERE vendor_name='$vendor_name'";
-	
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -126,6 +116,10 @@ if(isset($_POST['submit']))
 			<?php
     		if(isset($_POST['submit']))
     		{
+				//variables that hold vendor data inserted from html form
+				$vendor_name=$_POST['vendor_name'];
+				//query setup to delete vendor where vendor name,code and id match
+				$query="DELETE FROM vendors WHERE vendor_name='$vendor_name'";
       			//execute query
 	    		if($dbconn->query($query)==TRUE)
       			{

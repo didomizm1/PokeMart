@@ -6,18 +6,6 @@ require_once('../employee_session.php');
 //connect to database
 include_once('../connect_mysql.php');
 
-if(isset($_POST['submit']))
-{
-
-	$vendor_name=$_POST['vendor_name'];
-	$info=$_POST['info'];
-	$update=$_POST['update'];
-
-	//setup query to update specific data for a vendor
-	$query="UPDATE vendors SET $info='$update' WHERE vendor_name='$vendor_name'";
-
-}
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -129,6 +117,7 @@ if(isset($_POST['submit']))
 					?>
 
 		</select>
+		<br>
 		<label for="info"> * Information to be updated:</label>
 		<!-- vendor info selection -->
 		<select id="info" name="info">
@@ -151,6 +140,12 @@ if(isset($_POST['submit']))
 		<?php
     	if(isset($_POST['submit']))
     	{
+			$vendor_name=$_POST['vendor_name'];
+			$info=$_POST['info'];
+			$update=$_POST['update'];
+
+			//setup query to update specific data for a vendor
+			$query="UPDATE vendors SET $info='$update' WHERE vendor_name='$vendor_name'";
       		//execute query
 	    	if($dbconn->query($query)==TRUE)
       		{
