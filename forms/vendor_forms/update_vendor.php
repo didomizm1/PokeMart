@@ -145,7 +145,7 @@ include_once('../connect_mysql.php');
 			$update=$_POST['update'];
 
 			//setup query to update specific data for a vendor
-			$query="UPDATE vendors SET $info='$update' WHERE vendor_name='$vendor_name'";
+			$query="UPDATE vendors SET $info='$update' WHERE vendor_name=$vendor_name";
       		//execute query
 	    	if($dbconn->query($query)==TRUE)
       		{

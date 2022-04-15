@@ -119,7 +119,7 @@ include_once('../connect_mysql.php');
 				//variables that hold vendor data inserted from html form
 				$vendor_name=$_POST['vendor_name'];
 				//query setup to delete vendor where vendor name,code and id match
-				$query="DELETE FROM vendors WHERE vendor_name='$vendor_name'";
+				$query="DELETE FROM vendors WHERE vendor_name=$vendor_name";
       			//execute query
 	    		if($dbconn->query($query)==TRUE)
       			{
