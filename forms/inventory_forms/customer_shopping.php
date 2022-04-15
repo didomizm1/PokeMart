@@ -65,7 +65,6 @@ $result = mysqli_query($dbconn, $query);
             
             <table>
                 <tr>
-                    <th>Product ID</th>
                     <th>Item Name</th>
                     <th>Japanese Item Name</th>
                     <th>Type</th>
@@ -93,7 +92,6 @@ $result = mysqli_query($dbconn, $query);
                     $currentName2 = "addToWishlist" . $count;
                 ?>
                 <tr>
-                    <td><?php echo $row['IID'];?></td>
                     <td><?php echo $row['item_name'];?></td>
                     <td><?php echo $row['japanese_item_name'];?></td>
                     <td><?php echo $row['item_type'];?></td>
@@ -135,19 +133,19 @@ $result = mysqli_query($dbconn, $query);
                                                 if($inventoryRow['in_stock'] - $quantity >= 0) //ensure quantity can be fulfilled by given stock
                                                 {
                                                     //check if item exists in the cart
-                                                    $query2 ="SELECT * FROM cart_item WHERE SCID = '$SCID' AND IID = '$IID'";
+                                                    $query2 ="SELECT * FROM shopping_cart_item WHERE SCID = '$SCID' AND IID = '$IID'";
                                                     $result2 = mysqli_query($dbconn, $query2);
                                                     $row2 = $result2->fetch_array(MYSQLI_ASSOC);
 
                                                     if($row2 == null) //item does not already exist in the cart
                                                     {
-                                                        $query3 = "INSERT INTO cart_item (IID, SCID, quantity) VALUES ('$IID', '$SCID', '$quantity')";
+                                                        $query3 = "INSERT INTO shopping_cart_item (IID, SCID, quantity) VALUES ('$IID', '$SCID', '$quantity')";
                                                         mysqli_query($dbconn, $query3) or die("Couldn't execute query\n");
                                                     }
                                                     else //item does exist in the cart, so increment quantity instead
                                                     {
                                                         $incrementedQuantity = $quantity + $row2['quantity'];
-                                                        $query3 = "UPDATE cart_item SET quantity = '$incrementedQuantity' WHERE SCID = '$SCID' AND IID = '$IID'";
+                                                        $query3 = "UPDATE shopping_cart_item SET quantity = '$incrementedQuantity' WHERE SCID = '$SCID' AND IID = '$IID'";
                                                         mysqli_query($dbconn, $query3) or die("Couldn't execute query\n");
                                                     }
 

@@ -39,11 +39,11 @@ $SCID = $_SESSION['SCID'];
                     //deletes a cart item
                     function deleteRow($SCID, $IID, $dbconn)
                     {
-                        $query3 = "DELETE FROM cart_item WHERE SCID = '$SCID' AND IID = '$IID'";
+                        $query3 = "DELETE FROM shopping_cart_item WHERE SCID = '$SCID' AND IID = '$IID'";
                         mysqli_query($dbconn, $query3) or die("Couldn't execute query\n");
                     }
 
-                    $query ="SELECT * FROM cart_item WHERE SCID = '$SCID'";
+                    $query ="SELECT * FROM shopping_cart_item WHERE SCID = '$SCID'";
                     $result = mysqli_query($dbconn, $query);
 
                     $count = 0;
@@ -83,12 +83,12 @@ $SCID = $_SESSION['SCID'];
 
                                                 //update shopping cart variables
                                                 $selling_price = $row2['selling_price'];
-                                                $shoppingCartQuery = "UPDATE shopping_cart SET number_of_items = number_of_items + ('$quantity' - (SELECT quantity FROM cart_item WHERE SCID = '$SCID' AND IID = '$IID')), total_price = total_price + ('$selling_price' * ('$quantity' - (SELECT quantity FROM cart_item WHERE SCID = '$SCID' AND IID = '$IID'))) WHERE SCID = '$SCID'";
+                                                $shoppingCartQuery = "UPDATE shopping_cart SET number_of_items = number_of_items + ('$quantity' - (SELECT quantity FROM shopping_cart_item WHERE SCID = '$SCID' AND IID = '$IID')), total_price = total_price + ('$selling_price' * ('$quantity' - (SELECT quantity FROM shopping_cart_item WHERE SCID = '$SCID' AND IID = '$IID'))) WHERE SCID = '$SCID'";
                                                 mysqli_query($dbconn, $shoppingCartQuery) or die("Couldn't execute query\n");
 
                                                 if($quantity > 0) //update quantity in database
                                                 {
-                                                    $query = "UPDATE cart_item SET quantity = '$quantity' WHERE SCID = '$SCID' AND IID = '$IID'";
+                                                    $query = "UPDATE shopping_cart_item SET quantity = '$quantity' WHERE SCID = '$SCID' AND IID = '$IID'";
                                                     mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
                                                     header("Refresh:0");
                                                 }
@@ -111,7 +111,7 @@ $SCID = $_SESSION['SCID'];
                                             { 
                                                 //update shopping cart variables
                                                 $selling_price = $row2['selling_price'];
-                                                $shoppingCartQuery2 = "UPDATE shopping_cart SET number_of_items = number_of_items - (SELECT quantity FROM cart_item WHERE SCID = '$SCID' AND IID = '$IID'), total_price = total_price - ('$selling_price' * (SELECT quantity FROM cart_item WHERE SCID = '$SCID' AND IID = '$IID')) WHERE SCID = '$SCID'";
+                                                $shoppingCartQuery2 = "UPDATE shopping_cart SET number_of_items = number_of_items - (SELECT quantity FROM shopping_cart_item WHERE SCID = '$SCID' AND IID = '$IID'), total_price = total_price - ('$selling_price' * (SELECT quantity FROM shopping_cart_item WHERE SCID = '$SCID' AND IID = '$IID')) WHERE SCID = '$SCID'";
                                                 mysqli_query($dbconn, $shoppingCartQuery2) or die("Couldn't execute query\n");
 
                                                 //delete cart item
