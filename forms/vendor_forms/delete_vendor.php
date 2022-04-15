@@ -102,9 +102,8 @@ include_once('../connect_mysql.php');
 				$query2="SELECT vendor_name FROM vendors";
 				$result=mysqli_query($dbconn, $query2);
 				while ($row = $result->fetch_assoc()){
-
-				
-					echo "<option value=\"vendor_name\">" . $row['vendor_name'] . "</option>";
+					$currentName = $row['vendor_name'];
+					echo "<option value=\"$currentName\">" . $currentName . "</option>";
 				}	
 					
 			?>
@@ -119,7 +118,7 @@ include_once('../connect_mysql.php');
 				//variables that hold vendor data inserted from html form
 				$vendor_name=$_POST['vendor_name'];
 				//query setup to delete vendor where vendor name,code and id match
-				$query="DELETE FROM vendors WHERE vendor_name=$vendor_name";
+				$query="DELETE FROM vendors WHERE vendor_name='$vendor_name'";
       			//execute query
 	    		if($dbconn->query($query)==TRUE)
       			{

@@ -106,15 +106,10 @@ include_once('../connect_mysql.php');
 				$query2="SELECT vendor_name FROM vendors";
 				$result=mysqli_query($dbconn, $query2);
 				while ($row = $result->fetch_assoc()){
-
-					?>
-					
-					<option value="vendor_name"><?php echo $row['vendor_name']; ?></option>
-					
-					<?php
-					// close while loop 
-					}
-					?>
+					$currentName = $row['vendor_name'];
+					echo "<option value=\"$currentName\">" . $currentName . "</option>"; 
+				}
+			?>
 
 		</select>
 		<br>
@@ -145,7 +140,7 @@ include_once('../connect_mysql.php');
 			$update=$_POST['update'];
 
 			//setup query to update specific data for a vendor
-			$query="UPDATE vendors SET $info='$update' WHERE vendor_name=$vendor_name";
+			$query="UPDATE vendors SET $info='$update' WHERE vendor_name='$vendor_name'";
       		//execute query
 	    	if($dbconn->query($query)==TRUE)
       		{
