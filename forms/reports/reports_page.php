@@ -39,6 +39,12 @@
       margin-top:12%;
       width:30.0%;
     }
+     #profit
+    {
+      margin-left:1.0%
+      margin-top:12%;
+      width:25%;
+    }
    
         
   </style>
@@ -55,6 +61,9 @@
     </a>
      <a href="../reports/inserting_store_expenses.php">
         <IMG id="expenses" SRC="../../img/lnt/Insert-Expenses.png">
+    </a>
+    <a href="../reports/profit_loss_report.php">
+        <IMG id="profit" SRC="../../img/lnt/ProfitLoss-.png">
     </a>
   </body>
 </html>
