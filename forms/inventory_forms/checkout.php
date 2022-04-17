@@ -21,7 +21,7 @@
 		//check stock before allowing check out
 		$canCheckout = true;
 
-		$cartItemQuery = "SELECT IID, quantity FROM cart_item WHERE SCID = '$SCID'";
+		$cartItemQuery = "SELECT IID, quantity FROM shopping_cart_item WHERE SCID = '$SCID'";
 		$cartItemResult = mysqli_query($dbconn, $cartItemQuery) or die("Couldn't execute query\n");
 		while($cartItemRow = $cartItemResult->fetch_array(MYSQLI_ASSOC))
 		{
@@ -31,7 +31,7 @@
 
 			if($inventoryRow['in_stock'] == 0) //item is out of stock, so remove item from cart
 			{
-				$deleteCartItemQuery = "DELETE FROM cart_item WHERE SCID = '$SCID' AND IID = '".$cartItemRow['IID']."'";
+				$deleteCartItemQuery = "DELETE FROM shopping_cart_item WHERE SCID = '$SCID' AND IID = '".$cartItemRow['IID']."'";
 				mysqli_query($dbconn, $deleteCartItemQuery) or die("Couldn't execute query\n");
 				$canCheckout = false;
 			}
@@ -41,7 +41,7 @@
 				if($stockDifference < 0) //an item's quantity is greater than the stock, so reduce item's quantity in the cart
 				{
 					$newQuantity = $cartItemRow['quantity'] + $stockDifference;
-					$updateCartItemQuery = "UPDATE cart_item SET quantity = $newQuantity WHERE SCID = '$SCID' AND IID = '".$cartItemRow['IID']."'";
+					$updateCartItemQuery = "UPDATE shopping_cart_item SET quantity = $newQuantity WHERE SCID = '$SCID' AND IID = '".$cartItemRow['IID']."'";
 					mysqli_query($dbconn, $updateCartItemQuery) or die("Couldn't execute query\n");
 					$canCheckout = false;
 				}
@@ -54,8 +54,13 @@
 			date_default_timezone_set("America/New_York");
 			$date = date("Y-m-d H:i:s");
 
+			//get shopping cart info
+			$query0 = "SELECT * FROM shopping_cart WHERE SCID = '$SCID'";
+			$result0 = mysqli_query($dbconn, $query0) or die("Couldn't execute login data query\n");
+			$row0 = $result0->fetch_array(MYSQLI_ASSOC);
+
 			//create new customer order
-			$query1 = "INSERT INTO customer_order (CPID, SCIDtemp, number_of_items, total_price) SELECT CPID, SCID, number_of_items, total_price FROM shopping_cart WHERE SCID = '$SCID'";
+			$query1 = "INSERT INTO customer_order (CPID, CIID, SCIDtemp, date_stamp, number_of_items, total_price) VALUES ('".$row0['CPID']."', '$CIID', '".$row0['SCID']."', '$date', '".$row0['number_of_items']."', '".$row0['total_price']."')";
 			mysqli_query($dbconn, $query1) or die("Couldn't execute login data query\n");
 
 			//get customer order ID
@@ -65,7 +70,7 @@
 			$COID = $row2['COID'];
 
 			//transfer items from cart into customer order
-			$query3 = "SELECT IID, quantity FROM cart_item WHERE SCID = '$SCID'";
+			$query3 = "SELECT IID, quantity FROM shopping_cart_item WHERE SCID = '$SCID'";
 			$result3 = mysqli_query($dbconn, $query3) or die("Couldn't execute query\n");
 			while($row3 = $result3->fetch_array(MYSQLI_ASSOC))
 			{
@@ -78,7 +83,7 @@
 			mysqli_query($dbconn, $query5) or die("Couldn't execute login data query\n");
 
 			//update inventory stock
-			$query6 = "SELECT IID, quantity FROM cart_item WHERE SCID = '$SCID'";
+			$query6 = "SELECT IID, quantity FROM shopping_cart_item WHERE SCID = '$SCID'";
 			$result6 = mysqli_query($dbconn, $query6) or die("Couldn't execute query\n");
 			while($row6 = $result6->fetch_array(MYSQLI_ASSOC))
 			{
@@ -87,7 +92,7 @@
 			}
 
 			//empty cart
-			$query8 = "DELETE FROM cart_item WHERE SCID = '$SCID'";
+			$query8 = "DELETE FROM shopping_cart_item WHERE SCID = '$SCID'";
 			mysqli_query($dbconn, $query8) or die("Couldn't execute login data query\n");
 
 			$query9 = "UPDATE shopping_cart SET number_of_items = '0', total_price = '0' WHERE SCID = '$SCID'";
