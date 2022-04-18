@@ -22,7 +22,7 @@ $CPID = $_SESSION['CPID'];
         <a href = "../home_page/index.php">
 			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart" width="300"> 
         </a>
-        <h1> Previous Orders </h1>
+        <h1> Order History </h1>
 
         <form action="customer_order_history.php" method="post">
 
