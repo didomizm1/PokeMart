@@ -25,12 +25,13 @@
 		<a href = "../home_page/index.php">
 			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart">
 		</a>
+		<img id = "employee_profile" src = "../../img/lnt/employee_profile.png" alt = "Employee Profile">
 	</div>
 
 	<!-- Center of the page -->
 	<div id = "mid">
         <!-- Print out employee profile data -->
-		<h1 id = "header">Employee Profile Page</h1>
+		<img id = "abomasnow" src = "../../img/lnt/abomasnow.gif" alt = "Abomasnow">
 		<p>
 			<label class = "dataName">Employee ID</label><br>
 			<label class = "dataInfo"><?php echo $row['EPID'];?></label>

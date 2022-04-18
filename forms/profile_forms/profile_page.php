@@ -24,12 +24,13 @@
 		<a href = "../home_page/index.php">
 			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart">
 		</a>
+		<img id = "profile_page" src = "../../img/lnt/profile_page.png" alt = "Profile Page">
 	</div>
 
 	<!-- Center of the page -->
 	<div id = "mid">
 		<!-- Print out profile data -->
-		<h1 id = "header">Profile Page</h1>
+		<img id = "torterra" src = "../../img/lnt/torterra.gif" alt = "Torterra">
 		<p>
 			<label class = "dataName">First Name</label><br> 
 			<label class = "dataInfo" id = "first_name"><?php echo $row['first_name'];?></label>
