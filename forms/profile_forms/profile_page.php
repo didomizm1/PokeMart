@@ -29,8 +29,20 @@
 
 	<!-- Center of the page -->
 	<div id = "mid">
-		<!-- Print out profile data -->
+		
+		<!-- Links to related profile-specific pages -->
+		<a href = "../card_forms/wallet.php">
+			<label class = "link header">My Wallet</label> 
+		</a>
+		<a href = "../inventory_forms/wishlist.php">
+			<label class = "link header">Wishlist</label>
+		</a>
 		<img id = "torterra" src = "../../img/lnt/torterra.gif" alt = "Torterra">
+
+		<!-- Print out profile data -->
+		<p>
+			<label class = "header">Profile Info</label>
+		</p>
 		<p>
 			<label class = "dataName">First Name</label><br> 
 			<label class = "dataInfo" id = "first_name"><?php echo $row['first_name'];?></label>
