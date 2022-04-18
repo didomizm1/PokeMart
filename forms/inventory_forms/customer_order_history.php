@@ -24,13 +24,14 @@ $CPID = $_SESSION['CPID'];
         </a>
         <h1> Previous Orders </h1>
 
-        <form action="customer_orders.php" method="post">
+        <form action="customer_order_history.php" method="post">
 
         <table>
                 <tr>
                     <th>Order Number</th>
                     <th>Items Purchased</th>
                     <th>Total</th>
+                    <th>Order Date</th>
                 </tr>
 
                 <!-- populate table from mysql database -->
@@ -52,6 +53,7 @@ $CPID = $_SESSION['CPID'];
                         <td><?php echo $row2['COID'];?></td>
                         <td><?php echo $row2['number_of_items'];?></td>
                         <td><?php echo $row2['total_price'];?></td>
+                        <td><?php echo $row2['date_stamp'];?></td>
                         <form method="post">
 
                         
