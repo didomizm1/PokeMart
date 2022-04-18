@@ -15,7 +15,7 @@ $CPID = $_SESSION['CPID'];
 <html>
     <head>
         <title>Customer Orders</title>
-        <link rel = "stylesheet" href = "customer_orders.css">
+        <link rel = "stylesheet" href = "customer_order_history.css">
 
     </head>
     <body>
