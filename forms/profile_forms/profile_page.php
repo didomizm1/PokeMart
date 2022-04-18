@@ -31,11 +31,14 @@
 	<div id = "mid">
 		
 		<!-- Links to related profile-specific pages -->
-		<a href = "../card_forms/wallet.php">
-			<label class = "link header">My Wallet</label> 
+		<a href = "../inventory_forms/customer_order_history.php">
+			<label class = "link header">Orders</label>
 		</a>
 		<a href = "../inventory_forms/wishlist.php">
 			<label class = "link header">Wishlist</label>
+		</a>
+		<a href = "../card_forms/wallet.php">
+			<label class = "link header">My Wallet</label> 
 		</a>
 		<img id = "torterra" src = "../../img/lnt/torterra.gif" alt = "Torterra">
 
