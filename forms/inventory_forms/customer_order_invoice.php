@@ -10,11 +10,17 @@ $SCID = $_SESSION['SCID'];
 //get customer profile info associated with logged in user
 $CPID = $_SESSION['CPID'];
 
+$query00 = "SELECT COID FROM customer_order WHERE CPID = '$CPID'";
+$result00 = mysqli_query($dbconn, $query00) or die("Couldn't execute query\n");
+$row00 = $result00->fetch_array(MYSQLI_ASSOC);
+$COID = $row00['COID'];
+
+
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Customer Order History</title>
+        <title>Order Invoice</title>
         <link rel = "stylesheet" href = "customer_order_history.css">
 
     </head>
@@ -24,16 +30,11 @@ $CPID = $_SESSION['CPID'];
         </a>
         <h1> Previous Orders </h1>
 
-        <form action="customer_order_history.php" method="post">
+        <form action="customer_order_invoice.php" method="post">
 
         <table>
                 <tr>
-                    <form action="customer_order_invoice.php" method="post"> 
-                    <a href = "customer_order_invoice.php">
-                    <th>Order Number  
-                    </a>
-                    </form> 
-                    </th>
+                    <th>Order Number</th>
                     <th>Items Purchased</th>
                     <th>Total</th>
                     <th>Order Date</th>
@@ -42,7 +43,7 @@ $CPID = $_SESSION['CPID'];
                 <!-- populate table from mysql database -->
                 <?php
 
-                    $query ="SELECT * FROM customer_order WHERE CPID = '$CPID'";
+                    $query ="SELECT * FROM customer_order WHERE COID = '$COID'";
                     $result = mysqli_query($dbconn, $query);
 
                     while($row = $result->fetch_array(MYSQLI_ASSOC))
