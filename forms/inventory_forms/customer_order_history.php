@@ -28,9 +28,9 @@ $CPID = $_SESSION['CPID'];
 
         <table>
                 <tr>
-                    <form action="customer_order_invoice.php" method="post"> 
-                    <a href = "customer_order_invoice.php">
-                    <th>Order Number  
+                    
+                    <th><form action="customer_order_invoice.php" method="post"> 
+                    <a href = "customer_order_invoice.php"> Order Number  
                     </a>
                     </form> 
                     </th>
