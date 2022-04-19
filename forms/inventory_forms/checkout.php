@@ -64,7 +64,7 @@
 			$row0 = $result0->fetch_array(MYSQLI_ASSOC);
 
 			//create new customer order
-			$query1 = "INSERT INTO customer_order (CPID, CIID, SCIDtemp, date_stamp, number_of_items, total_price) VALUES ('".$row0['CPID']."', '$CIID', '".$row0['SCID']."', '$date', '".$row0['number_of_items']."', '".$row0['total_price']."')";
+			$query1 = "INSERT INTO customer_order (CPID, CIID, SCIDtemp, date_stamp, number_of_items, total_price, refunded) VALUES ('".$row0['CPID']."', '$CIID', '".$row0['SCID']."', '$date', '".$row0['number_of_items']."', '".$row0['total_price']."', '0')";
 			mysqli_query($dbconn, $query1) or die("Couldn't execute login data query\n");
 
 			//get customer order ID
