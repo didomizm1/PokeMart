@@ -29,11 +29,7 @@ $CPID = $_SESSION['CPID'];
         <table>
                 <tr>
                     
-                    <th><form action="customer_order_invoice.php" method="post"> 
-                    <a href = "customer_order_invoice.php"> Order Number  
-                    </a>
-                    </form> 
-                    </th>
+                    <th>Order Number</th>
                     <th>Items Purchased</th>
                     <th>Total</th>
                     <th>Order Date</th>
@@ -55,7 +51,12 @@ $CPID = $_SESSION['CPID'];
                 ?>
 
                         <tr>
-                        <td><?php echo $row2['COID'];?></td>
+                        <td>
+                        <form action="customer_order_invoice.php" method="post"> 
+                        <a href = "customer_order_invoice.php"> 
+                        <?php echo $row2['COID'];?></td>
+                        </a>
+                        </form> 
                         <td><?php echo $row2['number_of_items'];?></td>
                         <td><?php echo $row2['total_price'];?></td>
                         <td><?php echo $row2['date_stamp'];?></td>
