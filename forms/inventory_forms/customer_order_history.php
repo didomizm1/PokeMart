@@ -24,8 +24,6 @@ $CPID = $_SESSION['CPID'];
         </a>
         <h1> Order History </h1>
 
-        <form action="customer_order_history.php" method="post">
-
         <table>
                 <tr>
                     
@@ -70,8 +68,5 @@ $CPID = $_SESSION['CPID'];
                     }
                 ?>
             </table>
-        </form>
-
- 
     </body>
 </html>

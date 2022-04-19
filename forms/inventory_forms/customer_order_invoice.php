@@ -40,6 +40,33 @@ $COID = $_POST['COID'];
                 <!-- populate table from mysql database -->
                 <?php
 
+                    $query = "SELECT * FROM customer_order WHERE COID = '$COID'";
+                    $search_result = mysqli_query($dbconn, $query);
+                    $row2 = $search_result->fetch_array(MYSQLI_ASSOC);
+                    
+                ?>
+                    <tr>
+                    <td><?php echo $row2['COID'];?></td>
+                    <td><?php echo $row2['number_of_items'];?></td>
+                    <td><?php echo $row2['total_price'];?></td>
+                    <td><?php echo $row2['date_stamp'];?></td>
+                    <form method="post">
+                    </form>
+                    </td>
+                    </tr>
+            </table>
+            <table>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Item Description</th>
+                    <th>Item Type</th>
+                    <th>Price</th>
+                   
+                </tr>
+
+                <!-- populate table from mysql database -->
+                <?php
+
                     $query ="SELECT * FROM customer_order WHERE COID = '$COID'";
                     $result = mysqli_query($dbconn, $query);
 
