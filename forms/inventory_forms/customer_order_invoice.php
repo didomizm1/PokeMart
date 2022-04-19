@@ -10,10 +10,7 @@ $SCID = $_SESSION['SCID'];
 //get customer profile info associated with logged in user
 $CPID = $_SESSION['CPID'];
 
-$query00 = "SELECT COID FROM customer_order WHERE CPID = '$CPID'";
-$result00 = mysqli_query($dbconn, $query00) or die("Couldn't execute query\n");
-$row00 = $result00->fetch_array(MYSQLI_ASSOC);
-$COID = $row00['COID'];
+$COID = $_POST['COID'];
 
 
 ?>
