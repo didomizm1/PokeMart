@@ -3,21 +3,34 @@ body
     background: url("../../img/lnt/about_us_background.gif") no-repeat center center fixed;
     background-size: 100% 100%;          
 }
+h1
+{
+    font-size: 100px;
+    color: rgb(174, 0, 255);
+}
+label
+{
+    font-size: 50px;
+    color: rgb(255, 0, 98);
+}
 #mid
 { 
+    background: rgba(63, 194, 255, 0.9);
+    border: solid rgb(255, 4, 121) 25px;
+    border-radius: 50px;
+    margin: 17% auto;        
+    padding: 50px;
+    width: 50%;  
+
     user-select: none;
-    position: fixed;
-    left: 500px;
-    top: 250px;
-    font-size: 190px;
-    font-family: 'Courier New', Courier, monospace;
-    color: rgb(255, 255, 255);
-    text-shadow: 3px 3px rgb(0,0,0);
     text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    text-shadow: 3px 3px rgb(0,0,0);
 }
 #logo
 {
-    position: fixed;
+    position: absolute;
     left: 0.4%;
     top: 0.8%;
     width: 27.25%; 
