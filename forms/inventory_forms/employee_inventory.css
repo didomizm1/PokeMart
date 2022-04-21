@@ -11,7 +11,7 @@ body
 }
 #form
 {
-    margin: 12.5% auto;
+    margin: 11% auto;
 }
 #logo
 {
@@ -23,10 +23,12 @@ body
 }
 #employee_inventory
 {
+    position: absolute;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    top: 0%;
+    top: 15%;
+    left: 25.5%;
     width: 50%; 
 }
 #search, #filter
@@ -77,6 +79,8 @@ body
     top: 0; 
     width: 100%;
     height: 10%;
+    left: 0%;
+    top: 0%;
 }
 
 /* The Modal (background) */
