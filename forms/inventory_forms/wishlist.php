@@ -35,8 +35,6 @@ $WID = $_SESSION['WID'];
                     <th>Product ID</th>
                     <th>Item Name</th>
                     <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Change Quantity</th>
                     <th>Delete</th>
                 </tr>
 
