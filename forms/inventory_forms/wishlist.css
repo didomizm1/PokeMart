@@ -35,6 +35,13 @@ body
     top: 0.8%;
     width: 10%; 
 }
+#back_to_shop
+{
+    position: fixed;
+    margin-left: 0.5%;
+    bottom: 0.8%;
+    width: 20%; 
+}
 /*
 #form
 {

@@ -123,7 +123,7 @@
         <title>Checkout</title>
        <!-- <h1>PokéMart Store!</h1>-->
 
-	    <link rel = "stylesheet" href = "shopping_cart.css">
+	    <link rel = "stylesheet" href = "checkout.css">
 
     </head>
     <body>

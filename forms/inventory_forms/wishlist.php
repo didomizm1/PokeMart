@@ -29,6 +29,10 @@ $WID = $_SESSION['WID'];
         <img id = "cart" src = "../../img/lnt/cart.png" alt = "Shopping Cart" width ="300">
         </a>
 
+        <a href = "customer_shopping.php">
+        <img id = "back_to_shop" src = "../../img/lnt/back_to_shop.png" alt = "back to shop" width ="300">
+        </a>
+
         <form action="wishlist.php" method="post">
             <table>
                 <tr>

@@ -67,8 +67,7 @@ table
     margin-right: auto;
 }
 table,tr,th,td
-{
-    
+{ 
     width: 1250px;
     text-align: center;
     vertical-align: middle;
