@@ -72,30 +72,11 @@
         <br><br>
          cvv:  <input type = "number" name  = "cvv" minimulength = "3" maxlength="4" pattern = "0-9" autocomplete required />
         <br><br>
-        <h3> <font size="4px" >Billing Address </font> </h3>
-        <label> Street Address 1:
-            <input type = "text" name  = "street_add_1" maxlength = "100" autocomplete required />
-        </label>  
-        <br><br>
-        <label> Street Address 2: 
-            <input type = "text" name  = "street_add_2" maxlength = "100" autocomplete />
-        </label>
-        <br><br>
-        <label> City:
-            <input type = "text" name  = "city" maxlength = "100" autocomplete required />
-        </label>  
-        <br><br>
-         <label> Zip Code: 
-            <input type = "text" name  = "zip_code" minlength = "5" maxlength = "10" pattern = "^[A-Z\d]+$" autocomplete required />
-        </label> 
-        <br><br>
-      
-        <input type="checkbox" name="check" id="submit" value="1" checked> save card 
-            <br><br> 
-        <label>
-            <input type="submit" id="submit" name="submit" value = "Use this payment method"/>
-        </label>
-     </form>
+  </form>
+  
+     <font face="Arial" size ="3px">    
+        <a href="../card_forms/uadd.php"> Add New Payment </a>
+    </font>
 </center>
 </body>
 </html>
