@@ -9,16 +9,74 @@ body
     background-size: 100% 100%;
     background-attachment: fixed;
 }
-#logo
-{
-    position: absolute;
-    left: 0.4%;
-    top: 0.8%;
-    width: 27.25%; 
-}
 #form
 {
     margin: 12.5% auto;
+}
+#logo
+{
+    position: fixed;
+    left: 0.4%;
+    top: 0.4%;
+    width: 15%; 
+    z-index: 2;
+}
+#employee_inventory
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    top: 0%;
+    width: 50%; 
+}
+#search, #filter
+{
+    position: fixed;
+    top: 3.5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#search
+{
+    left: 33%;
+    width: 30%;
+}
+#filter
+{
+    left: 64%;
+}
+#addButton
+{
+    position: fixed;
+    top: 3.5%;
+    margin-left: 75%;
+    margin-right: auto;
+    z-index: 2;
+}
+#deleteButton
+{
+    position: fixed;
+    top: 3.5%;
+    margin-left: 80%;
+    margin-right: auto;
+    z-index: 2;
+}
+#updateButton
+{
+    position: fixed;
+    top: 3.5%;
+    margin-left: 86%;
+    margin-right: auto;
+    z-index: 2;
+}
+#scrollbar
+{
+    overflow: hidden;
+    background-color: rgb(60, 101, 139);
+    position: fixed;
+    top: 0; 
+    width: 100%;
+    height: 10%;
 }
 
 /* The Modal (background) */
@@ -74,9 +132,14 @@ input.right
 }
 table
 {
-    background-color: white;     
+    background-color: white;  
+    margin-left: auto;
+    margin-right: auto;
 }
 table,tr,th,td
 {
+    width: 1250px;
+    text-align: center;
+    vertical-align: middle;
     border: 1px solid black;
 }
