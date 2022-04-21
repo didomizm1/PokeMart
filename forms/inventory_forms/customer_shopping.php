@@ -34,6 +34,18 @@ $result = mysqli_query($dbconn, $query);
         <a href = "../home_page/index.php">
 			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart"> 
         </a>
+
+
+        <a href = "wishlist.php">
+        <img id = "wishlist" src = "../../img/lnt/wishlist.png" alt = "Wishlist" width ="300">
+        </a>
+
+
+        <a href = "shopping_cart.php">
+        <img id = "cart" src = "../../img/lnt/cart.png" alt = "Shopping Cart" width ="300">
+        </a>
+
+
     </head>
 
     <body>
@@ -42,26 +54,19 @@ $result = mysqli_query($dbconn, $query);
         if(isset($_SESSION['ULID'])) //make sure a user is logged in
         {
     ?>
-            <div id="carts">
-                        <form action="shopping_cart.php" method="post">
-                            <a href = "shopping_cart.php">
-                                <h2>Shopping Cart</h2>
-                            </a>
-                        </form>
-                        <form action="wishlist.php" method="post">
-                            <a href = "wishlist.php">
-                                <h2>Wishlist</h2>
-                            </a>
-                        </form>
-            </div>
     <?php
         }
     ?>
            
         <form id = "form" method="post">
-            <h1>PokeMart Shop</h1>
+
+         
+            <div id = "search">
             <input type="text" name="valueToSearch" placeholder="Search"/><br><br>
             <input type="submit" name="submit" value="Filter"/><br><br>
+            </div>
+
+            
             
             <table>
                 <tr>

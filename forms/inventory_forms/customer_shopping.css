@@ -18,34 +18,53 @@ body
     top: 0.8%;
     width: 27.25%; 
 }
+#cart
+{
+    position: fixed;
+    right: 1%;
+    top: 0.8%;
+    width: 8%; 
+}
+#wishlist
+{
+    position: fixed;
+    right: 10%;
+    top: 1%;
+    width: 11%; 
+}
+#search
+{
+    top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#filter
+{
+    top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+/*
 #form
 {
     margin: 12.5% auto;
 }
+*/
 table
 {
     background-color: white;     
+    margin-left: auto;
+    margin-right: auto;
 }
 table,tr,th,td
 {
+    margin-top: 27px;
+    width: 1250px;
+    text-align: center;
+    vertical-align: middle;
     border: 1px solid black;
-}
-h2
-{
-    width: 30%;
-    background-color: white;
     border-radius: 15px;
-    text-align: center;
 }
-#carts
-{
-    width: 30%;
-    position: fixed; 
-    right: 0;
-    padding-right: 15px;
-    margin-right: 15px;
-    background-color: white;
-    border-radius: 25px;
-    text-align: center;
-}
+
+
 
