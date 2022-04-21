@@ -1,0 +1,64 @@
+body
+{      
+    background: url("../../img/lnt/checkout_background.gif") no-repeat; 
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+#logo
+{
+    position: absolute;
+    left: 0.4%;
+    top: 0.8%;
+    width: 20%; 
+}
+#checkout
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    top: 0.8%;
+    width: 25%; 
+}
+#back_to_cart
+{
+    position: fixed;
+    margin-left: 0.5%;
+    bottom: 0.8%;
+    width: 20%; 
+}
+
+
+table,tr,th,td
+{
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    text-align:center;
+    vertical-align: middle;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 15px;
+
+}
+#address
+{
+    background-color: rgb(230, 223, 238);  
+    border-radius: 20px;
+}
+#payment
+{
+    background-color: rgb(230, 223, 238);  
+    border-radius: 20px;
+}
+input
+{
+    margin: 10px;
+}
+#submit
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 0.8%;
+    width: 20%; 
+}

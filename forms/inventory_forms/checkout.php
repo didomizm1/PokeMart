@@ -131,8 +131,21 @@
 			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart" width="300"> 
         </a>
 
+		
+        <img id = "checkout" src = "../../img/lnt/checkout_text.png" alt = "checkout" width ="300">
+        
+		<a href = "shopping_cart.php">
+        <img id = "back_to_cart" src = "../../img/lnt/back_to_cart.png" alt = "back to cart" width ="300">
+        </a>
+
+		
         <form action="checkout.php" method="post">
+
+		<table>
+		<tr>
+			<td>
        
+		<fieldset id = address >
         <h1> Address </h1>
         <p>
 				<label> Street address 1: *
@@ -463,10 +476,14 @@
 					</select>
 				</label>
 			</p>
-			<br>
             <br>
             <br>
-            <h2> Card Information </h2>
+		</fieldset>
+			</td>
+			<td>
+	
+		<fieldset id= payment>
+            <h1> Payment Information </h1>
             <label> Cardholder Name: 
             <input type = "text" name  = "full_name" maxlength = "50" autocomplete required />
         </label>
@@ -510,12 +527,20 @@
                 <option value="2033">2033</option>
             </select>    
         </label>
-        <br><br>
-
+        
+		<br><br>
         <label> cvv: 
             <input type = "number" name  = "cvv" minimulength = "3" maxlength="4" pattern = "0-9" autocomplete required />
         </label>
-        <br><br>
+
+		<br><br>
+		<img id = "trainer_card" src = "../../img/lnt/trainer_id_card.jpeg" alt = "trainer ID" width ="300">
+
+        <br>
+		</fieldset>
+				</td>
+		</tr>
+				</table>
         	<!-- Submit form data -->
 			<p>
 				<input type =  "submit" id = "submit" name = "submit" value = "Checkout" />

@@ -41,6 +41,13 @@ body
     bottom: 0.8%;
     width: 20%; 
 }
+#checkout
+{
+    position: fixed;
+    margin-left: 84%;
+    bottom: 0.8%;
+    width: 15%; 
+}
 /*
 #form
 {

@@ -31,6 +31,10 @@ $SCID = $_SESSION['SCID'];
         <img id = "back_to_shop" src = "../../img/lnt/back_to_shop.png" alt = "back to shop" width ="300">
         </a>
 
+        <a href = "checkout.php">
+        <img id = "checkout" src = "../../img/lnt/checkout_text.png" alt = "checkout" width ="300">
+        </a>
+
         
 
         <form action="shopping_cart.php" method="post">
