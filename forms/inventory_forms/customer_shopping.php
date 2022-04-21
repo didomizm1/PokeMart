@@ -45,6 +45,10 @@ $result = mysqli_query($dbconn, $query);
         <img id = "cart" src = "../../img/lnt/cart.png" alt = "Shopping Cart" width ="300">
         </a>
 
+        <div id="scrollbar">
+        <h1>  </h1>
+        </div>
+            
 
     </head>
 
@@ -63,8 +67,7 @@ $result = mysqli_query($dbconn, $query);
             <input id = "search" type="text" name="valueToSearch" placeholder="Search"/><br><br>
             <input id = "filter" type="submit" name="submit" value="Filter"/><br><br>
 
-            
-            
+           
             <table>
                 <tr>
                     <th>Item Name</th>
