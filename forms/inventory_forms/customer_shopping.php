@@ -62,8 +62,8 @@ $result = mysqli_query($dbconn, $query);
 
          
             <div id = "search">
-            <input type="text" name="valueToSearch" placeholder="Search"/><br><br>
-            <input type="submit" name="submit" value="Filter"/><br><br>
+                <input type="text" name="valueToSearch" placeholder="Search"/><br><br>
+                <input type="submit" name="submit" value="Filter"/><br><br>
             </div>
 
             
