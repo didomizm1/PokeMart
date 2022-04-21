@@ -25,9 +25,14 @@ $COID = $_POST['COID'];
         <a href = "../home_page/index.php">
 			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart" width="300"> 
         </a>
-        <h1> Previous Orders </h1>
+
+        <img id = "order_invoice" src = "../../img/lnt/order_invoice.png" alt = "Order Invoice" width ="300">
 
         <form action="customer_order_invoice.php" method="post">
+
+        <a href = "customer_order_history.php">
+        <img id = "back_to_order_history" src = "../../img/lnt/back_to_order_history.png" alt = "back to order history" width ="300">
+        </a>
 
         <table>
                 <tr>
