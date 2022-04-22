@@ -477,10 +477,32 @@
 	
 		<fieldset id= payment>
             <h1> Payment Information </h1>
+
+		<label> Select an existing card or enter a new one: 
+			<select id="card" name="card">
+
+			
+			<?php
+			//dropdown for card numbers
+				$query="SELECT card_number FROM card_info WHERE $CPID = 'CPID'";
+				$result=mysqli_query($dbconn, $query);
+				while ($row = $result->fetch_assoc())
+				{
+					$card_number = $row['card_number'];
+					echo "<option value=\"$card_number\">" . $card_number . "</option>";
+				}	
+					
+			?>
+
+		</select>
+		</label>
+		<br>
+
+		
             <label> Cardholder Name: 
             <input type = "text" name  = "full_name" maxlength = "50" autocomplete required />
         </label>
-        <br><br>
+        <br>
 
         <label> Card Number: 
             <input type = "number" name  = "card_number" length="16" pattern = "0-9" autocomplete required />
