@@ -11,7 +11,7 @@
 	$CPID = $_SESSION['CPID'];
 
 	//get credit card information if there is any
-	
+	$CIID =  $_SESSION['CIID'];
 
 
 	//verify credit card information is valid
