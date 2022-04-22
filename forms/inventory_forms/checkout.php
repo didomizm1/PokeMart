@@ -5,13 +5,16 @@
 	//session handling
 	require_once('../session.php');
 
-	//get shopping cart associated with logged in user
+	//get user profile data associated with logged in user
 	$SCID = $_SESSION['SCID'];
 	//get customer profile info associated with logged in user
 	$CPID = $_SESSION['CPID'];
-
-	//get credit card information if there is any
-	$CIID =  $_SESSION['CIID'];
+	//get card info associated with logged in user
+	$CIID = $_SESSION['CIID'];
+	//get customer order info associated with logged in user
+	$COID = $_SESSION['COID'];
+	//get customer order item info associated with logged in user
+	$COIID = $_SESSION['COIID'];
 
 
 	//verify credit card information is valid
