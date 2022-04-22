@@ -8,10 +8,15 @@ h1
     font-size: 100px;
     color: rgb(0, 184, 92);
 }
-label
+.question
 {
     font-size: 50px;
     color: rgb(255, 0, 98);
+}
+.answer
+{
+    font-size: 40px;
+    color: rgb(255, 196, 0);
 }
 #mid
 { 
