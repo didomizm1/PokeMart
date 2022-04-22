@@ -8,51 +8,51 @@ if(isset($_POST['submit']))
 
     //queries to fetch data
     //gets total number of items sold
-    $query1="SELECT SUM(number_of_items) FROM customer_order WHERE DATE(date_stamp)='$date'";
+    $query1="SELECT SUM(number_of_items) AS items_sold FROM customer_order WHERE DATE(date_stamp)='$date' AND refunded='0'";
     $result1=mysqli_query($dbconn, $query1);
     $row1=$result1->fetch_assoc();
     //gets total number of transactions
-    $query2="SELECT COUNT(*) FROM customer_order WHERE DATE(date_stamp)='$date'";
+    $query2="SELECT COUNT(*) AS transactions FROM customer_order WHERE DATE(date_stamp)='$date' AND refunded='0'";
     $result2=mysqli_query($dbconn, $query2);
     $row2=$result2->fetch_assoc();
     //gets total sales
-    $query3="SELECT SUM(total_price) FROM customer_order WHERE DATE(date_stamp)='$date' AND refunded='0'";
+    $query3="SELECT SUM(total_price) AS total_sales FROM customer_order WHERE DATE(date_stamp)='$date' AND refunded='0'";
     $result3=mysqli_query($dbconn, $query3);
     $row3=$result3->fetch_assoc();
     //credit sales
     //VISA
-    $query4="SELECT SUM(customer_order.total_price) FROM customer_order
+    $query4="SELECT SUM(customer_order.total_price) AS visa FROM customer_order
     INNER JOIN card_info
     ON customer_order.CIID=card_info.CIID
-    WHERE customer_order.DATE(date_stamp)='$date' AND card_info.card_type='Visa' AND customer_order.refunded='0'";
+    WHERE DATE(customer_order.date_stamp)='$date' AND card_info.card_type='Visa' AND customer_order.refunded='0'";
     $result4=mysqli_query($dbconn, $query4);
     $row4=$result4->fetch_assoc();
     //Mastercard
-    $query5="SELECT SUM(customer_order.total_price) FROM customer_order
+    $query5="SELECT SUM(customer_order.total_price) AS mastercard FROM customer_order
     INNER JOIN card_info
     ON customer_order.CIID=card_info.CIID
-    WHERE customer_order.DATE(date_stamp)='$date' AND card_info.card_type='Mastercard' AND customer_order.refunded='0'";
+    WHERE DATE(customer_order.date_stamp)='$date' AND card_info.card_type='Mastercard' AND customer_order.refunded='0'";
     $result5=mysqli_query($dbconn, $query5);
     $row5=$result5->fetch_assoc();
 
     //Discover
-    $query6="SELECT SUM(customer_order.total_price) FROM customer_order
+    $query6="SELECT SUM(customer_order.total_price) AS discover FROM customer_order
     INNER JOIN card_info
     ON customer_order.CIID=card_info.CIID
-    WHERE customer_order.DATE(date_stamp)='$date' AND card_info.card_type='Discover' AND customer_order.refunded='0'";
+    WHERE DATE(customer_order.date_stamp)='$date' AND card_info.card_type='Discover' AND customer_order.refunded='0'";
     $result6=mysqli_query($dbconn, $query6);
     $row6=$result6->fetch_assoc();
    
     //American Express
-    $query7="SELECT SUM(customer_order.total_price) FROM customer_order
+    $query7="SELECT SUM(customer_order.total_price) AS american FROM customer_order
     INNER JOIN card_info
     ON customer_order.CIID=card_info.CIID
-    WHERE customer_order.DATE(date_stamp)='$date' AND card_info.card_type='American Express' AND customer_order.refunded='0'";
+    WHERE DATE(customer_order.date_stamp)='$date' AND card_info.card_type='American Express' AND customer_order.refunded='0'";
     $result7=mysqli_query($dbconn, $query7);
     $row7=$result7->fetch_assoc();
 
     //refunds
-    $query8="SELECT SUM(total_price) FROM customer_order WHERE DATE(date_stamp)='$date' AND refunded='1'";
+    $query8="SELECT SUM(total_price) AS refunds FROM customer_order WHERE DATE(date_stamp)='$date' AND refunded='1'";
     $result8=mysqli_query($dbconn, $query8);
     $row8=$result8->fetch_assoc();
      
@@ -84,21 +84,21 @@ if(isset($_POST['submit']))
 {
     echo "Date: " . $date;
     echo "</br>";  
-    echo "Items sold: " . $row1[0];
+    echo "Items sold: " . $row1['items_sold'];
     echo "</br>";  
-    echo "Transactions: " . $row2[0];
+    echo "Transactions: " . $row2['transactions'];
     echo "</br>";  
-    echo "Visa: " . $row4[0];
+    echo "Visa: $" . $row4['visa'];
     echo "</br>";  
-    echo "Mastercard: " . $row5[0] ;
+    echo "Mastercard: $" . $row5['mastercard'] ;
     echo "</br>";  
-    echo "Discover: " . $row6[0];
+    echo "Discover: $" . $row6['discover'];
     echo "</br>";  
-    echo "American Express: " . $row7[0];
+    echo "American Express: $" . $row7['american'];
     echo "</br>";  
-    echo "Total sales: " . $row3[0];
+    echo "Total sales: $" . $row3['total_sales'];
     echo "</br>";  
-    echo "Total refunds: "  . $row8[0];
+    echo "Total refunds: $"  . $row8['refunds'];
 
   
 
