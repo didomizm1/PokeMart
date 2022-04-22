@@ -22,7 +22,7 @@ if(isset($_POST['submit']))
     else
     {
     //setup query, adds the cost to the specific cell depending on month, year and type of expense
-    $query="UPDATE store_expense SET $expense+='$cost' WHERE month='$month' AND year='$year'";
+    $query="UPDATE store_expense SET $expense=$expense+'$cost' WHERE month='$month' AND year='$year'";
 
     }
     
