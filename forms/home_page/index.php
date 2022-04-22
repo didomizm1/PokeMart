@@ -70,11 +70,11 @@
 		<a href = "../inventory_forms/customer_shopping.php">
 			<img id = "shop" src = "../../img/lnt/shop.png" alt = "Shop" class = "imageLink">
 		</a><br><br>
-		<a href = "../faq_forms/faq.html">
+		<a href = "../faq_forms/faq_page.html">
 			<img id = "faq" src = "../../img/lnt/faq.png" alt = "FAQ" class = "imageLink">
 		</a><br><br>
-		<a href = "info_page.html">
-			<img id = "info_page" src = "../../img/lnt/about_us.png" alt = "About Us" class = "imageLink">
+		<a href = "about_us_page.html">
+			<img id = "about_us" src = "../../img/lnt/about_us.png" alt = "About Us" class = "imageLink">
 		</a><br><br>
 	</div>
 
