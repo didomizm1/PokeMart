@@ -13,25 +13,25 @@ if(isset($_POST['submit']))
     $result1=mysqli_query($dbconn, $query1);
     $row1 = $result1->fetch_assoc(); 
     //salary
-    $query2="SELECT SUM(salary) FROM employee_profile";
+    $query2="SELECT SUM(salary) AS salary_sum FROM employee_profile";
     $result2=mysqli_query($dbconn, $query2);
     $row2=$result2->fetch_assoc();
-    $salary=$row2[0]/12; //salary divided by 12 months to get monthly pay
+    $salary=$row2['salary_sum']/12; //salary divided by 12 months to get monthly pay
     //total expenses
     $total_expenses=$row1['rent'] + $row1['utilities'] + $row1['other_expenses'] + $salary;
     //net sales
-    $query3="SELECT SUM(total_price) FROM customer_order WHERE YEAR(date_stamp) = '$year' AND MONTH(date_stamp) = '$month'";
+    $query3="SELECT SUM(total_price) AS net_sales FROM customer_order WHERE YEAR(date_stamp) = '$year' AND MONTH(date_stamp) = '$month'";
     $result3=mysqli_query($dbconn, $query3);
     $row3=$result3->fetch_assoc();
     //cost of goods
-    $query4="SELECT SUM(selling_price) FROM inventory 
+    $query4="SELECT SUM(selling_price) AS cost FROM inventory 
     INNER JOIN customer_order_item ON inventory.IID = customer_order_item.IID
     INNER JOIN customer_order ON customer_order_item.COID = customer_order.COID
-    WHERE customer_order.YEAR(date_stamp) = '$year' AND customer_order.MONTH(date_stamp) = '$month'";
+    WHERE YEAR(customer_order.date_stamp) = '$year' AND MONTH(customer_order.date_stamp) = '$month'";
     $result4=mysqli_query($dbconn, $query4);
     $row4=$result4->fetch_assoc();
     //gross profit
-    $profit=$row3[0]-$row4[0];
+    $profit=$row3['net_sales']-$row4['cost'];
     //net income
     $net_income=$profit-$total_expenses;
     	
@@ -66,9 +66,9 @@ if(isset($_POST['submit']))
     echo "Year: " . $year;
     echo "</br>"; 
     echo "</br>"; 
-    echo "Net sales: " . $row3[0];
+    echo "Net sales: " . $row3['net_sales'];
     echo "</br>"; 
-    echo "Cost of goods: " .$row4[0];
+    echo "Cost of goods: " .$row4['cost'];
     echo "</br>"; 
     echo "Gross profit: " . $profit;
     echo "</br>"; 
