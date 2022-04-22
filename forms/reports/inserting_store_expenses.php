@@ -99,7 +99,7 @@ body{
 	<form id="form"action="inserting_store_expenses.php" method="POST">
     <h2 style="text-align: center">Enter the month/year, and any expense used towards the store</h2>
     <br>
-	    Month: <input type="text" name="date" placeholder="04" required>
+	    Month: <input type="text" name="month" placeholder="04" required>
 			<br>
       Year:<input type="text"  name="year" placeholder= "2022" required>
       <br>
