@@ -9,8 +9,8 @@ require_once('../session.php');
 $SCID = $_SESSION['SCID'];
 //get customer profile info associated with logged in user
 $CPID = $_SESSION['CPID'];
-
-$COID = $_POST['COID'];
+$COID = $_GET['COID'];
+//$COID = $_POST['COID'];
 
 
 ?>
@@ -25,9 +25,14 @@ $COID = $_POST['COID'];
         <a href = "../home_page/index.php">
 			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart" width="300"> 
         </a>
-        <h1> Previous Orders </h1>
+
+        <img id = "order_invoice" src = "../../img/lnt/order_invoice.png" alt = "Order Invoice" width ="300">
 
         <form action="customer_order_invoice.php" method="post">
+
+        <a href = "customer_order_history.php">
+        <img id = "back_to_order_history" src = "../../img/lnt/back_to_order_history.png" alt = "back to order history" width ="300">
+        </a>
 
         <table>
                 <tr>
@@ -41,15 +46,15 @@ $COID = $_POST['COID'];
                 <?php
 
                     $query = "SELECT * FROM customer_order WHERE COID = '$COID'";
-                    $search_result = mysqli_query($dbconn, $query);
-                    $row2 = $search_result->fetch_array(MYSQLI_ASSOC);
+                    $result = mysqli_query($dbconn, $query);
+                    $row = $result->fetch_array(MYSQLI_ASSOC);
                     
                 ?>
                     <tr>
-                    <td><?php echo $row2['COID'];?></td>
-                    <td><?php echo $row2['number_of_items'];?></td>
-                    <td><?php echo $row2['total_price'];?></td>
-                    <td><?php echo $row2['date_stamp'];?></td>
+                    <td><?php echo $row['COID'];?></td>
+                    <td><?php echo $row['number_of_items'];?></td>
+                    <td><?php echo $row['total_price'];?></td>
+                    <td><?php echo $row['date_stamp'];?></td>
                     <form method="post">
                     </form>
                     </td>

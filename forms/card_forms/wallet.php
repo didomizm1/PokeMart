@@ -41,7 +41,7 @@
             </div>
             <br>
             <div>
-                <a href="../card_forms/cont.html" >
+                <a href="../checkout.php" >
                     <button>Use This Payment Method</button>
                 </a>
             </div>

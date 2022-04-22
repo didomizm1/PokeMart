@@ -1,10 +1,3 @@
-h1
-{
-    width: 30%;
-    background-color: white;
-    border-radius: 15px;
-    text-align: center;
-}
 body
 {      
     background: url("../../img/lnt/inventory_background.gif") no-repeat; 
@@ -13,39 +6,77 @@ body
 }
 #logo
 {
-    position: absolute;
+    position: fixed;
     left: 0.4%;
-    top: 0.8%;
-    width: 27.25%; 
+    top: 0.4%;
+    width: 15%; 
+    z-index: 2;
 }
+#cart
+{
+    position: fixed;
+    right: 1%;
+    top: 0.8%;
+    width: 8%; 
+    z-index: 2;
+}
+#wishlist
+{
+    position: fixed;
+    right: 10%;
+    top: 1%;
+    width: 11%; 
+    z-index: 2;
+}
+#search, #filter
+{
+    position: fixed;
+    top: 3.5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#search
+{
+    left: 33%;
+    width: 30%;
+}
+#filter
+{
+    left: 64%;
+}
+#scrollbar
+{
+    overflow: hidden;
+    background-color: rgb(60, 101, 139);
+    position: fixed;
+    top: 0; 
+    width: 100%;
+    height: 10%;
+    left: 0%;
+    top: 0%;
+}
+
+/*
 #form
 {
     margin: 12.5% auto;
 }
+*/
 table
 {
-    background-color: white;     
+    background-color: white;   
+    margin-top: 3%; 
+    margin-left: auto;
+    margin-right: auto;
 }
 table,tr,th,td
-{
+{ 
+    width: 1250px;
+    text-align: center;
+    vertical-align: middle;
     border: 1px solid black;
-}
-h2
-{
-    width: 30%;
-    background-color: white;
     border-radius: 15px;
-    text-align: center;
 }
-#carts
-{
-    width: 30%;
-    position: fixed; 
-    right: 0;
-    padding-right: 15px;
-    margin-right: 15px;
-    background-color: white;
-    border-radius: 25px;
-    text-align: center;
-}
+
+
 

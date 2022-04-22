@@ -20,7 +20,22 @@ $SCID = $_SESSION['SCID'];
         <a href = "../home_page/index.php">
 			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart" width="300"> 
         </a>
-        <h1> Shopping Cart </h1>
+
+        <a href = "wishlist.php">
+        <img id = "wishlist" src = "../../img/lnt/wishlist.png" alt = "Wishlist" width ="300">
+        </a>
+
+        <img id = "cart" src = "../../img/lnt/cart.png" alt = "Shopping Cart" width ="300">
+
+        <a href = "customer_shopping.php">
+        <img id = "back_to_shop" src = "../../img/lnt/back_to_shop.png" alt = "back to shop" width ="300">
+        </a>
+
+        <a href = "checkout.php">
+        <img id = "checkout" src = "../../img/lnt/checkout_text.png" alt = "checkout" width ="300">
+        </a>
+
+        
 
         <form action="shopping_cart.php" method="post">
             <table>
@@ -127,12 +142,6 @@ $SCID = $_SESSION['SCID'];
                     }
                 ?>
             </table>
-        </form>
-
-        <form action="checkout.php" method="post"> 
-            <a href = "checkout.php">
-            <h2>Checkout</h2>
-            </a>
         </form>
         
     </body>

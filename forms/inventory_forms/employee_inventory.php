@@ -5,6 +5,7 @@ include_once('../connect_mysql.php');
 //session handling
 require_once('../employee_session.php');
 
+
 if(isset($_POST['submit']))
 {
     $valueToSearch = $_POST['valueToSearch'];
@@ -39,7 +40,13 @@ function filterTable($query)
         <a href = "../home_page/index.php"><!-- makes logo link to homepage -->
 			    <img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart"> 
         </a>
-        <h1>Employee Inventory</h1>
+
+        <img id = "employee_inventory" src = "../../img/lnt/employee_inventory_text.png" alt = "employee inventory" width ="300">
+
+        <div id="scrollbar">
+        <h1>  </h1>
+        </div>
+            
         <form action="add_item.php" method="post">
 
           <!-- Trigger/Open The Modal -->
@@ -161,6 +168,7 @@ function filterTable($query)
                 
         <form action="update_item.php" method="post">
         <!-- Trigger/Open The Modal -->
+
         <button id="updateButton">Update item</button>
         <!-- The Modal -->
         <div id="updateModal" class="modal" style="display: none;">
@@ -215,8 +223,9 @@ function filterTable($query)
         <form action="employee_inventory.php" method="post">
             <br>
             <br>
-            <input type="text" name="valueToSearch" placeholder="Search"><br><br>
-            <input type="submit" name="submit" value="Filter"><br><br>
+            <input id = "search" type="text" name="valueToSearch" placeholder="Search"/><br><br>
+            <input id = "filter" type="submit" name="submit" value="Filter"/><br><br>
+
             
             <table>
                 <tr>

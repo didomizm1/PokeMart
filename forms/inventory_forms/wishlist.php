@@ -14,7 +14,7 @@ $WID = $_SESSION['WID'];
     <head>
         <title>Wishlist</title>
        <!-- <h1>PokéMart Store!</h1>-->
-	    <link rel = "stylesheet" href = "shopping_cart.css">
+	    <link rel = "stylesheet" href = "wishlist.css">
         
 
     </head>
@@ -22,7 +22,16 @@ $WID = $_SESSION['WID'];
         <a href = "../home_page/index.php">
 			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart" width="300"> 
         </a>
-        <h1> Wishlist</h1>
+
+        <img id = "wishlist" src = "../../img/lnt/wishlist.png" alt = "Wishlist" width ="300">
+
+        <a href = "shopping_cart.php">
+        <img id = "cart" src = "../../img/lnt/cart.png" alt = "Shopping Cart" width ="300">
+        </a>
+
+        <a href = "customer_shopping.php">
+        <img id = "back_to_shop" src = "../../img/lnt/back_to_shop.png" alt = "back to shop" width ="300">
+        </a>
 
         <form action="wishlist.php" method="post">
             <table>
@@ -30,8 +39,6 @@ $WID = $_SESSION['WID'];
                     <th>Product ID</th>
                     <th>Item Name</th>
                     <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Change Quantity</th>
                     <th>Delete</th>
                 </tr>
 
@@ -96,12 +103,5 @@ $WID = $_SESSION['WID'];
                 ?>
             </table>
         </form>
-
-        <form action="checkout.php" method="post"> 
-            <a href = "checkout.php">
-            <h2>Checkout</h2>
-            </a>
-        </form>
-        
     </body>
 </html>
