@@ -11,10 +11,7 @@
 	$CPID = $_SESSION['CPID'];
 
 	//get credit card information if there is any
-	$query00 = "SELECT CIID FROM card_info WHERE CPID = '$CPID'";
-	$result00 = mysqli_query($dbconn, $query00) or die("Couldn't execute query\n");
-	$row00 = $result00->fetch_array(MYSQLI_ASSOC);
-	$CIID = $row00['CIID'];
+	
 
 
 	//verify credit card information is valid
