@@ -9,13 +9,6 @@
 	$SCID = $_SESSION['SCID'];
 	//get customer profile info associated with logged in user
 	$CPID = $_SESSION['CPID'];
-	//get card info associated with logged in user
-	$CIID = $_SESSION['CIID'];
-	//get customer order info associated with logged in user
-	$COID = $_SESSION['COID'];
-	//get customer order item info associated with logged in user
-	$COIID = $_SESSION['COIID'];
-
 
 	//verify credit card information is valid
 
