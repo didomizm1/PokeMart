@@ -72,41 +72,105 @@ if(isset($_POST['submit']))
   	margin-right: auto;
   	width: 30%;
 	}
+    body{
+    background-image:url('../../img/lnt/z_report_background.gif');
+    background-size:cover;
+} 
+    .div {
+    border: 5px outset lightblue;
+    background-color: white;    
+    text-align: center;
+    width:60%;
+    margin-left:auto;
+    margin-right:auto;
+  
+}
     
 </style>
 <body>
 <a href = "../home_page/index.php"> <!-- makes logo link to homepage -->
       <IMG SRC="../../img/lnt/logo.png" class="center">
   </a>
-  <h1 style="text-align: center">Z-Report</h1>
+  <div class="div">
+    <h1 style="text-align: center">Z-Report</h1>
   <?php
     if(isset($_POST['submit']))
 {
     echo "Date: " . $date;
     echo "</br>";  
-    echo "Items sold: " . $row1['items_sold'];
+    if(empty($row1['items_sold']))
+    {
+        echo "Items sold: 0" ;
+    }
+    else
+    {
+        echo "Items sold: " . $row1['items_sold'];
+    }
     echo "</br>";  
     echo "Transactions: " . $row2['transactions'];
     echo "</br>";  
-    echo "Visa: $" . $row4['visa'];
-    echo "</br>";  
-    echo "Mastercard: $" . $row5['mastercard'] ;
-    echo "</br>";  
-    echo "Discover: $" . $row6['discover'];
-    echo "</br>";  
-    echo "American Express: $" . $row7['american'];
-    echo "</br>";  
-    echo "Total sales: $" . $row3['total_sales'];
-    echo "</br>";  
-    echo "Total refunds: $"  . $row8['refunds'];
-
-  
-
-
-
+    if(empty($row4['visa']))
+    {
+        echo "Visa: $0.00";
+    }
+    else
+    {
+        echo "Visa: $" . $row4['visa'];   
+    }
     
-	
+    echo "</br>";  
+    if(empty($row5['mastercard']))
+    {
+        echo "Mastercard: $0.00";
+    }
+    else
+    {
+       echo "Mastercard: $" . $row5['mastercard']; 
+    }
+    
+    echo "</br>";  
+    if(empty($row6['discover']))
+    {
+        echo "Discover: $0.00";
+    }
+    else
+    {
+        echo "Discover: $" . $row6['discover'];
+    }
+    
+    echo "</br>";  
+    if(empty($row7['american']))
+    {
+        echo "American Express: $0.00";
+    }
+    else
+    {
+        echo "American Express: $" . $row7['american'];
+    }
+    
+    echo "</br>"; 
+    if(empty($row3['total_sales'])) 
+    {
+        echo "Total sales: $0.00";
+    }
+    else
+    {
+        echo "Total sales: $" . $row3['total_sales'];
+    }
+    
+    echo "</br>";  
+    if(empty($row8['refunds']))
+    {
+        echo "Total refunds: $0.00";
+    }
+    else
+    {
+       echo "Total refunds: $"  . $row8['refunds']; 
+    }
+    
+   	
 
 }?>
-	
+</div>
+</body>	
 </html>
