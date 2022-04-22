@@ -22,11 +22,7 @@ if(isset($_POST['submit']))
     else
     {
     //setup query, adds the cost to the specific cell depending on month, year and type of expense
-    $query2="SELECT * FROM store_expense WHERE month='$month' AND year='$year'";
-    $result2=mysqli_query($dbconn, $query2);
-    $row2 = $result2->fetch_assoc(); 
-    $total_cost=$cost + $row2['$expense'];//adds new expense to previous ones
-    $query="UPDATE store_expense SET $expense='$total_cost' WHERE month='$month' AND year='$year'";
+    $query="UPDATE store_expense SET $expense+='$cost' WHERE month='$month' AND year='$year'";
 
     }
     
