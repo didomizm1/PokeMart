@@ -484,7 +484,7 @@
 			
 			<?php
 			//dropdown for card numbers
-				$query="SELECT card_number FROM card_info WHERE $CPID = 'CPID'";
+				$query="SELECT card_number FROM card_info WHERE CPID = '$CPID'";
 				$result=mysqli_query($dbconn, $query);
 				while ($row = $result->fetch_assoc())
 				{
