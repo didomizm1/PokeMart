@@ -12,17 +12,17 @@ if(isset($_POST['submit']))
     $expense=$_POST['expense'];
     $cost=$_POST['cost'] ;
     //checking if row exists with submitted month and year
-    $query1="SELECT * FROM store_expenses WHERE month='$month' AND year='$year'";
+    $query1="SELECT * FROM store_expense WHERE month='$month' AND year='$year'";
     $result=mysqli_query($dbconn,$query1);
     if(mysqli_num_rows($result)==0)//if row doesn't exist
     {
       //query to insert, month,year and expense 
-    $query="INSERT INTO store_expenses (month,year,$expense) VALUES('$month','$year','$cost')";
+    $query="INSERT INTO store_expense (month,year,$expense) VALUES('$month','$year','$cost')";
     }
     else
     {
     //setup query, adds the cost to the specific cell depending on month, year and type of expense
-    $query="UPDATE store_expenses SET $expense+='$cost' WHERE month='$month' AND year='$year";
+    $query="UPDATE store_expense SET $expense+='$cost' WHERE month='$month' AND year='$year";
 
     }
     
@@ -116,6 +116,8 @@ body{
 			<input type="submit" name="submit" value="Submit">
       <br><br>
       <?php
+      if(isset($_POST['submit']))
+      {
           //execute query
           if($dbconn->query($query)==TRUE)
           {
@@ -125,6 +127,7 @@ body{
           {
               echo nl2br("Error: " . $query . "<br>" . $dbconn->error . "\n");
           }
+        }
      ?>
 	</form>
 </html>
