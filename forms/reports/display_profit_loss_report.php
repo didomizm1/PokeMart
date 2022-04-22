@@ -9,7 +9,7 @@ if(isset($_POST['submit']))
 
     //queries to fetch data
     //store expenses
-    $query1="SELECT * FROM store_expenses WHERE month='$month' AND year='$year'";
+    $query1="SELECT * FROM store_expense WHERE month='$month' AND year='$year'";
     $result1=mysqli_query($dbconn, $query1);
     $row1 = $result1->fetch_assoc(); 
     //salary

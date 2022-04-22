@@ -55,15 +55,7 @@ if(isset($_POST['submit']))
     $query8="SELECT SUM(total_price) FROM customer_order WHERE DATE(date_stamp)='$date' AND refunded='1'";
     $result8=mysqli_query($dbconn, $query8);
     $row8=$result8->fetch_assoc();
-   
-
-
-
-    
-
-
-
-  
+     
 
 }?>
 
