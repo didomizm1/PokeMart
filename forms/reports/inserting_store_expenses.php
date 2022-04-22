@@ -111,7 +111,7 @@ body{
         <option value="other_expenses">Other</option> 
       </select>
     <br>
-        Cost:<input type="number" name="cost" required>
+        Cost:<input type="number" step="0.01" min='0.01'name="cost"  required>
         <br>
 			<input type="submit" name="submit" value="Submit">
       <br><br>
