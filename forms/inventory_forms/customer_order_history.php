@@ -57,9 +57,10 @@ $CPID = $_SESSION['CPID'];
                         <tr>
                         <td>
                         <form action="customer_order_invoice.php" method="post"> 
-                        <a href = "customer_order_invoice.php" var= "$row2['COID']"> 
-                        <?php echo $row2['COID'];?></td>
-                        </a>
+                            <label>
+                                <input type = "hidden" name = "COID" value = "<?php echo $COID; ?>" />
+                                <input type = "submit" value = "<?php echo $COID; ?>" />
+                            </label>
                         </form> 
                         <td><?php echo $row2['number_of_items'];?></td>
                         <td><?php echo $row2['total_price'];?></td>

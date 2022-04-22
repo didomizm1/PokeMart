@@ -9,8 +9,8 @@ require_once('../session.php');
 $SCID = $_SESSION['SCID'];
 //get customer profile info associated with logged in user
 $CPID = $_SESSION['CPID'];
-$COID = $_GET['COID'];
-//$COID = $_POST['COID'];
+//get customer order ID
+$COID = $_POST['COID'];
 
 
 ?>
