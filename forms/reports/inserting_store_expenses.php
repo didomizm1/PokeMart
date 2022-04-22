@@ -25,7 +25,7 @@ if(isset($_POST['submit']))
     $query2="SELECT $expense FROM store_expense WHERE month='$month' AND year='$year'";
     $result2=mysqli_query($dbconn, $query2);
     $row2 = $result2->fetch_assoc(); 
-    $total_cost=$cost + $row2['cost'];//adds new expense to previous ones
+    $total_cost=$cost + $row2[0];//adds new expense to previous ones
     $query="UPDATE store_expense SET $expense='$total_cost' WHERE month='$month' AND year='$year";
 
     }
