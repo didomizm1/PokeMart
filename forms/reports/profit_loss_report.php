@@ -28,8 +28,8 @@
   cursor: pointer;
 }
 /* input border */
-input[type=date],input[type=text] {
-  width: 20%;
+input[type=text] {
+  width: 40%;
   padding: 10px 18px;
   margin: 8px 0;
   margin-top:18%;
@@ -38,7 +38,7 @@ input[type=date],input[type=text] {
   border-radius:50px;
 }
 /*focuses/highlights box when inputting*/
-input[type=date]:focus, input[type=text]:focus {
+input[type=text]:focus {
   background-color: #efbf67;
 }
 body{
@@ -69,11 +69,12 @@ body{
       <IMG id="logo" SRC="../../img/lnt/logo.png">
   </a>
 	<IMG SRC ="../../img/lnt/ProfitLoss-.png" class="center" >
-	<h2 style="text-align: center">Enter a month/year, then press submit to get the corresponding Profit/Loss report</h2>
+	
 	<form id="form" action="display_profit_loss_report.php" method="POST" style="text-align: center">
-			Month: <input type="text" name="month" required>
+  <h2 style="text-align: center">Enter a month and year for the report:</h2>
+			Month: <input type="text" name="month" placeholder="04" required>
 			<br>
-            Year: <input type="number" name="year" required>
+            Year: <input type="text" name="year" placeholder="2022" required>
             <br><br>
 			<input type="submit" name="submit" value="Submit">
 	</form>
