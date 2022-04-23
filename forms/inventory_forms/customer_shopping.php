@@ -113,7 +113,7 @@ $result = mysqli_query($dbconn, $query);
                             <td>
                                 <!-- enter quantity -->
                                 <label> 
-                                    <input type = "number" min="1" step="1" name  = "quantity" maxlength = "10" required/>
+                                    <input type = "number" min="1" step="1" name  = "quantity" maxlength = "10"required/>
                                 </label> 
                             </td>
                             
@@ -206,6 +206,8 @@ $result = mysqli_query($dbconn, $query);
                 </tr>
                 <?php endwhile;?>
             </table>
+
+           
         
     </body>
 </html>

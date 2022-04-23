@@ -47,6 +47,15 @@
 			<label class = "header">Profile Info</label>
 		</p>
 		<p>
+			<label class = "dataName">Username</label><br>
+			<?php
+				$userLoginQuery = "SELECT `username` FROM `user_login` WHERE `ULID` = '".$_SESSION['ULID']."'";
+				$userLoginResult = mysqli_query($dbconn, $userLoginQuery) or die("Couldn't execute query\n");
+				$userLoginRow = $userLoginResult->fetch_array(MYSQLI_ASSOC);
+			?> 
+			<label class = "dataInfo" id = "username"><?php echo $userLoginRow['username'];?></label>
+		</p>
+		<p>
 			<label class = "dataName">First Name</label><br> 
 			<label class = "dataInfo" id = "first_name"><?php echo $row['first_name'];?></label>
 			<form method = "POST">

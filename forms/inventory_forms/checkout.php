@@ -5,17 +5,10 @@
 	//session handling
 	require_once('../session.php');
 
-	//get shopping cart associated with logged in user
+	//get user profile data associated with logged in user
 	$SCID = $_SESSION['SCID'];
 	//get customer profile info associated with logged in user
 	$CPID = $_SESSION['CPID'];
-
-	//get credit card information if there is any
-	$query00 = "SELECT CIID FROM card_info WHERE CPID = '$CPID'";
-	$result00 = mysqli_query($dbconn, $query00) or die("Couldn't execute query\n");
-	$row00 = $result00->fetch_array(MYSQLI_ASSOC);
-	$CIID = $row00['CIID'];
-
 
 	//verify credit card information is valid
 
@@ -484,10 +477,32 @@
 	
 		<fieldset id= payment>
             <h1> Payment Information </h1>
+
+		<label> Select an existing card or enter a new one: 
+			<select id="card" name="card">
+
+			
+			<?php
+			//dropdown for card numbers
+				$query="SELECT card_number FROM card_info WHERE CPID = '$CPID'";
+				$result=mysqli_query($dbconn, $query);
+				while ($row = $result->fetch_assoc())
+				{
+					$card_number = $row['card_number'];
+					echo "<option value=\"$card_number\">" . $card_number . "</option>";
+				}	
+					
+			?>
+
+		</select>
+		</label>
+		<br>
+
+		
             <label> Cardholder Name: 
             <input type = "text" name  = "full_name" maxlength = "50" autocomplete required />
         </label>
-        <br><br>
+        <br>
 
         <label> Card Number: 
             <input type = "number" name  = "card_number" length="16" pattern = "0-9" autocomplete required />

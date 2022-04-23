@@ -29,7 +29,7 @@
     }
     #z
     {
-      margin-left:28%;
+      margin-left:12%;
       margin-top:12%;
       width:20.0%;
     }
@@ -41,9 +41,9 @@
     }
      #profit
     {
-      margin-left:1.0%
+      margin-left: 1.0%;
       margin-top:12%;
-      width:25%;
+      width:25.0%;
     }
    
         

@@ -12,17 +12,17 @@ if(isset($_POST['submit']))
     $expense=$_POST['expense'];
     $cost=$_POST['cost'] ;
     //checking if row exists with submitted month and year
-    $query1="SELECT * FROM store_expenses WHERE month='$month' AND year='$year'";
+    $query1="SELECT * FROM store_expense WHERE month='$month' AND year='$year'";
     $result=mysqli_query($dbconn,$query1);
     if(mysqli_num_rows($result)==0)//if row doesn't exist
     {
       //query to insert, month,year and expense 
-    $query="INSERT INTO store_expenses (month,year,$expense) VALUES('$month','$year','$cost')";
+    $query="INSERT INTO store_expense (month,year,$expense) VALUES('$month','$year','$cost')";
     }
     else
     {
     //setup query, adds the cost to the specific cell depending on month, year and type of expense
-    $query="UPDATE store_expenses SET $expense+='$cost' WHERE month='$month' AND year='$year";
+    $query="UPDATE store_expense SET $expense=$expense+'$cost' WHERE month='$month' AND year='$year'";
 
     }
     
@@ -99,9 +99,9 @@ body{
 	<form id="form"action="inserting_store_expenses.php" method="POST">
     <h2 style="text-align: center">Enter the month/year, and any expense used towards the store</h2>
     <br>
-	    Month: <input type="text" name="date" required>
+	    Month: <input type="text" name="month" placeholder="04" required>
 			<br>
-      Year:<input type="number" value="year" name="year"required>
+      Year:<input type="text"  name="year" placeholder= "2022" required>
       <br>
       <label for="expense">Expense for:</label>
     <!-- expenses selection -->
@@ -111,11 +111,13 @@ body{
         <option value="other_expenses">Other</option> 
       </select>
     <br>
-        Cost:<input type="number" name="cost" required>
+        Cost:<input type="number" step="0.01" name="cost"  required>
         <br>
 			<input type="submit" name="submit" value="Submit">
       <br><br>
       <?php
+      if(isset($_POST['submit']))
+      {
           //execute query
           if($dbconn->query($query)==TRUE)
           {
@@ -125,6 +127,7 @@ body{
           {
               echo nl2br("Error: " . $query . "<br>" . $dbconn->error . "\n");
           }
+        }
      ?>
 	</form>
 </html>
