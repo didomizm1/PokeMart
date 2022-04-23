@@ -9,9 +9,9 @@
         include_once('../connect_mysql.php');
 
         //get address form user_profile
-        $UADDRESS = "SELECT 'street_1' 'stree_2' 'city' 'state' 'zip_code' FROM `user_profile` WHERE `stree_1`='".$_POST['stree_1']."',`stree_2`='".$_POST['stree_1']."',`city`='".$_POST['city']."', `state`='".$_POST['state']."',`zip_code`='".$_POST['zip_code']."'";
+        $query = "SELECT 'street_1' 'stree_2' 'city' 'state' 'zip_code' FROM `user_profile` WHERE `stree_1`='".$_POST['stree_1']."',`stree_2`='".$_POST['stree_1']."',`city`='".$_POST['city']."', `state`='".$_POST['state']."',`zip_code`='".$_POST['zip_code']."'";
 
-        mysqli_query($dbconn, $$UADDRESS) or die("Could not get address\n");
+        mysqli_query($dbconn, $query) or die("Could not get address\n");
     
     }
 
@@ -34,6 +34,13 @@
             cursor: pointer;
             }
         </style>
+        
+          <div>
+                <a href="../checkout.php" >
+                    <button>Use This Payment Method</button>
+                </a>
+            </div>
+
         <a href = "../home_page/index.php">
          <IMG id="logo" SRC="../../img/lnt/logo.png"
          width="300"
