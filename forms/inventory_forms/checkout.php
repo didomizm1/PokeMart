@@ -1,9 +1,9 @@
 <?php
-
-	//connect to database
-	include_once('../connect_mysql.php');
-	//session handling
+    //session handling
 	require_once('../session.php');
+
+    //connect to database
+	include_once('../connect_mysql.php');
 
 	//get user profile data associated with logged in user
 	$SCID = $_SESSION['SCID'];
@@ -12,22 +12,32 @@
 
 	if(isset($_POST['submit']))
 	{
-		//manual credit card add to card_info
-		if($_POST['card_number'])
-		{
-			$cardQuery = "INSERT INTO card_info (`card_holder_name`,`card_number`,`cvv`,`month`,`year`,`street_add_1`,`city`,`zip_code`)
-			VALUES ('".$_POST['full_name']."','".$_POST['card_number']."','".$_POST['cvv']."','".$_POST['month']."','".$_POST['street_1']."','".$_POST['city']."','".$_POST['zip_code']."','".$_POST['VID']."')";    
+        function getCIID($dbconn, $card_number) //returns CIID for a given card number
+        {
+            $cardIDQuery = "SELECT CIID FROM card_info WHERE card_number = '$card_number'";
+            $cardIDResult = mysqli_query($dbconn, $cardIDQuery) or die("Couldn't store card data\n");
+            $cardIDRow = $cardIDResult->fetch_array(MYSQLI_ASSOC);
+            return $cardIDRow['CIID'];
+        }
 
-			mysqli_query($dbconn, $cardQuery) or die("Couldn't store card data\n");	
+        $CIID; //card id
+		if(isset($_POST['existing_card']))
+        {
+            //get CIID
+            $existing_card = $_POST['existing_card'];
+            $CIID = getCIID($dbconn, $existing_card);
+        }
+        else
+        {
+            //insert new card
+            $cardQuery = "INSERT INTO card_info (`CPID`,`card_holder_name`,`card_number`,`cvv`,`month`,`year`,`street_add_1`,`street_add_2`,`city`,`zip_code`)
+            VALUES ('$CPID','".$_POST['full_name']."','".$_POST['card_number']."','".$_POST['cvv']."','".$_POST['month']."','".$_POST['year']."','".$_POST['street_1']."','".$_POST['street_2']."','".$_POST['city']."','".$_POST['zip_code']."')";    
 
-			$CIID = "SELECT CIID FROM card_info WHERE card_number = ('".$_POST['card_number']."')";
-		}
-		else
-		{
-			$existing_card = $_POST['existing_card'];
-			$CIID = "SELECT CIID FROM card_info WHERE card_number = '$existing_card'";
-		}
-	
+            mysqli_query($dbconn, $cardQuery) or die("Couldn't store card data\n");	
+
+            //get CIID
+            $CIID = getCIID($dbconn, $_POST['card_number']);
+        }
 
 		//check stock before allowing check out
 		$canCheckout = true;
@@ -114,7 +124,7 @@
 			mysqli_query($dbconn, $query10) or die("Couldn't execute query\n");
 
 			//order confirmation
-			echo "<script type='text/javascript'>alert('Order successfully placed!'); window.location.href = 'customer_shopping.php';</script>";
+			echo "<script type='text/javascript'>window.location.href = 'purchase_confirmation.php';</script>";
 		}
 		else //send back to shopping cart if order could not be placed
 		{
@@ -122,66 +132,4 @@
 		}
 
 	}
-
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Checkout</title>
-       <!-- <h1>PokéMart Store!</h1>-->
-
-	    <link rel = "stylesheet" href = "checkout.css">
-
-    </head>
-    <body>
-        <a href = "../home_page/index.php">
-			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart" width="300"> 
-        </a>
-
-		
-        <img id = "checkout" src = "../../img/lnt/checkout_text.png" alt = "checkout" width ="300">
-        
-		<a href = "shopping_cart.php">
-        <img id = "back_to_cart" src = "../../img/lnt/back_to_cart.png" alt = "back to cart" width ="300">
-        </a>
-
-
-		
-        <form action="checkout.php" method="post">
-
-		<table>
-		<tr>
-			<td>
-       
-		<fieldset id = address >
-		<a href = "existing_checkout.php">
-        <h1> Existing Card </h1>
-		</a>
-        
-
-		<img id = "sleeping_skitty" src = "../../img/lnt/sleeping_skitty.gif" alt = "sleeping skitty" width ="300">
-
-		<br>
-		</fieldset>
-			</td>
-			<td>
-	
-		<fieldset id= payment>
-		<a href = "new_checkout.php">
-		<h1> New Card </h1>
-		</a>
-
-		<img id = "clefairy" src = "../../img/lnt/clefairy.gif" alt = "clefairy" width ="300">
-
-		<br>
-
-		
-		
-		</fieldset>
-		</td>
-		</tr>
-		</table>
-        	
-		</form>
-    </body>
-</html>
