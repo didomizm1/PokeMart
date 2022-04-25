@@ -79,6 +79,7 @@ $COID = $_POST['COID'];
                     {
                         //make a unique name for each iteration of the row
                         $IID = $row['IID'];
+                        $quantity = $row['quantity'];
                         $query2 = "SELECT * FROM inventory WHERE IID = '$IID'";
                         $search_result = mysqli_query($dbconn, $query2);
                         $row2 = $search_result->fetch_array(MYSQLI_ASSOC);
@@ -89,6 +90,7 @@ $COID = $_POST['COID'];
                         <td><?php echo $row2['item_description'];?></td>
                         <td><?php echo $row2['item_type'];?></td>
                         <td><?php echo $row2['selling_price'];?></td>
+                        <td><?php echo $quantity;?></td>
                         <form method="post">
 
                         
