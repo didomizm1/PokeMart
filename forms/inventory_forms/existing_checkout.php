@@ -1,5 +1,4 @@
 <?php
-
 	//connect to database
 	include_once('../connect_mysql.php');
 	//session handling
@@ -12,23 +11,10 @@
 
 	if(isset($_POST['submit']))
 	{
-		//manual credit card add to card_info
-		if($_POST['card_number'])
-		{
-			$cardQuery = "INSERT INTO card_info (`card_holder_name`,`card_number`,`cvv`,`month`,`year`,`street_add_1`,`city`,`zip_code`)
-			VALUES ('".$_POST['full_name']."','".$_POST['card_number']."','".$_POST['cvv']."','".$_POST['month']."','".$_POST['street_1']."','".$_POST['city']."','".$_POST['zip_code']."','".$_POST['VID']."')";    
-
-			mysqli_query($dbconn, $cardQuery) or die("Couldn't store card data\n");	
-
-			$CIID = "SELECT CIID FROM card_info WHERE card_number = ('".$_POST['card_number']."')";
-		}
-		else
-		{
-			$existing_card = $_POST['existing_card'];
-			$CIID = "SELECT CIID FROM card_info WHERE card_number = '$existing_card'";
-		}
 	
-
+        $existing_card = $_POST['existing_card'];
+        $CIID = "SELECT CIID FROM card_info WHERE card_number = '$existing_card'";
+		
 		//check stock before allowing check out
 		$canCheckout = true;
 
@@ -145,43 +131,51 @@
         <img id = "back_to_cart" src = "../../img/lnt/back_to_cart.png" alt = "back to cart" width ="300">
         </a>
 
-
 		
-        <form action="checkout.php" method="post">
+        <form action="existing_checkout.php" method="post">
 
 		<table>
 		<tr>
-			<td>
-       
-		<fieldset id = address >
-		<a href = "existing_checkout.php">
-        <h1> Existing Card </h1>
-		</a>
-        
-
-		<img id = "sleeping_skitty" src = "../../img/lnt/sleeping_skitty.gif" alt = "sleeping skitty" width ="300">
-
-		<br>
-		</fieldset>
-			</td>
-			<td>
 	
+		<td>
 		<fieldset id= payment>
-		<a href = "new_checkout.php">
-		<h1> New Card </h1>
-		</a>
+            <h1> Payment Information </h1>
+            <br>
 
-		<img id = "clefairy" src = "../../img/lnt/clefairy.gif" alt = "clefairy" width ="300">
+		<label> Select an existing card: 
+			<select id="existing_card" name="existing_card">
 
+			<br>
+			<?php
+			//dropdown for card numbers
+				$query="SELECT card_number FROM card_info WHERE CPID = '$CPID'";
+				$result=mysqli_query($dbconn, $query);
+				while ($row = $result->fetch_assoc())
+				{
+					$existing_card_number = $row['card_number'];
+					echo "<option value=\"$existing_card_number\">" . $existing_card_number . "</option>";
+				}	
+					
+			?>
+
+		</select>
+		</label>
 		<br>
 
 		
-		
+		<br><br>
+		<img id = "trainer_card" src = "../../img/lnt/trainer_id_card.jpeg" alt = "trainer ID" width ="300">
+        <br>
+        <br>
 		</fieldset>
-		</td>
+				</td>
 		</tr>
-		</table>
-        	
+				</table>
+        	<!-- Submit form data -->
+			<p>
+				<input type =  "submit" id = "submit" name = "submit" value = "Checkout" />
+			</p>
+
 		</form>
     </body>
 </html>

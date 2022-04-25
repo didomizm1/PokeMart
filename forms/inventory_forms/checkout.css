@@ -1,3 +1,13 @@
+a:link, a:visited
+{
+     text-decoration: none;
+}
+a:link 
+{
+    color:lightcoral; 
+    background-color: transparent; 
+    text-decoration: none;
+}
 body
 {      
     background: url("../../img/lnt/checkout_background.gif") no-repeat; 
@@ -26,6 +36,22 @@ body
     bottom: 0.8%;
     width: 20%; 
 }
+#sleeping_skitty
+{
+    position: fixed;
+    margin-left: 0.5%;
+    bottom: 90%;
+    width: 40%; 
+}
+#clefairy
+{
+    position: fixed;
+    margin-left: 0.5%;
+    bottom: 90%;
+    width: 20%; 
+}
+
+
 
 
 table,tr,th,td
