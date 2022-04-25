@@ -10,10 +10,24 @@
 	//get customer profile info associated with logged in user
 	$CPID = $_SESSION['CPID'];
 
-	//verify credit card information is valid
-
 	if(isset($_POST['submit']))
 	{
+		//manual credit card add to card_info
+		if($_POST['card_number'])
+		{
+			$cardQuery = "INSERT INTO card_info (`card_holder_name`,`card_number`,`cvv`,`month`,`year`,`street_add_1`,`city`,`zip_code`)
+			VALUES ('".$_POST['full_name']."','".$_POST['card_number']."','".$_POST['cvv']."','".$_POST['month']."','".$_POST['street_1']."','".$_POST['city']."','".$_POST['zip_code']."','".$_POST['VID']."')";    
+
+			mysqli_query($dbconn, $cardQuery) or die("Couldn't store card data\n");	
+
+			$CIID = "SELECT CIID FROM card_info WHERE card_number = ('".$_POST['card_number']."')";
+		}
+		else
+		{
+			$existing_card = $_POST['existing_card'];
+			$CIID = "SELECT CIID FROM card_info WHERE card_number = '$existing_card'";
+		}
+	
 
 		//check stock before allowing check out
 		$canCheckout = true;
@@ -479,7 +493,7 @@
             <h1> Payment Information </h1>
 
 		<label> Select an existing card or enter a new one: 
-			<select id="card" name="card">
+			<select id="existing_card" name="existing_card">
 
 			
 			<?php
@@ -488,8 +502,8 @@
 				$result=mysqli_query($dbconn, $query);
 				while ($row = $result->fetch_assoc())
 				{
-					$card_number = $row['card_number'];
-					echo "<option value=\"$card_number\">" . $card_number . "</option>";
+					$existing_card_number = $row['card_number'];
+					echo "<option value=\"$existing_card_number\">" . $existing_card_number . "</option>";
 				}	
 					
 			?>
