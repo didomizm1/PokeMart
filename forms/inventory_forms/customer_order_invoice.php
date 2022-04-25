@@ -72,23 +72,23 @@ $COID = $_POST['COID'];
                 <!-- populate table from mysql database -->
                 <?php
 
-                    $query ="SELECT * FROM customer_order WHERE COID = '$COID'";
+                    $query ="SELECT * FROM customer_order_item WHERE COID = '$COID'";
                     $result = mysqli_query($dbconn, $query);
 
                     while($row = $result->fetch_array(MYSQLI_ASSOC))
                     {
                         //make a unique name for each iteration of the row
-                        $COID = $row['COID'];
-                        $query2 = "SELECT * FROM customer_order WHERE COID = '$COID'";
+                        $IID = $row['IID'];
+                        $query2 = "SELECT * FROM inventory WHERE IID = '$IID'";
                         $search_result = mysqli_query($dbconn, $query2);
                         $row2 = $search_result->fetch_array(MYSQLI_ASSOC);
                 ?>
 
                         <tr>
-                        <td><?php echo $row2['COID'];?></td>
-                        <td><?php echo $row2['number_of_items'];?></td>
-                        <td><?php echo $row2['total_price'];?></td>
-                        <td><?php echo $row2['date_stamp'];?></td>
+                        <td><?php echo $row2['item_name'];?></td>
+                        <td><?php echo $row2['item_description'];?></td>
+                        <td><?php echo $row2['item_type'];?></td>
+                        <td><?php echo $row2['selling_price'];?></td>
                         <form method="post">
 
                         
