@@ -15,7 +15,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Purchase Confirmation</title>
+	<title>Order Confirmation</title>
 </head>
 <style>
     	/* centers images */
@@ -74,7 +74,7 @@
   <?php
         $query = "SELECT * FROM customer_order WHERE COID = '$COID'";
         $result = mysqli_query($dbconn, $query);
-        $row = $result->fetch_array(MYSQLI_ASSOC);
+        $row = $result->fetch_assoc();
         echo "<b> Order Number: </b>" . str_pad($row['COID'],6,'0');
         echo "</br>";  
         echo "<b> Order Date: </b>" . $row['date_stamp'];
@@ -93,7 +93,7 @@
     <a href='../inventory_forms/customer_shopping.php'>Shop Again</a>
     <br>
     <br>
-    <form method="post">
+    <form method="POST">
 </form>
 </div>
 </body>	
