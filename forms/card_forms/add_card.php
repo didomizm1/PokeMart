@@ -5,8 +5,7 @@
 
 <!DOCTYPE html>
 <html>
-    <body>
-        <style>
+     <style>
             body{
             background-image:url('../../img/card/bkgd.jpg');
             background-size:cover;
@@ -19,6 +18,8 @@
             cursor: pointer;
             }
         </style>
+    <body>
+       
         <a href = "../home_page/index.php">
          <IMG id="logo" SRC="../../img/lnt/logo.png"
          width="300"
@@ -72,10 +73,11 @@
         <br><br>
          cvv:  <input type = "number" name  = "cvv" minimulength = "3" maxlength="4" pattern = "0-9" autocomplete required />
         <br><br>
+        <input type="checkbox" name="check" id="submit" value="1" checked> billing address is same as customer address
   </form>
-  
+
      <font face="Arial" size ="3px">    
-        <a href="../card_forms/uadd.php"> Add New Payment </a>
+        <a href="../card_forms/uadd.php"> other billing address </a>
     </font>
 </center>
 </body>
