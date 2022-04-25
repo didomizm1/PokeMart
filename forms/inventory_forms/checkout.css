@@ -34,16 +34,10 @@ body
 }
 #sleeping_skitty
 {
-    position: fixed;
-    margin-left: 0.5%;
-    bottom: 90%;
-    width: 40%; 
+    width: 20%; 
 }
 #clefairy
 {
-    position: fixed;
-    margin-left: 0.5%;
-    bottom: 90%;
     width: 20%; 
 }
 
