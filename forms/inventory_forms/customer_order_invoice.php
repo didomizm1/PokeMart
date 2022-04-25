@@ -91,10 +91,7 @@ $COID = $_POST['COID'];
                         <td><?php echo $row2['item_type'];?></td>
                         <td><?php echo $row2['selling_price'];?></td>
                         <td><?php echo $quantity;?></td>
-                        <form method="post">
-
-                        
-                        </form>
+                       
                     </td>
                     </tr>
                 <?php
