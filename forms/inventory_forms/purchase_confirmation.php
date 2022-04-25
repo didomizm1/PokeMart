@@ -74,7 +74,7 @@
   <?php
         $query = "SELECT * FROM customer_order WHERE COID = '$COID'";
         $result = mysqli_query($dbconn, $query);
-        $row=$result->mysqli_fetch_assoc();
+        $row = $result->fetch_array(MYSQLI_ASSOC);
         echo "<b> Order Number: </b>" . str_pad($row['COID'],6,'0');
         echo "</br>";  
         echo "<b> Order Date: </b>" . $row['date_stamp'];
