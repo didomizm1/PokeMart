@@ -35,7 +35,7 @@ if(isset($_POST['submit']))
   border-radius: 50px; 
   background-color: lightpink;    
   text-align: center;
-  width:40%;
+  width:50%;
   margin-left:auto;
   margin-right:auto;
   
@@ -58,7 +58,7 @@ if(isset($_POST['submit']))
     
 #img
 {
-  width:25%;
+  width:35%;
   margin-left:auto;
   margin-right:auto;
 }
@@ -75,6 +75,7 @@ if(isset($_POST['submit']))
   <br>
   <IMG id="img" SRC="../../img/lnt/purchase_confirmation.gif" >
   <br>
+  <br>
   <?php
         echo "<b> Order Number: </b>" . str_pad($row['COID'],6,'0');
         echo "</br>";  
@@ -90,8 +91,10 @@ if(isset($_POST['submit']))
         echo "</br>"; 
                                    
     ?>
-    <a href='../inventory/customer_order_invoice.php'>View Invoice</a>
-    <a href='../inventory/customer_shopping.php'>Shop Again</a>
+    <a href='../inventory_forms/customer_order_invoice.php'>View Invoice</a>
+    <a href='../inventory_forms/customer_shopping.php'>Shop Again</a>
+    <br>
+    <br>
 </form>
 </div>
 </body>	
