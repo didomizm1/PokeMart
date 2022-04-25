@@ -66,6 +66,7 @@ $COID = $_POST['COID'];
                     <th>Item Description</th>
                     <th>Item Type</th>
                     <th>Price</th>
+                    <th>Quantity</th>
                    
                 </tr>
 
