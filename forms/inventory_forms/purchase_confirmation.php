@@ -1,7 +1,5 @@
 <?php
-if(isset($_POST['submit']))
-{
-	//connect to database
+    //connect to database
 	include_once('../connect_mysql.php');
     //session handling
 	require_once('../session.php');
@@ -13,8 +11,7 @@ if(isset($_POST['submit']))
     $COID = $_POST['COID'];
     
   	
-
-}?>
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -77,7 +74,7 @@ if(isset($_POST['submit']))
   <?php
         $query = "SELECT * FROM customer_order WHERE COID = '$COID'";
         $result = mysqli_query($dbconn, $query);
-        $row=$result->fetch_assoc();
+        $row=$result->mysqli_fetch_assoc();
         echo "<b> Order Number: </b>" . str_pad($row['COID'],6,'0');
         echo "</br>";  
         echo "<b> Order Date: </b>" . $row['date_stamp'];
