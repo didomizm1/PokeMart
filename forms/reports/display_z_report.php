@@ -55,6 +55,10 @@ if(isset($_POST['submit']))
     $query8="SELECT SUM(total_price) AS refunds FROM customer_order WHERE DATE(date_stamp)='$date' AND refunded='1'";
     $result8=mysqli_query($dbconn, $query8);
     $row8=$result8->fetch_assoc();
+    //gets total number of refunds
+    $query9="SELECT COUNT(*) AS no_refunds FROM customer_order WHERE DATE(date_stamp)='$date' AND refunded='1'";
+    $result9=mysqli_query($dbconn, $query9);
+    $row9=$result9->fetch_assoc();
      
 
 }?>
@@ -80,7 +84,7 @@ if(isset($_POST['submit']))
     border: 5px outset lightblue;
     background-color: white;    
     text-align: center;
-    width:60%;
+    width:35%;
     margin-left:auto;
     margin-right:auto;
   
@@ -98,17 +102,23 @@ if(isset($_POST['submit']))
 {
     echo "Date: " . $date;
     echo "</br>";  
+    echo "</br>"; 
+    echo "SALES SUMMARY:";
+    echo "</br>"; 
     if(empty($row1['items_sold']))
     {
-        echo "Items sold: 0" ;
+        echo "Items Sold: 0" ;
     }
     else
     {
-        echo "Items sold: " . $row1['items_sold'];
+        echo "Items Sold: " . $row1['items_sold'];
     }
     echo "</br>";  
     echo "Transactions: " . $row2['transactions'];
     echo "</br>";  
+    echo "</br>"; 
+    echo "PAYMENT DETAILS:";
+    echo "</br>"; 
     if(empty($row4['visa']))
     {
         echo "Visa: $0.00";
@@ -151,24 +161,28 @@ if(isset($_POST['submit']))
     echo "</br>"; 
     if(empty($row3['total_sales'])) 
     {
-        echo "Total sales: $0.00";
+        echo "Total Sales: $0.00";
     }
     else
     {
-        echo "Total sales: $" . $row3['total_sales'];
+        echo "Total Sales: $" . $row3['total_sales'];
     }
-    
-    echo "</br>";  
+    echo "</br>"; 
+    echo "</br>"; 
+    echo "REFUNDS:" ;
+    echo "</br>"; 
+    echo "Refunds: " . $row9['no_refunds'];
+    echo "</br>"; 
     if(empty($row8['refunds']))
     {
-        echo "Total refunds: $0.00";
+        echo "Total Refunds: $0.00";
     }
     else
     {
-       echo "Total refunds: $"  . $row8['refunds']; 
+       echo "Total Refunds: $"  . $row8['refunds']; 
     }
-    
-   	
+    echo "</br>"; 
+    echo "</br>"; 
 
 }?>
 </div>

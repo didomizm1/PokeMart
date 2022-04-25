@@ -18,7 +18,17 @@ if(isset($_POST['submit']))
     $row2=$result2->fetch_assoc();
     $salary=$row2['salary_sum']/12; //salary divided by 12 months to get monthly pay
     //total expenses
-    $total_expenses=$row1['rent'] + $row1['utilities'] + $row1['other_expenses'] + $salary;
+    $query="SELECT COUNT(*) AS expenses FROM store_expense WHERE month='$month' AND year='$year'";
+    $result=mysqli_query($dbconn, $query);
+    $row = $result->fetch_assoc(); 
+    if($row['expenses']==0)//checking if expenses exist
+    {
+        $total_expenses=$salary;//total expenses=salary since no other expenses exist
+    }
+    else{
+       $total_expenses=$row1['rent'] + $row1['utilities'] + $row1['other_expenses'] + $salary; 
+    }
+    
     //net sales
     $query3="SELECT SUM(total_price) AS net_sales FROM customer_order WHERE YEAR(date_stamp) = '$year' AND MONTH(date_stamp) = '$month' AND refunded='0'";
     $result3=mysqli_query($dbconn, $query3);
@@ -55,7 +65,7 @@ if(isset($_POST['submit']))
   border: 5px outset orange;
   background-color: white;    
   text-align: center;
-  width:60%;
+  width:35%;
   margin-left:auto;
   margin-right:auto;
   
@@ -78,29 +88,64 @@ if(isset($_POST['submit']))
 
     echo "Month: " . $month;
     echo "</br>";  
-    echo "Year: " . $year;
+    echo " Year: " . $year;
     echo "</br>"; 
     echo "</br>"; 
-    echo "Net sales: $" . number_format((float)$row3['net_sales'],2,'.','');
+    echo "<b>INCOME:</b>";
     echo "</br>"; 
-    echo "Cost of goods: $" .$row4['cost'];
+    if(empty($row['net_sales']))
+    {
+        echo "Net Sales: $0.00";
+    }
+    else{
+       echo "Net Sales: $" . number_format((float)$row3['net_sales'],2,'.',''); 
+    }
+    
     echo "</br>"; 
-    echo "Gross profit: $" . $profit;
+    if(empty($row['cost']))
+    {
+        echo "Cost Of Goods: $0.00";
+    }
+    else{
+        echo "Cost Of Goods: $" .$row4['cost'];
+    }
+    
+    echo "</br>"; 
+    echo "Gross Profit: $" . $profit;
     echo "</br>"; 
     echo "</br>"; 
-    echo "Salary: $" . $salary;
+    echo "<b>OPERATING EXPENSES:</b>";
+    echo "</br>"; 
+    //if no expenses exist for that month and year display 0.00 for those expenses
+    if($row['expenses']==0)
+    {
+        echo "Salary: $" . number_format((float)$salary,2,'.','');
+        echo "</br>";  
+	    echo "Rent: $0.00" ;
+        echo "</br>";  
+        echo "Utilities: $0.00";
+        echo "</br>";  
+        echo "Other Expenses: $0.00";
+        echo "</br>";  
+    }
+    else{
+        echo "Salary: $" . number_format((float)$salary,2,'.','');
+        echo "</br>";  
+	    echo "Rent: $" . $row1['rent'];
+        echo "</br>";  
+        echo "Utilities: $" . $row1['utilities'];
+        echo "</br>";  
+        echo "Other Expenses: $" . $row1['other_expenses'];
+        echo "</br>";  
+    }
+    echo "Total Expenses: $" .number_format((float)$total_expenses,2,'.','');
     echo "</br>";  
-	echo "Rent: $" . $row1['rent'];
-    echo "</br>";  
-    echo "Utilities: $" . $row1['utilities'];
-    echo "</br>";  
-    echo "Other expenses: $" . $row1['other_expenses'];
-    echo "</br>";  
-    echo " Total expenses: $" . number_format((float)$total_expenses,2,'.','');
-    echo "</br>";  
     echo "</br>"; 
-    echo "Net income: $" . $net_income;
-   
+    echo "<b>PROFIT/LOSS:</b>";
+    echo "</br>"; 
+    echo "Net Income: $" . number_format((float)$net_income,2,'.','');
+    echo "</br>"; 
+    echo "</br>"; 
 	
 
 }?>
