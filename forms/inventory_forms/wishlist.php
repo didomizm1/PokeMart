@@ -36,8 +36,8 @@ $WID = $_SESSION['WID'];
         <form action="wishlist.php" method="post">
             <table>
                 <tr>
-                    <th>Product ID</th>
                     <th>Item Name</th>
+                    <th>In Stock</th>
                     <th>Price</th>
                     <th>Delete</th>
                 </tr>
@@ -69,8 +69,8 @@ $WID = $_SESSION['WID'];
                 ?>
 
                         <tr>
-                        <td><?php echo $row2['IID'];?></td>
                         <td><?php echo $row2['item_name'];?></td>
+                        <td><?php echo $row2['in_stock'];?></td>
                         <td><?php echo $row2['selling_price'];?></td>
                         <form method="post">
 
