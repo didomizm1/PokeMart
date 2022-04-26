@@ -39,7 +39,7 @@
 				<a href = "../login_forms/login.html">
 					<img id = "login" src = "../../img/lnt/login.png" alt = "Log In" class = "imageLink">
 				</a><br><br>
-				<a href = "../registration_forms/registration.html">
+				<a href = "../registration_forms/registration.php">
 					<img id = "register" src = "../../img/lnt/signup.png" alt = "Sign Up" class = "imageLink">
 				</a><br><br>
 		<?php
