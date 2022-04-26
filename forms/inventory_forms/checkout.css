@@ -1,6 +1,6 @@
 a:link, a:visited
 {
-    color:lightcoral; 
+    color:rgb(255, 95, 95); 
     background-color: transparent; 
     text-decoration: none;
 }
@@ -34,11 +34,11 @@ body
 }
 #sleeping_skitty
 {
-    width: 20%; 
+    width: 100%; 
 }
 #clefairy
 {
-    width: 20%; 
+    width: 100%; 
 }
 
 
