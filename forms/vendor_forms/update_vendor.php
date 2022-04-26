@@ -1,10 +1,7 @@
 <?php
 
-//session handling
-require_once('../employee_session.php');
 
-//connect to database
-include_once('../connect_mysql.php');
+
 
 ?>
 <!DOCTYPE html>
@@ -92,7 +89,7 @@ include_once('../connect_mysql.php');
   <IMG SRC ="../../img/lnt/Update-Vendors.png" class="center">
 	
 	<br><br><br>
-	<form id="form"action="update_vendor.php" method="POST">
+	<form id="form"action="update_vendor.php" onsubmit="setTimeout(function(){window.location.reload();},10);" method="POST"><!-- onsubmit reloads page after form has been submitted -->
     <IMG id="img"SRC="../../img/lnt/lucario.gif" ><!-- inserts gif -->
     <br>
     <h4 style="text-align:center">Insert the vendor name you wish to update, the corresponding information you want to update, the updated information and click "Update" when done</h4>
