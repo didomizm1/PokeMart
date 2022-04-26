@@ -2,23 +2,19 @@
     //session handling
     require_once('../session.php');
 ?>
-
 <!DOCTYPE html>
 <html>  
 <body>
-    <style>
-        body
-        {
-            background-image:url('../../img/card/bkgd.jpg');
-            background-size:cover;
-        } 
-    </style>
-    <a href = "../home_page/index.php">
-        <IMG id="logo" SRC="../../img/lnt/logo.png" width="300" height="100">
-    </a>
+<link rel = "stylesheet" href = "wallet.css">
+
+        <a href = "../home_page/index.php">
+			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart" width="300"> 
+        </a>
+
     <br><br>
+    
     <center>     
-        <IMG SRC="../../img/card/My-Wallet.png" width="300" height="100">
+        <IMG SRC="../../img/card/My-Wallet.png" width="270" height="90">
 
         <br><br>
         <label> 
@@ -27,11 +23,11 @@
                 <br><br> 
             </div>
         </label>
-
+    <fieldset id = cards >
         <form id="form" action="search_card.php" method="POST">
-            <input type="submit" name="submit" />
-        </form>
+            <input type="submit" name="submit" hidden/>
 
+        </form>
         <br><br>
         <label> 
             <div>
@@ -40,12 +36,8 @@
                 </font> 
             </div>
             <br>
-            <div>
-                <a href="../checkout.php" >
-                    <button>Use This Payment Method</button>
-                </a>
-            </div>
         </label>
+    </fieldset>
     </center>
 </body>
 </html>
