@@ -13,6 +13,7 @@ body
 }
 #cards
 {
+    position: center;
     background-color: rgb(181, 208, 255);  
     border-radius: 8px;
     padding: 5px;
