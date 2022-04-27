@@ -91,11 +91,14 @@
                 </font> 
         </div>
         <form id="form" action="acard.php" method="POST">
-            <input type="submit" name="submit" id="save card"/>
+            <input type="submit" name="submit" id="save card" hidden/>
         </form>
         <form id="form" action="uadd.php" method="POST">
             <input type="submit" name="submit" id="save card" hidden/>
         </form>
+        <a href = "wallet.php">
+        <input type="submit" name="submit" id="save card"/>
+        </a>
 
 </div>
 </form>

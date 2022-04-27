@@ -74,6 +74,7 @@ $result = mysqli_query($dbconn, $query);
                     <th>Japanese Item Name</th>
                     <th>Type</th>
                     <th>Description</th>
+                    <th>In Stock</th>
                     <th>Price</th>
                     <?php    
                         if(isset($_SESSION['ULID'])) //make sure a user is logged in
@@ -101,6 +102,7 @@ $result = mysqli_query($dbconn, $query);
                     <td><?php echo $row['japanese_item_name'];?></td>
                     <td><?php echo $row['item_type'];?></td>
                     <td><?php echo $row['item_description'];?></td>
+                    <td><?php echo $row['in_stock'];?></td>
                     <td><?php echo $row['selling_price'];?></td>
 
                 <?php    

@@ -40,8 +40,8 @@ $SCID = $_SESSION['SCID'];
         <form action="shopping_cart.php" method="post">
             <table>
                 <tr>
-                    <th>Product ID</th>
                     <th>Item Name</th>
+                    <th>In Stock</th>
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Change Quantity</th>
@@ -76,8 +76,8 @@ $SCID = $_SESSION['SCID'];
                 ?>
 
                         <tr>
-                        <td><?php echo $row2['IID'];?></td>
                         <td><?php echo $row2['item_name'];?></td>
+                        <td><?php echo $row2['in_stock'];?></td>
                         <td><?php echo $row2['selling_price'];?></td>
                         <td><?php echo $row['quantity'];?> 
                             <form method="post">

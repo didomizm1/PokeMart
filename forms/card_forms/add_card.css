@@ -13,8 +13,10 @@ body
 }
 #cards
 {
+    position: center;
+    margin-top: 11%;
     background-color: rgb(181, 208, 255);  
-    border-radius: 8px;
+    border-radius: 1em;
     padding: 5px;
     height: auto;
     width: 35%;
