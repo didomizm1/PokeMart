@@ -7,8 +7,6 @@
 	$SCID = $_SESSION['SCID'];
 	//get customer profile info associated with logged in user
 	$CPID = $_SESSION['CPID'];
-    //get customer order ID
-    $COID = $_POST['COID'];
     
   	
 ?>
@@ -63,7 +61,6 @@
       <IMG SRC="../../img/lnt/logo.png" class="center">
   </a>
   <div class="div">
-  <form action="purchase_confirmation.php" method="POST">  
   <h1>THANK YOU FOR YOUR ORDER</h1>
   <br>
   <h3>Your order was placed successfully!</h3>
@@ -72,9 +69,10 @@
   <br>
   <br>
   <?php
-        $query = "SELECT * FROM customer_order WHERE COID = '$COID'";
+        $query = "SELECT * FROM customer_order WHERE CPID = '$CPID' AND date_stamp=(SELECT MAX(date_stamp) FROM customer_order WHERE CPID='$CPID')";
         $result = mysqli_query($dbconn, $query);
         $row = $result->fetch_assoc();
+
         echo "<b> Order Number: </b>" . str_pad($row['COID'],6,'0');
         echo "</br>";  
         echo "<b> Order Date: </b>" . $row['date_stamp'];
@@ -93,8 +91,6 @@
     <a href='../inventory_forms/customer_shopping.php'>Shop Again</a>
     <br>
     <br>
-    <form method="POST">
-</form>
 </div>
 </body>	
 </html>
