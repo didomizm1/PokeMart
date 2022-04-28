@@ -194,7 +194,7 @@ $result = mysqli_query($dbconn, $query);
                                             mysqli_query($dbconn, $query4) or die("Couldn't execute query\n");
 
                                             //update wishlist variables
-                                            $wishlistQuery = "UPDATE wishlist SET last_updated = $date, number_of_items = number_of_items + 1 WHERE WID = '$WID'";
+                                            $wishlistQuery = "UPDATE wishlist SET last_updated = '$date', number_of_items = number_of_items + 1 WHERE WID = '$WID'";
                                             mysqli_query($dbconn, $wishlistQuery) or die("Couldn't execute query\n");
                                         }
                                     ?>
