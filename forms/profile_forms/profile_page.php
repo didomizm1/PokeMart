@@ -54,6 +54,41 @@
 				$userLoginRow = $userLoginResult->fetch_array(MYSQLI_ASSOC);
 			?> 
 			<label class = "dataInfo" id = "username"><?php echo $userLoginRow['username'];?></label>
+			<form method = "POST">
+				<?php
+					if(isset($_POST['edit_username']) && !isset($_POST['cancel_username'])) //check for edit button click, display text field if it has been clicked
+					{
+				?>
+						<label>
+							<input type = "text" name  = "username" maxlength = "50" placeholder = "New username..." autofocus autocomplete required />
+						</label>
+						<label>
+							<input type = "submit" class = "button" name = "save_username" value = "Save" />
+						</label>
+				<?php
+					}
+					else //don't display edit button if it has been clicked
+					{
+				?>
+						<label>
+							<input type = "submit" class = "button" name = "edit_username" value = "Edit" />
+						</label>
+				<?php
+					}
+				?>
+			</form>
+			<form method = "POST">
+				<?php
+					if(isset($_POST['edit_username'])) //display cancel button if edit button has been clicked
+					{
+				?>
+						<br><label>
+							<input type = "submit" class = "button" name = "cancel_username" value = "Cancel" />
+						</label>
+				<?php
+					}
+				?>
+			</form>
 		</p>
 		<p>
 			<label class = "dataName">First Name</label><br> 
@@ -917,7 +952,27 @@
 		<?php 
 			}
 			//check for saved data
-			if(isset($_POST['save_first_name']))
+			if(isset($_POST['save_username']))
+			{
+				$user = $_POST['username'];
+
+				$usernameExistsQuery = "SELECT `username` FROM `user_login` WHERE `username` = '$user'";
+				$usernameExistsResult = mysqli_query($dbconn, $usernameExistsQuery);
+				if(mysqli_num_rows($usernameExistsResult)) //check if username already exists
+				{
+					echo "<script> alert('Username already exists'); window.history.go(-1); </script>";
+					exit();
+				}
+				
+				$updateUsernameQuery = "UPDATE `user_login` SET `username` = '$user' WHERE `ULID` = '".$_SESSION['ULID']."'"; //update database
+				mysqli_query($dbconn, $updateUsernameQuery) or die("Couldn't execute query\n");
+		?>
+				<script type = "text/javascript">
+					document.getElementById("username").innerHTML = "<?php echo $user; ?>"; //overwrite displayed data with new data
+				</script>
+		<?php 
+			}
+			else if(isset($_POST['save_first_name']))
 			{
 				updateData("first_name", $_POST['first_name'], $dbconn); //update database
 			}

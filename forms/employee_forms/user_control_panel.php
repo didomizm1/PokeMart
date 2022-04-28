@@ -739,6 +739,14 @@
 					//user login data
 					if(isset($_POST['usernameSubmit']))
 					{
+						$usernameExistsQuery = "SELECT `username` FROM `user_login` WHERE `username` = '".$_POST['usernameInput']."'";
+						$usernameExistsResult = mysqli_query($dbconn, $usernameExistsQuery);
+						if(mysqli_num_rows($usernameExistsResult)) //check if username already exists
+						{
+							echo "<script> alert('Username already exists'); window.history.go(-1); </script>";
+							exit();
+						}
+
 						updateData("user_login", "username", $_POST['usernameInput'], "ULID", $row1['ULID'], $dbconn); //update database
 						$_SESSION['usernameSearch'] = $_POST['usernameInput']; //update session variable with new username
 				?>
