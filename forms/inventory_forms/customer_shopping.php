@@ -1,4 +1,4 @@
--<?php
+<?php
 
 //connect to database
 include_once('../connect_mysql.php');
