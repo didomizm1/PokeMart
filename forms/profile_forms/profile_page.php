@@ -60,7 +60,7 @@
 					{
 				?>
 						<label>
-							<input type = "text" name  = "username" maxlength = "50" placeholder = "New username..." autofocus autocomplete required />
+							<input type = "text" name  = "username" minlength = "6" maxlength = "32" pattern = "^[a-zA-Z\d_]+$" autofocus autocomplete required />
 						</label>
 						<label>
 							<input type = "submit" class = "button" name = "save_username" value = "Save" />
@@ -960,7 +960,7 @@
 				$usernameExistsResult = mysqli_query($dbconn, $usernameExistsQuery);
 				if(mysqli_num_rows($usernameExistsResult)) //check if username already exists
 				{
-					echo "<script> alert('Username already exists'); window.history.go(-1); </script>";
+					echo "<script> alert('Username already exists'); </script>";
 					exit();
 				}
 				

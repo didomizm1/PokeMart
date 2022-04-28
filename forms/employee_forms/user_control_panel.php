@@ -743,7 +743,7 @@
 						$usernameExistsResult = mysqli_query($dbconn, $usernameExistsQuery);
 						if(mysqli_num_rows($usernameExistsResult)) //check if username already exists
 						{
-							echo "<script> alert('Username already exists'); window.history.go(-1); </script>";
+							echo "<script> alert('Username already exists'); </script>";
 							exit();
 						}
 
