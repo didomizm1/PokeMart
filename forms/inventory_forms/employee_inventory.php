@@ -95,6 +95,10 @@ function filterTable($query)
             </label>
               <br>
               <br>
+              <label> * Date Ordered:
+				    	<input type = "date" name  = "date_stamp" autocomplete required />
+			    	</label>
+			
               <input type="submit" name = "submit" class = "right">
             </div>
 
