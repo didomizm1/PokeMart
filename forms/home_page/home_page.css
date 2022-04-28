@@ -3,6 +3,18 @@ body
     background: url("../../img/lnt/home_page_background.gif") no-repeat center center fixed;
     background-size: 100% 100%;          
 }
+#userDisplay
+{
+    position: fixed;
+    right: 1%;
+    user-select: none;
+    text-align: right;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 40px;
+    color: rgb(0, 238, 255);
+    text-shadow: 2px 2px rgb(0,0,0);
+}
 #mid
 { 
     user-select: none;

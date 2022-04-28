@@ -1,27 +1,27 @@
 body
 {   
-    background: url("../../img/lnt/faq_page_background.gif") no-repeat center center fixed;
+    background: url("../../img/lnt/about_us_background.gif") no-repeat center center fixed;
     background-size: 100% 100%;          
 }
 h1
 {
     font-size: 100px;
-    color: rgb(0, 184, 92);
+    color: rgb(174, 0, 255);
 }
-.question
+h2
+{
+    font-size: 75px;
+    color: rgb(255, 0, 234);
+}
+label
 {
     font-size: 50px;
     color: rgb(255, 0, 98);
 }
-.answer
-{
-    font-size: 40px;
-    color: rgb(255, 196, 0);
-}
 #mid
 { 
-    background: rgba(165, 255, 63, 0.9);
-    border: solid rgb(0, 168, 154) 25px;
+    background: rgba(63, 194, 255, 0.9);
+    border: solid rgb(255, 4, 121) 25px;
     border-radius: 50px;
     margin: 17% auto;        
     padding: 50px;

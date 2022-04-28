@@ -1,9 +1,8 @@
 <?php
-	//database connection
-	include_once('../connect_mysql.php');
-
 	//session handling
 	require_once('../employee_session.php');
+	//database connection
+	include_once('../connect_mysql.php');
 
 	//get user profile data associated with logged in employee
 	$query = "SELECT * FROM `employee_profile` WHERE `EPID` = '".$_SESSION['EPID']."'";

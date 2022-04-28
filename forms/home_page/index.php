@@ -1,5 +1,7 @@
 <?php
 	session_start();
+	//database connection
+	include_once('../connect_mysql.php');
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +19,18 @@
 		<a href = "index.php">
 			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart">
 		</a>
+		<?php
+			if(isset($_SESSION['ULID'])) //only display username if user is logged in
+			{
+				//get username to display on the page
+				$query = "SELECT `username` FROM `user_login` WHERE `ULID` = '".$_SESSION['ULID']."'";
+				$result = mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
+				$row = $result->fetch_array(MYSQLI_ASSOC);
+		?>
+				<label id = "userDisplay">Logged in as: <br><?php echo $row['username']; ?></label>
+		<?php
+			}
+		?>
 	</div>
 
 	<!-- Center of the page -->
@@ -70,10 +84,10 @@
 		<a href = "../inventory_forms/customer_shopping.php">
 			<img id = "shop" src = "../../img/lnt/shop.png" alt = "Shop" class = "imageLink">
 		</a><br><br>
-		<a href = "../faq_forms/faq_page.html">
+		<a href = "../info_forms/faq_page.html">
 			<img id = "faq" src = "../../img/lnt/faq.png" alt = "FAQ" class = "imageLink">
 		</a><br><br>
-		<a href = "about_us_page.html">
+		<a href = "../info_forms/about_us_page.html">
 			<img id = "about_us" src = "../../img/lnt/about_us.png" alt = "About Us" class = "imageLink">
 		</a><br><br>
 	</div>
