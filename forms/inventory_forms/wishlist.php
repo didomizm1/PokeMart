@@ -86,7 +86,7 @@ $WID = $_SESSION['WID'];
                                         $date = date("Y-m-d H:i:s");
 
                                         //update wishlist variables
-                                        $wishlistQuery = "UPDATE wishlist SET last_updated = $date, number_of_items = number_of_items - 1 WHERE WID = '$WID'";
+                                        $wishlistQuery = "UPDATE wishlist SET last_updated = '$date', number_of_items = number_of_items - 1 WHERE WID = '$WID'";
                                         mysqli_query($dbconn, $wishlistQuery) or die("Couldn't execute query\n");
 
                                         //delete wishlist item
