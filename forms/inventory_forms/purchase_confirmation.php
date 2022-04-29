@@ -73,7 +73,7 @@
         $result = mysqli_query($dbconn, $query);
         $row = $result->fetch_assoc();
 
-        echo "<b> Order Number: </b>" . str_pad($row['COID'],6,'0');
+        echo "<b> Order Number: </b>" . str_pad($row['COID'],6,'0',STR_PAD_LEFT);
         echo "</br>";  
         echo "<b> Order Date: </b>" . $row['date_stamp'];
         echo "</br>";  
@@ -87,7 +87,7 @@
         echo "</br>"; 
                                    
     ?>
-    <a href='../inventory_forms/customer_order_invoice.php'>View Invoice</a>
+    <a href='../inventory_forms/customer_order_history.php'>Order History</a>
     <a href='../inventory_forms/customer_shopping.php'>Shop Again</a>
     <br>
     <br>

@@ -90,7 +90,7 @@ include_once('../connect_mysql.php');
   </a>
 	<IMG SRC ="../../img/lnt/Delete-Vendors.png" class="center">
 	<br>
-	<form id="form" action="delete_vendor.php" onsubmit="setTimeout(function(){window.location.reload();},10);" method="POST"><!-- onsubmit reloads page after form has been submitted -->
+	<form id="form" action="delete_vendor.php"  method="POST">
 		<IMG id="img" SRC="../../img/lnt/snorlax.gif" ><!-- inserts gif -->
 		<h3 style="text-align: center">Insert the vendor name and click "Delete" when done</h3>
 		<h5 style="text-align: center">Caution: this will permanently delete the vendor from the database</h5><br>
