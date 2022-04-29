@@ -96,7 +96,10 @@ if(isset($_POST['submit']))
       <IMG SRC="../../img/lnt/logo.png" class="center">
   </a>
   <div class="div">
-    <h1 style="text-align: center">Z-Report</h1>
+    <h4>1 Hawk Dr, New Paltz, NY 12561</h4>
+    <h4>(845)257-7869</h4>
+    <h4>pokemart@newpaltz.edu</h4>  
+    <h1>Z-Report</h1>
   <?php
     if(isset($_POST['submit']))
 {
