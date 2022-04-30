@@ -87,11 +87,11 @@
 
 	<!-- Registration form -->
 	<div id = "form">    
-		<h1>Register an account on PokeMart</h1>  
+		<h1>Register an account on Pok&eacuteMart</h1>  
 		<form name = "registration" action = "registration.php" onsubmit = "return validate()" method = "POST">
 
 			<!-- Link to login -->
-			<header>Already have an account? <a href="../login_forms/login.html">Click here to log in instead!</a></header>
+			<header>Already have an account? <a id = "link" href="../login_forms/login.html">Click here to log in instead!</a></header>
 			<br>
 
 			<!-- Music to be played on the page -->

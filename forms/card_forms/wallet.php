@@ -3,7 +3,10 @@
     require_once('../session.php');
 ?>
 <!DOCTYPE html>
-<html>  
+<html>
+<head>
+    <title>My Wallet</title>
+</head>
 <body>
 <link rel = "stylesheet" href = "wallet.css">
 

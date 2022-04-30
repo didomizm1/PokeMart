@@ -21,16 +21,40 @@ body
     border-radius: 50px;  
     margin: 18.31% auto;    
     padding: 50px;  
-    width: 55%; 
+    width: 65%; 
+    font-family: 'Courier New', Courier, monospace;
 }
 #audio
 {
     position: fixed;
     bottom: 1%;
 }
+input[type = submit]
+{
+    background-color: rgb(255, 133, 164);
+    border: 2px solid #ff0055;
+    border-radius: 15px;
+    outline: none;
+    box-shadow: 2px 2px 2px black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+input[type = submit]:hover 
+{
+    background-color: rgb(241, 179, 195);
+}
+input[type = submit]:active 
+{
+    box-shadow: 3px 3px 3px white;
+}
 input[type = text], input[type = number], input[type = date], input[type = email], input[type = tel], select  
 {
     border: 2px solid rgb(255, 0, 85);
+    border-radius: 10px;
 }
 input[type = search]
 {

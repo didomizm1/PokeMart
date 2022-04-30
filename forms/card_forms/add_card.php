@@ -4,6 +4,9 @@
 ?>    
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Add New Payment</title>
+</head>
 <body>
     <link rel = "stylesheet" href = "add_card.css">
 

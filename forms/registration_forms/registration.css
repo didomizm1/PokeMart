@@ -86,18 +86,38 @@ body
 }   
 #form
 {  
-    background: rgb(255, 114, 196);
-    border: solid rgb(153, 0, 255) 25px;
+    background: rgb(0, 247, 255);
+    border: solid rgb(13, 134, 128) 25px;
     border-radius: 50px;  
     margin: 18.31% auto;    
     padding: 50px;  
     width: 25%;  
 }  
-#submit
-{    
-    background: #1190ff;
-    border-radius: 20px;  
-    padding: 7px; 
+input[type = submit], #link
+{
+    background-color: rgb(0, 204, 255);
+    border: 2px solid #0077ff;
+    border-radius: 15px;
+    outline: none;
+    box-shadow: 2px 2px 2px black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+#link
+{
+    font-size: 12.5px;
+}
+input[type = submit]:hover, #link:hover 
+{
+    background-color: rgb(79, 234, 255);
+}
+input[type = submit]:active, #link:active 
+{
+    box-shadow: 3px 3px 3px white;
 }
 input[type = text], input[type = password], input[type = date], input[type = email], input[type = tel], select  
 {
@@ -108,4 +128,8 @@ input[type = text], input[type = password], input[type = date], input[type = ema
 input[type = text]:focus, input[type = password]:focus, input[type = date]:focus, input[type = email]:focus, input[type = tel]:focus, select:focus 
 {
     background-color: #76E8AF;
+}
+a:link, a:visited
+{
+    text-decoration: none;
 }
