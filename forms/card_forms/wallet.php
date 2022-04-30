@@ -7,10 +7,9 @@
 <body>
 <link rel = "stylesheet" href = "wallet.css">
 
-        <a href = "../home_page/index.php">
-			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart"> 
-        </a>
-
+    <a href = "../home_page/index.php">
+        <img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart"> 
+    </a>
     <br><br>
     
     <center>     
@@ -25,7 +24,6 @@
         </label>
         <form id="form" action="search_card.php" method="POST">
             <input type="submit" name="submit" hidden/>
-
         </form>
         <br><br>
         <label> 

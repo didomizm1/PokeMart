@@ -79,9 +79,10 @@ body
 {
     background-color: aqua;
     border: 2px solid #00a2ff;
+    border-radius: 15px;
     outline: none;
     box-shadow: 3px 3px 3px black;
-    width: 50px;
+    width: 55px;
     padding: 3px;
 }
 .button:hover 

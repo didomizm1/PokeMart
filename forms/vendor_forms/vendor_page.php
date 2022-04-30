@@ -8,12 +8,14 @@
 	<title>Vendor Page</title>
 	<style>
 		/*background*/
-		body{
+		body
+    {
 			background-image:url('../../img/lnt/vendor_background.gif');
 			background-size:cover;
 		}
 		/* centers images */
-		.center {
+		.center 
+    {
   		display: block;
   		margin-left: auto;
   		margin-right: auto;
@@ -51,21 +53,19 @@
       margin-top:18%;
       width:17.0%;
     }
-		
-
 	</style>
 </head>
 <!--Contains the links to all the vendor forms-->
 	<body>
 		<a href = "../home_page/index.php"><!-- makes logo link to homepage -->
-      <IMG id="logo" SRC="../../img/lnt/logo.png" >
-  </a>
-  		 <IMG SRC ="../../img/lnt/vendors.png" class="center" >
-  		<a href="../vendor_forms/insert_vendor.php">
+      <IMG id="logo" SRC="../../img/lnt/logo.png">
+    </a>
+  		 <IMG SRC ="../../img/lnt/vendors.png" class="center">
+  	<a href="../vendor_forms/insert_vendor.php">
   		 <IMG id="insert" SRC ="../../img/lnt/insert.png">
-  	</a><
+  	</a>
   	<a href="../vendor_forms/delete_vendor.php">
-  		 <IMG id="delete" SRC ="../../img/lnt/delete.png" >
+  		 <IMG id="delete" SRC ="../../img/lnt/delete.png">
   	</a>
   	<a href="../vendor_forms/search_vendor.php">
   		 <IMG id="lookup" SRC ="../../img/lnt/Lookup.png">
