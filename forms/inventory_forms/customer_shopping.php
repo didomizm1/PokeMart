@@ -35,14 +35,15 @@ $result = mysqli_query($dbconn, $query);
 			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart"> 
         </a>
 
+        <img id = "shop" src = "../../img/lnt/shop_text.png" alt = "Shop">
 
         <a href = "wishlist.php">
-        <img id = "wishlist" src = "../../img/lnt/wishlist.png" alt = "Wishlist" width ="300">
+            <img id = "wishlist" src = "../../img/lnt/wishlist.png" alt = "Wishlist" width ="300">
         </a>
 
 
         <a href = "shopping_cart.php">
-        <img id = "cart" src = "../../img/lnt/cart.png" alt = "Shopping Cart" width ="300">
+            <img id = "cart" src = "../../img/lnt/cart.png" alt = "Shopping Cart" width ="300">
         </a>
 
         <div id="scrollbar">

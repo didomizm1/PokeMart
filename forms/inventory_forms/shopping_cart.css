@@ -54,18 +54,74 @@ body
     margin: 12.5% auto;
 }
 */
+input[type = number]
+{
+    background-color: rgb(137, 231, 255);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 4px;
+    width: 80%;
+}
+input[type = text]
+{
+    background-image: url("../../img/lnt/search_icon.png");
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: 12px 4.25px;
+    margin: 8px 0;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 50px;
+    padding: 0.25% 0% 0.25% 2%;
+    font-size: 16px;
+    width: 100%;
+}
+input[type = text]:focus
+{
+    background-color: rgb(137, 231, 255);
+}
+input[type = submit]
+{
+    background-color: aqua;
+    border: 2px solid #00a2ff;
+    border-radius: 15px;
+    outline: none;
+    box-shadow: 2px 2px 2px black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+input[type = submit]:hover 
+{
+    background-color: rgb(79, 234, 255);
+}
+input[type = submit]:active 
+{
+    box-shadow: 3px 3px 3px white;
+}
 table
 {
-    background-color: white;   
+    background-color: rgb(53, 191, 255);  
+    margin-top: 3%; 
     margin-left: auto;
     margin-right: auto;
+    padding: 1.5%;
+    border: 5px solid rgb(72, 115, 255);
+    white-space: nowrap;
+}
+tr,th,td
+{
+    background-color: rgb(109, 247, 252);
+    border: 1px solid black;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 table,tr,th,td
-{
-    margin-top: 25px;
-    width: 1000px;
+{ 
+    width: 1250px;
     text-align: center;
     vertical-align: middle;
-    border: 1px solid black;
     border-radius: 15px;
+    font-family: 'Courier New', Courier, monospace;
 }

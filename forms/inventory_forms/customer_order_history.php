@@ -26,7 +26,7 @@ $CPID = $_SESSION['CPID'];
         <img id = "order_history" src = "../../img/lnt/order_history.png" alt = "Order History" width ="300">
 
         <a href = "../profile_forms/profile_page.php">
-        <img id = "back_to_profile" src = "../../img/lnt/back_to_profile.png" alt = "back to profile page" width ="300">
+            <img id = "back_to_profile" src = "../../img/lnt/back_to_profile.png" alt = "back to profile page" width ="300">
         </a>
         
 
