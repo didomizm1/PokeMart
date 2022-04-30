@@ -1,22 +1,23 @@
 body
 {      
-    background: url("../../img/card/bgrnd.jpg") no-repeat; 
+    background: url("../../img/lnt/add_card_background.gif") no-repeat; 
     background-size: 100% 100%;
     background-attachment: fixed;
 }
 #logo
 {
     position: absolute;
-    left: 0.2%;
-    top: 0.5%;
-    width: 25%; 
+    left: 0.4%;
+    top: 0.8%;
+    width: 27.25%;
 }
 #cards
 {
     position: center;
-    margin-top: 11%;
+    margin-top: 15%;
     background-color: rgb(181, 208, 255);  
-    border-radius: 1em;
+    border: solid rgb(87, 28, 248) 10px;
+    border-radius: 50px;
     padding: 5px;
     height: auto;
     width: 35%;

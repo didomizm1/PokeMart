@@ -17,32 +17,32 @@
       display: block;
       margin-left: auto;
       margin-right: auto;
-      margin-top:2.5%;
-      width: 45%;
+      margin-top:4%;
+      width: 30%;
     }
     /*positions each img*/
     #logo
     {
-      margin-left:0.5%;
-      margin-top:1%;
+      margin-left:0%;
+      margin-top:0%;
       width:27.25%;
     }
     #z
     {
       margin-left:12%;
-      margin-top:12%;
+      margin-top:17%;
       width:20.0%;
     }
     #expenses
     {
       margin-left: 1.0%;
-      margin-top:12%;
+      margin-top:17%;
       width:30.0%;
     }
      #profit
     {
       margin-left: 1.0%;
-      margin-top:12%;
+      margin-top:17%;
       width:25.0%;
     }
    

@@ -8,22 +8,21 @@
 <link rel = "stylesheet" href = "wallet.css">
 
         <a href = "../home_page/index.php">
-			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart" width="300"> 
+			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart"> 
         </a>
 
     <br><br>
     
     <center>     
-        <IMG SRC="../../img/card/My-Wallet.png" width="270" height="90">
+        <IMG SRC="../../img/lnt/wallet.png" width="270" height="90">
 
         <br><br>
         <label> 
             <div>
-                <IMG SRC="../../img/card/Saved-Payments.png" >
+                <IMG SRC="../../img/lnt/saved_payments.png" >
                 <br><br> 
             </div>
         </label>
-    <fieldset id = cards >
         <form id="form" action="search_card.php" method="POST">
             <input type="submit" name="submit" hidden/>
 
@@ -32,12 +31,11 @@
         <label> 
             <div>
                 <font face="Arial" size ="3px">    
-                    <a href="../card_forms/add_card.php"> Add New Payment </a>
+                    <a id = "add" href="../card_forms/add_card.php"> Add New Payment </a>
                 </font> 
             </div>
             <br>
         </label>
-    </fieldset>
     </center>
 </body>
 </html>

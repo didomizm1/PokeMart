@@ -1,23 +1,41 @@
 body
 {      
-    background: url("../../img/card/bgrnd.jpg") no-repeat; 
+    background: url("../../img/lnt/wallet_background.gif") no-repeat; 
     background-size: 100% 100%;
     background-attachment: fixed;
 }
 #logo
 {
     position: absolute;
-    left: 0.2%;
-    top: 0.5%;
-    width: 25%; 
+    left: 0.4%;
+    top: 0.8%;
+    width: 27.25%;  
 }
-#cards
+#add
 {
-    position: center;
-    margin-top: 11%;
-    background-color: rgb(181, 208, 255);  
-    border-radius: 1em;
-    padding: 5px;
-    height: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 40px;
+    color: rgb(0, 110, 255);
+    position: fixed;
+    left: 32.5%;
+    top: 60%;
+    background-color: rgb(126, 173, 255);  
+    border: solid rgb(87, 28, 248) 5px;
+    border-radius: 25px;
     width: 35%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+#add:hover
+{
+    background-color: rgb(152, 190, 255);
+}
+#add:active
+{
+    background-color: rgb(181, 208, 255);
+}
+a:link, a:visited
+{
+    text-decoration: none;
 }

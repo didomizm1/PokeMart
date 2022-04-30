@@ -8,9 +8,7 @@
     <link rel = "stylesheet" href = "add_card.css">
 
         <a href = "../home_page/index.php">
-         <IMG id="logo" SRC="../../img/lnt/logo.png"
-         width="300"
-         height="100">
+         <img id="logo" SRC="../../img/lnt/logo.png">
         </a>
 <center>
 <fieldset id = cards >

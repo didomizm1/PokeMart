@@ -17,39 +17,39 @@
   		display: block;
   		margin-left: auto;
   		margin-right: auto;
-      margin-top:2.5%;
-  		width: 45%;
+      margin-top:4%;
+  		width: 30%;
   	}
   	/*positions each img*/
     #logo
     {
-      margin-left:0.5%;
-      margin-top:1%;
+      margin-left:0%;
+      margin-top:0%;
       width:27.25%;
     }
     #insert
     {
-      margin-left:5%;
-      margin-top:12%;
-      width:20.0%;
+      margin-left:13%;
+      margin-top:18%;
+      width:17.0%;
     }
     #delete
     {
       margin-left: 1.0%;
-      margin-top:12%;
-      width:20.0%;
+      margin-top:18%;
+      width:17.0%;
     }
     #lookup
     {
       margin-left: 1.0%;
-      margin-top:12%;
-      width:20.0%;
+      margin-top:18%;
+      width:17.0%;
     }
     #update
     {
-     margin-left:1.0%;
-      margin-top:12%;
-      width:20.0%;
+      margin-left:1.0%;
+      margin-top:18%;
+      width:17.0%;
     }
 		
 
