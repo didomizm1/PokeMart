@@ -91,6 +91,9 @@ $WID = $_SESSION['WID'];
 
                                         //delete wishlist item
                                         deleteRow($WID, $IID, $dbconn);
+
+                                        //reloads page
+                                        header("Refresh:0");
                                     }
                                 ?>
                             </label>

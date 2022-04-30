@@ -1,27 +1,27 @@
 <?php
 
-//connect to database
-include_once('../connect_mysql.php');
-//session handling
-session_start();
+    //connect to database
+    include_once('../connect_mysql.php');
+    //session handling
+    session_start();
 
-//save search in the session
-if(!(isset($_SESSION['inventory_search'])) || isset($_POST['submit']))
-{
-    if(isset($_POST['submit']))
+    //save search in the session
+    if(!(isset($_SESSION['inventory_search'])) || isset($_POST['submit']))
     {
-        $_SESSION['inventory_search'] = $_POST['valueToSearch'];
+        if(isset($_POST['submit']))
+        {
+            $_SESSION['inventory_search'] = $_POST['valueToSearch'];
+        }
+        else
+        {
+            $_SESSION['inventory_search'] = "";
+        }
     }
-    else
-    {
-        $_SESSION['inventory_search'] = "";
-    }
-}
-$valueToSearch = $_SESSION['inventory_search'];
+    $valueToSearch = $_SESSION['inventory_search'];
 
-//search in all table columns using concat mysql function in order to filter inventory table
-$query = "SELECT * FROM `inventory` WHERE CONCAT(`IID`, `item_name`, `japanese_item_name`, `selling_price`) LIKE '%".$valueToSearch."%'";
-$result = mysqli_query($dbconn, $query);
+    //search in all table columns using concat mysql function in order to filter inventory table
+    $query = "SELECT * FROM `inventory` WHERE CONCAT(`IID`, `item_name`, `japanese_item_name`, `selling_price`) LIKE '%".$valueToSearch."%'";
+    $result = mysqli_query($dbconn, $query);
 
 ?>
 <!DOCTYPE html>
@@ -37,36 +37,31 @@ $result = mysqli_query($dbconn, $query);
 
         <img id = "shop" src = "../../img/lnt/shop_text.png" alt = "Shop">
 
-        <a href = "wishlist.php">
-            <img id = "wishlist" src = "../../img/lnt/wishlist.png" alt = "Wishlist" width ="300">
-        </a>
-
-
-        <a href = "shopping_cart.php">
-            <img id = "cart" src = "../../img/lnt/cart.png" alt = "Shopping Cart" width ="300">
-        </a>
-
-        <div id="scrollbar">
-        <h1>  </h1>
-        </div>
-            
-
-    </head>
-
-    <body>
-
     <?php    
         if(isset($_SESSION['ULID'])) //make sure a user is logged in
         {
     ?>
+            <a href = "wishlist.php">
+                <img id = "wishlist" src = "../../img/lnt/wishlist.png" alt = "Wishlist" width ="300">
+            </a>
+
+            <a href = "shopping_cart.php">
+                <img id = "cart" src = "../../img/lnt/cart.png" alt = "Shopping Cart" width ="300">
+            </a>
     <?php
         }
     ?>
+
+        <div id="scrollbar"></div>
+
+    </head>
+
+    <body>
            
         <form id = "form" method="post">
 
-            <input id = "search" type="text" name="valueToSearch" placeholder="Search"/><br><br>
-            <input id = "filter" type="submit" name="submit" value="Filter"/><br><br>
+            <input id = "search" type="text" name="valueToSearch" placeholder="Search" /><br><br>
+            <input id = "filter" type="submit" name="submit" value="Filter" /><br><br>
 
            
             <table>
@@ -116,14 +111,14 @@ $result = mysqli_query($dbconn, $query);
                             <td>
                                 <!-- enter quantity -->
                                 <label> 
-                                    <input type = "number" min="1" step="1" name  = "quantity" maxlength = "10"required/>
+                                    <input type = "number" min="1" step="1" name  = "quantity" maxlength = "10" required />
                                 </label> 
                             </td>
                             
                             <!-- add item to cart -->
                             <td>
                                 <label>
-                                    <input type="submit" name="<?php echo $currentName; ?>" value="Add to Cart"/>
+                                    <input type="submit" name="<?php echo $currentName; ?>" value="Add to Cart" />
                                     <?php
                                         if(isset($_POST[$currentName])) //add to database
                                         { 
@@ -180,7 +175,7 @@ $result = mysqli_query($dbconn, $query);
                             <!-- add item to wishlist -->
                             <td>
                                 <label>
-                                    <input type="submit" name="<?php echo $currentName2; ?>" value="Add to Wishlist"/>
+                                    <input type="submit" name="<?php echo $currentName2; ?>" value="Add to Wishlist" formnovalidate />
                                     <?php
                                         if(isset($_POST[$currentName2])) //add to database
                                         { 

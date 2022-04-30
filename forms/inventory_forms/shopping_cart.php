@@ -56,6 +56,9 @@ $SCID = $_SESSION['SCID'];
                     {
                         $query3 = "DELETE FROM shopping_cart_item WHERE SCID = '$SCID' AND IID = '$IID'";
                         mysqli_query($dbconn, $query3) or die("Couldn't execute query\n");
+                        
+                        //reloads page
+                        header("Refresh:0");
                     }
 
                     $query ="SELECT * FROM shopping_cart_item WHERE SCID = '$SCID'";
@@ -85,12 +88,12 @@ $SCID = $_SESSION['SCID'];
                                 <td>
                                     <!-- enter quantity -->
                                     <label> 
-                                        <input type = "number" min="0" step="1" name  = "quantity" maxlength = "10" value = "<?php echo $row['quantity']; ?>" required/>
+                                        <input type = "number" min="0" step="1" name  = "quantity" maxlength = "10" value = "<?php echo $row['quantity']; ?>" required />
                                     </label> 
                                 
                                     <!-- save quantity -->
                                     <label>
-                                        <input type="submit" name="<?php echo $currentName; ?>" value="Save"/>
+                                        <input type="submit" name="<?php echo $currentName; ?>" value="Save" />
                                         <?php
                                             if(isset($_POST[$currentName]))
                                             { 
@@ -105,6 +108,8 @@ $SCID = $_SESSION['SCID'];
                                                 {
                                                     $query = "UPDATE shopping_cart_item SET quantity = '$quantity' WHERE SCID = '$SCID' AND IID = '$IID'";
                                                     mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
+
+                                                    //reloads page
                                                     header("Refresh:0");
                                                 }
                                                 else //delete item if quantity was set to 0
@@ -120,7 +125,7 @@ $SCID = $_SESSION['SCID'];
                                 <!-- delete item from cart -->
                                 <td>
                                     <label>
-                                        <input type="submit" name="<?php echo $currentName2; ?>" value="Delete from cart"/>
+                                        <input type="submit" name="<?php echo $currentName2; ?>" value="Delete from cart" />
                                         <?php
                                             if(isset($_POST[$currentName2])) //update database
                                             { 

@@ -43,9 +43,7 @@ function filterTable($query)
 
         <img id = "employee_inventory" src = "../../img/lnt/employee_inventory_text.png" alt = "employee inventory" width ="300">
 
-        <div id="scrollbar">
-        <h1>  </h1>
-        </div>
+        <div id="scrollbar"></div>
             
         <form action="add_item.php" method="post">
 

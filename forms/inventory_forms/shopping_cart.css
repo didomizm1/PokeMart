@@ -59,7 +59,7 @@ input[type = number]
     background-color: rgb(137, 231, 255);
     border: 1px solid rgb(0, 0, 0);
     border-radius: 4px;
-    width: 80%;
+    width: 60%;
 }
 input[type = text]
 {
