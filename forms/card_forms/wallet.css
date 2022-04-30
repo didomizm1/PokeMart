@@ -11,21 +11,59 @@ body
     top: 0.8%;
     width: 27.25%;  
 }
-#add
+#wallet
+{
+    position: absolute;
+    left: 42.5%;
+    top: 13%;
+}
+#saved_payments
+{
+    margin-top: 20%;
+    width: 20%;
+}
+#search
+{
+    font-size: 20px;
+    background-color: rgb(208, 126, 255);
+    width: 26%;
+}
+#add, #search
 {
     font-family: 'Courier New', Courier, monospace;
-    font-weight: bold;
-    font-size: 40px;
-    color: rgb(0, 110, 255);
-    position: fixed;
-    left: 32.5%;
-    top: 60%;
-    background-color: rgb(126, 173, 255);  
+    font-weight: bold;  
     border: solid rgb(87, 28, 248) 5px;
     border-radius: 25px;
-    width: 35%;
     padding-top: 2%;
     padding-bottom: 2%;
+}
+th
+{
+    background-color: rgb(253, 95, 129);
+    color: rgb(165, 42, 63);
+}
+td
+{
+    background-color: rgb(253, 95, 219);
+    color: rgb(183, 0, 255);
+}
+td, th
+{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    border: 2px solid black;
+    border-radius: 50px;
+}
+#add
+{
+    position: absolute;
+    font-size: 40px;
+    left: 32.5%;
+    top: 24%;
+    color: rgb(0, 110, 255);
+    background-color: rgb(126, 173, 255);
+    width: 35%;
 }
 #add:hover
 {

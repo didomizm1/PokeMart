@@ -74,8 +74,8 @@
   } 
   #logo
   {
-    margin-left:0.5%;
-    margin-top:1%;
+    margin-left:0%;
+    margin-top:0%;
     width:27.25%;
   }
     /*puts form into box*/

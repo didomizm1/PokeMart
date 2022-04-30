@@ -13,18 +13,7 @@
     <br><br>
     
     <center>     
-        <IMG SRC="../../img/lnt/wallet.png" width="270" height="90">
-
-        <br><br>
-        <label> 
-            <div>
-                <IMG SRC="../../img/lnt/saved_payments.png" >
-                <br><br> 
-            </div>
-        </label>
-        <form id="form" action="search_card.php" method="POST">
-            <input type="submit" name="submit" hidden/>
-        </form>
+        <img id = "wallet" src="../../img/lnt/wallet.png" width="270" height="90">
         <br><br>
         <label> 
             <div>
@@ -34,6 +23,18 @@
             </div>
             <br>
         </label>
+        <br><br>
+        <label> 
+            <div>
+                <IMG id = "saved_payments" SRC="../../img/lnt/saved_payments.png" >
+                <br><br> 
+            </div>
+        </label>
+        <div id = "search">
+            <?php
+                include_once('search_card.php');
+            ?>
+        </div>
     </center>
 </body>
 </html>
