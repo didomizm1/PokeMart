@@ -1,12 +1,13 @@
 <?php
 
-//connect to database
-include_once('../connect_mysql.php');
-//session handling
-require_once('../session.php');
+    //session handling
+    require_once('../session.php');
 
-//get user profile data associated with logged in user
-$SCID = $_SESSION['SCID'];
+    //connect to database
+    include_once('../connect_mysql.php');
+
+    //get user profile data associated with logged in user
+    $SCID = $_SESSION['SCID'];
 
 ?>
 <!DOCTYPE html>
@@ -14,7 +15,6 @@ $SCID = $_SESSION['SCID'];
     <head>
         <title>Shopping Cart</title>
 	    <link rel = "stylesheet" href = "shopping_cart.css">
-
     </head>
     <body>
         <a href = "../home_page/index.php">
@@ -22,20 +22,24 @@ $SCID = $_SESSION['SCID'];
         </a>
 
         <a href = "wishlist.php">
-        <img id = "wishlist" src = "../../img/lnt/wishlist.png" alt = "Wishlist" width ="300">
+            <img id = "wishlist" src = "../../img/lnt/wishlist.png" alt = "Wishlist" width ="300">
         </a>
 
         <img id = "cart" src = "../../img/lnt/cart.png" alt = "Shopping Cart" width ="300">
 
         <a href = "customer_shopping.php">
-        <img id = "back_to_shop" src = "../../img/lnt/back_to_shop.png" alt = "back to shop" width ="300">
+            <img id = "back_to_shop" src = "../../img/lnt/back_to_shop.png" alt = "back to shop" width ="300">
         </a>
-
-        <a href = "select_card.php">
-        <img id = "checkout" src = "../../img/lnt/checkout_text.png" alt = "checkout" width ="300">
-        </a>
-
-        
+<?php
+        if(isset($_SESSION['canCheckout'])) //only display link if user can check out
+        {
+?>
+            <a href = "select_card.php">
+                <img id = "checkout" src = "../../img/lnt/checkout_text.png" alt = "checkout" width ="300">
+            </a>
+<?php
+        }
+?>
 
         <form action="shopping_cart.php" method="post">
             <table>
@@ -56,7 +60,17 @@ $SCID = $_SESSION['SCID'];
                     {
                         $query3 = "DELETE FROM shopping_cart_item WHERE SCID = '$SCID' AND IID = '$IID'";
                         mysqli_query($dbconn, $query3) or die("Couldn't execute query\n");
-                        
+
+                        $query4 ="SELECT * FROM shopping_cart_item WHERE SCID = '$SCID'";
+                        $result4 = mysqli_query($dbconn, $query4);
+
+                        //do not allow checkout if cart is empty
+                        $row4 = $result4->fetch_array(MYSQLI_ASSOC);
+                        if($row4 == null)
+                        {
+                            unset($_SESSION['canCheckout']);
+                        }
+
                         //reloads page
                         header("Refresh:0");
                     }

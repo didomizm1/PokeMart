@@ -1,6 +1,6 @@
 <?php
     //session handling
-	require_once('../session.php');
+	require_once('../checkout_session.php');
 
     //connect to database
 	include_once('../connect_mysql.php');
@@ -12,6 +12,9 @@
 
 	if(isset($_POST['submit']))
 	{
+		//unset checkout session variable
+		unset($_SESSION['canCheckout']);
+
         function getCIID($dbconn, $card_number) //returns CIID for a given card number
         {
             $cardIDQuery = "SELECT CIID FROM card_info WHERE card_number = '$card_number'";

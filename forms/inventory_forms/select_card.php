@@ -1,7 +1,6 @@
 <?php
 	//session handling
-	require_once('../session.php');
-
+	require_once('../checkout_session.php');
 ?>
 <!DOCTYPE html>
 <html>

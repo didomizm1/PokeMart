@@ -50,7 +50,7 @@
 			if(!(isset($_SESSION['ULID'])))
 			{
 		?>
-				<a href = "../login_forms/login.html">
+				<a href = "../login_forms/login.php">
 					<img id = "login" src = "../../img/lnt/login.png" alt = "Log In" class = "imageLink">
 				</a><br><br>
 				<a href = "../registration_forms/registration.php">

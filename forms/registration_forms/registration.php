@@ -1,5 +1,8 @@
 <?php
 
+	//session handling
+	require_once('../no_session.php');
+
 	if(isset($_POST['submit']))
 	{
 		//connect to database
@@ -54,7 +57,7 @@
 		mysqli_query($dbconn, $query5) or die("Couldn't execute profile data query\n");
 		
 		//send user to the login page
-		header("Location: ../login_forms/login.html");
+		header("Location: ../login_forms/login.php");
 	}
 
 ?>
@@ -91,7 +94,7 @@
 		<form name = "registration" action = "registration.php" onsubmit = "return validate()" method = "POST">
 
 			<!-- Link to login -->
-			<header>Already have an account? <a id = "link" href="../login_forms/login.html">Click here to log in instead!</a></header>
+			<header>Already have an account? <a id = "link" href="../login_forms/login.php">Click here to log in instead!</a></header>
 			<br>
 
 			<!-- Music to be played on the page -->

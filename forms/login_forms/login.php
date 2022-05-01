@@ -1,5 +1,8 @@
 <?php
 
+    //session handling
+	require_once('../no_session.php');
+
     //saves info about a user's login attempt to the database
     function login_log($ULID, $success, $date, $log, $dbconn)
     {
@@ -105,3 +108,61 @@
     }
 
 ?>
+
+<!DOCTYPE html>
+<html>  
+<head>  
+    <title>Login</title>
+	<!-- Style -->
+	<link rel = "stylesheet" href = "login.css">
+</head>  
+<body>
+	<!-- Center of the page -->
+	<div id = "mid">
+		<!-- Site images -->
+		<a href = "../home_page/index.php">
+			<img id = "logo" src = "../../img/lnt/logo.png" alt = "PokeMart">
+		</a>
+		<img id = "tree1" src = "../../img/lnt/tree.png" alt = "PokeTree">
+		<img id = "tree2" src = "../../img/lnt/tree.png" alt = "PokeTree">
+		<img id = "clouds1" src = "../../img/lnt/clouds.png" alt = "PokeClouds">
+		<img id = "clouds2" src = "../../img/lnt/clouds.png" alt = "PokeClouds">
+		<img id = "clouds3" src = "../../img/lnt/clouds.png" alt = "PokeClouds">
+		<img id = "clouds4" src = "../../img/lnt/clouds.png" alt = "PokeClouds">
+		<img id = "clouds5" src = "../../img/lnt/clouds.png" alt = "PokeClouds">
+		<img id = "squirtle" src = "../../img/lnt/squirtle.gif" alt = "Squirtle"> 
+		<img id = "charmander" src = "../../img/lnt/charmander.gif" alt = "Charmander">
+	</div>
+
+	<!-- Log in form -->
+	<div id = "form">   
+		<h1>Log in to Pok&eacuteMart</h1>  
+		<form action = "login.php" method = "POST">
+			<!-- Login info -->
+			<p>
+				<label> Username: 
+					<input type = "text" name  = "username" minlength = "6" maxlength = "32" pattern = "^[a-zA-Z\d_]+$" autocomplete autofocus required />
+				</label>  
+			</p>
+			<p>
+				<label> Password: 
+					<input type = "password" name  = "password" minlength = "8" maxlength = "256" pattern = "^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[^\s]+$" required />
+				</label>
+			</p>
+
+			<!-- Submit data -->
+			<p>
+				<input type =  "submit" id = "submit" name = "submit" value = "Login" />
+			</p>
+
+			<!-- Link to registration -->
+			<footer>Don't have an account? <a id = "link" href="../registration_forms/registration.php">Click here to register!</a></footer>
+			<br>
+
+			<!-- Music to be played on the page -->
+			<audio id = "audio" src = "../../audio/music/pokemart_soul_silver_theme.mp3" loop controls></audio>
+			
+		</form>
+	</div> 
+</body>     
+</html>

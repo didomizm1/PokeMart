@@ -156,6 +156,9 @@
                                                     $selling_price = $row['selling_price'];
                                                     $shoppingCartQuery = "UPDATE shopping_cart SET number_of_items = number_of_items + $quantity, total_price = total_price + ($selling_price * $quantity) WHERE SCID = '$SCID'";
                                                     mysqli_query($dbconn, $shoppingCartQuery) or die("Couldn't execute query\n");
+
+                                                    //allow a user to check out
+                                                    $_SESSION['canCheckout'] = true;
                                                 }
                                                 else
                                                 {
