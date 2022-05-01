@@ -101,7 +101,7 @@
 			<audio id = "audio" src = "../../audio/music/pokemart_soul_silver_theme.mp3" loop controls></audio>
 			<br>
 			
-			<p><strong><em>(Fields identified with * are required)</em></strong></p>
+			<p><label><em>(Fields identified with * are required)</em></label></p>
 			
 			<!-- User's login information -->
 			<h3>Login Info</h3>

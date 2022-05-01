@@ -67,10 +67,16 @@
                 $_SESSION['CPID'] = $row3['CPID'];
 
                 //save SCID in the session
-                $SCIDQuery = "SELECT `SCID` FROM `shopping_cart` WHERE `CPID` = '".$_SESSION['CPID']."'";
+                $SCIDQuery = "SELECT `SCID`, `number_of_items` FROM `shopping_cart` WHERE `CPID` = '".$_SESSION['CPID']."'";
                 $SCIDResult = mysqli_query($dbconn, $SCIDQuery) or die("Couldn't execute query\n");
                 $row4 = $SCIDResult->fetch_array(MYSQLI_ASSOC);
                 $_SESSION['SCID'] = $row4['SCID'];
+
+                //only allow checkout of user has items in their cart
+                if($row4['number_of_items'] > 0)
+                {
+                    $_SESSION['canCheckout'] = true;
+                }
 
                 //save WLID in the session
                 $WIDQuery = "SELECT `WID` FROM `wishlist` WHERE `CPID` = '".$_SESSION['CPID']."'";

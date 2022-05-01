@@ -1,6 +1,8 @@
 body
 {   
-    background-image: radial-gradient(circle, rgb(0,225,255) 50%, rgb(0, 140, 255) 100%);          
+    background-image: radial-gradient(circle, rgb(0,225,255) 50%, rgb(0, 140, 255) 100%);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;          
 }
 #mid
 {
@@ -91,7 +93,15 @@ body
     border-radius: 50px;  
     margin: 18.31% auto;    
     padding: 50px;  
-    width: 25%;  
+    width: 32%;  
+}
+h1,h3
+{
+    text-align: center;
+}
+em
+{
+    font-size: 12px;
 }  
 input[type = submit], #link
 {
@@ -131,5 +141,6 @@ input[type = text]:focus, input[type = password]:focus, input[type = date]:focus
 }
 a:link, a:visited
 {
+    color: black;
     text-decoration: none;
 }

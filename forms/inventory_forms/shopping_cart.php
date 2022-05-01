@@ -61,12 +61,12 @@
                         $query3 = "DELETE FROM shopping_cart_item WHERE SCID = '$SCID' AND IID = '$IID'";
                         mysqli_query($dbconn, $query3) or die("Couldn't execute query\n");
 
-                        $query4 ="SELECT * FROM shopping_cart_item WHERE SCID = '$SCID'";
+                        $query4 ="SELECT number_of_items FROM shopping_cart WHERE SCID = '$SCID'";
                         $result4 = mysqli_query($dbconn, $query4);
+                        $row4 = $result4->fetch_array(MYSQLI_ASSOC);
 
                         //do not allow checkout if cart is empty
-                        $row4 = $result4->fetch_array(MYSQLI_ASSOC);
-                        if($row4 == null)
+                        if($row4['number_of_items'] == 0)
                         {
                             unset($_SESSION['canCheckout']);
                         }

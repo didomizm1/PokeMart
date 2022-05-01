@@ -430,7 +430,7 @@
 				</table>
         	<!-- Submit form data -->
 			<p>
-				<input type =  "submit" id = "submit" name = "submit" value = "Checkout" />
+				<input type =  "submit" name = "submit" value = "Checkout" />
 			</p>
 
 		</form>

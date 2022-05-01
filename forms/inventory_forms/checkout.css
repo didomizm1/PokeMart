@@ -1,14 +1,11 @@
-a:link, a:visited
-{
-    color:rgb(255, 95, 95); 
-    background-color: transparent; 
-    text-decoration: none;
-}
 body
 {      
     background: url("../../img/lnt/checkout_background.gif") no-repeat; 
     background-size: 100% 100%;
     background-attachment: fixed;
+    color:rgb(255, 95, 95);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
 }
 #logo
 {
@@ -38,12 +35,46 @@ body
 }
 #clefairy
 {
-    width: 100%; 
+    width: 109%; 
 }
-
-
-
-
+#sleeping_skitty, #clefairy, #label
+{
+    pointer-events: none;
+}
+#address, #payment
+{
+    background-color: rgb(255, 211, 226);
+    border: 5px solid rgb(255, 95, 175);
+    border-radius: 20px;
+}
+#clefairyLink
+{
+    padding-right: 5%;
+}
+.link
+{
+    background-color: rgb(255, 193, 213);
+    border: 5px solid rgb(255, 95, 175);
+    border-radius: 20px;
+    margin-top: 10%;
+    padding-top: 10%;
+    text-align: center;
+    display: inline-block;
+    width: 90%;
+    font-size: 30px;
+}
+.link:hover
+{
+    background-color: rgb(255, 221, 233);
+}
+.link:active
+{
+    background-color: rgb(255, 163, 171);
+}
+input
+{
+    margin: 10px;
+}
 table,tr,th,td
 {
     margin-top: 25px;
@@ -54,27 +85,36 @@ table,tr,th,td
     vertical-align: middle;
     border: 1px solid rgba(0, 0, 0, 0);
     border-radius: 15px;
-
 }
-#address
+input[type = submit]
 {
-    background-color: rgb(230, 223, 238);  
-    border-radius: 20px;
-}
-#payment
-{
-    background-color: rgb(230, 223, 238);  
-    border-radius: 20px;
-}
-input
-{
-    margin: 10px;
-}
-#submit
-{
+    background-color: rgb(255, 160, 184);
+    border: 2px solid #ff0055;
+    border-radius: 15px;
+    outline: none;
+    box-shadow: 2px 2px 2px black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
     display: block;
     margin-left: auto;
     margin-right: auto;
     bottom: 0.8%;
     width: 20%; 
+}
+input[type = submit]:hover 
+{
+    background-color: rgb(255, 191, 207);
+}
+input[type = submit]:active 
+{
+    box-shadow: 3px 3px 3px white;
+}
+a:link, a:visited
+{
+    color:rgb(255, 95, 95);
+    text-decoration: none;
 }
