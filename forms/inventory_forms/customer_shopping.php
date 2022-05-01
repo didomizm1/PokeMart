@@ -60,7 +60,7 @@
            
         <form id = "form" method="post">
 
-            <input id = "search" type="text" name="valueToSearch" placeholder="Search" /><br><br>
+            <input id = "search" type="search" name="valueToSearch" placeholder="Search" /><br><br>
             <input id = "filter" type="submit" name="submit" value="Filter" /><br><br>
 
            

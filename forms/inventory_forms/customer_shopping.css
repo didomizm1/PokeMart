@@ -48,11 +48,11 @@ body
 #search
 {
     left: 33%;
-    width: 30%;
+    width: 33.5%;
 }
 #filter
 {
-    left: 65.875%;
+    left: 67.5%;
     top: 4.5%;
 }
 #scrollbar
@@ -81,20 +81,20 @@ input[type = number]
     border-radius: 4px;
     width: 80%;
 }
-input[type = text]
+input[type = search]
 {
     background-image: url("../../img/lnt/search_icon.png");
     background-repeat: no-repeat;
     background-size: 18px;
-    background-position: 12px 4.25px;
+    background-position: 12px 5px;
     margin: 8px 0;
     border: 2px solid rgb(0, 0, 0);
     border-radius: 50px;
-    padding: 0.25% 0% 0.25% 2%;
+    padding: 0.3% 0% 0.25% 2%;
     font-size: 16px;
     width: 100%;
 }
-input[type = text]:focus
+input[type = search]:focus
 {
     background-color: rgb(137, 231, 255);
 }

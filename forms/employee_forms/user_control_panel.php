@@ -685,27 +685,6 @@
 										</p>
 									</form>
 
-									<!--
-									<form method = "POST">
-										<p>	Full Time (comment this)
-											<?php
-												//array for full time values
-												//$array2 = [0 => "Part-time", 1 => "Full-time"]; 
-											?>
-											<label class = "displayInfo"> Full-time status:
-												<input type = "text" id = "full_time" readonly value = "<?php //echo $array2[$row3['full_time']]; ?>" /> 
-											</label>
-											<label class = "enterInfo"> New full-time status:
-												<input type = "radio" name = "full_timeInput" value = "1" /> Full-time
-												<input type = "radio" name = "full_timeInput" value = "0" checked /> Part-time 
-											</label>
-											<label class = "submitInfo">
-												<input type = "submit" name = "full_timeSubmit" value = "Save" title = "Save new data" />
-											</label>
-										</p>
-									</form>
-									-->
-
 									<form method = "POST">
 										<p> <!-- Salary -->
 											<label class = "displayInfo"> Salary: 
@@ -834,10 +813,6 @@
 					{
 						updateData("employee_profile", "position", $_POST['positionInput'], "EPID", $row3['EPID'], $dbconn); //update database
 					}
-					/*else if(isset($_POST['full_timeSubmit']))
-					{
-						updateData("employee_profile", "full_time", $_POST['full_timeInput'], "EPID", $row3['EPID'], $dbconn); //update database
-					}*/
 					else if(isset($_POST['salarySubmit']))
 					{
 						updateData("employee_profile", "salary", $_POST['salaryInput'], "EPID", $row3['EPID'], $dbconn); //update database
@@ -845,11 +820,6 @@
 				?>
 			</p>
 	</div>
-
-	<!-- Bottom of the page -->
-	<div id = "footer">
-		<!-- Music controls -->
-		<audio id = "audio" src = "../../audio/music/pokemart_soul_silver_theme.mp3" loop controls></audio>
-	</div>
+	
 </body>     
 </html>
