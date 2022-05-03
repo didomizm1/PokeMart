@@ -1,0 +1,72 @@
+OCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion</title>
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+    <link rel ="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="background_image">
+    
+    </div>
+    <section>
+        <div class="container">
+            <div class="accordion">
+                <div class="accordion-item" id="question1">
+                    <a class="accordion-link" href="#question1">
+                        What Is Pokemart?
+                        <i class=" i.icon.ion-md-add"></i>
+                        <i class="icon ion-md-remove"></i>
+                    </a>
+                    <div class="answer">
+                    <p>
+                        the player can buy items for their Pokémon. It has people to talk to who can give hints on some of the items.
+                     </p>
+                </div>
+            </div>
+
+            <div class="accordion-item" id="question2">
+                <a class="accordion-link" href="#question2">
+                    What Items Does Pokemart Sell?
+                    <i class=" i.icon.ion-md-add"></i>
+                    <i class="icon ion-md-remove"></i>
+                </a>
+                <div class="answer">
+                <p>
+                    You can buy items such as PokeBalls,Revive,Antidote,etc.
+                 </p>
+            </div>
+        </div>
+
+        <div class="accordion-item" id="question3">
+            <a class="accordion-link" href="#question3">
+                What Do You Do if Pokemon Is Injured?
+                <i class=" i.icon.ion-md-add"></i>
+                <i class="icon ion-md-remove"></i>
+            </a>
+            <div class="answer">
+                <p>
+                    You can bring your Pokemon to Pokemart and they will heal them for you
+                 </p>
+        </div>
+    </div>
+
+    <div class="accordion-item" id="question4">
+        <a class="accordion-link" href="#question4">
+            Where Is Pokemart?
+            <i class=" i.icon.ion-md-add"></i>
+            <i class="icon ion-md-remove"></i>
+        </a>
+        <div class="answer">
+            <p>
+             PokéMarts can be found in Plains, Savannas and All Forests biomes.
+             </p>
+    </div>
+</div>
+        </div>
+    </section>
+</body>
+</html>
