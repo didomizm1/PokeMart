@@ -93,7 +93,7 @@
               <br>
               <br>
               <label> * Date Ordered:
-				    	  <input type = "date" name  = "date_stamp" autocomplete required />
+				    	  <input type = "date" name  = "date_ordered" autocomplete required />
 			    	  </label>
               <br>
               <br>

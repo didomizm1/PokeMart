@@ -1,4 +1,6 @@
 <?php
+    //fix echo outputs conflicting with header page refresh
+    ob_start();
 
     //session handling
     require_once('../session.php');
@@ -70,9 +72,10 @@
                         {
                             unset($_SESSION['canCheckout']);
                         }
-
+                        
                         //reloads page
                         header("Refresh:0");
+                        
                     }
 
                     $query ="SELECT * FROM shopping_cart_item WHERE SCID = '$SCID'";
@@ -165,3 +168,8 @@
         
     </body>
 </html>
+
+<?php
+    //fix echo outputs conflicting with header page refresh
+    ob_end_flush();
+?>
