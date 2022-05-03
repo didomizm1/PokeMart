@@ -13,17 +13,9 @@ if(isset($_POST['submit']))
     VALUES ('".$_POST['VID']."','".$_POST['item_name']."','".$_POST['japanese_item_name']."','".$_POST['item_description']."','".$_POST['item_type']."'
     ,'".$_POST['selling_price']."','".$_POST['cost']."','".$_POST['in_stock']."','".$_POST['reorder_amount']."','".$_POST['base_stock']."','".$_POST['date_ordered']."')";
 
-    //execute queries
-   // mysqli_query($dbconn, $query) or die("Couldn't execute login data query\n");
-    
-    if($dbconn->query($query)==TRUE)
-    {
-        echo nl2br("Item added successfully\n");
-    }
-    else
-    {
-        echo nl2br("Error: " . $query . "<br>" . $dbconn->error . "\n");
-    }
+   //execute queries
+   mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
+   header('Location: employee_inventory.php');
 }
 
 ?>

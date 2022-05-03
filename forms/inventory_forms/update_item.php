@@ -13,15 +13,9 @@ if(isset($_POST['submit']))
 	//setup query
 	$query="UPDATE inventory SET $info='$update' WHERE IID='$IID'";
 
-	//execute query
-	if($dbconn->query($query)==TRUE)
-    {
-        echo nl2br("Item updated successfully\n");
-    }
-    else
-    {
-        echo nl2br("Error: " . $query . "<br>" . $dbconn->error . "\n");
-    }
+	//execute queries
+	mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
+	header('Location: employee_inventory.php');
 }
 
 ?>

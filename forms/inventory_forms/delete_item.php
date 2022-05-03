@@ -15,16 +15,8 @@ if(isset($_POST['submit']))
     $query="DELETE FROM inventory WHERE item_name = '$item_name' AND IID = '$IID'";
 
     //execute queries
-    // mysqli_query($dbconn, $query) or die("Couldn't execute login data query\n");
-    
-    if($dbconn->query($query)==TRUE)
-    {
-        echo nl2br("Item deleted successfully\n");
-    }
-    else
-    {
-        echo nl2br("Error: " . $query . "<br>" . $dbconn->error . "\n");
-    }
+    mysqli_query($dbconn, $query) or die("Couldn't execute query\n");
+    header('Location: employee_inventory.php');
 }
 
 ?>
