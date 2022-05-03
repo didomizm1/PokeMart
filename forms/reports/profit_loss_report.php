@@ -1,5 +1,6 @@
 <?php
-  //session handling
+//Maranda Dominguez
+  //session handling, only employees can access this page
   require_once('../employee_session.php');
 ?>
 <!DOCTYPE html>
@@ -44,6 +45,7 @@
   {
     background-color: #efbf67;
   }
+  /*sets background*/
   body
   {
     background-image:url('../../img/lnt/expenses.gif');

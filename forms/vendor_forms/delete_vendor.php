@@ -1,6 +1,6 @@
 <?php
-
-//session handling
+//Maranda Dominguez
+//session handling, employee access only
 require_once('../employee_session.php');
 
 //connect to database
@@ -48,6 +48,7 @@ include_once('../connect_mysql.php');
 			margin-left:30%;
 			cursor: pointer;
 		}
+		/*sets background*/
 		body
 		{
 			background-image:url('../../img/lnt/vendor_background2.gif');

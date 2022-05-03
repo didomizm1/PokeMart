@@ -1,4 +1,6 @@
 <?php
+//Maranda Dominguez
+    //session handling, only employees can view this page
     require_once('../employee_session.php');
     if(isset($_POST['submit']))
     {
@@ -7,7 +9,7 @@
         $month=$_POST['month'];
         $year=$_POST['year'];
 
-        //queries to fetch data
+        //queries to fetch data & make calculations
         //store expenses
         $query1="SELECT * FROM store_expense WHERE month='$month' AND year='$year'";
         $result1=mysqli_query($dbconn, $query1);
@@ -63,6 +65,7 @@
         margin-right: auto;
         width: 30%;
 	}
+    /*puts data in a box*/
     .div 
     {
         border: 5px outset orange;
@@ -72,6 +75,7 @@
         margin-left:auto;
         margin-right:auto; 
     }
+    /*sets background*/
     body
     {
         background-image:url('../../img/lnt/expenses.gif');
@@ -90,6 +94,7 @@
     
         <br>
         <?php
+        //displaying Profit & Loss Data
             if(isset($_POST['submit']))
             {
                 echo "Month: " . $month;
@@ -99,6 +104,7 @@
                 echo "</br>"; 
                 echo "<b>INCOME:</b>";
                 echo "</br>"; 
+                //if rows are empty display 0.00 instead
                 if(empty($row['net_sales']))
                 {
                     echo "Net Sales: $0.00";

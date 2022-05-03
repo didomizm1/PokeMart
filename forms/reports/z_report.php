@@ -1,5 +1,8 @@
 <?php
+//Maranda Dominguez
+  //session handling, only employees can access
   require_once('../employee_session.php');
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,11 +46,13 @@
   {
     background-color: #efbf67;
   }
+  /*sets background*/
   body
   {
     background-image:url('../../img/lnt/z_report_background.gif');
     background-size:cover;
   } 
+  /*positions logo*/
   #logo
   {
     margin-left:0%;

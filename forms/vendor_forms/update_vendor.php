@@ -1,6 +1,6 @@
 <?php
-
-	//session handling
+//Maranda Dominguez
+	//session handling, only employees can access
 	require_once('../employee_session.php');
 
 	//connect to database
@@ -37,7 +37,7 @@
 			margin: 1px 1px;
 			cursor: pointer;
 		}
-		/*background*/
+		/*sets background*/
 		body
 		{
 			background-image:url('../../img/lnt/vendor_background2.gif');

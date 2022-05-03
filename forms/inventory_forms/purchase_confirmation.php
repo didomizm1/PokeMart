@@ -1,4 +1,5 @@
 <?php
+//Maranda Dominguez
     //connect to database
 	include_once('../connect_mysql.php');
     //session handling
@@ -23,6 +24,7 @@
   	margin-right: auto;
   	width: 30%;
 	}
+    /*puts data in a box*/
     .div {
   border: 5px outset lightgreen;
   border-radius: 50px; 
@@ -33,6 +35,7 @@
   margin-right:auto;
   
 }
+/*sets background*/
     body{
     background-image:url('../../img/lnt/checkout_background.gif');
     background-size:cover;
@@ -48,7 +51,7 @@
     display:inline-block;
 
 }
-    
+/*positions img*/    
 #img
 {
   width:35%;
@@ -72,7 +75,7 @@
         $query = "SELECT * FROM customer_order WHERE CPID = '$CPID' AND date_stamp=(SELECT MAX(date_stamp) FROM customer_order WHERE CPID='$CPID')";
         $result = mysqli_query($dbconn, $query);
         $row = $result->fetch_assoc();
-
+        //displays order details
         echo "<b> Order Number: </b>" . str_pad($row['COID'],6,'0',STR_PAD_LEFT);
         echo "</br>";  
         echo "<b> Order Date: </b>" . $row['date_stamp'];
@@ -87,6 +90,7 @@
         echo "</br>"; 
                                    
     ?>
+    <!-- links to order history and customer shopping -->
     <a href='../inventory_forms/customer_order_history.php'>Order History</a>
     <a href='../inventory_forms/customer_shopping.php'>Shop Again</a>
     <br>

@@ -1,4 +1,5 @@
 <?php
+//Maranda Dominguez
   //protects file, only employees can acesss
   require_once('../employee_session.php');
 
@@ -67,11 +68,13 @@
   {
     background-color: #efbf67;
   }
+  /*sets background*/
   body
   {
     background-image:url('../../img/lnt/expenses.gif');
     background-size:cover;
   } 
+  /*positions logo*/
   #logo
   {
     margin-left:0%;

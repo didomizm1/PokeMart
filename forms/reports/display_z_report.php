@@ -1,4 +1,6 @@
 <?php
+//Maranda Dominguez
+    //session handling, only employees can view this page
     require_once('../employee_session.php');
     if(isset($_POST['submit']))
     {

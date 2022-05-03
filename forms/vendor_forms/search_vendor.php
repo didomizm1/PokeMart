@@ -1,10 +1,12 @@
 <?php
+//Maranda Dominguez
+  //session handling, only employees can access
   require_once('../employee_session.php');
   if(isset($_POST['submit']))
   {
     //connect to database
     include_once('../connect_mysql.php');
-
+    //variable
     $vendor_name=$_POST['vendor_name'];
 
     //setup query, selects row where vendor name matches input
@@ -40,6 +42,7 @@
     {
       background-color: #76E8AF;
     }
+    /*sets background*/
     body
     {
       background-image:url('../../img/lnt/vendor_background2.gif');
@@ -107,6 +110,7 @@
         {
           if($row != null)
           {
+            //displays vendor data
             echo "</br>"; 
             echo "VID:" . "<label class = 'pad'></label>" . $row['VID'];
             echo "</br>";  

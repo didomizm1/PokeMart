@@ -1,4 +1,6 @@
 <?php
+//Maranda Dominguez
+  //session handling, only employees can access
   require_once('../employee_session.php');
   if(isset($_POST['submit']))
   {
@@ -41,6 +43,7 @@
       margin-left: 30%;
       cursor: pointer;
     }
+    /*sets background*/
     body
     {
       background-image:url('../../img/lnt/vendor_background2.gif');

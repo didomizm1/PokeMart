@@ -1,5 +1,6 @@
 <?php
-    //session handling
+//Maranda Dominguez
+    //session handling, only employees can access
   require_once('../employee_session.php');
 ?>
 <!DOCTYPE html>
