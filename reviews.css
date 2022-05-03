@@ -1,0 +1,139 @@
+.reviews .overall_rating .num{
+	font-size: 30px;
+	font-weight: bold;
+	color: #F5A624;
+
+}
+
+.reviews .overall_rating .stars{
+	letter-spacing: 3px: ;
+	font-size: 32px;
+	color: #F5A624;
+	padding: 0 5px 0 10px;
+}
+
+.reviews .overall_rating .total{
+	color: #777777;
+	font-size: 14px;
+}
+
+.reviews .write_review_btn, .reviews .write_review button{
+	display: inline-flex;
+	background-color: #565656;
+	color: #fff;
+	text-decoration: none;
+	margin: 10px 0 0 0;
+	padding: 5px 10px;
+	border-radius: 5px;
+	font-size: 14px;
+	font-weight: 600;
+	border: 0;
+}
+
+.reviews .write_review_btn:hover, .reviews .write_review button:hover{
+	background-color: #636363;
+}
+
+.reviews .con{
+	display: flex;
+	align-items: center;
+}
+
+.reviews .con span{
+	flex: 1;
+}
+
+.reviews .con label{
+	font-weight: 600;
+	padding: 0 10px;
+	font-size: 14px;
+}
+
+.reviews .con .sort_by{
+	padding: 5px;
+	border: 1px solid #eee;
+	border-radius: 5px;
+}
+
+.reviews .write_review{
+	display: none;
+	padding: 20px 0 10px 0;
+}
+
+.reviews .write_review textarea{
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	height: 150px;
+	margin-top: 10px;
+}
+
+.reviews.write_review input{
+	display: block;
+	width: 250px;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	margin-top: 10px;
+}
+
+.reviews .write_review button{
+	cursor: pointer;
+}
+
+.reviews .review{
+	padding: 20px 0;
+	border-bottom: 1px solid #eee;
+}
+
+.reviews .review .name{
+	padding: 0 0 3px 0;
+	margin: 0;
+	font-size: 18px;
+	color: #555555;
+}
+
+.reviews .review .rating{
+	letter-spacing: 2px;
+	font-size: 22px;
+	color: #F5A624;
+}
+
+.reviews .review .date{
+	color: #777777;
+	font-size: 14px;
+}
+
+.reviews .review .content{
+	padding: 5px 0;
+}
+
+.reviews .pagination{
+	display: flex;
+	justify-content: flex-end;
+	padding: 15px 0;
+}
+
+.reviews .pagination a{
+	display: inline-block;
+	text-decoration: none;
+	background-color: #565656;
+	font-weight: 600;
+	color: #FFFFFF;
+	padding: 5px 10px;
+	border-radius: 5px;
+	font-size: 14px;
+}
+
+.reviews .pagination a:hover{
+	background-color: #636363;
+}
+
+.reviews .pagination div{
+	display: inline-block;
+	font-size: 14px;
+	color: #777777;
+	font-weight: bold;
+	padding: 5px 10px;
+}
