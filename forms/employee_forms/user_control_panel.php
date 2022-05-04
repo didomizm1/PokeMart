@@ -1,9 +1,11 @@
 <?php
+	//Matthew DiDomizio
+
+	//session handling
+	require_once('../employee_session.php');
+
 	//database connection
 	include_once('../connect_mysql.php');
-
-    //session handling
-	require_once('../employee_session.php');
 
 	//function for updating data
 	function updateData($tableName, $columnName, $newData, $tableID, $thisID, $dbconn)

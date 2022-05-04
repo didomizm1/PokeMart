@@ -1,8 +1,12 @@
+/* Matthew DiDomizio */
+
+/* background */
 body
 {   
     background: url("../../img/lnt/home_page_background.gif") no-repeat center center fixed;
     background-size: 100% 100%;          
 }
+/* format the appearance of displayed username in the top-right corner */
 #userDisplay
 {
     position: fixed;
@@ -15,19 +19,7 @@ body
     color: rgb(0, 238, 255);
     text-shadow: 2px 2px rgb(0,0,0);
 }
-#mid
-{ 
-    user-select: none;
-    position: fixed;
-    left: 2%;
-    top: 25%;
-    font-size: 175px;
-    font-family:monospace;
-    font-weight: bold;
-    color: rgb(0, 255, 255);
-    text-shadow: 3px 3px rgb(0, 0, 0);
-    text-align: center;
-}
+/* define the appearance of the sidebar containing links to various pages of the site */
 #sidebar
 {
     background-color: rgba(0, 255, 255, 0.5);
@@ -41,6 +33,7 @@ body
     height: 75%;
     width: 12%;
 }
+/* position and size elements */
 #logo
 {
     position: fixed;

@@ -1,8 +1,12 @@
+/* Matthew DiDomizio */
+
+/* background */
 body
 {   
     background: url("../../img/lnt/user_control_panel_background.gif") no-repeat center center fixed;
     background-size: 100% 100%;         
 }
+/* position and size elements */
 #logo
 {
     position: absolute;
@@ -14,6 +18,12 @@ body
 {
     text-align: center;
 }
+#audio
+{
+    position: fixed;
+    bottom: 1%;
+}
+/* appearance of the form */
 #form
 {  
     background: rgba(102, 168, 255, 0.9);
@@ -24,11 +34,7 @@ body
     width: 65%; 
     font-family: 'Courier New', Courier, monospace;
 }
-#audio
-{
-    position: fixed;
-    bottom: 1%;
-}
+/* format and animate buttons and inputs */
 input[type = submit]
 {
     background-color: rgb(255, 133, 164);
@@ -73,6 +79,7 @@ input[type = text]:focus, input[type = search]:focus, input[type = number]:focus
 {
     background-color: #76E8AF;
 }
+/* position text */
 .displayInfo
 {
     margin-left: 20%;

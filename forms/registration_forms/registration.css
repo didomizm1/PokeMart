@@ -1,14 +1,28 @@
+/* Matthew DiDomizio */
+
+/* background */
 body
 {   
     background-image: radial-gradient(circle, rgb(0,225,255) 50%, rgb(0, 140, 255) 100%);
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;          
 }
+/* appearance and formatting of the form */
 #mid
 {
     pointer-events: none;
     user-select: none;
 }
+#form
+{  
+    background: rgb(0, 247, 255);
+    border: solid rgb(13, 134, 128) 25px;
+    border-radius: 50px;  
+    margin: 18.31% auto;    
+    padding: 50px;  
+    width: 32%;  
+}
+/* position and size elements */
 #logo
 {
     pointer-events: all;
@@ -85,16 +99,8 @@ body
     left: 34%;
     top: 7.12%;
     width: 15.75%;
-}   
-#form
-{  
-    background: rgb(0, 247, 255);
-    border: solid rgb(13, 134, 128) 25px;
-    border-radius: 50px;  
-    margin: 18.31% auto;    
-    padding: 50px;  
-    width: 32%;  
 }
+/* format and animate text, links, buttons, and inputs */
 h1,h3
 {
     text-align: center;

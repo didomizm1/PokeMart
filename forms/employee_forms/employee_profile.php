@@ -1,4 +1,6 @@
 <?php
+	//Matthew DiDomizio
+	
 	//session handling
 	require_once('../employee_session.php');
 	//database connection

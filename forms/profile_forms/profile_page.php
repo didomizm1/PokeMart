@@ -1,4 +1,6 @@
 <?php
+	//Matthew DiDomizio
+
 	//database connection
 	include_once('../connect_mysql.php');
 	
@@ -49,6 +51,7 @@
 		<p>
 			<label class = "dataName">Username</label><br>
 			<?php
+				//get user's username
 				$userLoginQuery = "SELECT `username` FROM `user_login` WHERE `ULID` = '".$_SESSION['ULID']."'";
 				$userLoginResult = mysqli_query($dbconn, $userLoginQuery) or die("Couldn't execute query\n");
 				$userLoginRow = $userLoginResult->fetch_array(MYSQLI_ASSOC);
@@ -978,55 +981,55 @@
 			}
 			else if(isset($_POST['save_middle_name']))
 			{
-				updateData("middle_name", $_POST['middle_name'], $dbconn);
+				updateData("middle_name", $_POST['middle_name'], $dbconn); //update database
 			}
 			else if(isset($_POST['save_last_name']))
 			{
-				updateData("last_name", $_POST['last_name'], $dbconn);
+				updateData("last_name", $_POST['last_name'], $dbconn); //update database
 			}
 			else if(isset($_POST['save_gender']))
 			{
-				updateData("gender", $_POST['gender'], $dbconn);
+				updateData("gender", $_POST['gender'], $dbconn); //update database
 			}
 			else if(isset($_POST['save_date_of_birth']))
 			{
-				updateData("date_of_birth", $_POST['date_of_birth'], $dbconn);
+				updateData("date_of_birth", $_POST['date_of_birth'], $dbconn); //update database
 			}
 			else if(isset($_POST['save_email']))
 			{
-				updateData("email", $_POST['email'], $dbconn);
+				updateData("email", $_POST['email'], $dbconn); //update database
 			}
 			else if(isset($_POST['save_home_phone_number']))
 			{
-				updateData("home_phone_number", $_POST['home_phone_number'], $dbconn);
+				updateData("home_phone_number", $_POST['home_phone_number'], $dbconn); //update database
 			}
 			else if(isset($_POST['save_cell_phone_number']))
 			{
-				updateData("cell_phone_number", $_POST['cell_phone_number'], $dbconn);
+				updateData("cell_phone_number", $_POST['cell_phone_number'], $dbconn); //update database
 			}
 			else if(isset($_POST['save_street_1']))
 			{
-				updateData("street_1", $_POST['street_1'], $dbconn);
+				updateData("street_1", $_POST['street_1'], $dbconn); //update database
 			}
 			else if(isset($_POST['save_street_2']))
 			{
-				updateData("street_2", $_POST['street_2'], $dbconn);
+				updateData("street_2", $_POST['street_2'], $dbconn); //update database
 			}
 			else if(isset($_POST['save_city']))
 			{
-				updateData("city", $_POST['city'], $dbconn);
+				updateData("city", $_POST['city'], $dbconn); //update database
 			}
 			else if(isset($_POST['save_state']))
 			{
-				updateData("state", $_POST['state'], $dbconn);
+				updateData("state", $_POST['state'], $dbconn); //update database
 			}
 			else if(isset($_POST['save_zip_code']))
 			{
-				updateData("zip_code", $_POST['zip_code'], $dbconn);
+				updateData("zip_code", $_POST['zip_code'], $dbconn); //update database
 			}
 			else if(isset($_POST['save_country']))
 			{
-				updateData("country", $_POST['country'], $dbconn);
+				updateData("country", $_POST['country'], $dbconn); //update database
 			}
 		?>
 	</div>

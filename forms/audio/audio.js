@@ -1,3 +1,6 @@
+//Matthew DiDomizio
+
+//music autoplay
 document.addEventListener('click', musicPlay);
 
 function musicPlay() 

@@ -1,3 +1,5 @@
+//Matthew DiDomizio
+
 //registration form data validation
 function validate()
 {  
@@ -7,13 +9,14 @@ function validate()
     var state = document.registration.state.value;
     var country = document.registration.country.value;
 
-    //validate data
+    //validate password entry
     if(password != password2)
     {
         alert("Provided passwords do not match");
         return false;
     }
 
+    //validate state selection for country
     if(country == "United States of America" && state.length == 0)
     {
         alert("State required for selected country");

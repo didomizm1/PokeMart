@@ -1,8 +1,12 @@
+/* Matthew DiDomizio */
+
+/* background */
 body
 {   
     background: url("../../img/lnt/profile_page_background.gif") no-repeat center center fixed;
     background-size: 100% 100%;       
 }
+/* appearance of the form */
 #mid
 { 
     background: rgba(63, 146, 255, 0.9);
@@ -17,6 +21,7 @@ body
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
 }
+/* position and size elements */
 #logo
 {
     position: fixed;
@@ -40,6 +45,7 @@ body
     position: fixed;
     bottom: 1%;
 }
+/* format links and text */
 .link
 {
     background-color: rgba(1, 111, 255, 0.7);
@@ -75,6 +81,7 @@ body
     font-size: 30px;
     color: rgb(0, 0, 0);
 }
+/* format and animate buttons and inputs */
 .button
 {
     background-color: aqua;

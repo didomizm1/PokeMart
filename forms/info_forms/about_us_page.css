@@ -1,20 +1,12 @@
+/* Matthew DiDomizio */
+
+/* background */
 body
 {   
     background: url("../../img/lnt/about_us_background.gif") no-repeat center center fixed;
     background-size: 100% 100%;          
 }
-h1
-{
-    font-size: 100px;
-    color: rgb(174, 0, 255);
-    text-shadow: 3px 3px rgb(0,0,0);
-}
-h2
-{
-    font-size: 75px;
-    color: rgb(255, 0, 234);
-    text-shadow: 3px 3px rgb(0,0,0);
-}
+/* appearance of the form */
 #mid
 { 
     background: rgba(63, 194, 255, 0.9);
@@ -29,6 +21,7 @@ h2
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
 }
+/* position and size elements */
 #logo
 {
     position: absolute;
@@ -40,6 +33,19 @@ h2
 {
     position: fixed;
     bottom: 1%;
+}
+/* text formatting */
+h1
+{
+    font-size: 100px;
+    color: rgb(174, 0, 255);
+    text-shadow: 3px 3px rgb(0,0,0);
+}
+h2
+{
+    font-size: 75px;
+    color: rgb(255, 0, 234);
+    text-shadow: 3px 3px rgb(0,0,0);
 }
 .contactTitle
 {

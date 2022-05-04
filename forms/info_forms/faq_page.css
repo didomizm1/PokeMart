@@ -1,8 +1,12 @@
+/* Matthew DiDomizio */
+
+/* background */
 body
 {   
     background: url("../../img/lnt/faq_page_background.gif") no-repeat center center fixed;
     background-size: 100% 100%;          
 }
+/* text formatting */
 h1
 {
     font-size: 100px;
@@ -21,6 +25,7 @@ h1
     color: rgb(255, 187, 0);
     text-shadow: 2px 2px rgb(0,0,0);
 }
+/* appearance of the form */
 #mid
 { 
     background: rgba(165, 255, 63, 0.9);
@@ -35,6 +40,7 @@ h1
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
 }
+/* position and size elements */
 #logo
 {
     position: absolute;

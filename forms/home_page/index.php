@@ -1,5 +1,9 @@
 <?php
+	//Matthew DiDomizio
+
+	//session handling
 	session_start();
+
 	//database connection
 	include_once('../connect_mysql.php');
 ?>
@@ -10,8 +14,6 @@
     <title>Home Page</title>
 	<!-- Style -->
 	<link rel = "stylesheet" href = "home_page.css">
-	<!-- Audio functionality -->
-	<!-- <script src = "../audio/audio.js"></script> -->
 </head>  
 <body>
 	<!-- Top of the page -->
@@ -47,7 +49,7 @@
 
 		<!-- Determine if links should be displayed based upon login status and employee status -->
 		<?php
-			if(!(isset($_SESSION['ULID'])))
+			if(!(isset($_SESSION['ULID']))) //user is not logged in
 			{
 		?>
 				<a href = "../login_forms/login.php">
@@ -58,14 +60,14 @@
 				</a><br><br>
 		<?php
 			}
-			else
+			else //user is logged in
 			{	
 		?>
 				<a href = "../profile_forms/profile_page.php">
 					<img id = "profile" src = "../../img/lnt/profile.png" alt = "Profile" class = "imageLink">
 				</a><br><br>
 		<?php
-				if($_SESSION['user_role_type'] > 0)
+				if($_SESSION['user_role_type'] > 0) //user is an employee
 				{
 		?>
 					<a href = "../employee_forms/employee_hub.php">
@@ -81,6 +83,7 @@
 			}
 		?>
 
+		<!-- Links to always be displayed regardless of login status -->
 		<a href = "../inventory_forms/customer_shopping.php">
 			<img id = "shop" src = "../../img/lnt/shop.png" alt = "Shop" class = "imageLink">
 		</a><br><br>
