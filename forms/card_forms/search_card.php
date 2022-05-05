@@ -5,11 +5,11 @@
   //connect with database
   include_once('../connect_mysql.php');
 
-  //$card_holder_name=$_POST['card_holder_name'];
-
   //select existing card by name
   $query = "SELECT * FROM `card_info` WHERE `CPID` = '".$_SESSION['CPID']."'";
   $result = mysqli_query($dbconn, $query);
+
+  //if there are saved payments then they will be shown
   if(mysqli_num_rows($result))
   {
     echo "<table>";
@@ -28,6 +28,6 @@
   }
   else
   {
-      echo "No records matching vendor name were found.";
+      echo "No saved payments were found.";
   }
 ?>

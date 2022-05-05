@@ -16,7 +16,7 @@
 
     <center>
         <fieldset id = cards >
-            <!-- Try to add on click method for card-->
+            <!-- form to add card card-->
             <h2> <font face="Arial" size="5px"> NEW PAYMENT METHOD </font> </h2> 
             <div id = "form">  
                 <form id="form" action="acard.php" method="POST">
@@ -72,7 +72,8 @@
                         <input type = "number" name  = "cvv" minimulength = "3" maxlength="4" pattern = "0-9" autocomplete required />
                     </label>
                     <br><br>
-
+                    
+                    <!-- when the checkbox is checked the billing address form is shown -->
                     <label> 
                         <input type = "checkbox" name = "check" id = "myCheck" onclick = "myFunction()" /> 
                         Billing Address is different from Saved Address
