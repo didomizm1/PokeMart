@@ -73,7 +73,7 @@
                 $row4 = $SCIDResult->fetch_array(MYSQLI_ASSOC);
                 $_SESSION['SCID'] = $row4['SCID'];
 
-                //only allow checkout of user has items in their cart
+                //only allow checkout if user has items in their cart
                 if($row4['number_of_items'] > 0)
                 {
                     $_SESSION['canCheckout'] = true;
@@ -85,7 +85,7 @@
                 $row5 = $WIDResult->fetch_array(MYSQLI_ASSOC);
                 $_SESSION['WID'] = $row5['WID'];
 
-                //save EPID  in the session only if user is an employee
+                //save EPID in the session only if user is an employee
                 if($_SESSION['user_role_type'] > 0)
                 {
                     $EPIDQuery = "SELECT `EPID` FROM `employee_profile` WHERE `UPID` = '".$_SESSION['UPID']."'";
